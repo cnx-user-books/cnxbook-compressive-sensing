@@ -1,0 +1,693 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Compressive Sensing</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>778d3fa3-1942-418a-b01e-7ac615012253</md:uuid>
+</metadata>
+  <content>
+         <para id="id3013833">We now consider a different setting. Suppose 
+<m:math><m:semantics><m:mrow><m:mi>x</m:mi><m:mo stretchy="false">∈</m:mo><m:msup><m:mi>ℝ</m:mi><m:mi>N</m:mi></m:msup></m:mrow><m:annotation encoding="StarMath 5.0">x  in ℝ^N</m:annotation></m:semantics></m:math> and we wish to sample 
+<m:math><m:semantics><m:mi>x</m:mi><m:annotation encoding="StarMath 5.0">x</m:annotation></m:semantics></m:math>, where taking a sample means the application of a linear functional 
+<m:math><m:semantics><m:mrow><m:mi>λ</m:mi><m:mo stretchy="false">∈</m:mo><m:msup><m:mi>ℝ</m:mi><m:mi>N</m:mi></m:msup></m:mrow><m:annotation encoding="StarMath 5.0">λ  in ℝ^N</m:annotation></m:semantics></m:math> to 
+<m:math><m:semantics><m:mi>x</m:mi><m:annotation encoding="StarMath 5.0">x</m:annotation></m:semantics></m:math>. Next, we prescribe a budget of 
+<m:math><m:semantics><m:mi>n</m:mi><m:annotation encoding="StarMath 5.0">n</m:annotation></m:semantics></m:math> samples, and consider all linear encoders using 
+<m:math><m:semantics><m:mi>n</m:mi><m:annotation encoding="StarMath 5.0">n</m:annotation></m:semantics></m:math> samples. We can write these 
+<m:math><m:semantics><m:mi>n</m:mi><m:annotation encoding="StarMath 5.0">n</m:annotation></m:semantics></m:math> linear functionals as an 
+<m:math><m:semantics><m:mrow><m:mi>n</m:mi><m:mo stretchy="false">×</m:mo><m:mi>N</m:mi></m:mrow><m:annotation encoding="StarMath 5.0">n  times N</m:annotation></m:semantics></m:math> matrix 
+<m:math><m:semantics><m:mrow><m:mi>Φ</m:mi><m:mi>:</m:mi><m:msup><m:mi>ℝ</m:mi><m:mi>N</m:mi></m:msup><m:mo stretchy="false">→</m:mo><m:msup><m:mi>ℝ</m:mi><m:mi>n</m:mi></m:msup></m:mrow><m:annotation encoding="StarMath 5.0">Φ :ℝ^N  rightarrow ℝ^n</m:annotation></m:semantics></m:math>. We then consider a decoder 
+<m:math><m:semantics><m:mrow><m:mi>Δ</m:mi><m:mi>:</m:mi><m:msup><m:mi>ℝ</m:mi><m:mi>n</m:mi></m:msup><m:mo stretchy="false">→</m:mo><m:msup><m:mi>ℝ</m:mi><m:mi>N</m:mi></m:msup></m:mrow><m:annotation encoding="StarMath 5.0">Δ :ℝ^n  rightarrow ℝ^N</m:annotation></m:semantics></m:math>. Our approximation to 
+<m:math><m:semantics><m:mi>x</m:mi><m:annotation encoding="StarMath 5.0">x</m:annotation></m:semantics></m:math> is thus 
+<m:math><m:semantics><m:mrow><m:mi>Δ</m:mi><m:mrow><m:mo stretchy="false">(</m:mo><m:mrow><m:mi>Φ</m:mi><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">Δ { \(  {Φ { \(  x  \)}}  \)}</m:annotation></m:semantics></m:math>. </para>
+        <para id="id3187366">To make the problem precise, we first pick a measure for distortion: 
+<m:math display="block">
+   <m:mrow>
+      <m:mrow>
+         <m:mtext>error</m:mtext>
+         <m:mo>=</m:mo>
+         <m:msub>
+           <m:mrow>
+              <m:mrow>
+                 <m:mrow>
+                    <m:mo>‖</m:mo>
+                    <m:mi>x</m:mi>
+                    <m:mo>-</m:mo>
+                    <m:mrow>
+                       <m:mi mathvariant="normal">Δ</m:mi>
+                       <m:mo>⁢</m:mo>
+                       <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mrow>
+                             <m:mi mathvariant="normal">Φ</m:mi>
+                             <m:mo>⁢</m:mo>
+                             <m:mrow>
+                                <m:mo>(</m:mo>
+                                <m:mi>x</m:mi>
+                                <m:mo>)</m:mo>
+                             </m:mrow>
+                          </m:mrow>
+                          <m:mo>)</m:mo>
+                       </m:mrow>
+                    </m:mrow>
+                    <m:mo>‖</m:mo>
+                 </m:mrow>
+              </m:mrow>
+           </m:mrow>
+           <m:mrow>
+              <m:msub>
+                <m:mrow>
+                   <m:mi mathvariant="normal">ℓ</m:mi>
+                </m:mrow>
+                <m:mrow>
+                   <m:mi>p</m:mi>
+                </m:mrow>
+              </m:msub>
+           </m:mrow>
+         </m:msub>
+      </m:mrow>
+      <m:mo>.</m:mo>
+   </m:mrow>
+</m:math>
+We next must make some assumption about 
+<m:math><m:semantics><m:mi>x</m:mi><m:annotation encoding="StarMath 5.0">x</m:annotation></m:semantics></m:math>. For example, we can assume that 
+<m:math display="block">
+            <m:semantics>
+              <m:mrow>
+                <m:mrow>
+                  <m:mi>x</m:mi>
+                  <m:mo stretchy="false">∈</m:mo>
+                  <m:msub>
+                    <m:mi>Σ</m:mi>
+                    <m:mi>k</m:mi>
+                  </m:msub>
+                </m:mrow>
+                <m:mo stretchy="false">=</m:mo>
+                <m:mrow>
+                  <m:mo stretchy="false">{</m:mo>
+                  <m:mrow>
+                    <m:mi>x</m:mi>
+                    <m:mspace depth="0.0ex" height="0.0ex" width="0.1em"/>
+                    <m:mi>:</m:mi>
+                    <m:mspace depth="0.0ex" height="0.0ex" width="0.1em"/>
+                    <m:mrow>
+                      <m:msub>
+                        <m:mi>x</m:mi>
+                        <m:mi>i</m:mi>
+                      </m:msub>
+                      <m:mo stretchy="false">=</m:mo>
+                      <m:mn>0</m:mn>
+                    </m:mrow>
+                    <m:mspace depth="0.0ex" height="0.0ex" width="0.5em"/> 
+                    <m:mtext>for</m:mtext>
+                    <m:mspace depth="0.0ex" height="0.0ex" width="0.5em"/>                    
+                    <m:mrow>
+                      <m:mi>i</m:mi>
+                      <m:mo stretchy="false">∉</m:mo>
+                      <m:mi>Λ</m:mi>
+                    </m:mrow>
+                    <m:mi>,</m:mi>
+                    <m:mspace depth="0.0ex" height="0.0ex" width="0.3em"/>
+                    <m:mi>♯</m:mi>
+                    <m:mrow>
+                      <m:mi>Λ</m:mi>
+                      <m:mo stretchy="false">≤</m:mo>
+                      <m:mi>k</m:mi>
+                    </m:mrow>
+                  </m:mrow>
+                  <m:mo stretchy="false">},</m:mo>
+                </m:mrow>
+              </m:mrow>
+              <m:annotation encoding="StarMath 5.0">x  in Σ_k ={ lbrace  {x : x_i = 0 "for" i  notin  Λ , ♯ Λ  &lt;=  k}  rbrace}</m:annotation>
+            </m:semantics>
+          </m:math>
+or
+<m:math display="block">
+  <m:mi>x</m:mi>
+  <m:mo stretchy="false">∈</m:mo>
+  <m:msub>
+    <m:mi>ℓ</m:mi>
+    <m:mi>τ</m:mi>
+  </m:msub>
+</m:math>
+or             
+<m:math display="block">
+  <m:mi>x</m:mi>
+  <m:mo stretchy="false">∈</m:mo>
+  <m:msub>
+    <m:mrow>
+      <m:mi>w</m:mi>
+    </m:mrow>
+    <m:mrow>
+      <m:msub>
+        <m:mi>ℓ</m:mi>
+        <m:mi>τ</m:mi>
+      </m:msub>
+    </m:mrow>
+  </m:msub>
+</m:math>
+</para>
+    <para id="id2939686">We recall our basic problem: a signal 
+<m:math><m:semantics><m:mrow><m:mi>x</m:mi><m:mo stretchy="false">∈</m:mo><m:msup><m:mi>ℝ</m:mi><m:mi>N</m:mi></m:msup></m:mrow><m:annotation encoding="StarMath 5.0">x  in ℝ^N</m:annotation></m:semantics></m:math> will be “sampled” or “sensed” by applying the 
+<m:math><m:semantics><m:mi>n</m:mi><m:annotation encoding="StarMath 5.0">n</m:annotation></m:semantics></m:math> linear projections represented by the columns of the sampling matrix 
+<m:math><m:semantics><m:msub><m:mi>Φ</m:mi><m:mrow><m:mi>n</m:mi><m:mo stretchy="false">×</m:mo><m:mi>N</m:mi></m:mrow></m:msub><m:annotation encoding="StarMath 5.0">Φ_{n  times  N}</m:annotation></m:semantics></m:math>. The resulting measurements are given in the vector 
+<m:math><m:semantics><m:mrow><m:mi>y</m:mi><m:mo stretchy="false">∈</m:mo><m:msup><m:mi>ℝ</m:mi><m:mi>n</m:mi></m:msup></m:mrow><m:annotation encoding="StarMath 5.0">y  in ℝ^n</m:annotation></m:semantics></m:math>, where 
+<m:math><m:semantics><m:mrow><m:mrow><m:mi>y</m:mi><m:mo stretchy="false">=</m:mo><m:mi>Φ</m:mi></m:mrow><m:mi>x</m:mi></m:mrow><m:annotation encoding="StarMath 5.0">y =Φ x</m:annotation></m:semantics></m:math>. We will assume that 
+<m:math><m:semantics><m:mrow><m:mi>n</m:mi><m:mo stretchy="false">&lt;</m:mo><m:mi>N</m:mi></m:mrow><m:annotation encoding="StarMath 5.0">n &lt;N</m:annotation></m:semantics></m:math>, meaning that in addition to thinking of of the sampling operation 
+<m:math><m:semantics><m:mi>Φ</m:mi><m:annotation encoding="StarMath 5.0">Φ</m:annotation></m:semantics></m:math> as an encoder, we can also view it as a projection to a lower dimensional linear subspace. In either case, we would like the measurements 
+<m:math><m:semantics><m:mi>y</m:mi><m:annotation encoding="StarMath 5.0">y</m:annotation></m:semantics></m:math> to preserve as much information about the signal 
+<m:math><m:semantics><m:mi>x</m:mi><m:annotation encoding="StarMath 5.0">x</m:annotation></m:semantics></m:math> as possible. To proceed in finding optimal solutions, we must formalize this problem and define how we will measure this information loss. </para>
+    <para id="id3186613">Moving forward, a critical quantity for us will be the null space of the sampling matrix, 
+<m:math><m:semantics><m:mrow><m:mrow><m:mi>N</m:mi><m:mo stretchy="false">=</m:mo><m:mi>N</m:mi></m:mrow><m:mrow><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>Φ</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mo stretchy="false">=</m:mo><m:mrow><m:mo stretchy="false">{</m:mo><m:mrow><m:mi>x</m:mi><m:mi>:</m:mi><m:mi>Φ</m:mi><m:mrow><m:mi>x</m:mi><m:mo stretchy="false">=</m:mo><m:mn>0</m:mn></m:mrow></m:mrow><m:mo stretchy="false">}</m:mo></m:mrow></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">N =N { \(  Φ  \)} ={ lbrace  {x : Φ x = 0}  rbrace}</m:annotation></m:semantics></m:math>. Because we are trying to take as few measurements as possible, we will assume that we are taking measurements efficiently so that the rows of 
+<m:math><m:semantics><m:mi>Φ</m:mi><m:annotation encoding="StarMath 5.0">Φ</m:annotation></m:semantics></m:math> are all linearly independent. Therefore, assume that 
+<m:math><m:semantics><m:mrow><m:mtext>rank</m:mtext><m:mrow><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>Φ</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mo stretchy="false">=</m:mo><m:mi>n</m:mi></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">"rank" { \(  Φ  \)} =n</m:annotation></m:semantics></m:math>, implying that 
+<m:math><m:semantics><m:mi>N</m:mi><m:annotation encoding="StarMath 5.0">N</m:annotation></m:semantics></m:math> has dimension 
+<m:math><m:semantics><m:mrow><m:mo stretchy="false">(</m:mo><m:mrow><m:mi>N</m:mi><m:mo stretchy="false">−</m:mo><m:mi>n</m:mi></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow><m:annotation encoding="StarMath 5.0"> \(  {N  -  n}  \)</m:annotation></m:semantics></m:math>. The non-trivial null space of 
+<m:math><m:semantics><m:mi>Φ</m:mi><m:annotation encoding="StarMath 5.0">Φ</m:annotation></m:semantics></m:math> means that it is not an invertible mapping. For any measurement vector 
+<m:math><m:semantics><m:mi>y</m:mi><m:annotation encoding="StarMath 5.0">y</m:annotation></m:semantics></m:math> we can define the class of all observable signals that would result in the same measurement, 
+<m:math><m:semantics><m:mrow><m:mi>ℱ</m:mi><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>y</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mrow><m:mrow><m:mi>:</m:mi><m:mo stretchy="false">=</m:mo><m:mrow><m:mo stretchy="false">{</m:mo><m:mrow><m:mi>x</m:mi><m:mi>:</m:mi><m:mi>Φ</m:mi><m:mrow><m:mi>x</m:mi><m:mo stretchy="false">=</m:mo><m:mi>y</m:mi></m:mrow></m:mrow><m:mo stretchy="false">}</m:mo></m:mrow></m:mrow><m:mo stretchy="false">⊆</m:mo><m:msup><m:mi>ℝ</m:mi><m:mi>N</m:mi></m:msup></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">ℱ { \(  y  \)} :={ lbrace  {x : Φ x = y}  rbrace}  subseteq ℝ^N</m:annotation></m:semantics></m:math>. The class 
+<m:math><m:semantics><m:mrow><m:mi>ℱ</m:mi><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>y</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">ℱ { \(  y  \)}</m:annotation></m:semantics></m:math> can always be written as a sum of a vector in the class and a vector in the null space of the sampling matrix, 
+<m:math>
+   <m:mrow>
+      <m:mrow>
+         <m:mi>ℱ</m:mi>
+         <m:mrow>
+            <m:mrow>
+               <m:mo stretchy="false">(</m:mo>
+               <m:mi>y</m:mi>
+               <m:mo stretchy="false">)</m:mo>
+            </m:mrow>
+            <m:mo stretchy="false">=</m:mo>
+            <m:msub>
+              <m:mrow>
+                 <m:mi>x</m:mi>
+              </m:mrow>
+              <m:mrow>
+                 <m:mn>0</m:mn>
+              </m:mrow>
+            </m:msub>
+         </m:mrow>
+         <m:mrow>
+            <m:mo stretchy="false">+</m:mo>
+            <m:mi>N</m:mi>
+         </m:mrow>
+      </m:mrow>
+   </m:mrow>
+</m:math>
+ , where 
+<m:math>
+  <m:semantics>
+    <m:mrow>
+      <m:msub>
+        <m:mi>x</m:mi>
+        <m:mn>0</m:mn>
+      </m:msub>
+      <m:mo stretchy="false">∈</m:mo>
+      <m:mi>ℱ</m:mi>
+      <m:mo stretchy="false">(</m:mo>
+      <m:mi>y</m:mi>
+      <m:mo stretchy="false">)</m:mo>
+    </m:mrow>
+      <m:annotation encoding="StarMath 5.0">x 0  in ℱ { \(  y  \)}</m:annotation>
+    </m:semantics>
+  </m:math>. 
+If we have two vectors 
+<m:math>
+  <m:semantics>
+    <m:mrow>
+      <m:msub>
+        <m:mi>x</m:mi>
+        <m:mn>0</m:mn>
+      </m:msub>
+      <m:mi>,</m:mi>
+      <m:msub>
+        <m:mi>x</m:mi>
+        <m:mn>1</m:mn>
+      </m:msub>
+      <m:mo stretchy="false">∈</m:mo>
+      <m:mi>ℱ</m:mi>
+      <m:mo stretchy="false">(</m:mo>
+      <m:mi>y</m:mi>
+      <m:mo stretchy="false">)</m:mo>
+    </m:mrow>
+  </m:semantics>
+</m:math>,
+then by linearity we know that 
+<m:math>
+   <m:mrow>
+      <m:mrow>
+         <m:mi>Φ</m:mi>
+         <m:mrow>
+            <m:mrow>
+               <m:mo stretchy="false">(</m:mo>
+               <m:mrow>
+                  <m:msub>
+                    <m:mrow>
+                       <m:mi>x</m:mi>
+                    </m:mrow>
+                    <m:mrow>
+                       <m:mn>1</m:mn>
+                    </m:mrow>
+                  </m:msub>
+                  <m:mrow>
+                     <m:mo stretchy="false">−</m:mo>
+                     <m:msub>
+                       <m:mrow>
+                          <m:mi>x</m:mi>
+                       </m:mrow>
+                       <m:mrow>
+                          <m:mn>0</m:mn>
+                       </m:mrow>
+                     </m:msub>
+                  </m:mrow>
+               </m:mrow>
+               <m:mo stretchy="false">)</m:mo>
+            </m:mrow>
+            <m:mo stretchy="false">=</m:mo>
+            <m:mn>0</m:mn>
+         </m:mrow>
+      </m:mrow>
+   </m:mrow>
+</m:math>. 
+This fact implies that 
+<m:math>
+   <m:mrow>
+      <m:mrow>
+         <m:mrow>
+            <m:mo stretchy="false">(</m:mo>
+            <m:mrow>
+               <m:msub>
+                 <m:mrow>
+                    <m:mi>x</m:mi>
+                 </m:mrow>
+                 <m:mrow>
+                    <m:mn>1</m:mn>
+                 </m:mrow>
+               </m:msub>
+               <m:mrow>
+                  <m:mo stretchy="false">−</m:mo>
+                  <m:msub>
+                    <m:mrow>
+                       <m:mi>x</m:mi>
+                    </m:mrow>
+                    <m:mrow>
+                       <m:mn>0</m:mn>
+                    </m:mrow>
+                  </m:msub>
+               </m:mrow>
+            </m:mrow>
+            <m:mo stretchy="false">)</m:mo>
+         </m:mrow>
+         <m:mo stretchy="false">∈</m:mo>
+         <m:mi>N</m:mi>
+      </m:mrow>
+   </m:mrow>
+</m:math>, 
+and consequently that 
+<m:math>
+   <m:mrow>
+      <m:mrow>
+         <m:msub>
+           <m:mrow>
+              <m:mi>x</m:mi>
+           </m:mrow>
+           <m:mrow>
+              <m:mn>1</m:mn>
+           </m:mrow>
+         </m:msub>
+         <m:mrow>
+            <m:mo stretchy="false">∈</m:mo>
+            <m:msub>
+              <m:mrow>
+                 <m:mi>x</m:mi>
+              </m:mrow>
+              <m:mrow>
+                 <m:mn>0</m:mn>
+              </m:mrow>
+            </m:msub>
+         </m:mrow>
+         <m:mrow>
+            <m:mo stretchy="false">+</m:mo>
+            <m:mi>N</m:mi>
+         </m:mrow>
+      </m:mrow>
+   </m:mrow>
+</m:math>. 
+</para>
+    <para id="id2856691">Associated to our encoder 
+<m:math><m:semantics><m:mi>Φ</m:mi><m:annotation encoding="StarMath 5.0">Φ</m:annotation></m:semantics></m:math>, we shall have to describe a decoder 
+<m:math><m:semantics><m:mi>Δ</m:mi><m:annotation encoding="StarMath 5.0">Δ</m:annotation></m:semantics></m:math>, which is a (not necessarily linear) map 
+<m:math><m:semantics><m:mrow><m:mi>Δ</m:mi><m:mi>:</m:mi><m:msup><m:mi>ℝ</m:mi><m:mi>n</m:mi></m:msup><m:mo stretchy="false">→</m:mo><m:msup><m:mi>ℝ</m:mi><m:mi>N</m:mi></m:msup></m:mrow><m:annotation encoding="StarMath 5.0">Δ :ℝ^n  rightarrow ℝ^N</m:annotation></m:semantics></m:math>. This decoder will take the measurements 
+<m:math><m:semantics><m:mi>y</m:mi><m:annotation encoding="StarMath 5.0">y</m:annotation></m:semantics></m:math> and try to recover 
+<m:math><m:semantics><m:mi>x</m:mi><m:annotation encoding="StarMath 5.0">x</m:annotation></m:semantics></m:math> as closely as possible, 
+<m:math><m:semantics><m:mrow><m:mrow><m:mover accent="true"><m:mi>x</m:mi><m:mo>¯</m:mo></m:mover><m:mo stretchy="false">=</m:mo><m:mi>Δ</m:mi></m:mrow><m:mrow><m:mo stretchy="false">(</m:mo><m:mrow><m:mi>Φ</m:mi><m:mi>x</m:mi></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">{overline x} =Δ { \(  {Φ x}  \)}</m:annotation></m:semantics></m:math>. In order to design the best decoder 
+<m:math><m:semantics><m:mi>Δ</m:mi><m:annotation encoding="StarMath 5.0">Δ</m:annotation></m:semantics></m:math>, we must specify our metric for measuring the quality of the estimate 
+<m:math><m:semantics><m:mover accent="true"><m:mi>x</m:mi><m:mo>¯</m:mo></m:mover><m:annotation encoding="StarMath 5.0">overline x</m:annotation></m:semantics></m:math>. For the moment we shall always think of taking an optimal decoder for the problem at hand. Later we shall discuss specific and concrete decoders. </para>
+    <para id="id3045764">To begin our discussion of the efficiency of the enoder 
+<m:math><m:semantics><m:mi>Φ</m:mi><m:annotation encoding="StarMath 5.0">Φ</m:annotation></m:semantics></m:math> we consider the following problem. </para>
+    
+<note type="Problem" id="idm7122976"><label>Problem</label>
+We will fix 
+<m:math><m:semantics><m:mi>n</m:mi><m:annotation encoding="StarMath 5.0">n</m:annotation></m:semantics></m:math> 
+and 
+<m:math><m:semantics><m:mi>N</m:mi><m:annotation encoding="StarMath 5.0">N</m:annotation></m:semantics></m:math> 
+and try to find 
+<m:math><m:semantics><m:mi>Φ</m:mi><m:annotation encoding="StarMath 5.0">Φ</m:annotation></m:semantics></m:math> 
+and a decoder 
+<m:math><m:semantics><m:mi>Δ</m:mi><m:annotation encoding="StarMath 5.0">Δ</m:annotation></m:semantics></m:math> 
+such that for all input signals in a sparsity class 
+<m:math>
+  <m:semantics>
+    <m:mrow>
+      <m:mrow>
+        <m:mi>x</m:mi>
+        <m:mo stretchy="false">∈</m:mo>
+        <m:msub>
+          <m:mi>Σ</m:mi>
+          <m:mi>k</m:mi>
+        </m:msub>
+      </m:mrow>
+    </m:mrow><m:annotation encoding="StarMath 5.0">x  in Σ k</m:annotation>
+  </m:semantics>
+</m:math> 
+we can get perfect reconstruction, 
+<m:math><m:semantics><m:mrow><m:mi>Δ</m:mi><m:mrow><m:mrow><m:mo stretchy="false">(</m:mo><m:mrow><m:mi>Φ</m:mi><m:mi>x</m:mi></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow><m:mo stretchy="false">=</m:mo><m:mi>x</m:mi></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">Δ { \(  {Φ x}  \)} =x</m:annotation></m:semantics></m:math>. We will be interested in determining what the largest value of 
+<m:math><m:semantics><m:mi>k</m:mi><m:annotation encoding="StarMath 5.0">k</m:annotation></m:semantics></m:math> is that we can find such an encoder/decoder pair. </note>
+
+<para id="id3054004">An important role in this problem and later problems of compressed sensing is played by certain submatrices of 
+<m:math>
+  <m:semantics>
+    <m:mi>Φ</m:mi>
+    <m:annotation encoding="StarMath 5.0">Φ</m:annotation>
+  </m:semantics>
+</m:math>. 
+Given a set 
+<m:math><m:semantics><m:mrow><m:mi>T</m:mi><m:mo stretchy="false">⊆</m:mo><m:mrow><m:mo stretchy="false">{</m:mo><m:mrow><m:mn>1</m:mn><m:mi>,</m:mi><m:mn>2</m:mn><m:mi>,</m:mi><m:mo stretchy="false">…</m:mo><m:mi>,</m:mi><m:mi>N</m:mi></m:mrow><m:mo stretchy="false">}</m:mo></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">T  subseteq { lbrace  {1 , 2 ,  dotslow  , N}  rbrace}</m:annotation></m:semantics></m:math>, representing a collection of column indices we define the matrix 
+<m:math><m:semantics><m:msub><m:mi>Φ</m:mi><m:mi>T</m:mi></m:msub><m:annotation encoding="StarMath 5.0">Φ_T</m:annotation></m:semantics></m:math> as the one formed from 
+<m:math><m:semantics><m:mi>Φ</m:mi><m:annotation encoding="StarMath 5.0">Φ</m:annotation></m:semantics></m:math> by using the columns from the set 
+<m:math><m:semantics><m:mi>T</m:mi><m:annotation encoding="StarMath 5.0">T</m:annotation></m:semantics></m:math>. The matrix 
+<m:math><m:semantics><m:msub><m:mi>Φ</m:mi><m:mi>T</m:mi></m:msub><m:annotation encoding="StarMath 5.0">Φ_T</m:annotation></m:semantics></m:math> is a 
+<m:math><m:semantics><m:mrow><m:mo stretchy="false">(</m:mo><m:mrow><m:mrow><m:mi>n</m:mi><m:mo stretchy="false">×</m:mo><m:mstyle fontstyle="italic"><m:mrow><m:mtext>#</m:mtext></m:mrow></m:mstyle></m:mrow><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>T</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow><m:annotation encoding="StarMath 5.0"> \(  {n  times  italic "#" { \(  T  \)}}  \)</m:annotation></m:semantics></m:math> matrix. But sometimes we will also use the same notation 
+<m:math><m:semantics><m:msub><m:mi>Φ</m:mi><m:mi>T</m:mi></m:msub><m:annotation encoding="StarMath 5.0">Φ_T</m:annotation></m:semantics></m:math> to denote the matrix obtained from 
+<m:math><m:semantics><m:mi>Φ</m:mi><m:annotation encoding="StarMath 5.0">Φ</m:annotation></m:semantics></m:math> by setting all entries not in the columns of 
+<m:math><m:semantics><m:mi>T</m:mi><m:annotation encoding="StarMath 5.0">T</m:annotation></m:semantics></m:math> to zero. </para>
+    <para id="id3298897">We can now state the following theorem. </para>
+
+<rule type="theorem" id="theo1">
+<statement id="idp5911664"><para id="asdfasdfasfd">
+ The following statements are all equivalent for any given 
+<m:math><m:semantics><m:mi>Φ</m:mi><m:annotation encoding="StarMath 5.0">Φ</m:annotation></m:semantics></m:math>: 
+    <list list-type="enumerated" id="id3006268"><item>There exists a decoder 
+<m:math><m:semantics><m:mi>Δ</m:mi><m:annotation encoding="StarMath 5.0">Δ</m:annotation></m:semantics></m:math> such that 
+<m:math><m:semantics><m:mrow><m:mi>Δ</m:mi><m:mrow><m:mrow><m:mo stretchy="false">(</m:mo><m:mrow><m:mi>Φ</m:mi><m:mi>x</m:mi></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow><m:mo stretchy="false">=</m:mo><m:mi>x</m:mi></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">Δ { \(  {Φ x}  \)} =x</m:annotation></m:semantics></m:math> for all 
+<m:math>
+  <m:semantics>
+    <m:mrow>
+      <m:mrow>
+        <m:mi>x</m:mi>
+        <m:mo stretchy="false">∈</m:mo>
+        <m:msub>
+          <m:mi>Σ</m:mi>
+          <m:mi>k</m:mi>
+        </m:msub>
+      </m:mrow>
+    </m:mrow>
+    <m:annotation encoding="StarMath 5.0">x  in Σ k</m:annotation>
+  </m:semantics>
+</m:math>. 
+</item>
+  <item> 
+  <m:math>
+    <m:semantics>
+      <m:mrow>
+        <m:mi>N</m:mi>
+        <m:mrow>
+          <m:mrow>
+            <m:mo stretchy="false">(</m:mo>
+            <m:mi>Φ</m:mi>
+            <m:mo stretchy="false">)</m:mo>
+          </m:mrow>
+          <m:mo stretchy="false">∩</m:mo>
+          <m:msub>
+            <m:mrow>
+              <m:mi>Σ</m:mi>
+            </m:mrow>
+            <m:mrow>
+              <m:mn>2</m:mn>
+              <m:mi>k</m:mi>
+            </m:mrow>
+          </m:msub>
+          <m:mo stretchy="false">=</m:mo>
+          <m:mrow>
+            <m:mo stretchy="false">{</m:mo>
+            <m:mn>0</m:mn>
+            <m:mo stretchy="false">}</m:mo>
+          </m:mrow>
+        </m:mrow>
+      </m:mrow> 
+<m:annotation encoding="StarMath 5.0">N { \(  Φ  \)}  intersection Σ 2 k ={ lbrace  0  rbrace}</m:annotation>
+    </m:semantics>
+  </m:math>. 
+</item>
+ <item><m:math>
+   <m:mrow>
+      <m:msub>
+        <m:mrow>
+           <m:mi>Φ</m:mi>
+        </m:mrow>
+        <m:mrow>
+           <m:mi>T</m:mi>
+        </m:mrow>
+      </m:msub>
+   </m:mrow>
+</m:math>
+ has rank 
+<m:math><m:semantics><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>#</m:mtext></m:mrow></m:mstyle><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>T</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">italic "#" { \(  T  \)}</m:annotation></m:semantics></m:math> for all 
+<m:math><m:semantics><m:mi>T</m:mi><m:annotation encoding="StarMath 5.0">T</m:annotation></m:semantics></m:math> with 
+<m:math><m:semantics><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>#</m:mtext></m:mrow></m:mstyle><m:mrow><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>T</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mo stretchy="false">=</m:mo><m:mn>2</m:mn></m:mrow><m:mi>k</m:mi></m:mrow><m:annotation encoding="StarMath 5.0">italic "#" { \(  T  \)} =2 k</m:annotation></m:semantics></m:math>. </item>
+      <item><m:math>
+   <m:mrow>
+      <m:mrow>
+         <m:msup>
+           <m:mrow>
+              <m:msub>
+                <m:mrow>
+                   <m:mi mathvariant="normal">Φ</m:mi>
+                </m:mrow>
+                <m:mrow>
+                   <m:mi>T</m:mi>
+                </m:mrow>
+              </m:msub>
+           </m:mrow>
+           <m:mrow>
+              <m:mi>t</m:mi>
+           </m:mrow>
+         </m:msup>
+         <m:msub>
+           <m:mrow>
+              <m:mi>Φ</m:mi>
+           </m:mrow>
+           <m:mrow>
+              <m:mi>T</m:mi>
+           </m:mrow>
+         </m:msub>
+      </m:mrow>
+   </m:mrow>
+</m:math>
+ is non-singular (i.e., invertible) for all 
+<m:math><m:semantics><m:mi>T</m:mi><m:annotation encoding="StarMath 5.0">T</m:annotation></m:semantics></m:math> with 
+<m:math><m:semantics><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>#</m:mtext></m:mrow></m:mstyle><m:mrow><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>T</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mo stretchy="false">=</m:mo><m:mn>2</m:mn></m:mrow><m:mi>k</m:mi></m:mrow><m:annotation encoding="StarMath 5.0">italic "#" { \(  T  \)} =2 k</m:annotation></m:semantics></m:math>. </item>
+    </list>
+    </para>
+</statement>
+
+<proof id="idp2230960">
+<para id="id3178867">The equivalence of <m:math>
+   <m:mrow>
+      <m:mi>b</m:mi>
+      <m:mo>↔</m:mo>
+      <m:mi>c</m:mi>
+      <m:mo>↔</m:mo>
+      <m:mi>d</m:mi>
+   </m:mrow>
+</m:math>
+ is simple linear algebra.
+First let us prove that 
+<m:math><m:semantics><m:mrow><m:mi>a</m:mi><m:mo stretchy="false">→</m:mo><m:mi>b</m:mi></m:mrow><m:annotation encoding="StarMath 5.0">a  rightarrow b</m:annotation></m:semantics></m:math>. Assume 
+<m:math><m:semantics><m:mi>a</m:mi><m:annotation encoding="StarMath 5.0">a</m:annotation></m:semantics></m:math>. Suppose that there was a vector 
+<m:math>
+  <m:semantics>
+    <m:mrow>
+      <m:mrow>
+        <m:mi>η</m:mi>
+        <m:mo stretchy="false">∈</m:mo>
+        <m:mrow>
+          <m:mi>N</m:mi>
+          <m:mo stretchy="false">∩</m:mo>
+          <m:msub>
+            <m:mrow>
+              <m:mi>Σ</m:mi>
+            </m:mrow>
+            <m:mrow>
+              <m:mn>2</m:mn>
+              <m:mi>k</m:mi>
+            </m:mrow>
+          </m:msub>
+        </m:mrow>
+      </m:mrow>
+    </m:mrow> 
+    <m:annotation encoding="StarMath 5.0">η  in N  intersection Σ 2 k</m:annotation>
+  </m:semantics>
+</m:math>. We know that we can write 
+<m:math>
+  <m:semantics>
+    <m:mrow>
+      <m:mrow>
+        <m:mi>η</m:mi>
+        <m:mo stretchy="false">=</m:mo>
+        <m:msub>
+          <m:mi>x</m:mi>
+          <m:mn>0</m:mn>
+        </m:msub>
+        <m:mo stretchy="false">−</m:mo>
+        <m:msub>
+          <m:mi>x</m:mi>
+          <m:mn>1</m:mn>
+        </m:msub>
+      </m:mrow>
+    </m:mrow>
+    <m:annotation encoding="StarMath 5.0">η =x 0  - x 1</m:annotation>
+  </m:semantics>
+</m:math>, where 
+<m:math><m:semantics><m:mrow><m:msub><m:mi>x</m:mi><m:mn>0</m:mn></m:msub><m:mi>,</m:mi><m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub></m:mrow><m:annotation encoding="StarMath 5.0">x 0 ,x 1</m:annotation></m:semantics></m:math> both have support less than 
+<m:math><m:semantics><m:mi>k</m:mi><m:annotation encoding="StarMath 5.0">k</m:annotation></m:semantics></m:math>. We could write 
+<m:math><m:semantics><m:mi>η</m:mi><m:annotation encoding="StarMath 5.0">η</m:annotation></m:semantics></m:math> simply as a composite vector with support 
+<m:math><m:semantics><m:mrow><m:mn>2</m:mn><m:mi>k</m:mi></m:mrow><m:annotation encoding="StarMath 5.0">2 k</m:annotation></m:semantics></m:math> where the first half of 
+<m:math><m:semantics><m:mi>η</m:mi><m:annotation encoding="StarMath 5.0">η</m:annotation></m:semantics></m:math> is 
+<m:math><m:semantics><m:mrow><m:msub><m:mi>x</m:mi><m:mn>0</m:mn></m:msub></m:mrow><m:annotation encoding="StarMath 5.0">x 0</m:annotation></m:semantics></m:math> and the second half of 
+<m:math><m:semantics><m:mi>η</m:mi><m:annotation encoding="StarMath 5.0">η</m:annotation></m:semantics></m:math> is 
+<m:math><m:semantics><m:mrow><m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub></m:mrow><m:annotation encoding="StarMath 5.0">x 1</m:annotation></m:semantics></m:math>, 
+<m:math>
+  <m:semantics>
+    <m:mrow>
+      <m:mi>η</m:mi>
+      <m:mo stretchy="false">=</m:mo>
+      <m:mrow>
+        <m:mo stretchy="false">(</m:mo>
+        <m:mrow>
+          <m:msub>
+            <m:mi>x</m:mi>
+            <m:mn>0</m:mn>
+          </m:msub>          
+          <m:mo stretchy="false">∣</m:mo>
+          <m:msub>
+            <m:mi>x</m:mi>
+            <m:mn>1</m:mn>
+          </m:msub>
+        </m:mrow>
+        <m:mo stretchy="false">)</m:mo>
+      </m:mrow>
+    </m:mrow><m:annotation encoding="StarMath 5.0">η ={ \(  {x 0  \lline  x 1}  \)}</m:annotation></m:semantics></m:math>. We know that 
+<m:math><m:semantics><m:mrow><m:mi>η</m:mi><m:mo stretchy="false">∈</m:mo><m:mi>N</m:mi></m:mrow><m:annotation encoding="StarMath 5.0">η  in N</m:annotation></m:semantics></m:math>, which implies that 
+<m:math><m:semantics><m:mrow><m:mi>Φ</m:mi><m:mrow><m:mi>η</m:mi><m:mo stretchy="false">=</m:mo><m:mn>0</m:mn></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">Φ η =0</m:annotation></m:semantics></m:math>. It then follows that 
+<m:math>
+  <m:semantics>
+    <m:mrow>
+      <m:mi>Φ</m:mi>
+      <m:msub>
+        <m:mi>x</m:mi>
+        <m:mn>0</m:mn>
+      </m:msub>
+      <m:mo stretchy="false">=</m:mo>
+      <m:mi>Φ</m:mi>
+      <m:msub>
+        <m:mi>x</m:mi>
+        <m:mn>1</m:mn>
+     </m:msub>   
+   </m:mrow><m:annotation encoding="StarMath 5.0">Φ x 0 =Φ x 1</m:annotation></m:semantics></m:math>, and we have as a consequence that 
+<m:math>
+  <m:semantics>
+    <m:mrow>
+      <m:mi>Δ</m:mi>
+      <m:mi>Φ</m:mi>
+      <m:msub>
+        <m:mi>x</m:mi>
+        <m:mn>0</m:mn>
+      </m:msub>
+      <m:mo stretchy="false">=</m:mo>
+      <m:mi>Δ</m:mi>
+      <m:mi>Φ</m:mi>
+      <m:msub>
+        <m:mi>x</m:mi>
+        <m:mn>1</m:mn>
+      </m:msub>
+    </m:mrow><m:annotation encoding="StarMath 5.0">Δ Φ x 0 =Δ Φ x 1</m:annotation></m:semantics></m:math> and finally that 
+<m:math><m:semantics>
+ <m:mrow>
+       <m:msub>
+        <m:mi>x</m:mi>
+        <m:mn>0</m:mn>
+      </m:msub>
+      <m:mo stretchy="false">=</m:mo>
+      <m:msub>
+        <m:mi>x</m:mi>
+        <m:mn>1</m:mn>
+      </m:msub>
+</m:mrow><m:annotation encoding="StarMath 5.0">x 0 =x 1</m:annotation></m:semantics></m:math>. This proves that 
+<m:math><m:semantics><m:mrow><m:mi>η</m:mi><m:mo stretchy="false">=</m:mo><m:mn>0</m:mn></m:mrow><m:annotation encoding="StarMath 5.0">η =0</m:annotation></m:semantics></m:math> as desired. </para>
+    <para id="id2864381">Now let us prove that 
+ <m:math><m:semantics><m:mrow><m:mi>b</m:mi><m:mo stretchy="false">→</m:mo><m:mi>a</m:mi></m:mrow><m:annotation encoding="StarMath 5.0">b  rightarrow a</m:annotation></m:semantics></m:math>. Suppose that we have a measurement 
+<m:math><m:semantics><m:mrow><m:mi>Φ</m:mi><m:mrow><m:mrow><m:mi>x</m:mi><m:mo stretchy="false">=</m:mo><m:mi>y</m:mi></m:mrow><m:mo stretchy="false">∈</m:mo><m:msup><m:mi>ℝ</m:mi><m:mi>n</m:mi></m:msup></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">Φ x =y  in ℝ^n</m:annotation></m:semantics></m:math>, where 
+<m:math>
+  <m:semantics>
+    <m:mrow>
+      <m:mrow>
+        <m:mi>x</m:mi>
+        <m:mo stretchy="false">∈</m:mo>
+        <m:msub>
+          <m:mi>Σ</m:mi>
+          <m:mi>k</m:mi>
+        </m:msub>
+</m:mrow> 
+</m:mrow><m:annotation encoding="StarMath 5.0">x  in Σ k</m:annotation></m:semantics></m:math>. We will define the decoder 
+<m:math><m:semantics><m:mrow><m:mi>Δ</m:mi><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>y</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">Δ { \(  y  \)}</m:annotation></m:semantics></m:math> to be the signal 
+<m:math>
+  <m:semantics>
+    <m:mrow>
+      <m:mrow>
+        <m:mrow>
+          <m:mi>̄</m:mi>
+          <m:mi>x</m:mi>
+        </m:mrow>
+        <m:mo stretchy="false">∈</m:mo>
+        <m:mi>ℱ</m:mi>
+      </m:mrow>
+      <m:mrow><m:mo stretchy="false">(</m:mo><m:mi>y</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">{̄x}  in ℱ { \(  y  \)}</m:annotation></m:semantics></m:math> with smallest support. Since 
+<m:math><m:semantics><m:mi>x</m:mi><m:annotation encoding="StarMath 5.0">x</m:annotation></m:semantics></m:math> has support 
+<m:math><m:semantics><m:mrow><m:mrow/><m:mi>k</m:mi></m:mrow><m:annotation encoding="StarMath 5.0"> &lt;= k</m:annotation></m:semantics></m:math> so will 
+<m:math>
+  <m:semantics>
+    <m:mrow>
+      <m:mi>̄</m:mi>
+      <m:mi>x</m:mi>
+    </m:mrow><m:annotation encoding="StarMath 5.0">̄x</m:annotation></m:semantics></m:math>. We claim that there is no other 
+<m:math><m:semantics><m:mrow><m:mrow><m:msup><m:mi>x</m:mi><m:mi>′</m:mi></m:msup><m:mo stretchy="false">∈</m:mo><m:mi>ℱ</m:mi></m:mrow><m:mrow><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>y</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mo stretchy="false">∩</m:mo></m:mrow><m:msub><m:mi>Σ</m:mi><m:mi>k</m:mi></m:msub></m:mrow><m:annotation encoding="StarMath 5.0">x^′  in ℱ { \(  y  \)}  intersection Σ k</m:annotation></m:semantics></m:math>. Indeed, if 
+<m:math><m:semantics><m:msup><m:mi>x</m:mi><m:mi>′</m:mi></m:msup><m:annotation encoding="StarMath 5.0">x^′</m:annotation></m:semantics></m:math> existed, then 
+<m:math><m:semantics><m:mrow><m:mrow><m:mrow><m:mi>x</m:mi><m:mo stretchy="false">−</m:mo><m:msup><m:mi>x</m:mi><m:mi>′</m:mi></m:msup></m:mrow><m:mo stretchy="false">∈</m:mo><m:mrow><m:mi>N</m:mi><m:mo stretchy="false">∩</m:mo></m:mrow></m:mrow><m:msub><m:mrow><m:mi>Σ</m:mi></m:mrow><m:mrow><m:mn>2</m:mn><m:mi>k</m:mi></m:mrow></m:msub></m:mrow><m:annotation encoding="StarMath 5.0">x  - x^′  in N  intersection Σ 2 k</m:annotation></m:semantics></m:math>. But, the only vector in 
+<m:math><m:semantics><m:mrow><m:mrow><m:mi>N</m:mi><m:mo stretchy="false">∩</m:mo></m:mrow><m:msub><m:mrow><m:mi>Σ</m:mi></m:mrow><m:mrow><m:mn>2</m:mn><m:mi>k</m:mi></m:mrow></m:msub></m:mrow><m:annotation encoding="StarMath 5.0">N  intersection Σ 2 k</m:annotation></m:semantics></m:math> is zero, implying that 
+<m:math><m:semantics><m:mrow><m:mi>x</m:mi><m:mo stretchy="false">=</m:mo><m:msup><m:mi>x</m:mi><m:mi>′</m:mi></m:msup></m:mrow><m:annotation encoding="StarMath 5.0">x =x^′</m:annotation></m:semantics></m:math>. This finally gives us that 
+<m:math><m:semantics><m:mrow><m:mi>Δ</m:mi><m:mrow><m:mrow><m:mo stretchy="false">(</m:mo><m:mrow><m:mi>Φ</m:mi><m:mi>x</m:mi></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow><m:mo stretchy="false">=</m:mo><m:mi>x</m:mi></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">Δ { \(  {Φ x}  \)} =x</m:annotation></m:semantics></m:math>. □ </para>
+</proof>
+</rule>
+
+    <para id="id3185212">Using the previous theorem, we can turn to the question of finding good encoder/decoder pairs.<footnote id="idm463296">A question about whether we will ever really find natural signals in <m:math><m:semantics><m:mrow><m:msub><m:mi>Σ</m:mi><m:mi>k</m:mi></m:msub></m:mrow><m:annotation encoding="StarMath 5.0">Σ k</m:annotation></m:semantics></m:math> brings to ming a story... Once upon a time, a man was floating over the countryside in a hot air balloon. The man in the balloon yelled down to a stranger on the ground and asked “Where am I?” The man on the ground thought for about 5 minutes and then answered “You’re in a hot air balloon.” The man in the balloon responded with “You must be a mathematician,” to which the man on the ground answered “Yes, how did you know?” “Because,” replied the man in the balloon, “you had to think a long time before you answered, your answer was very precise, and your answer was completely useless!” So, yes, we may be dealing with a limited model, but we have to crawl before we can walk. </footnote> 
+Given a fixed 
+<m:math><m:semantics><m:mi>N</m:mi><m:annotation encoding="StarMath 5.0">N</m:annotation></m:semantics></m:math>, how large can 
+<m:math><m:semantics><m:mi>k</m:mi><m:annotation encoding="StarMath 5.0">k</m:annotation></m:semantics></m:math> be, and what is the best 
+<m:math><m:semantics><m:mi>Φ</m:mi><m:annotation encoding="StarMath 5.0">Φ</m:annotation></m:semantics></m:math>? Given a fixed 
+<m:math><m:semantics><m:mi>n</m:mi><m:annotation encoding="StarMath 5.0">n</m:annotation></m:semantics></m:math>, the largest 
+<m:math><m:semantics><m:mi>k</m:mi><m:annotation encoding="StarMath 5.0">k</m:annotation></m:semantics></m:math> is 
+<m:math><m:semantics><m:mrow><m:mi>k</m:mi><m:mo stretchy="false">=</m:mo><m:mrow><m:mi>⌊</m:mi><m:mfrac><m:mi>n</m:mi><m:mn>2</m:mn></m:mfrac><m:mi>⌋</m:mi></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">k ={⌊ n over 2 ⌋}</m:annotation></m:semantics></m:math>. Alternatively, we can say that given a fixed 
+<m:math><m:semantics><m:mi>k</m:mi><m:annotation encoding="StarMath 5.0">k</m:annotation></m:semantics></m:math>, we need at least 
+<m:math><m:semantics><m:mrow><m:mrow><m:mi>n</m:mi><m:mo stretchy="false">=</m:mo><m:mn>2</m:mn></m:mrow><m:mi>k</m:mi></m:mrow><m:annotation encoding="StarMath 5.0">n =2 k</m:annotation></m:semantics></m:math> measurements. Another way to say this is that there exist encoding matrices 
+<m:math><m:semantics><m:msub><m:mi>Φ</m:mi><m:mrow><m:mn>2</m:mn><m:mrow><m:mi>k</m:mi><m:mo stretchy="false">×</m:mo><m:mi>N</m:mi></m:mrow></m:mrow></m:msub><m:annotation encoding="StarMath 5.0">Φ_{2 k  times  N}</m:annotation></m:semantics></m:math> such that any selection of 
+<m:math><m:semantics><m:mrow><m:mn>2</m:mn><m:mi>k</m:mi></m:mrow><m:annotation encoding="StarMath 5.0">2 k</m:annotation></m:semantics></m:math> columns are linearly independent. Examples are the DFT matrix or the Vandermonde matrix corresponding to interpolation at distinct points 
+<m:math><m:semantics><m:mrow><m:msub><m:mi>z</m:mi><m:mn>1</m:mn></m:msub><m:mi>,</m:mi><m:mo stretchy="false">…</m:mo><m:mi>,</m:mi><m:msub><m:mi>z</m:mi><m:mi>N</m:mi></m:msub></m:mrow><m:annotation encoding="StarMath 5.0">z_1 , dotslow ,z_N</m:annotation></m:semantics></m:math>. </para>
+  </content>
+</document>

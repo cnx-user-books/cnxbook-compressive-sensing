@@ -1,0 +1,41 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Preliminaries</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>1480c87b-3f3c-4fc9-a767-05fa9b9cbe85</md:uuid>
+</metadata>
+  <content>
+    
+<para id="id10673688">We previously described Shannon's Theorem plus encoding:  the
+Nyquist sampling rate is the minimal required sampling rate to
+recover the entire class of bandlimited signals.   We have seen
+that this sampling rate may be prohibitively large for 
+broadband signals.  We see a way to improve upon this situation: 
+we will pose a different model for the signals which is more
+restrictive than the assumption that the signals are bandlimited.
+Fortunately, there are several real world scenarios in which one
+knows much more information about the signals of interest.  For
+example, they may be written in terms of very few fundamental
+building blocks (such as sine waves or chirps).   This leads us to define new signal classes based on notions of sparsity and seek to determine if we can improve on sampling and encoding in this new setting.</para>
+<para id="id11195791">Let us define the general setting for this section. Let
+<m:math display="inline"><m:mi mathvariant="bold">X</m:mi></m:math> be a Banach space of functions.  The typical examples
+are <m:math display="inline"><m:mrow><m:mi mathvariant="bold">X</m:mi><m:mo>=</m:mo><m:mrow><m:mrow><m:msub><m:mi>L</m:mi><m:mi>p</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi mathvariant="double-struck">R</m:mi><m:mo>)</m:mo></m:mrow></m:mrow><m:mo>,</m:mo><m:mrow><m:msub><m:mi>L</m:mi><m:mi>p</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:msup><m:mi mathvariant="double-struck">R</m:mi><m:mi>d</m:mi></m:msup><m:mo>)</m:mo></m:mrow></m:mrow><m:mo>,</m:mo><m:mrow><m:msub><m:mi>L</m:mi><m:mi>p</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mrow><m:mrow><m:mo>-</m:mo><m:mi>T</m:mi></m:mrow><m:mo>,</m:mo><m:mi>T</m:mi></m:mrow><m:mo>)</m:mo></m:mrow></m:mrow></m:mrow></m:mrow></m:math>,
+<m:math display="inline"><m:mrow><m:mn>1</m:mn><m:mo>≤</m:mo><m:mi>p</m:mi><m:mo>≤</m:mo><m:mi mathvariant="normal">∞</m:mi></m:mrow></m:math>.   We denote the norm on <m:math display="inline"><m:mi>X</m:mi></m:math> by
+<m:math display="inline"><m:mrow><m:mo>∥</m:mo><m:mo>⋅</m:mo><m:mo>∥</m:mo><m:msub><m:mi/><m:mi mathvariant="bold">X</m:mi></m:msub></m:mrow></m:math>. We define a dictionary <m:math display="inline"><m:mi mathvariant="script">D</m:mi></m:math> as
+any collection of functions <m:math display="inline"><m:mrow><m:mi mathvariant="script">D</m:mi><m:mo>⊆</m:mo><m:mi mathvariant="bold">X</m:mi></m:mrow></m:math>
+such that  <m:math display="inline"><m:mrow><m:msub><m:mrow><m:mo>∥</m:mo><m:mi>g</m:mi><m:mo>∥</m:mo></m:mrow><m:mi mathvariant="bold">X</m:mi></m:msub><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow></m:math> for all <m:math display="inline"><m:mrow><m:mi>g</m:mi><m:mo>∈</m:mo><m:mi mathvariant="script">D</m:mi></m:mrow></m:math>, i.e.
+all the elements of the dictionary are normalized.  While the
+definition is very broad, in practice dictionaries usually have
+more structure. Some examples include <m:math display="inline"><m:mrow><m:mi mathvariant="script">D</m:mi><m:mo>=</m:mo><m:mi>B</m:mi></m:mrow></m:math>, a basis for
+<m:math display="inline"><m:mi mathvariant="bold">X</m:mi></m:math>, such as (i) the Fourier basis on
+<m:math display="inline"><m:mrow><m:mo>[</m:mo><m:mrow><m:mrow><m:mo>-</m:mo><m:mi>π</m:mi></m:mrow><m:mo>,</m:mo><m:mi>π</m:mi></m:mrow><m:mo>]</m:mo></m:mrow></m:math>, (ii) a wavelet basis,<footnote id="idp1132480">Wavelet basis
+form orthonormal systems for <m:math display="inline"><m:mrow><m:msub><m:mi>L</m:mi><m:mn>2</m:mn></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>I</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math>.</footnote> (iii) redundant
+families of waveforms of the form <m:math display="inline"><m:mrow><m:msub><m:mi>ψ</m:mi><m:mrow><m:mi>a</m:mi><m:mo>,</m:mo><m:mi>b</m:mi><m:mo>,</m:mo><m:mi>σ</m:mi></m:mrow></m:msub><m:mo>=</m:mo><m:mrow><m:msup><m:mi>e</m:mi><m:mrow><m:mo>-</m:mo><m:mrow><m:mi>a</m:mi><m:mo>⁢</m:mo><m:msup><m:mrow><m:mo>(</m:mo><m:mrow><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>b</m:mi></m:mrow><m:mo>)</m:mo></m:mrow><m:mn>2</m:mn></m:msup></m:mrow></m:mrow></m:msup><m:mo>⁢</m:mo><m:msup><m:mi>e</m:mi><m:mrow><m:mi>i</m:mi><m:mo>⁢</m:mo><m:mi>σ</m:mi><m:mo>⁢</m:mo><m:mi>x</m:mi></m:mrow></m:msup></m:mrow></m:mrow></m:math>, i.e. <m:math display="inline"><m:mrow><m:mi mathvariant="script">D</m:mi><m:mo>=</m:mo><m:msub><m:mrow><m:mo>{</m:mo><m:msub><m:mi>ψ</m:mi><m:mrow><m:mi>a</m:mi><m:mo>,</m:mo><m:mi>b</m:mi><m:mo>,</m:mo><m:mi>σ</m:mi></m:mrow></m:msub><m:mo>}</m:mo></m:mrow><m:mrow><m:mi>a</m:mi><m:mo>,</m:mo><m:mi>b</m:mi><m:mo>,</m:mo><m:mi>σ</m:mi></m:mrow></m:msub></m:mrow></m:math>, and (iv) wavelet
+packets.</para><para id="element-283"><rule type="Definition" id="sdsf"><label>Definition</label>
+<statement id="idm7606512"><para id="asdfasd2f">We define the class of <m:math display="inline"><m:mi>n</m:mi></m:math>-sparse signals as
+<m:math display="inline"><m:mrow><m:mi mathvariant="normal">Σ</m:mi><m:msub><m:mi/><m:mi>n</m:mi></m:msub><m:mo>:</m:mo><m:mo>=</m:mo><m:mi mathvariant="normal">Σ</m:mi><m:msub><m:mi/><m:mi>n</m:mi></m:msub><m:mo>(</m:mo><m:mi mathvariant="script">D</m:mi><m:mo>)</m:mo><m:mo>=</m:mo><m:mo mathvariant="italic">{</m:mo><m:mi>s</m:mi><m:mo>=</m:mo><m:mo>∑</m:mo><m:msub><m:mi/><m:mrow><m:mi>g</m:mi><m:mo>∈</m:mo><m:mi mathvariant="normal">Λ</m:mi></m:mrow></m:msub><m:mi>c</m:mi><m:msub><m:mi/><m:mi>g</m:mi></m:msub><m:mi>g</m:mi><m:mo>,</m:mo><m:mi mathvariant="normal">Λ</m:mi><m:mo>⊆</m:mo><m:mi mathvariant="script">D</m:mi><m:mo>,</m:mo><m:mi mathvariant="normal">♯</m:mi><m:mi mathvariant="normal">Λ</m:mi><m:mo>≤</m:mo><m:mi>n</m:mi><m:mo mathvariant="italic">}</m:mo></m:mrow></m:math>. We also
+say that <m:math display="inline"><m:mi>s</m:mi></m:math> has sparsity <m:math display="inline"><m:mi>n</m:mi></m:math> in <m:math display="inline"><m:mi mathvariant="script">D</m:mi></m:math> if <m:math display="inline"><m:mrow><m:mi>s</m:mi><m:mo>∈</m:mo><m:mrow><m:msub><m:mi mathvariant="normal">Σ</m:mi><m:mi>n</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi mathvariant="script">D</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:mrow></m:math>, i.e. if it can be written as the linear
+combination of <m:math display="inline"><m:mi>n</m:mi></m:math> functions from <m:math display="inline"><m:mi mathvariant="script">D</m:mi></m:math>. We note that
+<m:math display="inline"><m:msub><m:mi mathvariant="normal">Σ</m:mi><m:mi>n</m:mi></m:msub></m:math> is not a linear space; we instead have
+<m:math display="inline"><m:mrow><m:mrow><m:msub><m:mi mathvariant="normal">Σ</m:mi><m:mi>n</m:mi></m:msub><m:mo>+</m:mo><m:msub><m:mi mathvariant="normal">Σ</m:mi><m:mi>n</m:mi></m:msub></m:mrow><m:mo>⊆</m:mo><m:msub><m:mi mathvariant="normal">Σ</m:mi><m:mrow><m:mn>2</m:mn><m:mo>⁢</m:mo><m:mi>n</m:mi></m:mrow></m:msub></m:mrow></m:math>.
+</para></statement>      </rule></para>
+  </content>
+</document>

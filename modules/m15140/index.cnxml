@@ -1,0 +1,143 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML">
+  <title>Optimal Encoding of Bandlimited Signals</title>
+  <metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m15140</md:content-id>
+  <md:title>Optimal Encoding of Bandlimited Signals</md:title>
+  <md:abstract/>
+  <md:uuid>ccc3b5c2-cc21-4ce6-9091-28ed737f9d9a</md:uuid>
+</metadata>
+  <content>
+
+<para id="id2248535">We now turn back to the encoding of signals. We are interested in encoding the set
+<equation id="id2248539"><m:math mode="display"><m:mrow><m:msub><m:mi>B</m:mi> <m:mi>A</m:mi> </m:msub><m:mrow><m:mrow><m:mo>(</m:mo><m:mi>M</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mo>{</m:mo><m:mi>f</m:mi><m:mo>∈</m:mo></m:mrow><m:msub><m:mi>B</m:mi> <m:mi>A</m:mi> </m:msub><m:mrow><m:mo>:</m:mo><m:mo>|</m:mo><m:mi>f</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo><m:mo>|</m:mo><m:mo>≤</m:mo><m:mi>M</m:mi><m:mo>,</m:mo><m:mi>t</m:mi><m:mo>∈</m:mo><m:mi mathvariant="double-struck">R</m:mi><m:mo>}</m:mo></m:mrow></m:mrow></m:math></equation>
+where <m:math><m:mi>M</m:mi></m:math> is arbitrary but fixed. We shall restrict our discussion to the case where distortion is measured in <m:math><m:mrow><m:msub><m:mi>L</m:mi> <m:mi>∞</m:mi> </m:msub><m:mrow><m:mo>[</m:mo><m:mo>-</m:mo><m:mi>T</m:mi><m:mo>,</m:mo><m:mi>T</m:mi><m:mo>]</m:mo></m:mrow></m:mrow></m:math> where <m:math><m:mrow><m:mi>T</m:mi><m:mo>&gt;</m:mo><m:mn>0</m:mn></m:mrow></m:math> is arbitrary but fixed. Then, <m:math><m:mrow><m:msub><m:mi>B</m:mi> <m:mi>A</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>M</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> is a compact subset of <m:math><m:msub><m:mi>L</m:mi> <m:mi>∞</m:mi> </m:msub></m:math>: <m:math><m:mrow><m:msub><m:mi>B</m:mi> <m:mi>A</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>M</m:mi><m:mo>)</m:mo></m:mrow><m:mo>⊆</m:mo><m:msub><m:mi>L</m:mi> <m:mi>∞</m:mi> </m:msub><m:mrow><m:mo>[</m:mo><m:mo>-</m:mo><m:mi>T</m:mi><m:mo>,</m:mo><m:mi>T</m:mi><m:mo>]</m:mo></m:mrow></m:mrow></m:math>.</para>
+<figure id="uid14"><media id="id1172407225949" alt=""><image src="../../media/figure5.png" mime-type="image/png"/><image for="pdf" src="../../media/figure5.eps" mime-type="application/postscript"/></media>
+<caption>Sample points <m:math><m:mfrac><m:mi>n</m:mi> <m:mrow><m:mi>λ</m:mi><m:mi>A</m:mi></m:mrow></m:mfrac></m:math>
+are chosen in the interval <m:math><m:mrow><m:mo>[</m:mo><m:mo>-</m:mo><m:mi>T</m:mi><m:mo>(</m:mo><m:mn>1</m:mn><m:mo>+</m:mo><m:mi>δ</m:mi><m:mo>)</m:mo><m:mo>,</m:mo><m:mi>T</m:mi><m:mo>(</m:mo><m:mn>1</m:mn><m:mo>+</m:mo><m:mi>δ</m:mi><m:mo>)</m:mo><m:mo>]</m:mo></m:mrow></m:math>.</caption></figure>
+<para id="id2248834">We shall sketch how one can construct an asymptotically optimal encoder/decoder for <m:math><m:msub><m:mi>B</m:mi> <m:mi>A</m:mi> </m:msub></m:math>.
+The details for this construction can be found in <link target-id="bid0"/>.</para>
+<para id="id2248860">We know <m:math><m:mrow><m:mover accent="true"><m:mi>f</m:mi> <m:mo>^</m:mo></m:mover><m:mrow><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math> for <m:math><m:mrow><m:mo>|</m:mo><m:mi>ω</m:mi><m:mo>|</m:mo><m:mo>≥</m:mo><m:mi>A</m:mi><m:mi>π</m:mi></m:mrow></m:math>, and <m:math><m:mrow><m:mo>|</m:mo><m:mi>f</m:mi><m:mo>|</m:mo><m:mo>≤</m:mo><m:mi>M</m:mi></m:mrow></m:math>. How can we encode <m:math><m:mi>f</m:mi></m:math> in practice? We begin by chosing <m:math><m:mrow><m:mi>λ</m:mi><m:mo>=</m:mo><m:mi>λ</m:mi><m:mo>(</m:mo><m:mi>T</m:mi><m:mo>)</m:mo><m:mo>&gt;</m:mo><m:mn>1</m:mn></m:mrow></m:math> (see <link target-id="uid14"/>) which will represent a slight oversampling factor
+we shall utilize.
+Given a target distortion <m:math><m:mrow><m:mi>ϵ</m:mi><m:mo>&gt;</m:mo><m:mn>0</m:mn></m:mrow></m:math>, we
+choose <m:math><m:mi>k</m:mi></m:math> so that <m:math><m:mrow><m:msup><m:mn>2</m:mn> <m:mrow><m:mo>-</m:mo><m:mi>k</m:mi><m:mo>-</m:mo><m:mn>1</m:mn></m:mrow> </m:msup><m:mo>&lt;</m:mo><m:mi>ϵ</m:mi><m:mo>≤</m:mo><m:msup><m:mn>2</m:mn> <m:mrow><m:mo>-</m:mo><m:mi>k</m:mi></m:mrow> </m:msup></m:mrow></m:math>. Given <m:math><m:mi>f</m:mi></m:math>, we shall encode <m:math><m:mi>f</m:mi></m:math> by first taking samples <m:math><m:mrow><m:mi>f</m:mi><m:mo>(</m:mo><m:mfrac><m:mi>n</m:mi> <m:mrow><m:mi>λ</m:mi><m:mi>A</m:mi></m:mrow></m:mfrac><m:mo>)</m:mo></m:mrow></m:math> for <m:math><m:mrow><m:mfrac><m:mi>n</m:mi> <m:mrow><m:mi>λ</m:mi><m:mi>A</m:mi></m:mrow></m:mfrac><m:mrow><m:mo>∈</m:mo><m:mo>[</m:mo><m:mo>-</m:mo><m:mi>T</m:mi><m:mo>(</m:mo><m:mn>1</m:mn><m:mo>+</m:mo><m:mi>δ</m:mi><m:mo>)</m:mo><m:mo>,</m:mo><m:mi>T</m:mi><m:mo>(</m:mo><m:mn>1</m:mn><m:mo>+</m:mo><m:mi>δ</m:mi><m:mo>)</m:mo><m:mo>]</m:mo></m:mrow></m:mrow></m:math> where <m:math><m:mrow><m:mi>δ</m:mi><m:mo>(</m:mo><m:mi>T</m:mi><m:mo>)</m:mo><m:mo>&gt;</m:mo><m:mn>0</m:mn></m:mrow></m:math>. In other words, we sample <m:math><m:mi>f</m:mi></m:math> on a slightly larger interval than <m:math><m:mrow><m:mo>[</m:mo><m:mo>-</m:mo><m:mi>T</m:mi><m:mo>,</m:mo><m:mi>T</m:mi><m:mo>]</m:mo></m:mrow></m:math>. For each sample
+<m:math><m:mrow><m:mi>f</m:mi><m:mo>(</m:mo><m:mfrac><m:mi>n</m:mi> <m:mrow><m:mi>λ</m:mi><m:mi>A</m:mi></m:mrow></m:mfrac><m:mo>)</m:mo></m:mrow></m:math>, we shall use the first <m:math><m:mrow><m:mi>k</m:mi><m:mo>+</m:mo><m:msub><m:mi>k</m:mi> <m:mn>0</m:mn> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>T</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> bits of its binary expansion.
+In other words, our encoder takes <m:math><m:mi>f</m:mi></m:math> and the samples <m:math><m:mrow><m:mi>f</m:mi><m:mo>(</m:mo><m:mfrac><m:mi>n</m:mi> <m:mrow><m:mi>λ</m:mi><m:mi>A</m:mi></m:mrow></m:mfrac><m:mo>)</m:mo></m:mrow></m:math> and then assigns to <m:math><m:mrow><m:mi>f</m:mi><m:mo>(</m:mo><m:mfrac><m:mi>n</m:mi> <m:mrow><m:mi>λ</m:mi><m:mi>A</m:mi></m:mrow></m:mfrac><m:mo>)</m:mo></m:mrow></m:math>
+the first <m:math><m:mrow><m:mi>k</m:mi><m:mo>+</m:mo><m:msub><m:mi>k</m:mi> <m:mn>0</m:mn> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>T</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> bits of this number.</para>
+<para id="id2249327">To decode, the receiver would take the bits and construct the approximation <m:math><m:mrow><m:mover accent="true"><m:mi>f</m:mi> <m:mo>¯</m:mo></m:mover><m:mrow><m:mo>(</m:mo></m:mrow><m:mfrac><m:mi>n</m:mi> <m:mrow><m:mi>λ</m:mi><m:mi>A</m:mi></m:mrow></m:mfrac><m:mrow><m:mo>)</m:mo></m:mrow></m:mrow></m:math>
+to <m:math><m:mrow><m:mi>f</m:mi><m:mo>(</m:mo><m:mfrac><m:mi>n</m:mi> <m:mrow><m:mi>A</m:mi><m:mi>λ</m:mi></m:mrow></m:mfrac><m:mo>)</m:mo></m:mrow></m:math> from the bits provided.
+Notice that we have the accuracy
+<equation id="id2249389"><m:math mode="display"><m:mrow><m:mfenced separators="" open="|" close="|"><m:mrow><m:mi>f</m:mi><m:mo>(</m:mo></m:mrow><m:mfrac><m:mi>n</m:mi> <m:mrow><m:mi>λ</m:mi><m:mi>A</m:mi></m:mrow></m:mfrac><m:mrow><m:mo>)</m:mo><m:mo>-</m:mo></m:mrow><m:mover><m:mi>f</m:mi> <m:mo>¯</m:mo></m:mover><m:mrow><m:mo>(</m:mo></m:mrow><m:mfrac><m:mi>n</m:mi> <m:mrow><m:mi>λ</m:mi><m:mi>A</m:mi></m:mrow></m:mfrac><m:mrow><m:mo>)</m:mo></m:mrow></m:mfenced><m:mo>≤</m:mo><m:msup><m:mn>2</m:mn> <m:mrow><m:mo>-</m:mo><m:mi>k</m:mi><m:mo>-</m:mo><m:msub><m:mi>k</m:mi> <m:mn>0</m:mn> </m:msub></m:mrow> </m:msup><m:mo>·</m:mo><m:mi>M</m:mi><m:mo>.</m:mo></m:mrow></m:math></equation>
+We utilize the function <m:math><m:msub><m:mi>g</m:mi> <m:mi>λ</m:mi> </m:msub></m:math> satisfying (<link target-id="uid3"/>) to define
+<equation id="uid15">
+  <m:math mode="display">
+    <m:mrow>
+      <m:mover>
+        <m:mi>f</m:mi>  
+        <m:mo>¯</m:mo>
+      </m:mover>
+      <m:mrow>
+        <m:mo>(</m:mo>
+        <m:mi>t</m:mi>
+        <m:mo>)</m:mo>
+      </m:mrow>
+      <m:mo>=</m:mo>
+      <m:munder>
+        <m:mo>∑</m:mo> 
+        <m:mrow>
+          <m:mi>n</m:mi>
+          <m:mo>∈</m:mo>
+          <m:msub>
+            <m:mi>N</m:mi>
+            <m:mi>T</m:mi>
+          </m:msub>
+        </m:mrow> 
+      </m:munder>
+      <m:mover>
+        <m:mi>f</m:mi>
+        <m:mo>¯</m:mo>
+      </m:mover>
+      <m:mfenced separators="" open="(" close=")">
+        <m:mfrac>
+          <m:mi>n</m:mi>  
+          <m:mrow>
+            <m:mi>λ</m:mi>
+            <m:mi>A</m:mi>
+          </m:mrow>
+        </m:mfrac> 
+      </m:mfenced>
+      <m:msub>
+        <m:mi>g</m:mi>
+        <m:mi>λ</m:mi> 
+      </m:msub>
+      <m:mrow>
+        <m:mo>(</m:mo>
+        <m:mi>λ</m:mi>
+        <m:mi>A</m:mi>
+        <m:mi>t</m:mi>
+        <m:mo>-</m:mo>
+        <m:mi>n</m:mi>
+        <m:mo>)</m:mo>
+      </m:mrow>
+      <m:mo>,</m:mo>
+    </m:mrow>
+  </m:math>
+</equation>
+where
+<equation id="uid15b">
+  <m:math mode="display">
+    <m:mrow>
+<m:msub><m:mi>N</m:mi> <m:mi>T</m:mi> </m:msub><m:mo>:</m:mo><m:mo>=</m:mo><m:mrow><m:mo>{</m:mo><m:mi>n</m:mi><m:mo>:</m:mo><m:mspace width="4pt"/><m:mo>-</m:mo><m:mi>T</m:mi><m:mo>(</m:mo><m:mn>1</m:mn><m:mo>+</m:mo><m:mi>δ</m:mi><m:mo>)</m:mo><m:mo>≤</m:mo></m:mrow><m:mfrac><m:mi>n</m:mi> <m:mrow><m:mi>λ</m:mi><m:mi>A</m:mi></m:mrow></m:mfrac><m:mrow><m:mo>≤</m:mo><m:mi>T</m:mi><m:mo>(</m:mo><m:mn>1</m:mn><m:mo>+</m:mo><m:mi>δ</m:mi><m:mo>)</m:mo><m:mo>}</m:mo><m:mo>.</m:mo></m:mrow></m:mrow></m:math></equation>
+We then have
+<equation id="uid16"><m:math mode="display"><m:mtable displaystyle="true"><m:mtr><m:mtd columnalign="right"><m:mrow><m:mrow><m:mo>|</m:mo><m:mi>f</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>-</m:mo><m:mover><m:mi>f</m:mi> <m:mo>¯</m:mo></m:mover><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo><m:mo>|</m:mo></m:mrow></m:mrow></m:mtd><m:mtd><m:mo>≤</m:mo></m:mtd><m:mtd columnalign="left"><m:mrow><m:munder><m:mo>∑</m:mo> <m:mrow><m:mi>n</m:mi><m:mo>∈</m:mo><m:msub><m:mi>N</m:mi> <m:mi>T</m:mi> </m:msub></m:mrow> </m:munder><m:mfenced separators="" open="|" close="|"><m:mi>f</m:mi><m:mfenced separators="" open="(" close=")"><m:mfrac><m:mi>n</m:mi> <m:mrow><m:mi>λ</m:mi><m:mi>A</m:mi></m:mrow></m:mfrac></m:mfenced><m:mo>-</m:mo><m:mover><m:mi>f</m:mi> <m:mo>¯</m:mo></m:mover><m:mfenced separators="" open="(" close=")"><m:mfrac><m:mi>n</m:mi> <m:mrow><m:mi>λ</m:mi><m:mi>A</m:mi></m:mrow></m:mfrac></m:mfenced></m:mfenced><m:mrow><m:mo>·</m:mo><m:mo>|</m:mo></m:mrow><m:msub><m:mi>g</m:mi> <m:mi>λ</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>λ</m:mi><m:mi>A</m:mi><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>n</m:mi><m:mo>)</m:mo><m:mo>|</m:mo></m:mrow></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd/><m:mtd/><m:mtd columnalign="left"><m:mrow><m:mo>+</m:mo><m:munder><m:mo>∑</m:mo> <m:mrow><m:mrow><m:mo>|</m:mo></m:mrow><m:mfrac><m:mi>n</m:mi> <m:mrow><m:mi>λ</m:mi><m:mi>A</m:mi></m:mrow></m:mfrac><m:mrow><m:mo>|</m:mo><m:mo>&gt;</m:mo><m:mi>T</m:mi><m:mo>(</m:mo><m:mn>1</m:mn><m:mo>+</m:mo><m:mi>δ</m:mi><m:mo>)</m:mo></m:mrow></m:mrow> </m:munder><m:mfenced separators="" open="|" close="|"><m:mi>f</m:mi><m:mfenced separators="" open="(" close=")"><m:mfrac><m:mi>n</m:mi> <m:mrow><m:mi>λ</m:mi><m:mi>A</m:mi></m:mrow></m:mfrac></m:mfenced></m:mfenced><m:mrow><m:mo>·</m:mo><m:mo>|</m:mo></m:mrow><m:msub><m:mi>g</m:mi> <m:mi>λ</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>λ</m:mi><m:mi>A</m:mi><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>n</m:mi><m:mo>)</m:mo><m:mo>|</m:mo></m:mrow></m:mrow></m:mtd></m:mtr></m:mtable></m:math></equation>
+</para>
+<para id="id2250001">The term <m:math><m:mfenced separators="" open="|" close="|"><m:mi>f</m:mi><m:mfenced separators="" open="(" close=")"><m:mfrac><m:mi>n</m:mi> <m:mrow><m:mi>λ</m:mi><m:mi>A</m:mi></m:mrow></m:mfrac></m:mfenced><m:mo>-</m:mo><m:mover><m:mi>f</m:mi> <m:mo>¯</m:mo></m:mover><m:mfenced separators="" open="(" close=")"><m:mfrac><m:mi>n</m:mi> <m:mrow><m:mi>λ</m:mi><m:mi>A</m:mi></m:mrow></m:mfrac></m:mfenced></m:mfenced></m:math> that appears in the
+first summation in (<link target-id="uid16"/>) is bounded by <m:math><m:mrow><m:mi>M</m:mi><m:mo>·</m:mo><m:msup><m:mn>2</m:mn> <m:mrow><m:mo>-</m:mo><m:mi>k</m:mi><m:mo>-</m:mo><m:msub><m:mi>k</m:mi> <m:mn>0</m:mn> </m:msub></m:mrow> </m:msup></m:mrow></m:math>. The term <m:math><m:mfenced separators="" open="|" close="|"><m:mi>f</m:mi><m:mfenced separators="" open="(" close=")"><m:mfrac><m:mi>n</m:mi> <m:mrow><m:mi>λ</m:mi><m:mi>A</m:mi></m:mrow></m:mfrac></m:mfenced></m:mfenced></m:math> that appears in the second summation in the same equation
+is bounded by <m:math><m:mi>M</m:mi></m:math>. Therefore,
+<equation id="uid17">
+<m:math mode="display"><m:mtable displaystyle="true"><m:mtr><m:mtd columnalign="right"><m:mrow><m:mrow><m:mo>|</m:mo><m:mi>f</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>-</m:mo><m:mover><m:mi>f</m:mi> <m:mo>¯</m:mo></m:mover><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo><m:mo>|</m:mo></m:mrow></m:mrow></m:mtd><m:mtd><m:mo>≤</m:mo></m:mtd><m:mtd columnalign="left"><m:mrow><m:munder><m:mo>∑</m:mo> <m:mrow><m:mi>n</m:mi><m:mo>∈</m:mo><m:msub><m:mi>N</m:mi> <m:mi>T</m:mi> </m:msub></m:mrow> </m:munder><m:mi>M</m:mi><m:mo>·</m:mo><m:msup><m:mn>2</m:mn> <m:mrow><m:mo>-</m:mo><m:mi>k</m:mi><m:mo>-</m:mo><m:msub><m:mi>k</m:mi> <m:mn>0</m:mn> </m:msub></m:mrow> </m:msup><m:mrow><m:mo>·</m:mo><m:mo>|</m:mo></m:mrow><m:msub><m:mi>g</m:mi> <m:mi>λ</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>λ</m:mi><m:mi>A</m:mi><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>n</m:mi><m:mo>)</m:mo><m:mo>|</m:mo></m:mrow></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd/><m:mtd/><m:mtd columnalign="left"><m:mrow><m:mo>+</m:mo><m:munder><m:mo>∑</m:mo> <m:mrow><m:mrow><m:mo>|</m:mo></m:mrow><m:mfrac><m:mi>n</m:mi> <m:mrow><m:mi>λ</m:mi><m:mi>A</m:mi></m:mrow></m:mfrac><m:mrow><m:mo>|</m:mo><m:mo>&gt;</m:mo><m:mi>T</m:mi><m:mo>(</m:mo><m:mn>1</m:mn><m:mo>+</m:mo><m:mi>δ</m:mi><m:mo>)</m:mo></m:mrow></m:mrow> </m:munder><m:mrow><m:mi>M</m:mi><m:mo>·</m:mo><m:mo>|</m:mo></m:mrow><m:msub><m:mi>g</m:mi> <m:mi>λ</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>λ</m:mi><m:mi>A</m:mi><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>n</m:mi><m:mo>)</m:mo><m:mo>|</m:mo></m:mrow><m:mo>=</m:mo><m:mo>:</m:mo><m:msub><m:mi>S</m:mi> <m:mn>1</m:mn> </m:msub><m:mo>+</m:mo><m:msub><m:mi>S</m:mi> <m:mn>2</m:mn> </m:msub></m:mrow></m:mtd></m:mtr></m:mtable></m:math></equation>
+We can estimate 
+<m:math><m:msub><m:mi>S</m:mi> <m:mn>1</m:mn> </m:msub></m:math>
+by
+<equation id="id2250413"><m:math mode="display"><m:mtable displaystyle="true"><m:mtr><m:mtd columnalign="right"><m:msub><m:mi>S</m:mi> <m:mn>1</m:mn> </m:msub></m:mtd><m:mtd><m:mo>=</m:mo></m:mtd><m:mtd columnalign="left"><m:mrow><m:munder><m:mo>∑</m:mo> <m:mrow><m:mi>n</m:mi><m:mo>∈</m:mo><m:msub><m:mi>N</m:mi> <m:mi>T</m:mi> </m:msub></m:mrow> </m:munder><m:mi>M</m:mi><m:mo>·</m:mo><m:msup><m:mn>2</m:mn> <m:mrow><m:mo>-</m:mo><m:mi>k</m:mi><m:mo>-</m:mo><m:msub><m:mi>k</m:mi> <m:mn>0</m:mn> </m:msub></m:mrow> </m:msup><m:mrow><m:mo>·</m:mo><m:mo>|</m:mo></m:mrow><m:msub><m:mi>g</m:mi> <m:mi>λ</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>λ</m:mi><m:mi>A</m:mi><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>n</m:mi><m:mo>)</m:mo><m:mo>|</m:mo></m:mrow></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd/><m:mtd><m:mo>≤</m:mo></m:mtd><m:mtd columnalign="left"><m:mrow><m:mi>M</m:mi><m:mo>·</m:mo><m:msup><m:mn>2</m:mn> <m:mrow><m:mo>-</m:mo><m:mi>k</m:mi><m:mo>-</m:mo><m:msub><m:mi>k</m:mi> <m:mn>0</m:mn> </m:msub></m:mrow> </m:msup><m:mo>·</m:mo><m:munder><m:mo>∑</m:mo> <m:mi>n</m:mi> </m:munder><m:mrow><m:mo>|</m:mo></m:mrow><m:msub><m:mi>g</m:mi> <m:mi>λ</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>λ</m:mi><m:mi>A</m:mi><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>n</m:mi><m:mo>)</m:mo><m:mo>|</m:mo></m:mrow></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd/><m:mtd><m:mo>≤</m:mo></m:mtd><m:mtd columnalign="left"><m:mrow><m:mi>M</m:mi><m:mo>·</m:mo><m:msub><m:mi>C</m:mi> <m:mn>0</m:mn> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>λ</m:mi><m:mo>)</m:mo></m:mrow><m:mo>·</m:mo><m:msup><m:mn>2</m:mn> <m:mrow><m:mo>-</m:mo><m:mi>k</m:mi><m:mo>-</m:mo><m:msub><m:mi>k</m:mi> <m:mn>0</m:mn> </m:msub></m:mrow> </m:msup><m:mspace width="0.277778em"/><m:mspace width="0.277778em"/><m:mspace width="0.277778em"/><m:mspace width="0.277778em"/><m:mspace width="0.277778em"/><m:mspace width="0.277778em"/><m:mspace width="0.277778em"/><m:mspace width="0.277778em"/><m:mspace width="0.277778em"/><m:mspace width="0.277778em"/><m:mtext>(because</m:mtext><m:mspace width="4.pt"/><m:mrow><m:mi>g</m:mi><m:mo>(</m:mo><m:mo>·</m:mo><m:mo>)</m:mo></m:mrow><m:mspace width="4.pt"/><m:mtext>decays</m:mtext><m:mspace width="4.pt"/><m:mtext>fast)</m:mtext></m:mrow></m:mtd></m:mtr></m:mtable></m:math></equation>
+Therefore, if we choose <m:math><m:msub><m:mi>k</m:mi> <m:mn>0</m:mn> </m:msub></m:math> sufficiently large, then  <m:math><m:mrow><m:msub><m:mi>S</m:mi> <m:mn>1</m:mn> </m:msub><m:mo>≤</m:mo><m:mi>M</m:mi><m:mo>·</m:mo><m:msub><m:mi>C</m:mi> <m:mn>0</m:mn> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>λ</m:mi><m:mo>)</m:mo></m:mrow><m:mo>·</m:mo><m:msup><m:mn>2</m:mn> <m:mrow><m:mo>-</m:mo><m:mi>k</m:mi><m:mo>-</m:mo><m:msub><m:mi>k</m:mi> <m:mn>0</m:mn> </m:msub></m:mrow> </m:msup><m:mo>≤</m:mo><m:mfrac><m:mi>ϵ</m:mi> <m:mn>2</m:mn></m:mfrac></m:mrow></m:math>.
+The second summation <m:math><m:msub><m:mi>S</m:mi> <m:mn>2</m:mn> </m:msub></m:math> can also be bounded by <m:math><m:mrow><m:mi>ϵ</m:mi><m:mo>/</m:mo><m:mn>2</m:mn></m:mrow></m:math> by using the fast
+decay of the function <m:math><m:msub><m:mi>g</m:mi> <m:mi>λ</m:mi> </m:msub></m:math> (see (<link target-id="uid3"/>)).</para>
+<para id="id2250887">To make the encoder/decoder specific we need to precisely define <m:math><m:mi>δ</m:mi></m:math> and <m:math><m:mi>λ</m:mi></m:math>. It turns out that the best choices (in terms of bit rate performance on the class <m:math><m:msub><m:mi>B</m:mi> <m:mi>A</m:mi> </m:msub></m:math>) depend on <m:math><m:mi>T</m:mi></m:math>. But <m:math><m:mrow><m:msub><m:mi>δ</m:mi> <m:mi>T</m:mi> </m:msub><m:mo>→</m:mo><m:mn>0</m:mn></m:mrow></m:math> and <m:math><m:mrow><m:msub><m:mi>λ</m:mi> <m:mi>T</m:mi> </m:msub><m:mo>→</m:mo><m:mn>1</m:mn></m:mrow></m:math> as <m:math><m:mrow><m:mi>T</m:mi><m:mo>→</m:mo><m:mi>∞</m:mi></m:mrow></m:math>. Recall that
+Shannon sampling requires <m:math><m:mrow><m:mn>2</m:mn><m:mi>T</m:mi><m:mi>λ</m:mi><m:mi>A</m:mi></m:mrow></m:math> samples. Since our encoder/decoder uses <m:math><m:mrow><m:mi>k</m:mi><m:mo>+</m:mo><m:msub><m:mi>k</m:mi> <m:mn>0</m:mn> </m:msub></m:mrow></m:math> bits per sample, the total number of bits is <m:math><m:mrow><m:mo>(</m:mo><m:mi>k</m:mi><m:mo>+</m:mo><m:msub><m:mi>k</m:mi> <m:mn>0</m:mn> </m:msub><m:mo>)</m:mo><m:mo>·</m:mo><m:mn>2</m:mn><m:mi>λ</m:mi><m:mi>A</m:mi><m:mi>T</m:mi><m:mo>(</m:mo><m:mn>1</m:mn><m:mo>+</m:mo><m:mi>δ</m:mi><m:mo>)</m:mo></m:mrow></m:math>, and so coding will require
+roughly <m:math><m:mi>k</m:mi></m:math> bits per Shannon sample.</para>
+<para id="id2251064">This encoder/decoder can be proven to be optimal in the sense of averaged performance as we shall now describe. The average of performance of optimal encoding is defined by
+<equation id="uid18"><m:math mode="display"><m:mrow><m:munder>
+              <m:mi>lim</m:mi>
+              <m:mrow>
+                <m:mi>T</m:mi>
+                <m:mo stretchy="false">→</m:mo>
+                <m:mi>∞</m:mi>
+              </m:mrow>
+            </m:munder><m:mfrac><m:mrow><m:msub><m:mi>n</m:mi> <m:mi>ϵ</m:mi> </m:msub><m:mfenced separators="" open="(" close=")"><m:msub><m:mi>B</m:mi> <m:mi>A</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>M</m:mi><m:mo>)</m:mo></m:mrow><m:mo>,</m:mo><m:msub><m:mi>L</m:mi> <m:mi>∞</m:mi> </m:msub><m:mrow><m:mo>⌊</m:mo><m:mo>-</m:mo><m:mi>T</m:mi><m:mo>,</m:mo><m:mi>T</m:mi><m:mo>⌋</m:mo></m:mrow></m:mfenced></m:mrow> <m:mrow><m:mn>2</m:mn><m:mi>T</m:mi></m:mrow></m:mfrac></m:mrow></m:math></equation>
+If we replace the optimal bit rate <m:math><m:msub><m:mi>n</m:mi> <m:mi>ϵ</m:mi> </m:msub></m:math> in (<link target-id="uid18"/>) by the number of bits required by our encoder/decoder
+then the resulting limit will be the same as that in (<link target-id="uid18"/>).</para>
+<para id="id2251198">In summary, to encode band limited signals on an interval <m:math><m:mrow><m:mo>[</m:mo><m:mo>-</m:mo><m:mi>T</m:mi><m:mo>,</m:mo><m:mi>T</m:mi><m:mo>]</m:mo></m:mrow></m:math>, an optimal strategy is to sample at a slightly higher rate than Nyquist and on a slightly large interval than <m:math><m:mrow><m:mo>[</m:mo><m:mo>-</m:mo><m:mi>T</m:mi><m:mo>,</m:mo><m:mi>T</m:mi><m:mo>]</m:mo></m:mrow></m:math>. Each sample should then be quantized by using the binary expansion of the sample. In this way, for an investment of <m:math><m:mi>k</m:mi></m:math> bits per Nyquist rate sample, we get a distortion of
+<m:math><m:msup><m:mn>2</m:mn> <m:mrow><m:mo>-</m:mo><m:mi>k</m:mi></m:mrow> </m:msup></m:math>.</para>
+<para id="id2251275">To get a feel for the number of bits required by such an encoder, let us say <m:math><m:mrow><m:mi>A</m:mi><m:mo>=</m:mo><m:msup><m:mn>10</m:mn> <m:mn>6</m:mn> </m:msup></m:mrow></m:math> (signals
+band limited to 1Mhz). Say <m:math><m:mrow><m:mi>T</m:mi><m:mo>=</m:mo><m:mn>24</m:mn><m:mspace width="4.pt"/><m:mtext>hours</m:mtext><m:mo>≈</m:mo><m:msup><m:mn>10</m:mn> <m:mn>5</m:mn> </m:msup><m:mspace width="4.pt"/><m:mtext>seconds</m:mtext></m:mrow></m:math>, and <m:math><m:mrow><m:mi>k</m:mi><m:mo>=</m:mo><m:mn>10</m:mn></m:mrow></m:math> bits. Then, <m:math><m:mrow><m:mi>A</m:mi><m:mo>·</m:mo><m:mi>k</m:mi><m:mo>·</m:mo><m:mn>2</m:mn><m:mi>T</m:mi><m:mo>=</m:mo><m:msup><m:mn>10</m:mn> <m:mn>6</m:mn> </m:msup><m:mo>·</m:mo><m:mn>10</m:mn><m:mo>·</m:mo><m:msup><m:mn>10</m:mn> <m:mn>5</m:mn> </m:msup><m:mo>=</m:mo><m:msup><m:mn>10</m:mn> <m:mn>12</m:mn> </m:msup></m:mrow></m:math> bits. This is too BIG!</para>
+<para id="id2251404">The above encoding is is known as Pulse Coded Modulation (PCM). In practice,
+people frequently use another encoder called Sigma-Delta Modulation. Instead of oversampling
+just slightly, Sigma Delta over samples a lot and then assign only one (or a few) bits per sample.</para>
+<para id="id2251412">Why is Sigma-Delta preferred to PCM in practice? There are two reasons commonly given:</para>
+<list id="id2251417" list-type="enumerated">
+<item>Getting accurate samples, quantization, etc. is not
+practical because of noise. For better accuracy, we need more
+expensive hardware.
+</item>
+<item>Noise shaping. In Sigma-Delta, the distortion is higher
+but the distortion is spread over frequencies outside of the desired
+range.
+</item></list>
+<para id="id2251445">In PCM, the distortion decays exponentially (like <m:math><m:msup><m:mn>2</m:mn> <m:mrow><m:mo>-</m:mo><m:mi>k</m:mi></m:mrow> </m:msup></m:math>), whereas
+for Sigma-Delta, the distortion decays like a polynomial (like
+<m:math><m:mfrac><m:mn>1</m:mn> <m:msup><m:mi>k</m:mi> <m:mi>m</m:mi> </m:msup></m:mfrac></m:math>). Although the distortion decays faster in PCM, the
+distortion in Sigma-Delta is spread outside the desired frequency
+range.</para>
+
+  </content>
+</document>

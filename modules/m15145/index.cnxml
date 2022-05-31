@@ -1,0 +1,185 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Summary</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>e644fda6-fda8-4343-a756-6cea6135c3bf</md:uuid>
+</metadata>
+<content>
+
+  <section id="id2246179"><title>Review</title>
+    <para id="id2246186">Last time we proved that for each
+      <m:math>
+        <m:mrow>
+          <m:mi>k</m:mi>
+          <m:mo>≤</m:mo>
+          <m:msub>
+            <m:mi>c</m:mi> 
+            <m:mn>0</m:mn>  
+          </m:msub>
+          <m:mfrac>
+            <m:mi>n</m:mi> 
+            <m:mrow>
+              <m:mo form="prefix">log</m:mo>
+              <m:mi>N</m:mi>
+              <m:mo>/</m:mo>
+              <m:mi>n</m:mi>
+            </m:mrow>
+          </m:mfrac>
+        </m:mrow>
+      </m:math>, 
+      there exists an <m:math><m:mrow><m:mi>n</m:mi><m:mo>×</m:mo><m:mi>N</m:mi></m:mrow></m:math> matrix <m:math><m:mi>Φ</m:mi></m:math>
+and a decoder <m:math><m:mi>Δ</m:mi></m:math> such that
+<list id="id2246266" list-type="labeled-item"><item><label>(a)</label>
+<m:math><m:mrow><m:mo>∥</m:mo><m:mi>x</m:mi><m:mo>-</m:mo><m:mi>Δ</m:mi><m:mi>Φ</m:mi><m:mo>(</m:mo><m:mi>x</m:mi><m:mo>)</m:mo><m:msub><m:mo>∥</m:mo> <m:msub><m:mi>ℓ</m:mi> <m:mn>1</m:mn> </m:msub> </m:msub><m:mo>≤</m:mo><m:msub><m:mi>c</m:mi> <m:mn>0</m:mn> </m:msub><m:msub><m:mi>σ</m:mi> <m:mi>k</m:mi> </m:msub><m:mo>(</m:mo><m:mi>x</m:mi><m:msub><m:mo>)</m:mo> <m:msub><m:mi>ℓ</m:mi> <m:mn>1</m:mn> </m:msub> </m:msub></m:mrow></m:math>
+</item>
+<item><label>(b)</label><m:math><m:mrow><m:mo>∥</m:mo><m:mi>x</m:mi><m:mo>-</m:mo><m:mi>Δ</m:mi><m:mi>Φ</m:mi><m:mo>(</m:mo><m:mi>x</m:mi><m:mo>)</m:mo><m:msub><m:mo>∥</m:mo> <m:msub><m:mi>ℓ</m:mi> <m:mn>2</m:mn> </m:msub> </m:msub><m:mo>≤</m:mo><m:msub><m:mi>c</m:mi> <m:mn>0</m:mn> </m:msub><m:mfrac><m:mrow><m:msub><m:mi>σ</m:mi> <m:mi>k</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>x</m:mi></m:mrow><m:msub><m:mo>)</m:mo> <m:msub><m:mi>ℓ</m:mi> <m:mn>1</m:mn> </m:msub> </m:msub></m:mrow> <m:msqrt><m:mi>k</m:mi></m:msqrt></m:mfrac></m:mrow></m:math>
+</item></list>
+Recall that we can find such a <m:math><m:mi>Φ</m:mi></m:math> by setting the entries
+<m:math><m:mrow><m:mo>[</m:mo><m:mi>Φ</m:mi><m:msub><m:mo>]</m:mo> <m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow> </m:msub><m:mo>=</m:mo><m:msub><m:mi>φ</m:mi> <m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow> </m:msub><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow></m:math> to be realizations of
+independent and identically distributed Gaussian random variables.</para>
+</section>
+
+  <section id="id2246744"><title>Deficiencies</title>
+    <section id="id2246750"><title>Decoding is not implementable</title>
+      <para id="id2246756">
+        Our decoding “algorithm” is:
+        <equation id="id2246760"><m:math mode="display">
+          <m:mrow>
+            <m:mi>Δ</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>y</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>:</m:mo>
+            <m:mo>=</m:mo>
+            <m:msub>
+              <m:mrow>
+                <m:mo form="prefix">arg</m:mo>
+                <m:mo movablelimits="true" form="prefix">min</m:mo>
+              </m:mrow>   
+              <m:mrow>
+                <m:mi>x</m:mi>
+                <m:mo>∈</m:mo>
+                <m:mi mathvariant="script">F</m:mi>
+                <m:mo>(</m:mo>
+                <m:mi>y</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow> 
+            </m:msub>
+            <m:msub>
+      <m:mi>σ</m:mi> 
+      <m:mi>k</m:mi> 
+    </m:msub>
+    <m:msub>
+      <m:mrow>  
+        <m:mo>(</m:mo>
+        <m:mi>x</m:mi>
+        <m:mo>)</m:mo>
+      </m:mrow>
+      <m:mrow>
+        <m:msub>
+          <m:mi>ℓ</m:mi>
+          <m:mn>1</m:mn> 
+        </m:msub>
+      </m:mrow> 
+    </m:msub>
+  </m:mrow>
+</m:math></equation>
+where <m:math><m:mrow><m:mi mathvariant="script">F</m:mi><m:mo>(</m:mo><m:mi>y</m:mi><m:mo>)</m:mo><m:mo>:</m:mo><m:mo>=</m:mo><m:mo>{</m:mo><m:mi>x</m:mi><m:mo>:</m:mo><m:mi>Φ</m:mi><m:mo>(</m:mo><m:mi>x</m:mi><m:mo>)</m:mo><m:mo>=</m:mo><m:mi>y</m:mi><m:mo>}</m:mo></m:mrow></m:math>. In general, this
+algorithm is not implementable. This deficiency, however, is
+easily repaired. Specifically, define
+<equation id="id2246893"><m:math mode="display"><m:mrow><m:msub><m:mi>Δ</m:mi> <m:mn>1</m:mn> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>y</m:mi><m:mo>)</m:mo></m:mrow><m:mo>:</m:mo><m:mo>=</m:mo><m:msub><m:mrow><m:mo form="prefix">arg</m:mo><m:mo movablelimits="true" form="prefix">min</m:mo></m:mrow> <m:mrow><m:mi>x</m:mi><m:mo>∈</m:mo><m:mi mathvariant="script">F</m:mi><m:mo>(</m:mo><m:mi>y</m:mi><m:mo>)</m:mo></m:mrow> </m:msub>
+<m:msub>
+  <m:mrow>
+    <m:mo>∥</m:mo>
+    <m:mi>x</m:mi>
+    <m:mo>∥</m:mo> 
+  </m:mrow>
+  <m:mrow>
+    <m:msub>
+      <m:mi>ℓ</m:mi> 
+      <m:mn>1</m:mn> 
+    </m:msub>
+  </m:mrow> 
+</m:msub><m:mo>.</m:mo></m:mrow></m:math></equation>
+Then (a) and (b) hold for <m:math><m:msub><m:mi>Δ</m:mi> <m:mn>1</m:mn> </m:msub></m:math> in place of <m:math><m:mi>Δ</m:mi></m:math>. This
+decoding algorithm is equivalent to solving a linear programming
+problem, thus it is tractable and can be solved using techniques
+such as the interior point method or the simplex method. In
+general, these algorithms have computational complexity <m:math><m:mrow><m:mi>O</m:mi><m:mo>(</m:mo><m:msup><m:mi>N</m:mi> <m:mn>3</m:mn> </m:msup><m:mo>)</m:mo></m:mrow></m:math>.
+For very large signals this can become prohibitive, and hence
+there has been a considerable amount of research in faster
+decoders (such as decoding using greedy algorithms).
+      </para>
+    </section>
+
+    <section id="id2247037"><title>We cannot generate such Φ</title>
+      <para id="id2247051">
+        The construction of a <m:math><m:mi>Φ</m:mi></m:math> from realizations of Gaussian random
+variables is guaranteed to work with high probability.
+However, we would like to know, given a particular instance of
+<m:math><m:mi>Φ</m:mi></m:math>, do (a) and (b) still hold. Unfortunately, this is
+impossible to check (since, to show that <m:math><m:mi>Φ</m:mi></m:math> satisfies the MRIP
+for <m:math><m:mi>k</m:mi></m:math>, we need to consider all possible submatrices of
+<m:math><m:mi>Φ</m:mi></m:math>). Furthermore, we would like to build <m:math><m:mi>Φ</m:mi></m:math> that can be
+implemented in circuits. We also might want fast decoders <m:math><m:mi>Δ</m:mi></m:math>
+for these <m:math><m:mi>Φ</m:mi></m:math>. Thus we also may need to be more restrictive in
+building <m:math><m:mi>Φ</m:mi></m:math>. Two possible approaches that move in this
+direction are as follows:</para>
+<list id="id2247157" list-type="enumerated">
+<item>Find <m:math><m:mi>Φ</m:mi></m:math> that we can build such that we can prove
+instance optimality in <m:math><m:msub><m:mi>ℓ</m:mi> <m:mn>1</m:mn> </m:msub></m:math> for a smaller range of <m:math><m:mi>k</m:mi></m:math>, 
+i.e.,
+<equation id="id2247199"><m:math mode="display"><m:mrow><m:mo>∥</m:mo><m:mi>x</m:mi><m:mo>-</m:mo><m:mi>Δ</m:mi><m:mi>Φ</m:mi><m:mo>(</m:mo><m:mi>x</m:mi><m:mo>)</m:mo><m:msub><m:mo>∥</m:mo> <m:msub><m:mi>ℓ</m:mi> <m:mn>1</m:mn> </m:msub> </m:msub><m:mo>≤</m:mo><m:msub><m:mi>c</m:mi> <m:mn>0</m:mn> </m:msub><m:msub><m:mi>σ</m:mi> <m:mi>k</m:mi> </m:msub><m:mo>(</m:mo><m:mi>x</m:mi><m:msub><m:mo>)</m:mo> <m:msub><m:mi>ℓ</m:mi> <m:mn>1</m:mn> </m:msub> </m:msub></m:mrow></m:math></equation>
+for
+<m:math><m:mrow><m:mi>k</m:mi><m:mo>&lt;</m:mo><m:mi>K</m:mi></m:mrow></m:math>. If we are willing to sacrifice and let <m:math><m:mi>K</m:mi></m:math> be
+smaller than before, for example, <m:math><m:mrow><m:mi>K</m:mi><m:mo>≈</m:mo><m:msqrt><m:mi>n</m:mi></m:msqrt></m:mrow></m:math>, then we
+might be able to prove that <m:math><m:mrow><m:msubsup><m:mi>Φ</m:mi> <m:mi>T</m:mi> <m:mi>t</m:mi> </m:msubsup><m:msub><m:mi>Φ</m:mi> <m:mi>T</m:mi> </m:msub></m:mrow></m:math> is diagonally
+dominant for all <m:math><m:mi>T</m:mi></m:math> such that <m:math><m:mrow><m:mo>♯</m:mo><m:mi>T</m:mi><m:mo>=</m:mo><m:mn>2</m:mn><m:mi>k</m:mi></m:mrow></m:math>, which would ensure
+that <m:math><m:mi>Φ</m:mi></m:math> satisfies the MRIP.
+</item>
+<item>
+Consider <m:math><m:mrow><m:mi>Φ</m:mi><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow></m:math> where <m:math><m:mi>ω</m:mi></m:math> is a random
+seed that generates a <m:math><m:mi>Φ</m:mi></m:math>. It is possible to show that give
+<m:math><m:mi>x</m:mi></m:math>, with high probability, <m:math><m:mrow><m:mi>Φ</m:mi><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo><m:mo>(</m:mo><m:mi>x</m:mi><m:mo>)</m:mo><m:mo>=</m:mo><m:mi>y</m:mi></m:mrow></m:math> encodes <m:math><m:mi>x</m:mi></m:math> in
+an <m:math><m:msub><m:mi>ℓ</m:mi> <m:mn>2</m:mn> </m:msub></m:math>-instance optimal fashion:
+<equation id="id2247491"><m:math mode="display"><m:mrow><m:mo>∥</m:mo><m:mi>x</m:mi><m:mo>-</m:mo><m:mover><m:mi>x</m:mi> <m:mo>¯</m:mo></m:mover><m:msub><m:mo>∥</m:mo> <m:msub><m:mi>ℓ</m:mi> <m:mn>2</m:mn> </m:msub> </m:msub><m:mo>≤</m:mo><m:mn>2</m:mn><m:msub><m:mi>σ</m:mi> <m:mi>k</m:mi> </m:msub><m:mo>(</m:mo><m:mi>x</m:mi><m:msub><m:mo>)</m:mo> <m:msub><m:mi>ℓ</m:mi> <m:mn>2</m:mn> </m:msub> </m:msub></m:mrow></m:math></equation>
+for 
+<m:math><m:mrow><m:mi>k</m:mi><m:mo>≤</m:mo><m:msub><m:mi>c</m:mi> <m:mn>0</m:mn> </m:msub><m:mfrac><m:mi>n</m:mi> <m:mrow><m:mo>(</m:mo><m:mo form="prefix">log</m:mo><m:mi>N</m:mi><m:mo>/</m:mo><m:mi>n</m:mi><m:msup><m:mo>)</m:mo> <m:mrow><m:mn>5</m:mn><m:mo>/</m:mo><m:mn>2</m:mn></m:mrow> </m:msup></m:mrow></m:mfrac></m:mrow></m:math>. Thus, by generating
+many such matrices we can recover any <m:math><m:mi>x</m:mi></m:math> with high
+probability.
+</item>
+</list>
+</section>
+<section id="id2247631"><title>Encoding signals</title>
+<para id="id2247637">Another practical problem is that of
+encoding the measurements <m:math><m:mi>y</m:mi></m:math>. In a real system these measurements
+must be quantized. This problem was addressed by Candes, Romberg,
+and Tao in their paper Stable Signal Recovery from Incomplete
+and Inaccurate Measurements. They prove that if <m:math><m:mi>y</m:mi></m:math> is quantized
+to <m:math><m:mover><m:mi>y</m:mi> <m:mo>¯</m:mo></m:mover></m:math>, and if <m:math><m:mrow><m:mi>x</m:mi><m:mo>∈</m:mo><m:mi>U</m:mi><m:mo>(</m:mo><m:msub><m:mi>ℓ</m:mi> <m:mi>p</m:mi> </m:msub><m:mo>)</m:mo></m:mrow></m:math> for <m:math><m:mrow><m:mi>p</m:mi><m:mo>≤</m:mo><m:mn>1</m:mn></m:mrow></m:math>, then
+we get optimal performance in terms the number of bits required
+for a given accuracy. Notice that their result applies only to
+the case where <m:math><m:mrow><m:mi>p</m:mi><m:mo>≤</m:mo><m:mn>1</m:mn></m:mrow></m:math>. One might expect that this argument
+could be extended to <m:math><m:mi>p</m:mi></m:math> between 1 and 2, but a warning is in
+order at this stage:</para>
+<para id="id2247751">Fix <m:math><m:mrow><m:mn>1</m:mn><m:mo>&lt;</m:mo><m:mi>p</m:mi><m:mo>≤</m:mo><m:mn>2</m:mn></m:mrow></m:math>. Then there exist <m:math><m:mi>Φ</m:mi></m:math> and <m:math><m:mi>Δ</m:mi></m:math>
+satisfying
+<equation id="id2247792"><m:math mode="display"><m:mrow><m:mo>∥</m:mo><m:mi>x</m:mi><m:mo>-</m:mo><m:mi>Δ</m:mi><m:mi>Φ</m:mi><m:mo>(</m:mo><m:mi>x</m:mi><m:mo>)</m:mo><m:msub><m:mo>∥</m:mo> <m:msub><m:mi>ℓ</m:mi> <m:mi>p</m:mi> </m:msub> </m:msub><m:mo>≤</m:mo><m:msub><m:mi>C</m:mi> <m:mn>0</m:mn> </m:msub><m:msub><m:mi>σ</m:mi> <m:mi>k</m:mi> </m:msub><m:mo>(</m:mo><m:mi>x</m:mi><m:msub><m:mo>)</m:mo> <m:msub><m:mi>ℓ</m:mi> <m:mi>p</m:mi> </m:msub> </m:msub></m:mrow></m:math></equation>
+if
+<equation id="id2247874"><m:math mode="display"><m:mrow><m:mi>k</m:mi><m:mo>≤</m:mo><m:msub><m:mi>c</m:mi> <m:mn>0</m:mn> </m:msub><m:msup><m:mi>N</m:mi> <m:mfrac><m:mrow><m:mn>2</m:mn><m:mo>-</m:mo><m:mn>2</m:mn><m:mo>/</m:mo><m:mi>p</m:mi></m:mrow> <m:mrow><m:mn>1</m:mn><m:mo>-</m:mo><m:mn>2</m:mn><m:mo>/</m:mo><m:mi>p</m:mi></m:mrow></m:mfrac> </m:msup><m:msup><m:mfenced separators="" open="(" close=")"><m:mfrac><m:mi>n</m:mi> <m:mrow><m:mo form="prefix">log</m:mo><m:mi>N</m:mi><m:mo>/</m:mo><m:mi>n</m:mi></m:mrow></m:mfrac></m:mfenced> <m:mfrac><m:mi>p</m:mi> <m:mrow><m:mn>2</m:mn><m:mo>-</m:mo><m:mi>p</m:mi></m:mrow></m:mfrac> </m:msup><m:mo>.</m:mo></m:mrow></m:math></equation>
+Furthermore, this range of k is the best possible (save for the
+<m:math><m:mo form="prefix">log</m:mo></m:math> term).</para>
+
+<para id="id2247989">Examples:</para>
+<list id="id2247996" list-type="bulleted">
+<item><m:math><m:mrow><m:mi>p</m:mi><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow></m:math>, we get our original results
+</item>
+<item><m:math><m:mrow><m:mi>p</m:mi><m:mo>=</m:mo><m:mn>2</m:mn></m:mrow></m:math>, we do not
+get instance optimal for <m:math><m:mrow><m:mi>k</m:mi><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow></m:math> unless <m:math><m:mrow><m:mi>n</m:mi><m:mo>≈</m:mo><m:mi>N</m:mi></m:mrow></m:math>
+</item>
+<item><m:math><m:mrow><m:mi>p</m:mi><m:mo>=</m:mo><m:mfrac><m:mn>3</m:mn> <m:mn>2</m:mn></m:mfrac></m:mrow></m:math>, we only get instance optimal if <m:math><m:mrow><m:mi>k</m:mi><m:mo>≤</m:mo><m:msub><m:mi>c</m:mi> <m:mn>0</m:mn> </m:msub><m:msup><m:mi>N</m:mi> <m:mrow><m:mo>-</m:mo><m:mn>2</m:mn></m:mrow> </m:msup><m:msup><m:mfenced separators="" open="(" close=")"><m:mfrac><m:mi>n</m:mi> <m:mrow><m:mo form="prefix">log</m:mo><m:mi>N</m:mi><m:mo>/</m:mo><m:mi>n</m:mi></m:mrow></m:mfrac></m:mfenced> <m:mn>3</m:mn> </m:msup></m:mrow></m:math>
+</item></list>
+</section></section>
+
+  </content>
+</document>

@@ -1,0 +1,46 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Optimal Encoding</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>acfe5368-4544-4fa4-9c4b-5ecf706dbd4d</md:uuid>
+</metadata>
+  <content>
+
+
+
+
+
+
+<para id="id2247204">We shall consider now the encoding of signals on <m:math><m:mrow><m:mo>[</m:mo><m:mo>-</m:mo><m:mi>T</m:mi><m:mo>,</m:mo><m:mi>T</m:mi><m:mo>]</m:mo></m:mrow></m:math> where <m:math><m:mrow><m:mi>T</m:mi><m:mo>&gt;</m:mo><m:mn>0</m:mn></m:mrow></m:math> is fixed.
+Ultimately we shall be interested in encoding classes of bandlimited signals like the class <m:math><m:msub><m:mi>B</m:mi> <m:mi>A</m:mi> </m:msub></m:math>
+However, we begin the story by considering the more general setting of encoding
+the elements of any given compact subset <m:math><m:mi>K</m:mi></m:math> of a normed linear space <m:math><m:mi>X</m:mi></m:math>. One can determine
+the best encoding of <m:math><m:mi>K</m:mi></m:math> by what is known as the Kolmogorov entropy of <m:math><m:mi>K</m:mi></m:math> in <m:math><m:mi>X</m:mi></m:math>.</para>
+<para id="id2247308">To begin, let us consider an encoder-decoder pair <m:math><m:mrow><m:mo>(</m:mo><m:mi>E</m:mi><m:mo>,</m:mo><m:mi>D</m:mi><m:mo>)</m:mo></m:mrow></m:math>
+<m:math><m:mi>E</m:mi></m:math> maps <m:math><m:mi>K</m:mi></m:math> to a finite stream of bits. 
+<m:math><m:mi>D</m:mi></m:math> maps a stream of bits to a signal in <m:math><m:mi>X</m:mi></m:math>.
+This is illustrated in <link target-id="uid7"/>.
+Note that many functions can be mapped onto the same bitstream.
+
+<figure id="uid7"><media id="idp7986704" alt=""><image src="../../media/figure3.png" mime-type="image/png"/><image for="pdf" src="../../media/figure3.eps" mime-type="application/postscript"/></media>
+<caption>Illustration of encoding and
+decoding.</caption></figure></para>
+<para id="id2247386">Define the distortion <m:math><m:mi>d</m:mi></m:math> for this encoder-decoder by
+<equation id="uid6"><m:math mode="display"><m:mrow><m:mi>d</m:mi><m:mrow><m:mo>(</m:mo><m:mi>K</m:mi><m:mo>,</m:mo><m:mi>E</m:mi><m:mo>,</m:mo><m:mi>D</m:mi><m:mo>,</m:mo><m:mi>X</m:mi><m:mo>)</m:mo></m:mrow><m:mo>:</m:mo><m:mo>=</m:mo><m:mtext>sup</m:mtext><m:msub><m:mspace width="4.pt"/> <m:mrow><m:mi>f</m:mi><m:mo>∈</m:mo><m:mi>K</m:mi></m:mrow> </m:msub><m:mo>∥</m:mo><m:mi>f</m:mi><m:mo>-</m:mo><m:mi>D</m:mi><m:mrow><m:mo>(</m:mo><m:mi>E</m:mi><m:mi>f</m:mi><m:mo>)</m:mo></m:mrow><m:msub><m:mo>∥</m:mo> <m:mover><m:munder><m:mi>X</m:mi> <m:mo>̲</m:mo></m:munder> <m:mo>¯</m:mo></m:mover> </m:msub><m:mo>.</m:mo></m:mrow></m:math></equation>
+Let <m:math><m:mrow><m:mi>n</m:mi><m:mrow><m:mo>(</m:mo><m:mi>K</m:mi><m:mo>,</m:mo><m:mi>E</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mtext>sup</m:mtext><m:msub><m:mspace width="4.pt"/> <m:mrow><m:mi>f</m:mi><m:mo>∈</m:mo><m:mi>K</m:mi></m:mrow> </m:msub><m:mo>#</m:mo><m:mi>E</m:mi><m:mi>f</m:mi></m:mrow></m:math> where
+<m:math><m:mrow><m:mo>#</m:mo><m:mi>E</m:mi><m:mi>f</m:mi></m:mrow></m:math> is the number of bits
+in the bitstream <m:math><m:mrow><m:mi>E</m:mi><m:mi>f</m:mi></m:mrow></m:math>.
+Thus <m:math><m:mi>n</m:mi></m:math> is the maximum
+length of the bitstreams for the various <m:math><m:mrow><m:mi>f</m:mi><m:mo>∈</m:mo><m:mi>K</m:mi></m:mrow></m:math>. There are two ways we can
+define optimal encoding:</para>
+<list id="id2247616" list-type="enumerated">
+<item>Prescribe <m:math><m:mi>ϵ</m:mi></m:math>, the maximum distortion that
+we are willing to tolerate. For this <m:math><m:mi>ϵ</m:mi></m:math>, find the smallest
+<m:math><m:mrow><m:msub><m:mi>n</m:mi> <m:mi>ϵ</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>K</m:mi><m:mo>,</m:mo><m:mi>X</m:mi><m:mo>)</m:mo></m:mrow><m:mo>:</m:mo><m:mo>=</m:mo><m:mtext>inf</m:mtext><m:msub><m:mspace width="4.pt"/> <m:mrow><m:mo>(</m:mo><m:mi>E</m:mi><m:mo>,</m:mo><m:mi>D</m:mi><m:mo>)</m:mo></m:mrow> </m:msub><m:mrow><m:mo>{</m:mo><m:mi>n</m:mi><m:mo>(</m:mo><m:mi>K</m:mi><m:mo>,</m:mo><m:mi>E</m:mi><m:mo>)</m:mo><m:mo>:</m:mo><m:mi>d</m:mi><m:mo>(</m:mo><m:mi>K</m:mi><m:mo>,</m:mo><m:mi>E</m:mi><m:mo>,</m:mo><m:mi>D</m:mi><m:mo>,</m:mo><m:mi>X</m:mi><m:mo>)</m:mo><m:mo>≤</m:mo><m:mi>ϵ</m:mi><m:mo>}</m:mo></m:mrow></m:mrow></m:math>. This is the smallest bit budget under which we could encode all elements of <m:math><m:mi>K</m:mi></m:math> to distortion <m:math><m:mi>ϵ</m:mi></m:math>.
+</item>
+<item>Prescribe <m:math><m:mi>N</m:mi></m:math> : find the smallest distortion <m:math><m:mrow><m:mi>d</m:mi><m:mo>(</m:mo><m:mi>K</m:mi><m:mo>,</m:mo><m:mi>E</m:mi><m:mo>,</m:mo><m:mi>D</m:mi><m:mo>,</m:mo><m:mi>X</m:mi><m:mo>)</m:mo></m:mrow></m:math>
+over all <m:math><m:mrow><m:mi>E</m:mi><m:mo>,</m:mo><m:mi>D</m:mi></m:mrow></m:math> with <m:math><m:mrow><m:mi>n</m:mi><m:mo>(</m:mo><m:mi>K</m:mi><m:mo>,</m:mo><m:mi>E</m:mi><m:mo>)</m:mo><m:mo>≤</m:mo><m:mi>N</m:mi></m:mrow></m:math>. This is the best encoding performance possible
+with a prescribed bit budget.
+</item></list>
+<para id="id2247860">There is a simple mathematical solution to these two encoding problems based on the notion of Kolmogorov Entropy.</para>
+
+  </content>
+</document>

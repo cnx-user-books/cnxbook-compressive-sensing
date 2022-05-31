@@ -1,0 +1,378 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>The Restricted Isometry Property</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>3812b50b-ef1d-4c34-b34a-ee0dfb03c3d9</md:uuid>
+</metadata>
+  <content>
+      <para id="id3252004">We say that an 
+<m:math><m:semantics><m:mrow><m:mi>n</m:mi><m:mo stretchy="false">×</m:mo><m:mi>N</m:mi></m:mrow><m:annotation encoding="StarMath 5.0">n  times N</m:annotation></m:semantics></m:math> matrix 
+<m:math><m:semantics><m:mi>Φ</m:mi><m:annotation encoding="StarMath 5.0">Φ</m:annotation></m:semantics></m:math> has the restricted isometry property (RIP) for 
+<m:math><m:semantics><m:mi>k</m:mi><m:annotation encoding="StarMath 5.0">k</m:annotation></m:semantics></m:math> if for each 
+<m:math><m:semantics><m:mrow><m:mi>T</m:mi><m:mo stretchy="false">⊆</m:mo><m:mrow><m:mo stretchy="false">{</m:mo><m:mrow><m:mn>1</m:mn><m:mi>,</m:mi><m:mo stretchy="false">…</m:mo><m:mi>,</m:mi><m:mi>N</m:mi></m:mrow><m:mo stretchy="false">}</m:mo></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">T  subseteq { lbrace  {1 ,  dotslow  , N}  rbrace}</m:annotation></m:semantics></m:math> such that 
+<m:math><m:semantics><m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>#</m:mtext></m:mrow></m:mstyle><m:mrow><m:mi>T</m:mi><m:mo stretchy="false">≤</m:mo><m:mi>k</m:mi></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">italic "#" T  &lt;= k</m:annotation></m:semantics></m:math> , 
+<m:math><m:semantics><m:msub><m:mi>Φ</m:mi><m:mi>T</m:mi></m:msub><m:annotation encoding="StarMath 5.0">Φ_T</m:annotation></m:semantics></m:math> (the matrix formed by choosing the columns of 
+<m:math><m:semantics><m:mi>Φ</m:mi><m:annotation encoding="StarMath 5.0">Φ</m:annotation></m:semantics></m:math> whose indices are in 
+<m:math><m:semantics><m:mi>T</m:mi><m:annotation encoding="StarMath 5.0">T</m:annotation></m:semantics></m:math> ) has the property </para>
+      <table id="id3275666" summary="">
+<tgroup cols="2"><colspec colnum="1" colname="c1"/>
+          <colspec colnum="2" colname="c2"/>
+          <tbody>
+            <row>
+              <entry>
+                <m:math>
+   <m:mrow>
+      <m:mtable>
+         <m:mtr>
+            <m:mtd>
+               <m:mrow>
+                  <m:mrow>
+                     <m:mrow>
+                        <m:mrow>
+                           <m:mo stretchy="false">(</m:mo>
+                           <m:mrow>
+                              <m:mn>1</m:mn>
+                              <m:mo stretchy="false">−</m:mo>
+                              <m:msub>
+                                <m:mrow>
+                                   <m:mi>δ</m:mi>
+                                </m:mrow>
+                                <m:mrow>
+                                   <m:mi>k</m:mi>
+                                </m:mrow>
+                              </m:msub>
+                           </m:mrow>
+                           <m:mo stretchy="false">)</m:mo>
+                        </m:mrow>
+                        <m:msub>
+                          <m:mrow>
+                             <m:mo>∥</m:mo>
+                             <m:msub>
+                               <m:mrow>
+                                  <m:mi>x</m:mi>
+                               </m:mrow>
+                               <m:mrow>
+                                  <m:mi>T</m:mi>
+                               </m:mrow>
+                             </m:msub>
+                             <m:mo>∥</m:mo>
+                          </m:mrow>
+                          <m:mrow>
+                             <m:msub>
+                               <m:mrow>
+                                  <m:mo>ℓ</m:mo>
+                               </m:mrow>
+                               <m:mrow>
+                                  <m:mn>2</m:mn>
+                               </m:mrow>
+                             </m:msub>
+                          </m:mrow>
+                        </m:msub>
+                     </m:mrow>
+                     <m:msub>
+                       <m:mrow>
+                          <m:mo>≤</m:mo>
+                       </m:mrow>
+                       <m:mrow/>
+                     </m:msub>
+                     <m:mrow/>
+                  </m:mrow>
+                  <m:msub>
+                    <m:mrow>
+                       <m:mo>∥</m:mo>
+                       <m:msub>
+                         <m:mrow>
+                            <m:mi>Φ</m:mi>
+                         </m:mrow>
+                         <m:mrow>
+                            <m:mi>T</m:mi>
+                         </m:mrow>
+                       </m:msub>
+                       <m:mo stretchy="false">(</m:mo>
+                       <m:mi>x</m:mi>
+                       <m:mo stretchy="false">)</m:mo>
+                       <m:mo>∥</m:mo>
+                    </m:mrow>
+                    <m:mrow>
+                       <m:msub>
+                         <m:mrow>
+                            <m:mo>ℓ</m:mo>
+                         </m:mrow>
+                         <m:mrow>
+                            <m:mn>2</m:mn>
+                         </m:mrow>
+                       </m:msub>
+                    </m:mrow>
+                  </m:msub>
+                  <m:mrow>
+                     <m:mrow>
+                        <m:mrow>
+                           <m:msub>
+                             <m:mrow>
+                                <m:mo>≤</m:mo>
+                             </m:mrow>
+                             <m:mrow/>
+                           </m:msub>
+                           <m:mrow>
+                              <m:mo stretchy="false">(</m:mo>
+                              <m:mrow>
+                                 <m:mn>1</m:mn>
+                                 <m:mo stretchy="false">+</m:mo>
+                                 <m:msub>
+                                   <m:mrow>
+                                      <m:mi>δ</m:mi>
+                                   </m:mrow>
+                                   <m:mrow>
+                                      <m:mi>k</m:mi>
+                                   </m:mrow>
+                                 </m:msub>
+                              </m:mrow>
+                              <m:mo stretchy="false">)</m:mo>
+                           </m:mrow>
+                        </m:mrow>
+                     </m:mrow>
+                     <m:msub>
+                       <m:mrow>
+                          <m:msub>
+                            <m:mrow>
+                               <m:mo>∥</m:mo>
+                               <m:msub>
+                                 <m:mrow>
+                                    <m:mi>x</m:mi>
+                                 </m:mrow>
+                                 <m:mrow>
+                                    <m:mi>T</m:mi>
+                                 </m:mrow>
+                               </m:msub>
+                               <m:mo>∥</m:mo>
+                            </m:mrow>
+                            <m:mrow>
+                               <m:msub>
+                                 <m:mrow>
+                                    <m:mo>ℓ</m:mo>
+                                 </m:mrow>
+                                 <m:mrow>
+                                    <m:mn>2</m:mn>
+                                 </m:mrow>
+                               </m:msub>
+                            </m:mrow>
+                          </m:msub>
+                       </m:mrow>
+                       <m:mrow/>
+                     </m:msub>
+                     <m:mrow/>
+                  </m:mrow>
+               </m:mrow>
+            </m:mtd>
+         </m:mtr>
+      </m:mtable>
+   </m:mrow>
+</m:math>
+
+              </entry>
+              <entry>(RIP)</entry>
+            </row>
+          </tbody>
+        
+
+</tgroup>
+</table>
+      <para id="id2940677">where 
+<m:math><m:semantics><m:mrow><m:mrow><m:mn>0</m:mn><m:mo stretchy="false">&lt;</m:mo><m:msub><m:mi>δ</m:mi><m:mi>k</m:mi></m:msub></m:mrow><m:mo stretchy="false">&lt;</m:mo><m:mn>1</m:mn></m:mrow><m:annotation encoding="StarMath 5.0">0 &lt;δ_k &lt;1</m:annotation></m:semantics></m:math> . This useful definition is by Candes and Tao. The idea is that the embedding of a 
+<m:math><m:semantics><m:mi>k</m:mi><m:annotation encoding="StarMath 5.0">k</m:annotation></m:semantics></m:math> -dimensional space in 
+<m:math><m:semantics><m:mi>M</m:mi><m:annotation encoding="StarMath 5.0">M</m:annotation></m:semantics></m:math> -dimensional space almost preserves norm – like an isometry. Another way of looking at it is to consider the matrix 
+<m:math><m:semantics><m:mrow><m:msubsup><m:mi>Φ</m:mi><m:mi>T</m:mi><m:mi>t</m:mi></m:msubsup><m:msub><m:mi>Φ</m:mi><m:mi>T</m:mi></m:msub></m:mrow><m:annotation encoding="StarMath 5.0">Φ_T^t Φ_T</m:annotation></m:semantics></m:math> , of size 
+<m:math><m:semantics><m:mrow><m:mi>k</m:mi><m:mo stretchy="false">×</m:mo><m:mi>k</m:mi></m:mrow><m:annotation encoding="StarMath 5.0">k  times k</m:annotation></m:semantics></m:math> . This matrix is symmetric, positive definite, and it’s eigen-values are between 
+<m:math><m:semantics><m:mrow><m:mn>1</m:mn><m:mo stretchy="false">−</m:mo><m:msub><m:mi>δ</m:mi><m:mi>k</m:mi></m:msub></m:mrow><m:annotation encoding="StarMath 5.0">1  - δ_k</m:annotation></m:semantics></m:math> and 
+<m:math><m:semantics><m:mrow><m:mn>1</m:mn><m:mo stretchy="false">+</m:mo><m:msub><m:mi>δ</m:mi><m:mi>k</m:mi></m:msub></m:mrow><m:annotation encoding="StarMath 5.0">1 +δ_k</m:annotation></m:semantics></m:math> . </para>
+      <para id="id2869336">I prefer the following modified condition (dubbed the MIRP), which is more convenient for mathematical analysis: </para>
+      <table id="id2869342" summary="">
+<tgroup cols="2"><colspec colnum="1" colname="c1"/>
+          <colspec colnum="2" colname="c2"/>
+          <tbody>
+            <row>
+              <entry>
+                <m:math>
+   <m:mrow>
+      <m:msup>
+        <m:mrow>
+           <m:mo>(</m:mo>
+           <m:msub>
+             <m:mrow>
+                <m:mi>c</m:mi>
+             </m:mrow>
+             <m:mrow>
+                <m:mn>1</m:mn>
+             </m:mrow>
+           </m:msub>
+           <m:mo>)</m:mo>
+        </m:mrow>
+        <m:mrow>
+           <m:mo>−</m:mo>
+           <m:mn>1</m:mn>
+        </m:mrow>
+      </m:msup>
+      <m:msub>
+        <m:mrow>
+           <m:mo>∥</m:mo>
+           <m:msub>
+             <m:mrow>
+                <m:mi>x</m:mi>
+             </m:mrow>
+             <m:mrow>
+                <m:mi>T</m:mi>
+             </m:mrow>
+           </m:msub>
+           <m:mo>∥</m:mo>
+        </m:mrow>
+        <m:mrow>
+           <m:msub>
+             <m:mrow>
+                <m:mo>ℓ</m:mo>
+             </m:mrow>
+             <m:mrow>
+                <m:mn>2</m:mn>
+             </m:mrow>
+           </m:msub>
+        </m:mrow>
+      </m:msub>
+      <m:mo>≤</m:mo>
+      <m:msub>
+        <m:mrow>
+           <m:mo>∥</m:mo>
+           <m:msub>
+             <m:mrow>
+                <m:mi mathvariant="normal">Φ</m:mi>
+             </m:mrow>
+             <m:mrow>
+                <m:mi>T</m:mi>
+             </m:mrow>
+           </m:msub>
+           <m:mo>(</m:mo>
+           <m:mi>x</m:mi>
+           <m:mo>)</m:mo>
+           <m:mo>∥</m:mo>
+        </m:mrow>
+        <m:mrow>
+           <m:msub>
+             <m:mrow>
+                <m:mo>ℓ</m:mo>
+             </m:mrow>
+             <m:mrow>
+                <m:mn>2</m:mn>
+             </m:mrow>
+           </m:msub>
+        </m:mrow>
+      </m:msub>
+      <m:mo>≤</m:mo>
+      <m:msub>
+        <m:mrow>
+           <m:mi>c</m:mi>
+        </m:mrow>
+        <m:mrow>
+           <m:mn>1</m:mn>
+        </m:mrow>
+      </m:msub>
+      <m:msub>
+        <m:mrow>
+           <m:mo>∥</m:mo>
+           <m:msub>
+             <m:mrow>
+                <m:mi>x</m:mi>
+             </m:mrow>
+             <m:mrow>
+                <m:mi>T</m:mi>
+             </m:mrow>
+           </m:msub>
+           <m:mo>∥</m:mo>
+        </m:mrow>
+        <m:mrow>
+           <m:msub>
+             <m:mrow>
+                <m:mo>ℓ</m:mo>
+             </m:mrow>
+             <m:mrow>
+                <m:mn>2</m:mn>
+             </m:mrow>
+           </m:msub>
+        </m:mrow>
+      </m:msub>
+   </m:mrow>
+</m:math>
+
+              </entry>
+              <entry>(MRIP)</entry>
+            </row>
+          </tbody>
+        
+
+
+</tgroup>
+</table>
+      
+      <para id="element-806">We can now state the following theorem.</para><para id="element-657"><rule type="theorem" id="theo2">
+<statement id="idp162432">
+<para id="potuiytrt">
+If 
+<m:math><m:semantics><m:mi>Φ</m:mi><m:annotation encoding="StarMath 5.0">Φ</m:annotation></m:semantics></m:math> satisfies MRIP for 
+<m:math><m:semantics><m:mrow><m:mn>2</m:mn><m:mi>k</m:mi></m:mrow><m:annotation encoding="StarMath 5.0">2 k</m:annotation></m:semantics></m:math> then 
+<m:math><m:semantics><m:mrow><m:mo stretchy="false">∃</m:mo><m:mi>Δ</m:mi></m:mrow><m:annotation encoding="StarMath 5.0"> exists Δ</m:annotation></m:semantics></m:math> s.t. 
+<m:math><m:semantics><m:mrow><m:mo stretchy="false">(</m:mo><m:mrow><m:mi>Φ</m:mi><m:mi>,</m:mi><m:mi>Δ</m:mi></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow><m:annotation encoding="StarMath 5.0"> \(  {Φ , Δ}  \)</m:annotation></m:semantics></m:math> is instance optimal for 
+<m:math><m:semantics><m:msubsup><m:mi>ℓ</m:mi><m:mn>1</m:mn><m:mi>N</m:mi></m:msubsup><m:annotation encoding="StarMath 5.0">ℓ_1^N</m:annotation></m:semantics></m:math> for 
+<m:math><m:semantics><m:mi>K</m:mi><m:annotation encoding="StarMath 5.0">K</m:annotation></m:semantics></m:math> . </para>
+</statement>
+</rule></para><para id="id3274587">This shows that whenever we have a matrix 
+<m:math><m:semantics><m:mi>Φ</m:mi><m:annotation encoding="StarMath 5.0">Φ</m:annotation></m:semantics></m:math> satisfying the MRIP for 
+<m:math><m:semantics><m:mrow><m:mn>2</m:mn><m:mi>k</m:mi></m:mrow><m:annotation encoding="StarMath 5.0">2 k</m:annotation></m:semantics></m:math> then it will perform well on encoding vectors (at least in the sense of 
+<m:math><m:semantics><m:msubsup><m:mi>ℓ</m:mi><m:mn>1</m:mn><m:mi>N</m:mi></m:msubsup><m:annotation encoding="StarMath 5.0">ℓ_1^N</m:annotation></m:semantics></m:math> accuracy). The question is how can we construct measurement matrices with this property? We can construct 
+<m:math><m:semantics><m:mi>Φ</m:mi><m:annotation encoding="StarMath 5.0">Φ</m:annotation></m:semantics></m:math> using Gaussian entries and then normalizing the columns. </para>
+      <para id="element-630"><rule type="theorem" id="theo3">
+<statement id="idp5182656">
+<para id="potuiytrt23">
+
+ 
+<m:math><m:semantics><m:mo stretchy="false">∃</m:mo><m:annotation encoding="StarMath 5.0"> exists</m:annotation></m:semantics></m:math> constant 
+<m:math><m:semantics><m:mrow><m:mi>c</m:mi><m:mo stretchy="false">&gt;</m:mo><m:mn>0</m:mn></m:mrow><m:annotation encoding="StarMath 5.0">c &gt;0</m:annotation></m:semantics></m:math> s.t. if 
+<m:math><m:semantics><m:mrow><m:mrow><m:mi>k</m:mi><m:mo stretchy="false">≤</m:mo><m:mi>c</m:mi></m:mrow><m:mfrac><m:mi>n</m:mi><m:mrow><m:mi>log</m:mi><m:mrow><m:mo stretchy="false">(</m:mo><m:mrow><m:mi>N</m:mi><m:mi>∕</m:mi><m:mi>n</m:mi></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mfrac></m:mrow><m:annotation encoding="StarMath 5.0">k  &lt;= c n over {l { \(  {N ∕ n}  \)}}</m:annotation></m:semantics></m:math> then with high probability 
+<m:math><m:semantics><m:mi>Φ</m:mi><m:annotation encoding="StarMath 5.0">Φ</m:annotation></m:semantics></m:math> satisfies RIP and MRIP for 
+<m:math><m:semantics><m:mi>k</m:mi><m:annotation encoding="StarMath 5.0">k</m:annotation></m:semantics></m:math> . 
+
+</para>
+</statement>
+</rule></para><para id="id3064988">Given 
+<m:math><m:semantics><m:mi>N</m:mi><m:annotation encoding="StarMath 5.0">N</m:annotation></m:semantics></m:math> and 
+<m:math><m:semantics><m:mi>n</m:mi><m:annotation encoding="StarMath 5.0">n</m:annotation></m:semantics></m:math> , the range of 
+<m:math><m:semantics><m:mi>k</m:mi><m:annotation encoding="StarMath 5.0">k</m:annotation></m:semantics></m:math> in the above results reflects how accurately we can recover data. There is another constant 
+<m:math><m:semantics><m:msup><m:mi>c</m:mi><m:mi>′</m:mi></m:msup><m:annotation encoding="StarMath 5.0">c^′</m:annotation></m:semantics></m:math> that serves as a converse bound for Theorem 3. This converse can be derived using Gluskin widths. </para><para id="element-204"><rule type="remark" id="rem1"><label>Remark</label>
+<statement id="idm9108880">
+<para id="potuiytrt3323">The following generic problem is of great interest: Consider the class of matrices 
+<m:math>
+   <m:mrow>
+      <m:mrow>
+         <m:mi>ℳ</m:mi>
+         <m:mo stretchy="false">=</m:mo>
+         <m:mrow>
+            <m:mo stretchy="false">{</m:mo>
+            <m:mrow>
+               <m:mi>Φ</m:mi>
+               <m:mrow>
+                  <m:mi>M</m:mi>
+                  <m:mo stretchy="false">×</m:mo>
+                  <m:mi>N</m:mi>
+               </m:mrow>
+               <m:mi>,</m:mi>
+               <m:mrow>
+                  <m:mi mathvariant="normal">Φ</m:mi>
+                  <m:mtext>has some prescribed property(eg. Toeplitz, circulant, etc.)</m:mtext>
+               </m:mrow>
+            </m:mrow>
+            <m:mo stretchy="false">}</m:mo>
+         </m:mrow>
+      </m:mrow>
+   </m:mrow>
+</m:math>. What is the largest 
+<m:math><m:semantics><m:mi>k</m:mi><m:annotation encoding="StarMath 5.0">k</m:annotation></m:semantics></m:math> for which such a matrix can have the MRIP. 
+</para>
+</statement>
+</rule></para>
+
+  </content>
+</document>

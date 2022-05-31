@@ -1,0 +1,1275 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Optimality and the MRIP</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>8677708c-c76f-4d7f-87a4-dfcfcc44e303</md:uuid>
+</metadata>
+  <content>
+ <para id="id2246179">From our last lecture, we are interested in signals <m:math><m:mrow><m:mi>x</m:mi><m:mo>∈</m:mo><m:msup><m:mi mathvariant="double-struck">R</m:mi> <m:mi>N</m:mi> </m:msup></m:mrow></m:math>, and we can make <m:math><m:mi>n</m:mi></m:math> measurements (or ask <m:math><m:mi>n</m:mi></m:math>
+questions) to obtain <m:math><m:mrow><m:mi>y</m:mi><m:mo>=</m:mo><m:mi>Φ</m:mi><m:mi>x</m:mi><m:mo>∈</m:mo><m:msup><m:mi mathvariant="double-struck">R</m:mi> <m:mi>n</m:mi> </m:msup></m:mrow></m:math>. We proposed
+several optimality criteria to make these measurements, i.e., to
+choose the measurement matrix <m:math><m:mi>Φ</m:mi></m:math>.</para>
+<list id="id2246288" list-type="enumerated">
+<item>For signals <m:math><m:mrow><m:mi>x</m:mi><m:mo>∈</m:mo><m:msub><m:mi>Σ</m:mi> <m:mi>k</m:mi> </m:msub></m:mrow></m:math> (with <m:math><m:mi>k</m:mi></m:math> non-zero
+coefficients), we choose an encoder <m:math><m:mi>Φ</m:mi></m:math> and the corresponding
+decoder, <m:math><m:mi>Δ</m:mi></m:math>, such that <m:math><m:mrow><m:mi>Δ</m:mi><m:mo>(</m:mo><m:mi>Φ</m:mi><m:mo>(</m:mo><m:mi>x</m:mi><m:mo>)</m:mo><m:mo>)</m:mo><m:mo>=</m:mo><m:mi>x</m:mi></m:mrow></m:math>.
+</item>
+<item>For
+classes of signals e.g. <m:math><m:mrow><m:mi>K</m:mi><m:mo>=</m:mo><m:mi>U</m:mi><m:mo>(</m:mo><m:msubsup><m:mi>ℓ</m:mi> <m:mi>p</m:mi> <m:mi>N</m:mi> </m:msubsup><m:mo>)</m:mo></m:mrow></m:math>, our performance measure
+is
+closely related to the Gelfand widths.
+</item>
+<item>Instance Optimal: our encoder and decoder, <m:math><m:mi>Φ</m:mi></m:math> and
+<m:math><m:mi>Δ</m:mi></m:math>,
+should satisfy
+</item></list>
+<equation id="uid5"><m:math mode="display">
+  <m:msub>
+    <m:mrow>
+      <m:mo>|</m:mo>
+      <m:mo>|</m:mo>
+      <m:mi>x</m:mi>
+      <m:mo>-</m:mo>
+      <m:mi>Δ</m:mi>
+      <m:mi>Φ</m:mi>
+      <m:mo>(</m:mo>
+      <m:mi>x</m:mi>
+      <m:mo>)</m:mo>
+      <m:mo>|</m:mo>
+      <m:mo>|</m:mo>
+    </m:mrow>
+    <m:mrow>
+      <m:msub>
+        <m:mi>ℓ</m:mi> 
+        <m:mi>p</m:mi> 
+      </m:msub> 
+    </m:mrow>
+  </m:msub>
+  <m:mo>≤</m:mo>
+  <m:msub>
+    <m:mi>C</m:mi> 
+    <m:mn>0</m:mn> 
+  </m:msub>
+  <m:msub>
+    <m:mi>σ</m:mi> 
+    <m:mi>k</m:mi> 
+  </m:msub>
+  <m:msub>
+    <m:mrow>
+      <m:mo>(</m:mo>
+      <m:mi>x</m:mi>
+      <m:mo>)</m:mo>
+    </m:mrow>
+    <m:mrow>
+      <m:msub>
+        <m:mi>ℓ</m:mi> 
+        <m:mi>p</m:mi> 
+      </m:msub>
+    </m:mrow> 
+  </m:msub>
+  <m:mo>.</m:mo>
+</m:math></equation>
+<para id="id2246817">We see that criterion (3) implies (1) since
+<m:math>
+  <m:mrow>
+    <m:msub>
+      <m:mi>σ</m:mi> 
+      <m:mi>k</m:mi> 
+    </m:msub>
+    <m:msub>    
+      <m:mrow>
+        <m:mo>(</m:mo>
+        <m:mi>x</m:mi>
+        <m:mo>)</m:mo> 
+      </m:mrow>
+      <m:mrow>
+        <m:msub>
+          <m:mi>ℓ</m:mi> 
+          <m:mi>p</m:mi> 
+        </m:msub> 
+      </m:mrow>
+    </m:msub><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math> for <m:math><m:mrow><m:mi>x</m:mi><m:mo>∈</m:mo><m:msub><m:mi>Σ</m:mi> <m:mi>k</m:mi> </m:msub></m:mrow></m:math>. We also showed in
+the previous lecture that we have instance optimality for order
+<m:math><m:mi>k</m:mi></m:math> if and only if we have the Null Space Property (NSP) of order
+<m:math><m:mrow><m:mn>2</m:mn><m:mi>k</m:mi></m:mrow></m:math>. As a reminder, NSP of order <m:math><m:mrow><m:mn>2</m:mn><m:mi>k</m:mi></m:mrow></m:math> means that <m:math><m:mrow><m:mo>∀</m:mo><m:mi>η</m:mi><m:mo>∈</m:mo><m:mi mathvariant="script">N</m:mi><m:mo>,</m:mo><m:mi mathvariant="script">N</m:mi><m:mo>=</m:mo><m:mrow><m:mi>x</m:mi><m:mo>:</m:mo><m:mi>Φ</m:mi><m:mo>(</m:mo><m:mi>x</m:mi><m:mo>)</m:mo><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:mrow></m:math>, we have
+<m:math>
+  <m:msub>
+    <m:mrow>
+      <m:mo>∥</m:mo>
+      <m:mi>η</m:mi>
+      <m:mo>∥</m:mo> 
+    </m:mrow>
+    <m:mrow>    
+      <m:msub>
+        <m:mi>ℓ</m:mi> 
+        <m:mi>p</m:mi> 
+      </m:msub> 
+    </m:mrow> 
+  </m:msub>
+  <m:mo>≤</m:mo>
+  <m:msub>
+    <m:mi>C</m:mi> 
+    <m:mn>1</m:mn> 
+  </m:msub>
+  <m:msub>
+    <m:mi>σ</m:mi> 
+    <m:mrow>
+      <m:mn>2</m:mn>
+      <m:mi>k</m:mi>
+    </m:mrow> 
+  </m:msub>
+  <m:msub>
+    <m:mrow>
+      <m:mo>(</m:mo>
+      <m:mi>η</m:mi>
+      <m:mo>)</m:mo> 
+    </m:mrow>
+    <m:mrow>
+      <m:msub>
+        <m:mi>ℓ</m:mi> 
+        <m:mi>p</m:mi>  
+      </m:msub> 
+    </m:mrow> 
+  </m:msub>
+</m:math>. In other
+words, elements of <m:math><m:mrow><m:mi>η</m:mi><m:mo>∈</m:mo><m:mi mathvariant="script">N</m:mi></m:mrow></m:math> are not sparse, and they
+are all of approximately equal size (i.e., they do not
+concentrate their entries in <m:math><m:mrow><m:mn>2</m:mn><m:mi>k</m:mi></m:mrow>
+</m:math> positions).</para>
+<para id="id2247072">We mentioned that, in order to attain instant optimality, the
+<m:math><m:mrow><m:mi>n</m:mi><m:mo>×</m:mo><m:mi>N</m:mi></m:mrow></m:math> measurement matrix <m:math><m:mi>Φ</m:mi></m:math> should have the modified restricted isometry property (MRIP) of order <m:math><m:mi>m</m:mi></m:math>, i.e.,
+when we choose any <m:math><m:mi>m</m:mi></m:math> columns of <m:math><m:mi>Φ</m:mi></m:math> to obtain a <m:math><m:mrow><m:mi>n</m:mi><m:mo>×</m:mo><m:mi>m</m:mi></m:mrow></m:math>
+sub-matrix <m:math><m:msub><m:mi>Φ</m:mi> <m:mi>T</m:mi> </m:msub></m:math> where <m:math><m:mrow><m:mi>m</m:mi><m:mo>≤</m:mo><m:mi>n</m:mi></m:mrow></m:math>,
+</para>
+<equation id="id2247194"><m:math mode="display">
+  <m:mrow>
+    <m:msubsup>
+      <m:mi>C</m:mi> 
+      <m:mn>2</m:mn> 
+      <m:mrow>
+        <m:mo>-</m:mo>
+        <m:mn>1</m:mn>
+      </m:mrow> 
+    </m:msubsup>
+    <m:msub>
+      <m:mrow>
+        <m:mo>|</m:mo>
+        <m:mo>|</m:mo>
+        <m:msub>
+          <m:mi>x</m:mi>
+          <m:mi>T</m:mi> 
+        </m:msub>
+        <m:mo>|</m:mo>
+        <m:mo>|</m:mo> 
+      </m:mrow>
+      <m:mrow>
+        <m:msub>
+          <m:mi>ℓ</m:mi> 
+          <m:mn>2</m:mn> 
+        </m:msub> 
+      </m:mrow>
+    </m:msub>
+    <m:mo>≤</m:mo>
+    <m:msub>    
+      <m:mrow>
+        <m:mo>|</m:mo>
+        <m:mo>|</m:mo>
+        <m:msub>
+          <m:mi>Φ</m:mi> 
+          <m:mi>T</m:mi> 
+        </m:msub>
+        <m:msub>
+          <m:mi>x</m:mi> 
+          <m:mi>T</m:mi> 
+        </m:msub>
+        <m:mo>|</m:mo>
+        <m:mo>|</m:mo>
+      </m:mrow>
+      <m:mrow>
+        <m:msub>
+          <m:mi>ℓ</m:mi> 
+          <m:mn>2</m:mn> 
+        </m:msub>
+      </m:mrow>
+    </m:msub>
+    <m:mo>≤</m:mo>
+    <m:msub>
+      <m:mi>C</m:mi> 
+      <m:mn>2</m:mn> 
+    </m:msub>
+    <m:msub>
+      <m:mrow>
+        <m:mo>|</m:mo>
+        <m:mo>|</m:mo>
+        <m:msub>
+          <m:mi>x</m:mi> 
+          <m:mi>T</m:mi> 
+        </m:msub>
+        <m:mo>|</m:mo>
+        <m:mo>|</m:mo>
+      </m:mrow>
+      <m:mrow>
+        <m:msub>
+          <m:mi>ℓ</m:mi> 
+          <m:mn>2</m:mn> 
+        </m:msub> 
+      </m:mrow>
+    </m:msub>
+    <m:mo>.</m:mo>
+  </m:mrow>
+</m:math></equation>
+
+<rule type="theorem" id="theo1">
+  <statement id="idp1944656">
+    <para id="thm_para1">
+      If 
+      <m:math><m:mi>Φ</m:mi></m:math> 
+      has MRIP for 
+      <m:math><m:mrow><m:mi>m</m:mi><m:mo>=</m:mo><m:mn>3</m:mn><m:mi>k</m:mi></m:mrow></m:math>, 
+      then 
+      <m:math><m:mi>Φ</m:mi></m:math>
+      has NSP for 
+      <m:math><m:msub><m:mi>ℓ</m:mi> <m:mn>1</m:mn> </m:msub>
+      </m:math> 
+      of order 
+      <m:math>
+        <m:mrow>
+          <m:mn>2</m:mn>
+          <m:mi>k</m:mi>
+        </m:mrow>
+      </m:math>, 
+      and so 
+      <m:math><m:mi>Φ</m:mi></m:math> 
+      is instance optimal in 
+      <m:math><m:msub><m:mi>ℓ</m:mi> <m:mn>1</m:mn> </m:msub></m:math> 
+      of order 
+      <m:math><m:mi>k</m:mi></m:math>, 
+      i.e.,
+     <equation id="uid7"><m:math mode="display">
+  <m:msub>  
+    <m:mrow>
+      <m:mo>|</m:mo>
+      <m:mo>|</m:mo>
+      <m:mi>x</m:mi>
+      <m:mo>-</m:mo>
+      <m:mi>Δ</m:mi>
+      <m:mi>Φ</m:mi>
+      <m:mo>(</m:mo>
+      <m:mi>x</m:mi>
+      <m:mo>)</m:mo>
+      <m:mo>|</m:mo>
+      <m:mo>|</m:mo>
+    </m:mrow> 
+    <m:msub>
+      <m:mi>ℓ</m:mi>
+      <m:mn>1</m:mn>
+    </m:msub>
+  </m:msub>
+  <m:mo>≤</m:mo>
+  <m:mi>C</m:mi>
+  <m:msub>
+    <m:mi>σ</m:mi>
+    <m:mi>k</m:mi>
+  </m:msub>
+  <m:msub>
+    <m:mrow>
+      <m:mo>(</m:mo>
+      <m:mi>x</m:mi>
+      <m:mo>)</m:mo>
+    </m:mrow>
+    <m:msub>
+      <m:mi>ℓ</m:mi>
+      <m:mn>1</m:mn>
+    </m:msub> 
+  </m:msub>
+  <m:mo>.</m:mo>
+</m:math>
+     </equation>
+     A related result is that under the same assumption,
+     <equation id="uid8">
+       <m:math mode="display">
+         <m:mrow>
+           <m:msub>
+             <m:mrow>
+               <m:mo>|</m:mo>
+               <m:mo>|</m:mo>
+               <m:mi>x</m:mi> 
+               <m:mo>-</m:mo>
+               <m:mi>Δ</m:mi>
+               <m:mi>Φ</m:mi>
+               <m:mo>(</m:mo>
+               <m:mi>x</m:mi>
+               <m:mo>)</m:mo>
+               <m:mo>|</m:mo>
+               <m:mo>|</m:mo>
+             </m:mrow>
+             <m:mrow>
+               <m:msub>
+                 <m:mi>ℓ</m:mi> 
+                 <m:mn>2</m:mn> 
+               </m:msub>
+             </m:mrow>
+           </m:msub>
+           <m:mo>≤</m:mo>
+           <m:mfrac>
+             <m:mrow>
+               <m:mi>C</m:mi>
+               <m:msub>
+                 <m:mi>σ</m:mi>
+                 <m:mi>k</m:mi>  
+               </m:msub>
+               <m:msub>
+                 <m:mrow>
+                   <m:mo>(</m:mo>
+                   <m:mi>x</m:mi>
+                   <m:mo>)</m:mo>
+                 </m:mrow>
+                 <m:mrow>
+                   <m:msub>
+                     <m:mi>ℓ</m:mi>
+                     <m:mn>1</m:mn> 
+                   </m:msub> 
+                 </m:mrow>
+               </m:msub>
+             </m:mrow> 
+             <m:msqrt>
+               <m:mi>k</m:mi>
+             </m:msqrt>
+           </m:mfrac>
+           <m:mo>.</m:mo>
+         </m:mrow>
+       </m:math>
+     </equation>
+   </para>
+ </statement>
+<proof id="idm1105648">
+  <para id="proof_para">
+    To prove (<link target-id="uid7"/>), we need to only show NSP for
+    <m:math>
+      <m:msub>
+        <m:mi>ℓ</m:mi> 
+        <m:mn>1</m:mn> 
+      </m:msub>
+    </m:math> 
+    and <m:math><m:mrow><m:mn>2</m:mn><m:mi>k</m:mi></m:mrow></m:math>, 
+    i.e.,
+   <equation id="id2247680">
+     <m:math mode="display">
+       <m:mrow>
+         <m:msub>
+           <m:mrow>
+             <m:mo>|</m:mo>
+             <m:mo>|</m:mo>
+             <m:mi>η</m:mi>
+             <m:mo>|</m:mo>
+             <m:mo>|</m:mo>
+           </m:mrow>
+           <m:mrow>
+             <m:msub>
+               <m:mi>ℓ</m:mi> 
+               <m:mn>1</m:mn> 
+             </m:msub> 
+           </m:mrow>
+         </m:msub>
+         <m:mo>≤</m:mo>
+         <m:mi>C</m:mi>
+         <m:msub>
+           <m:mi>σ</m:mi> 
+           <m:mrow>
+             <m:mn>2</m:mn>
+             <m:mi>k</m:mi>
+           </m:mrow> 
+         </m:msub>
+         <m:msub>
+           <m:mrow>
+             <m:mo>(</m:mo>
+             <m:mi>η</m:mi>
+             <m:mo>)</m:mo>
+           </m:mrow> 
+           <m:mrow>
+             <m:msub>
+               <m:mi>ℓ</m:mi> 
+               <m:mn>1</m:mn> 
+             </m:msub>
+           </m:mrow> 
+         </m:msub>
+         <m:mo>,</m:mo>
+         <m:mi>η</m:mi>
+         <m:mo>∈</m:mo>
+         <m:mi mathvariant="script">N</m:mi>
+         <m:mo>.</m:mo>
+       </m:mrow>
+     </m:math>
+   </equation>
+   Given 
+   <m:math><m:mi>η</m:mi></m:math>, 
+   let 
+   <m:math><m:msub><m:mi>T</m:mi> <m:mn>0</m:mn> </m:msub></m:math> 
+   be the set of indices of the 
+   <m:math><m:mrow><m:mn>2</m:mn><m:mi>k</m:mi></m:mrow></m:math> 
+   largest entries, 
+   <m:math><m:msub><m:mi>T</m:mi> <m:mn>1</m:mn> </m:msub></m:math> 
+   be the set of indices of the 
+   <m:math><m:mi>k</m:mi></m:math> 
+   next largest entries, 
+   <m:math><m:msub><m:mi>T</m:mi> <m:mn>2</m:mn> </m:msub></m:math> 
+   be the set of indices of the 
+   <m:math><m:mi>k</m:mi></m:math> 
+   next largest entries, and so on.
+   <equation id="id2247848"><m:math mode="display"><m:mtable displaystyle="true"><m:mtr><m:mtd columnalign="right"><m:msub><m:mi>η</m:mi> <m:mn>0</m:mn> </m:msub></m:mtd><m:mtd><m:mo>=</m:mo></m:mtd><m:mtd columnalign="left"><m:mrow><m:msub><m:mi>η</m:mi> <m:msub><m:mi>T</m:mi> <m:mn>0</m:mn> </m:msub> </m:msub><m:mo>+</m:mo><m:msub><m:mi>η</m:mi> <m:msub><m:mi>T</m:mi> <m:mn>1</m:mn> </m:msub> </m:msub><m:mo>,</m:mo></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd columnalign="right"><m:mi>η</m:mi></m:mtd><m:mtd><m:mo>=</m:mo></m:mtd><m:mtd columnalign="left"><m:mrow><m:msub><m:mi>η</m:mi> <m:msub><m:mi>T</m:mi> <m:mn>0</m:mn> </m:msub> </m:msub><m:mo>+</m:mo><m:msub><m:mi>η</m:mi> <m:msub><m:mi>T</m:mi> <m:mn>1</m:mn> </m:msub> </m:msub><m:mo>+</m:mo><m:mo>...</m:mo><m:mo>+</m:mo><m:msub><m:mi>η</m:mi> <m:msub><m:mi>T</m:mi> <m:mi>s</m:mi> </m:msub> </m:msub><m:mo>,</m:mo></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd columnalign="right"><m:mrow><m:mi>Φ</m:mi><m:mo>(</m:mo><m:mi>η</m:mi><m:mo>)</m:mo></m:mrow></m:mtd><m:mtd><m:mo>=</m:mo></m:mtd><m:mtd columnalign="left"><m:mrow><m:mi>Φ</m:mi><m:mo>(</m:mo><m:msub><m:mi>η</m:mi> <m:msub><m:mi>T</m:mi> <m:mn>0</m:mn> </m:msub> </m:msub><m:mo>+</m:mo><m:msub><m:mi>η</m:mi> <m:msub><m:mi>T</m:mi> <m:mn>1</m:mn> </m:msub> </m:msub><m:mo>+</m:mo><m:mo>...</m:mo><m:mo>+</m:mo><m:msub><m:mi>η</m:mi> <m:msub><m:mi>T</m:mi> <m:mi>s</m:mi> </m:msub> </m:msub><m:mo>)</m:mo><m:mo>=</m:mo><m:mn>0</m:mn><m:mo>,</m:mo></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd columnalign="right"><m:mrow><m:mi>Φ</m:mi><m:mo>(</m:mo><m:msub><m:mi>η</m:mi> <m:mn>0</m:mn> </m:msub><m:mo>)</m:mo></m:mrow></m:mtd><m:mtd><m:mo>=</m:mo></m:mtd><m:mtd columnalign="left"><m:mrow><m:mo>-</m:mo><m:mi>Φ</m:mi><m:mo>(</m:mo><m:msub><m:mi>η</m:mi> <m:msub><m:mi>T</m:mi> <m:mn>2</m:mn> </m:msub> </m:msub><m:mo>+</m:mo><m:mo>...</m:mo><m:mo>+</m:mo><m:msub><m:mi>η</m:mi> <m:msub><m:mi>T</m:mi> <m:mi>s</m:mi> </m:msub> </m:msub><m:mo>)</m:mo><m:mo>,</m:mo><m:mtext>by</m:mtext><m:mspace width="4.pt"/><m:mtext>linearity</m:mtext></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd/><m:mtd><m:mo>=</m:mo></m:mtd><m:mtd columnalign="left"><m:mrow><m:mo>-</m:mo><m:munderover><m:mo>∑</m:mo> <m:mrow><m:mi>j</m:mi><m:mo>=</m:mo><m:mn>2</m:mn></m:mrow> <m:mi>s</m:mi> </m:munderover><m:mrow><m:mi>Φ</m:mi><m:mo>(</m:mo></m:mrow><m:msub><m:mi>η</m:mi> <m:msub><m:mi>T</m:mi> <m:mi>j</m:mi> </m:msub> </m:msub><m:mrow><m:mo>)</m:mo><m:mo>.</m:mo></m:mrow></m:mrow></m:mtd></m:mtr></m:mtable></m:math></equation>
+   Therefore, we can estimate
+   <equation id="uid9">
+     <m:math mode="display">
+       <m:mtable displaystyle="true">
+         <m:mtr>
+           <m:mtd columnalign="right">
+             <m:mrow>
+             <m:msub>
+               <m:mrow>
+                 <m:mo>|</m:mo>
+                 <m:mo>|</m:mo>
+                 <m:msub>
+                   <m:mi>η</m:mi> 
+                   <m:mn>0</m:mn> 
+                 </m:msub>
+                 <m:mo>|</m:mo>
+                 <m:mo>|</m:mo>
+               </m:mrow> 
+               <m:msub>
+                 <m:mi>ℓ</m:mi> 
+                 <m:mn>2</m:mn> 
+               </m:msub> 
+             </m:msub>
+             </m:mrow>
+           </m:mtd>
+           <m:mtd>
+             <m:mo>≤</m:mo>
+           </m:mtd>
+           <m:mtd columnalign="left">
+             <m:mrow>
+               <m:msub>
+                 <m:mi>C</m:mi>
+                 <m:mn>2</m:mn>
+               </m:msub>
+               <m:msub>
+                 <m:mrow>
+                   <m:mo>|</m:mo>
+                   <m:mo>|</m:mo>
+                   <m:mi>Φ</m:mi>
+                   <m:mo>(</m:mo>
+                   <m:msub>
+                     <m:mi>η</m:mi>
+                     <m:mn>0</m:mn> 
+                   </m:msub>
+                   <m:mo>)</m:mo>
+                   <m:mo>|</m:mo>
+                   <m:mo>|</m:mo>
+                 </m:mrow>
+                 <m:msub>
+                   <m:mi>ℓ</m:mi> 
+                   <m:mn>2</m:mn>
+                 </m:msub> 
+               </m:msub>
+               <m:mo>,</m:mo>
+               <m:mtext>by</m:mtext>
+               <m:mspace width="4.pt"/>
+               <m:mtext>restricted</m:mtext>
+               <m:mspace width="4.pt"/>
+               <m:mtext>isometry</m:mtext>
+             </m:mrow>
+           </m:mtd>
+         </m:mtr>
+         <m:mtr>
+           <m:mtd/>
+           <m:mtd>
+             <m:mo>≤</m:mo>
+           </m:mtd>
+           <m:mtd columnalign="left">
+             <m:mrow>
+               <m:msub>
+                 <m:mi>C</m:mi> 
+                 <m:mn>2</m:mn> 
+               </m:msub>
+               <m:munderover>
+                 <m:mo>∑</m:mo> 
+                 <m:mrow>
+                   <m:mi>j</m:mi>
+                   <m:mo>=</m:mo>
+                   <m:mn>2</m:mn>
+                 </m:mrow> 
+                 <m:mi>s</m:mi> 
+               </m:munderover>
+               <m:msub>
+                 <m:mrow>
+                   <m:mo>|</m:mo>
+                   <m:mo>|</m:mo>
+                   <m:mi>Φ</m:mi>
+                   <m:mo>(</m:mo>
+                   <m:msub>
+                     <m:mi>η</m:mi> 
+                     <m:msub>
+                       <m:mi>T</m:mi>
+                       <m:mi>j</m:mi>
+                     </m:msub>  
+                   </m:msub>
+                   <m:mo>)</m:mo>
+                   <m:mo>|</m:mo>
+                   <m:mo>|</m:mo>
+                 </m:mrow>
+                 <m:msub>
+                   <m:mi>ℓ</m:mi>
+                   <m:mn>2</m:mn>
+                 </m:msub> 
+               </m:msub>
+               <m:mo>,</m:mo>
+               <m:mtext>by</m:mtext>
+               <m:mspace width="4.pt"/>
+               <m:mtext>triangle</m:mtext>
+               <m:mspace width="4.pt"/>
+               <m:mtext>inequality</m:mtext>
+             </m:mrow>
+           </m:mtd>
+         </m:mtr>
+         <m:mtr>
+           <m:mtd/>
+           <m:mtd>
+             <m:mo>≤</m:mo>
+           </m:mtd>
+           <m:mtd columnalign="left">
+             <m:mrow>
+               <m:msubsup>
+                 <m:mi>C</m:mi> 
+                 <m:mn>2</m:mn>
+                 <m:mn>2</m:mn> 
+               </m:msubsup>
+               <m:munderover>
+                 <m:mo>∑</m:mo>  
+                 <m:mrow>
+                   <m:mi>j</m:mi>
+                   <m:mo>=</m:mo>
+                   <m:mn>2</m:mn>
+                 </m:mrow> 
+                 <m:mi>s</m:mi> 
+               </m:munderover>
+               <m:msub>
+                 <m:mrow>
+                   <m:mo>|</m:mo>
+                   <m:mo>|</m:mo>
+                   <m:msub>
+                     <m:mi>η</m:mi> 
+                     <m:msub>
+                       <m:mi>T</m:mi> 
+                       <m:mi>j</m:mi> 
+                     </m:msub> 
+                   </m:msub>
+                   <m:mo>|</m:mo>
+                   <m:mo>|</m:mo>
+                 </m:mrow> 
+                 <m:msub> 
+                   <m:mi>ℓ</m:mi>
+                   <m:mn>2</m:mn>
+                 </m:msub>
+               </m:msub>
+               <m:mo>,</m:mo>
+               <m:mtext>by</m:mtext>
+               <m:mspace width="4.pt"/>
+               <m:mtext>restricted</m:mtext>
+               <m:mspace width="4.pt"/>
+               <m:mtext>isometry</m:mtext>
+               <m:mo>.</m:mo>
+             </m:mrow>
+           </m:mtd>
+         </m:mtr>
+       </m:mtable>
+     </m:math>
+   </equation>
+   Since, for <m:math><m:mrow><m:mi>j</m:mi><m:mo>≥</m:mo><m:mn>2</m:mn></m:mrow></m:math>, <m:math><m:msub><m:mi>η</m:mi> <m:msub><m:mi>T</m:mi> <m:mi>j</m:mi> </m:msub> </m:msub></m:math> is the best k-term
+approximation to <m:math><m:mrow><m:msub><m:mi>η</m:mi> <m:msub><m:mi>T</m:mi> <m:mrow><m:mi>j</m:mi><m:mo>-</m:mo><m:mn>1</m:mn></m:mrow> </m:msub> </m:msub><m:mo>+</m:mo><m:msub><m:mi>η</m:mi> <m:msub><m:mi>T</m:mi> <m:mi>j</m:mi> </m:msub> </m:msub></m:mrow></m:math>,</para>
+<equation id="uid10"><m:math mode="display">
+  <m:mrow>
+    <m:msub>
+      <m:mrow>
+        <m:mo>|</m:mo>
+        <m:mo>|</m:mo>
+        <m:msub>
+          <m:mi>η</m:mi> 
+          <m:msub>
+            <m:mi>T</m:mi> 
+            <m:mi>j</m:mi>
+          </m:msub>
+        </m:msub>
+        <m:mo>|</m:mo>
+        <m:mo>|</m:mo>
+      </m:mrow>
+      <m:msub>
+        <m:mi>ℓ</m:mi>
+        <m:mn>2</m:mn>
+      </m:msub>
+    </m:msub>
+    <m:mo>=</m:mo>
+    <m:msub>
+      <m:mi>σ</m:mi>
+      <m:mi>k</m:mi>
+    </m:msub>
+    <m:msub>
+      <m:mrow>
+        <m:mo>(</m:mo>
+        <m:msub>
+          <m:mi>η</m:mi>
+          <m:msub>
+            <m:mi>T</m:mi>
+            <m:mrow>
+              <m:mi>j</m:mi>
+              <m:mo>-</m:mo>
+              <m:mn>1</m:mn>
+            </m:mrow> 
+          </m:msub> 
+        </m:msub>
+        <m:mo>+</m:mo>
+        <m:msub>
+          <m:mi>η</m:mi> 
+          <m:msub>
+            <m:mi>T</m:mi>
+            <m:mi>j</m:mi>
+          </m:msub> 
+        </m:msub>
+        <m:mo>)</m:mo>
+      </m:mrow>
+      <m:msub>
+        <m:mi>ℓ</m:mi>
+        <m:mn>2</m:mn>
+      </m:msub> 
+    </m:msub>
+    <m:mo>.</m:mo>
+  </m:mrow>
+</m:math></equation>
+<para id="id2248684">Furthermore, we know for any <m:math><m:mrow><m:mi>q</m:mi><m:mo>&lt;</m:mo><m:mi>p</m:mi></m:mrow></m:math>,
+</para>
+<equation id="uid11"><m:math mode="display"><m:mrow>
+
+         <m:msub>
+           <m:mi>σ</m:mi> 
+           <m:mi>k</m:mi> 
+         </m:msub>
+         <m:msub>
+           <m:mrow>
+             <m:mo>(</m:mo>
+             <m:mi>η</m:mi>
+             <m:mo>)</m:mo>
+           </m:mrow> 
+           <m:mrow>
+             <m:msub>
+               <m:mi>ℓ</m:mi> 
+               <m:mi>p</m:mi> 
+             </m:msub>
+           </m:mrow> 
+         </m:msub>
+<m:mo>≤</m:mo>
+<m:msup>
+  <m:mi>k</m:mi> 
+  <m:mrow>
+    <m:mfrac>
+      <m:mn>1</m:mn>
+      <m:mi>p</m:mi>
+    </m:mfrac>
+    <m:mo>-</m:mo>
+    <m:mfrac>
+      <m:mn>1</m:mn> 
+      <m:mi>q</m:mi>
+    </m:mfrac>
+  </m:mrow> 
+</m:msup>
+<m:msub>
+<m:mrow>
+  <m:mo>|</m:mo>
+  <m:mo>|</m:mo>
+  <m:mi>x</m:mi>
+  <m:mo>|</m:mo>
+  <m:mo>|</m:mo>
+</m:mrow> 
+<m:msub>
+<m:mi>ℓ</m:mi> 
+<m:mi>q</m:mi> 
+</m:msub> 
+</m:msub>
+<m:mo>.</m:mo>
+</m:mrow>
+</m:math></equation>
+<para id="id2248803">Combining (<link target-id="uid10"/>) and (<link target-id="uid11"/>), we obtain</para>
+<equation id="uid12"><m:math mode="display">
+  <m:msub>
+    <m:mrow>
+      <m:mo>|</m:mo>
+      <m:mo>|</m:mo>
+      <m:msub>
+        <m:mi>η</m:mi> 
+        <m:msub>
+          <m:mi>T</m:mi>
+          <m:mi>j</m:mi>
+        </m:msub>
+      </m:msub>
+      <m:mo>|</m:mo>
+      <m:mo>|</m:mo>
+    </m:mrow>
+    <m:msub>
+      <m:mi>ℓ</m:mi>
+      <m:mn>2</m:mn>
+    </m:msub>
+  </m:msub>
+  <m:mo>≤</m:mo>
+  <m:mfrac>
+    <m:mrow>
+      <m:msub>
+        <m:mrow>
+          <m:mo>|</m:mo>
+          <m:mo>|</m:mo>
+          <m:msub>
+            <m:mi>η</m:mi>
+            <m:msub>
+              <m:mi>T</m:mi>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>-</m:mo>
+                <m:mn>1</m:mn>
+              </m:mrow> 
+            </m:msub>
+          </m:msub>
+          <m:mo>+</m:mo>
+          <m:msub>
+            <m:mi>η</m:mi> 
+            <m:msub>
+              <m:mi>T</m:mi>
+              <m:mi>j</m:mi>
+            </m:msub>
+          </m:msub>
+          <m:mo>|</m:mo>
+          <m:mo>|</m:mo>
+        </m:mrow>
+        <m:msub>
+          <m:mi>ℓ</m:mi>
+          <m:mn>1</m:mn>
+        </m:msub>
+      </m:msub>
+    </m:mrow> 
+    <m:msqrt>
+      <m:mi>k</m:mi>
+    </m:msqrt>
+  </m:mfrac>
+  <m:mo>.</m:mo>
+</m:math></equation>
+<para id="id2248931">Substituting (<link target-id="uid12"/>) back into (<link target-id="uid9"/>), we now
+have</para>
+<equation id="uid13"><m:math mode="display">
+  <m:mtable displaystyle="true">
+    <m:mtr>
+      <m:mtd columnalign="right">
+        <m:msub>
+        <m:mrow>
+          <m:mo>|</m:mo>
+          <m:mo>|</m:mo>
+          <m:msub>
+            <m:mi>η</m:mi>
+            <m:mn>0</m:mn>
+          </m:msub>
+          <m:mo>|</m:mo>
+          <m:mo>|</m:mo> 
+        </m:mrow>
+        <m:msub>
+          <m:mi>ℓ</m:mi> 
+          <m:mn>2</m:mn> 
+        </m:msub>
+      </m:msub>
+    </m:mtd>
+    <m:mtd>
+      <m:mo>≤</m:mo>
+    </m:mtd>
+    <m:mtd columnalign="left">
+      <m:mfrac>
+        <m:msubsup><m:mi>C</m:mi> <m:mn>2</m:mn> <m:mn>2</m:mn> </m:msubsup> <m:msqrt><m:mi>k</m:mi></m:msqrt>
+      </m:mfrac>
+      <m:munderover><m:mo>∑</m:mo> <m:mrow><m:mi>j</m:mi><m:mo>=</m:mo><m:mn>2</m:mn></m:mrow> <m:mi>s</m:mi> 
+      </m:munderover>
+      <m:msub>
+        <m:mrow>
+          <m:mo>|</m:mo><m:mo>|</m:mo>
+          <m:msub>
+            <m:mi>η</m:mi>
+            <m:msub>
+              <m:mi>T</m:mi>
+              <m:mrow>
+                <m:mi>j</m:mi><m:mo>-</m:mo><m:mn>1</m:mn>
+              </m:mrow>
+            </m:msub> 
+          </m:msub>
+          <m:mo>+</m:mo>
+          <m:msub>
+            <m:mi>η</m:mi> 
+            <m:msub>
+              <m:mi>T</m:mi>
+              <m:mi>j</m:mi> 
+            </m:msub>
+          </m:msub>
+          <m:mo>|</m:mo><m:mo>|</m:mo>
+        </m:mrow>
+        <m:msub><m:mi>ℓ</m:mi> <m:mn>1</m:mn> 
+        </m:msub> 
+      </m:msub>
+    </m:mtd>
+  </m:mtr>
+  <m:mtr>
+    <m:mtd/>
+    <m:mtd>
+      <m:mo>≤</m:mo>
+    </m:mtd>
+    <m:mtd columnalign="left">
+      <m:mfrac>
+        <m:msubsup>
+          <m:mi>C</m:mi> <m:mn>2</m:mn> <m:mn>2</m:mn> 
+        </m:msubsup> 
+        <m:msqrt><m:mi>k</m:mi></m:msqrt>
+      </m:mfrac>
+      <m:munderover>
+        <m:mo>∑</m:mo> <m:mrow><m:mi>j</m:mi><m:mo>=</m:mo><m:mn>2</m:mn></m:mrow> <m:mi>s</m:mi>
+      </m:munderover>
+      <m:msub>
+        <m:mrow>
+          <m:mo>|</m:mo>
+          <m:mo>|</m:mo>
+          <m:msub>
+            <m:mi>η</m:mi> 
+            <m:msub>
+              <m:mi>T</m:mi> 
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>-</m:mo>
+                <m:mn>1</m:mn>
+              </m:mrow>
+            </m:msub> 
+          </m:msub>
+          <m:mo>|</m:mo>
+          <m:mo>|</m:mo>
+        </m:mrow>
+        <m:msub>
+          <m:mi>ℓ</m:mi>
+          <m:mn>1</m:mn>
+        </m:msub> 
+      </m:msub>       
+      <m:mo>+</m:mo>
+      <m:msub>
+        <m:mrow>
+          <m:mo>|</m:mo>
+          <m:mo>|</m:mo>
+          <m:msub>
+            <m:mi>η</m:mi> 
+            <m:msub>
+              <m:mi>T</m:mi> 
+              <m:mi>j</m:mi>
+            </m:msub> 
+          </m:msub>
+          <m:mo>|</m:mo>
+          <m:mo>|</m:mo>
+        </m:mrow>
+        <m:msub>
+          <m:mi>ℓ</m:mi>
+          <m:mn>1</m:mn>
+        </m:msub> 
+      </m:msub> 
+    </m:mtd>
+  </m:mtr> 
+  <m:mtr>
+    <m:mtd/>
+      <m:mtd>
+        <m:mo>≤</m:mo>
+      </m:mtd>
+      <m:mtd columnalign="left">
+        <m:mfrac>
+          <m:mrow>
+            <m:mn>2</m:mn>
+            <m:msubsup><m:mi>C</m:mi> <m:mn>2</m:mn> <m:mn>2</m:mn> </m:msubsup>
+          </m:mrow> 
+          <m:msqrt><m:mi>k</m:mi></m:msqrt>
+        </m:mfrac>
+        <m:munderover>
+          <m:mo>∑</m:mo> <m:mrow><m:mi>j</m:mi><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow> <m:mi>s</m:mi>          
+        </m:munderover>
+<m:msub>
+        <m:mrow>
+          <m:mo>|</m:mo>
+          <m:mo>|</m:mo>
+          <m:msub>
+            <m:mi>η</m:mi> 
+            <m:msub>
+              <m:mi>T</m:mi> 
+              <m:mi>j</m:mi>
+            </m:msub> 
+          </m:msub>
+          <m:mo>|</m:mo>
+          <m:mo>|</m:mo>
+        </m:mrow>
+        <m:msub>
+          <m:mi>ℓ</m:mi>
+          <m:mn>1</m:mn>
+        </m:msub> 
+      </m:msub> 
+    </m:mtd> 
+  </m:mtr><m:mtr><m:mtd/><m:mtd><m:mo>≤</m:mo></m:mtd><m:mtd columnalign="left"><m:mrow><m:mfrac><m:mrow><m:mn>2</m:mn><m:msubsup><m:mi>C</m:mi> <m:mn>2</m:mn> <m:mn>2</m:mn> </m:msubsup></m:mrow> <m:msqrt><m:mi>k</m:mi></m:msqrt></m:mfrac><m:msub>
+           <m:mi>σ</m:mi> 
+           <m:mrow>
+             <m:mn>2</m:mn>
+             <m:mi>k</m:mi>
+           </m:mrow> 
+         </m:msub>
+         <m:msub>
+           <m:mrow>
+             <m:mo>(</m:mo>
+             <m:mi>η</m:mi>
+             <m:mo>)</m:mo>
+           </m:mrow> 
+           <m:mrow>
+             <m:msub>
+               <m:mi>ℓ</m:mi> 
+               <m:mn>1</m:mn> 
+             </m:msub>
+           </m:mrow> 
+         </m:msub><m:mo>.</m:mo></m:mrow></m:mtd></m:mtr></m:mtable></m:math></equation>
+<para id="id2249350">The last step is due to the fact that 
+<m:math>
+  <m:msubsup>
+    <m:mo>∑</m:mo> <m:mrow><m:mi>j</m:mi><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow> <m:mi>s</m:mi>   
+  </m:msubsup>
+<m:msub>
+        <m:mrow>
+          <m:mo>|</m:mo>
+          <m:mo>|</m:mo>
+          <m:msub>
+            <m:mi>η</m:mi> 
+            <m:msub>
+              <m:mi>T</m:mi> 
+              <m:mi>j</m:mi>
+            </m:msub> 
+          </m:msub>
+          <m:mo>|</m:mo>
+          <m:mo>|</m:mo>
+        </m:mrow>
+        <m:msub>
+          <m:mi>ℓ</m:mi>
+          <m:mn>1</m:mn>
+        </m:msub> 
+      </m:msub> 
+</m:math> is the <m:math><m:mrow><m:mn>2</m:mn><m:mi>k</m:mi></m:mrow></m:math>-term approximation error for
+<m:math><m:mi>η</m:mi></m:math>. Notice this is only true for <m:math><m:msub><m:mi>ℓ</m:mi> <m:mn>1</m:mn> </m:msub></m:math>. This completes the
+proof of (<link target-id="uid8"/>).</para>
+<para id="id2249458">To prove (<link target-id="uid7"/>), we let <m:math><m:msub><m:mi>x</m:mi> <m:mi>j</m:mi> </m:msub></m:math> be the <m:math><m:mi>j</m:mi></m:math>-th entry in
+<m:math><m:msub><m:mi>η</m:mi> <m:msub><m:mi>T</m:mi> <m:mn>0</m:mn> </m:msub> </m:msub></m:math>. By the Cauchy-Schwarz Inequality,</para>
+<equation id="uid14"><m:math mode="display">
+  <m:mtable displaystyle="true">
+    <m:mtr>
+      <m:mtd columnalign="right"><m:msub>
+        <m:mrow>
+          <m:mo>|</m:mo>
+          <m:mo>|</m:mo>
+          <m:msub>
+            <m:mi>η</m:mi> 
+            <m:msub>
+              <m:mi>T</m:mi> 
+              <m:mn>0</m:mn>
+            </m:msub> 
+          </m:msub>
+          <m:mo>|</m:mo>
+          <m:mo>|</m:mo>
+        </m:mrow>
+        <m:msub>
+          <m:mi>ℓ</m:mi>
+          <m:mn>1</m:mn>
+        </m:msub> 
+      </m:msub> 
+    </m:mtd>
+    <m:mtd>
+      <m:mo>=</m:mo>
+    </m:mtd>
+    <m:mtd columnalign="left"><m:mrow><m:munderover><m:mo>∑</m:mo> <m:mrow><m:mi>j</m:mi><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow> <m:mrow><m:mn>2</m:mn><m:mi>k</m:mi></m:mrow> </m:munderover><m:mrow><m:mo>|</m:mo></m:mrow><m:msub><m:mi>x</m:mi> <m:mi>j</m:mi> </m:msub><m:mrow><m:mo>|</m:mo></m:mrow></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd/><m:mtd><m:mo>≤</m:mo></m:mtd><m:mtd columnalign="left"><m:mrow><m:msup><m:mfenced separators="" open="(" close=")"><m:munderover><m:mo>∑</m:mo> <m:mrow><m:mi>j</m:mi><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow> <m:mrow><m:mn>2</m:mn><m:mi>k</m:mi></m:mrow> </m:munderover><m:msup><m:mn>1</m:mn> <m:mn>2</m:mn> </m:msup></m:mfenced> <m:mfrac><m:mn>1</m:mn> <m:mn>2</m:mn></m:mfrac> </m:msup><m:msup><m:mfenced separators="" open="(" close=")"><m:munderover><m:mo>∑</m:mo> <m:mrow><m:mi>j</m:mi><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow> <m:mrow><m:mn>2</m:mn><m:mi>k</m:mi></m:mrow> </m:munderover><m:mrow><m:mo>|</m:mo></m:mrow><m:msub><m:mi>x</m:mi> <m:mi>j</m:mi> </m:msub><m:msup><m:mo>|</m:mo> <m:mn>2</m:mn> </m:msup></m:mfenced> <m:mfrac><m:mn>1</m:mn> <m:mn>2</m:mn></m:mfrac> </m:msup><m:mo>,</m:mo><m:mtext>by</m:mtext><m:mspace width="4.pt"/><m:mtext>CSI</m:mtext></m:mrow>
+      </m:mtd>
+    </m:mtr>
+    <m:mtr>
+      <m:mtd/>
+      <m:mtd>
+        <m:mo>=</m:mo>
+      </m:mtd>
+      <m:mtd columnalign="left">
+        <m:msqrt>
+          <m:mrow><m:mn>2</m:mn><m:mi>k</m:mi></m:mrow>
+        </m:msqrt>
+        <m:msub>
+        <m:mrow>
+          <m:mo>|</m:mo>
+          <m:mo>|</m:mo>
+          <m:msub>
+            <m:mi>η</m:mi> 
+            <m:msub>
+              <m:mi>T</m:mi> 
+              <m:mn>0</m:mn>
+            </m:msub> 
+          </m:msub>
+          <m:mo>|</m:mo>
+          <m:mo>|</m:mo>
+        </m:mrow>
+        <m:msub>
+          <m:mi>ℓ</m:mi>
+          <m:mn>2</m:mn>
+        </m:msub> 
+      </m:msub> 
+    </m:mtd>
+    </m:mtr>
+    <m:mtr>
+      <m:mtd/>
+      <m:mtd><m:mo>≤</m:mo></m:mtd>
+      <m:mtd columnalign="left">
+        <m:msqrt>
+          <m:mrow><m:mn>2</m:mn><m:mi>k</m:mi></m:mrow>
+        </m:msqrt><m:msub>
+        <m:mrow>
+          <m:mo>|</m:mo>
+          <m:mo>|</m:mo>
+          <m:msub>
+            <m:mi>η</m:mi> 
+            <m:mn>0</m:mn>
+          </m:msub>
+          <m:mo>|</m:mo>
+          <m:mo>|</m:mo>
+        </m:mrow>
+        <m:msub>
+          <m:mi>ℓ</m:mi>
+          <m:mn>2</m:mn>
+        </m:msub> 
+      </m:msub> </m:mtd></m:mtr><m:mtr><m:mtd/><m:mtd><m:mo>≤</m:mo></m:mtd><m:mtd columnalign="left"><m:mn>2</m:mn><m:msqrt><m:mn>2</m:mn></m:msqrt><m:msubsup><m:mi>C</m:mi> <m:mn>2</m:mn> <m:mn>2</m:mn> </m:msubsup><m:msub>
+           <m:mi>σ</m:mi> 
+           <m:mrow>
+             <m:mn>2</m:mn>
+             <m:mi>k</m:mi>
+           </m:mrow> 
+         </m:msub>
+         <m:msub>
+           <m:mrow>
+             <m:mo>(</m:mo>
+             <m:mi>η</m:mi>
+             <m:mo>)</m:mo>
+           </m:mrow> 
+           <m:mrow>
+             <m:msub>
+               <m:mi>ℓ</m:mi> 
+               <m:mn>1</m:mn> 
+             </m:msub>
+           </m:mrow> 
+         </m:msub>
+<m:mo>,</m:mo></m:mtd></m:mtr></m:mtable></m:math></equation>
+<para id="id2249877">The <m:math><m:mrow><m:mn>2</m:mn><m:mi>k</m:mi></m:mrow></m:math>-term approximation error in <m:math><m:msub><m:mi>ℓ</m:mi> <m:mn>1</m:mn> </m:msub></m:math> for <m:math><m:mi>η</m:mi></m:math> can be
+expressed as</para>
+<equation id="id2249919"><m:math mode="display">
+  <m:mrow>
+    <m:msub>
+      <m:mrow>
+        <m:mo>|</m:mo>
+        <m:mo>|</m:mo>
+        <m:msub>
+          <m:mi>η</m:mi>
+          <m:msub>
+            <m:mi>T</m:mi>
+            <m:mn>1</m:mn>
+          </m:msub>
+        </m:msub>
+        <m:mo>+</m:mo>
+        <m:mo>...</m:mo>
+        <m:mo>+</m:mo>
+        <m:msub>
+          <m:mi>η</m:mi>
+          <m:msub>
+            <m:mi>T</m:mi>
+            <m:mi>s</m:mi>
+          </m:msub> 
+        </m:msub>
+        <m:mo>|</m:mo>
+        <m:mo>|</m:mo>
+      </m:mrow> 
+      <m:msub>
+        <m:mi>ℓ</m:mi>
+        <m:mn>1</m:mn>
+      </m:msub>
+    </m:msub>
+    <m:mo>=</m:mo>
+    <m:msub>
+           <m:mi>σ</m:mi> 
+           <m:mrow>
+             <m:mn>2</m:mn>
+             <m:mi>k</m:mi>
+           </m:mrow> 
+         </m:msub>
+         <m:msub>
+           <m:mrow>
+             <m:mo>(</m:mo>
+             <m:mi>η</m:mi>
+             <m:mo>)</m:mo>
+           </m:mrow> 
+           <m:mrow>
+             <m:msub>
+               <m:mi>ℓ</m:mi> 
+               <m:mn>1</m:mn> 
+             </m:msub>
+           </m:mrow> 
+         </m:msub><m:mo>.</m:mo></m:mrow></m:math></equation>
+<para id="id2250017">Since</para>
+<equation id="id2250023"><m:math mode="display"><m:mrow><m:mi>η</m:mi><m:mo>=</m:mo><m:msub><m:mi>η</m:mi> <m:msub><m:mi>T</m:mi> <m:mn>0</m:mn> </m:msub> </m:msub><m:mrow><m:mo>+</m:mo><m:mo>(</m:mo></m:mrow><m:msub><m:mi>η</m:mi> <m:msub><m:mi>T</m:mi> <m:mn>1</m:mn> </m:msub> </m:msub><m:mo>+</m:mo><m:mo>...</m:mo><m:mo>+</m:mo><m:msub><m:mi>η</m:mi> <m:msub><m:mi>T</m:mi> <m:mi>s</m:mi> </m:msub> </m:msub><m:mrow><m:mo>)</m:mo><m:mo>,</m:mo></m:mrow></m:mrow></m:math></equation>
+<para id="id2250093">we can finally prove that</para>
+<equation id="id2250099"><m:math mode="display">
+  <m:mtable displaystyle="true">
+    <m:mtr>
+      <m:mtd columnalign="right">
+        <m:mrow>
+          <m:msub>
+            <m:mrow>
+              <m:mo>|</m:mo>
+              <m:mo>|</m:mo>
+              <m:mi>η</m:mi>
+              <m:mo>|</m:mo>
+              <m:mo>|</m:mo>
+            </m:mrow> 
+            <m:msub>
+              <m:mi>ℓ</m:mi>
+              <m:mn>1</m:mn>
+            </m:msub>
+          </m:msub>
+        </m:mrow>
+      </m:mtd>
+      <m:mtd>
+        <m:mo>≤</m:mo>
+      </m:mtd>
+      <m:mtd columnalign="left">
+        <m:mrow>
+          <m:msub>
+            <m:mrow>
+              <m:mo>|</m:mo>
+              <m:mo>|</m:mo>
+              <m:msub>
+                <m:mi>η</m:mi>
+                <m:msub>
+                  <m:mi>T</m:mi>
+                  <m:mn>0</m:mn>
+                </m:msub>
+              </m:msub>
+              <m:mo>|</m:mo>
+              <m:mo>|</m:mo>
+            </m:mrow> 
+            <m:msub>
+              <m:mi>ℓ</m:mi>
+              <m:mn>1</m:mn>
+            </m:msub>            
+          </m:msub>
+          <m:mo>+</m:mo>
+          <m:msub>  
+            <m:mrow>
+              <m:mo>|</m:mo>
+              <m:mo>|</m:mo>
+              <m:msub>
+                <m:mi>η</m:mi> 
+                <m:msub>
+                  <m:mi>T</m:mi>
+                  <m:mn>1</m:mn>
+                </m:msub>
+              </m:msub>
+              <m:mo>+</m:mo>
+              <m:mo>...</m:mo>
+              <m:mo>+</m:mo>
+              <m:msub>
+                <m:mi>η</m:mi>
+                <m:msub>
+                  <m:mi>T</m:mi>
+                  <m:mi>s</m:mi>
+                </m:msub> 
+              </m:msub>
+              <m:mo>|</m:mo>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:msub>
+              <m:mi>ℓ</m:mi>
+              <m:mn>1</m:mn>
+            </m:msub> 
+          </m:msub>
+          <m:mo>,</m:mo>
+          <m:mtext>by</m:mtext>
+          <m:mspace width="4.pt"/>
+          <m:mtext>triangle</m:mtext>
+          <m:mspace width="4.pt"/>
+          <m:mtext>inequality</m:mtext>
+        </m:mrow>
+      </m:mtd>
+    </m:mtr>
+    <m:mtr>
+      <m:mtd/>
+      <m:mtd>
+        <m:mo>=</m:mo>
+      </m:mtd>
+      <m:mtd columnalign="left">
+        <m:mrow><m:mn>2</m:mn><m:msqrt><m:mn>2</m:mn></m:msqrt><m:msubsup><m:mi>C</m:mi> <m:mn>2</m:mn> <m:mn>2</m:mn> </m:msubsup><m:msub>
+           <m:mi>σ</m:mi> 
+           <m:mrow>
+             <m:mn>2</m:mn>
+             <m:mi>k</m:mi>
+           </m:mrow> 
+         </m:msub>
+         <m:msub>
+           <m:mrow>
+             <m:mo>(</m:mo>
+             <m:mi>η</m:mi>
+             <m:mo>)</m:mo>
+           </m:mrow> 
+           <m:mrow>
+             <m:msub>
+               <m:mi>ℓ</m:mi> 
+               <m:mn>1</m:mn> 
+             </m:msub>
+           </m:mrow> 
+         </m:msub>
+<m:mo>+</m:mo>
+
+<m:msub>
+           <m:mi>σ</m:mi> 
+           <m:mrow>
+             <m:mn>2</m:mn>
+             <m:mi>k</m:mi>
+           </m:mrow> 
+         </m:msub>
+         <m:msub>
+           <m:mrow>
+             <m:mo>(</m:mo>
+             <m:mi>η</m:mi>
+             <m:mo>)</m:mo>
+           </m:mrow> 
+           <m:mrow>
+             <m:msub>
+               <m:mi>ℓ</m:mi> 
+               <m:mn>1</m:mn> 
+             </m:msub>
+           </m:mrow> 
+         </m:msub>
+</m:mrow></m:mtd></m:mtr><m:mtr><m:mtd/><m:mtd><m:mo>=</m:mo></m:mtd><m:mtd columnalign="left"><m:mrow><m:mrow><m:mo>(</m:mo><m:mn>2</m:mn></m:mrow><m:msqrt><m:mn>2</m:mn></m:msqrt><m:msubsup><m:mi>C</m:mi> <m:mn>2</m:mn> <m:mn>2</m:mn> </m:msubsup><m:mrow><m:mo>+</m:mo><m:mn>1</m:mn><m:mo>)</m:mo></m:mrow><m:msub>
+           <m:mi>σ</m:mi> 
+           <m:mrow>
+             <m:mn>2</m:mn>
+             <m:mi>k</m:mi>
+           </m:mrow> 
+         </m:msub>
+         <m:msub>
+           <m:mrow>
+             <m:mo>(</m:mo>
+             <m:mi>η</m:mi>
+             <m:mo>)</m:mo>
+           </m:mrow> 
+           <m:mrow>
+             <m:msub>
+               <m:mi>ℓ</m:mi> 
+               <m:mn>1</m:mn> 
+             </m:msub>
+           </m:mrow> 
+         </m:msub><m:mo>.</m:mo></m:mrow></m:mtd></m:mtr></m:mtable></m:math></equation>
+<para id="id2250410">Therefore, we have proved (<link target-id=""/>) with <m:math><m:mrow><m:mi>C</m:mi><m:mo>=</m:mo><m:mn>2</m:mn><m:msqrt><m:mn>2</m:mn></m:msqrt><m:msubsup><m:mi>C</m:mi> <m:mn>2</m:mn> <m:mn>2</m:mn> </m:msubsup><m:mo>+</m:mo><m:mn>1</m:mn></m:mrow></m:math>.<m:math><m:mo>□</m:mo></m:math></para>
+</proof>
+</rule>
+  </content>
+</document>

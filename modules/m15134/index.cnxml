@@ -1,0 +1,96 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Greedy Algorithms</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>ad8310f2-5589-407d-9763-e02e6e3fb53c</md:uuid>
+</metadata>
+  <content>
+  
+  <para id="id2249336">We now turn to the questions of generating good approximations for
+<m:math><m:mi>n</m:mi></m:math> term approximation from a general dictionary We shall assume
+that the dictionary <m:math><m:mi mathvariant="script">D</m:mi></m:math> is complete in the Hilbert
+space <m:math><m:mi mathvariant="double-struck">H</m:mi></m:math>. This means that every element in <m:math><m:mi mathvariant="double-struck">H</m:mi></m:math>
+can be approximated arbitrarily well by linear combinations of the
+elements of <m:math><m:mi mathvariant="script">D</m:mi></m:math>. Since the dictionary is no longer an
+orthogonal basis as was considered above, we need to revisit how
+to find good <m:math><m:mi>n</m:mi></m:math> term approximations. Because of redundancy
+within the dictionary, we cannot simply pick the largest
+coefficients as we saw with a basis. Greedy algorithms are a
+method to generate good <m:math><m:mi>n</m:mi></m:math> term approximations.</para>
+<list id="id2249422" list-type="enumerated">
+<item>General Greedy Algorithm
+Given <m:math><m:mi>f</m:mi></m:math>, we want to generate an <m:math><m:mi>n</m:mi></m:math>-term approximation to <m:math><m:mi>f</m:mi></m:math>.
+<equation id="id2249469"><m:math mode="display"><m:mrow><m:mi>f</m:mi><m:mo>→</m:mo><m:mi>s</m:mi><m:mo>=</m:mo><m:munderover><m:mo>∑</m:mo> <m:mrow><m:mi>s</m:mi><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow> <m:mi>n</m:mi> </m:munderover><m:msub><m:mi>c</m:mi> <m:mi>j</m:mi> </m:msub><m:msub><m:mi>g</m:mi> <m:mi>j</m:mi> </m:msub></m:mrow></m:math></equation>
+The general steps are as follows:
+<list id="id2249525" list-type="enumerated">
+<item>Initialize: (approximation) <m:math><m:mrow><m:msub><m:mi>s</m:mi> <m:mn>0</m:mn> </m:msub><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math>, (residual) <m:math><m:mrow><m:msub><m:mi>r</m:mi> <m:mn>0</m:mn> </m:msub><m:mo>=</m:mo><m:mi>f</m:mi></m:mrow></m:math>,
+approximation collection<m:math><m:mrow><m:msub><m:mi>Λ</m:mi> <m:mn>0</m:mn> </m:msub><m:mo>=</m:mo><m:mi>∅</m:mi></m:mrow></m:math>
+</item>
+<item>Search
+<m:math><m:mi mathvariant="script">D</m:mi></m:math> for some <m:math><m:mrow><m:mi>g</m:mi><m:mo>∈</m:mo><m:mi mathvariant="script">D</m:mi></m:mrow></m:math>, then add <m:math><m:mi>g</m:mi></m:math> to the
+set <m:math><m:mi>Λ</m:mi></m:math>.
+</item>
+<item>Use <m:math><m:mrow><m:mo>{</m:mo><m:msub><m:mi>g</m:mi> <m:mn>1</m:mn> </m:msub><m:mo>,</m:mo><m:msub><m:mi>g</m:mi> <m:mn>2</m:mn> </m:msub><m:mo>,</m:mo><m:mo>...</m:mo><m:mo>,</m:mo><m:msub><m:mi>g</m:mi> <m:mi>n</m:mi> </m:msub><m:mo>}</m:mo></m:mrow></m:math> to find new
+approximation for <m:math><m:msub><m:mi>s</m:mi> <m:mi>n</m:mi> </m:msub></m:math>.
+</item></list>
+At stage <m:math><m:mi>n</m:mi></m:math>, we have <m:math><m:msub><m:mi>s</m:mi> <m:mi>n</m:mi> </m:msub></m:math>, <m:math><m:mrow><m:msub><m:mi>r</m:mi> <m:mi>n</m:mi> </m:msub><m:mo>=</m:mo><m:mi>f</m:mi><m:mo>-</m:mo><m:msub><m:mi>s</m:mi> <m:mi>n</m:mi> </m:msub></m:mrow></m:math>, and
+<m:math><m:mrow><m:msub><m:mi>Λ</m:mi> <m:mi>n</m:mi> </m:msub><m:mrow><m:mo>=</m:mo><m:mo>{</m:mo></m:mrow><m:msub><m:mi>g</m:mi> <m:mn>1</m:mn> </m:msub><m:mo>,</m:mo><m:msub><m:mi>g</m:mi> <m:mn>2</m:mn> </m:msub><m:mo>,</m:mo><m:mo>...</m:mo><m:mo>,</m:mo><m:msub><m:mi>g</m:mi> <m:mi>n</m:mi> </m:msub><m:mrow><m:mo>}</m:mo></m:mrow></m:mrow></m:math>.
+There are many types of greedy algorithms. We describe the three
+most common in the case <m:math><m:mi mathvariant="double-struck">S</m:mi></m:math> is a Hilbert space. However,
+there are anlaogues of these for <m:math><m:msub><m:mi>L</m:mi> <m:mi>p</m:mi> </m:msub></m:math>.
+</item>
+<item>Pure Greedy Algorithm (PGA)
+Note:
+&gt;From <m:math><m:msub><m:mi>r</m:mi> <m:mi>n</m:mi> </m:msub></m:math> choose <m:math><m:mrow><m:msub><m:mi>g</m:mi> <m:mrow><m:mi>n</m:mi><m:mo>+</m:mo><m:mn>1</m:mn></m:mrow> </m:msub><m:mrow><m:mo>:</m:mo><m:mo>=</m:mo><m:mi> argmax </m:mi><m:mo>|</m:mo></m:mrow><m:mfenced separators="" open="〈" close="〉"><m:msub><m:mi>r</m:mi> <m:mi>n</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo></m:mrow><m:mo>,</m:mo><m:mi>g</m:mi></m:mfenced><m:mrow><m:mo>|</m:mo></m:mrow></m:mrow></m:math> (the <m:math><m:mi>g</m:mi></m:math> that causes the largest inner product).
+<equation id="id2249970"><m:math mode="display"><m:mrow><m:msub><m:mi>s</m:mi> <m:mrow><m:mi>n</m:mi><m:mo>+</m:mo><m:mn>1</m:mn></m:mrow> </m:msub><m:mo>=</m:mo><m:msub><m:mi>s</m:mi> <m:mi>n</m:mi> </m:msub><m:mo>+</m:mo><m:mfenced separators="" open="〈" close="〉"><m:msub><m:mi>r</m:mi> <m:mi>n</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo></m:mrow><m:mo>,</m:mo><m:mi>g</m:mi></m:mfenced><m:mi>g</m:mi></m:mrow></m:math></equation>
+<equation id="id2250034"><m:math mode="display"><m:mrow><m:msub><m:mi>r</m:mi> <m:mrow><m:mi>n</m:mi><m:mo>+</m:mo><m:mn>1</m:mn></m:mrow> </m:msub><m:mo>=</m:mo><m:mi>f</m:mi><m:mo>-</m:mo><m:msub><m:mi>s</m:mi> <m:mi>n</m:mi> </m:msub><m:mo>-</m:mo><m:mfenced separators="" open="〈" close="〉"><m:mi>f</m:mi><m:mo>-</m:mo><m:msub><m:mi>s</m:mi> <m:mi>n</m:mi> </m:msub><m:mo>,</m:mo><m:mi>g</m:mi></m:mfenced><m:mi>g</m:mi><m:mo>=</m:mo><m:mi>f</m:mi><m:mo>-</m:mo><m:msub><m:mi>s</m:mi> <m:mrow><m:mi>n</m:mi><m:mo>+</m:mo><m:mn>1</m:mn></m:mrow> </m:msub></m:mrow></m:math></equation>
+This method is similar to a steepest decent algorithm for
+decreasing the error.
+</item>
+<item>Orthogonal Greedy Algorithm (OGA)
+&gt;From <m:math><m:msub><m:mi>r</m:mi> <m:mi>n</m:mi> </m:msub></m:math> choose <m:math><m:mrow><m:msub><m:mi>g</m:mi> <m:mrow><m:mi>n</m:mi><m:mo>+</m:mo><m:mn>1</m:mn></m:mrow> </m:msub><m:mrow><m:mo>:</m:mo><m:mo>=</m:mo><m:mi> argmax </m:mi><m:mo>|</m:mo></m:mrow><m:mfenced separators="" open="〈" close="〉"><m:msub><m:mi>r</m:mi> <m:mi>n</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo></m:mrow><m:mo>,</m:mo><m:mi>g</m:mi></m:mfenced><m:mrow><m:mo>|</m:mo></m:mrow></m:mrow></m:math> as in the PGA.
+<equation id="id2250216"><m:math mode="display"><m:mrow><m:msub><m:mi>V</m:mi> <m:mrow><m:mi>n</m:mi><m:mo>+</m:mo><m:mn>1</m:mn></m:mrow> </m:msub><m:mrow><m:mo>:</m:mo><m:mo>=</m:mo><m:mi>s</m:mi><m:mi>p</m:mi><m:mo>{</m:mo></m:mrow><m:msub><m:mi>g</m:mi> <m:mn>1</m:mn> </m:msub><m:mo>,</m:mo><m:msub><m:mi>g</m:mi> <m:mn>2</m:mn> </m:msub><m:mo>,</m:mo><m:mo>...</m:mo><m:mo>,</m:mo><m:msub><m:mi>g</m:mi> <m:mrow><m:mi>n</m:mi><m:mo>+</m:mo><m:mn>1</m:mn></m:mrow> </m:msub><m:mrow><m:mo>}</m:mo></m:mrow></m:mrow></m:math></equation>
+<equation id="id2250290"><m:math mode="display"><m:mrow><m:msub><m:mi>s</m:mi> <m:mrow><m:mi>n</m:mi><m:mo>+</m:mo><m:mn>1</m:mn></m:mrow> </m:msub><m:mo>:</m:mo><m:mo>=</m:mo><m:msub><m:mi>p</m:mi> <m:msub><m:mi>V</m:mi> <m:mrow><m:mi>n</m:mi><m:mo>+</m:mo><m:mn>1</m:mn></m:mrow> </m:msub> </m:msub><m:mi>f</m:mi><m:mo>=</m:mo><m:munderover><m:mo>∑</m:mo> <m:mrow><m:mi>j</m:mi><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow> <m:mrow><m:mi>n</m:mi><m:mo>+</m:mo><m:mn>1</m:mn></m:mrow> </m:munderover><m:msub><m:mi>α</m:mi> <m:mi>j</m:mi> </m:msub><m:msub><m:mi>g</m:mi> <m:mi>j</m:mi> </m:msub></m:mrow></m:math></equation>
+where <m:math><m:msub><m:mi>P</m:mi> <m:mi>V</m:mi> </m:msub></m:math> denotes the orthogonal projection onto the space <m:math><m:mi>V</m:mi></m:math>.
+We can find <m:math><m:mrow><m:msub><m:mi>s</m:mi> <m:mrow><m:mi>n</m:mi><m:mo>+</m:mo><m:mn>1</m:mn></m:mrow> </m:msub><m:mo>=</m:mo><m:msub><m:mi>P</m:mi> <m:msub><m:mi>V</m:mi> <m:mrow><m:mi>n</m:mi><m:mo>+</m:mo><m:mn>1</m:mn></m:mrow> </m:msub> </m:msub><m:mi>f</m:mi></m:mrow></m:math> by solving the linear system of
+equations
+<equation id="id2250450"><m:math mode="display"><m:mrow><m:mfenced separators="" open="〈" close="〉"><m:munderover><m:mo>∑</m:mo> <m:mrow><m:mi>j</m:mi><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow> <m:mrow><m:mi>n</m:mi><m:mo>+</m:mo><m:mn>1</m:mn></m:mrow> </m:munderover><m:msub><m:mi>α</m:mi> <m:mi>j</m:mi> </m:msub><m:msub><m:mi>g</m:mi> <m:mi>j</m:mi> </m:msub><m:mo>,</m:mo><m:msub><m:mi>g</m:mi> <m:mi>k</m:mi> </m:msub></m:mfenced><m:mo>=</m:mo><m:mfenced separators="" open="〈" close="〉"><m:mi>f</m:mi><m:mo>,</m:mo><m:msub><m:mi>g</m:mi> <m:mi>k</m:mi> </m:msub></m:mfenced><m:mo>.</m:mo></m:mrow></m:math></equation>
+Then, <m:math><m:mrow><m:msub><m:mi>r</m:mi> <m:mrow><m:mi>n</m:mi><m:mo>+</m:mo><m:mn>1</m:mn></m:mrow> </m:msub><m:mo>=</m:mo><m:mi>f</m:mi><m:mo>-</m:mo><m:msub><m:mi>s</m:mi> <m:mrow><m:mi>n</m:mi><m:mo>+</m:mo><m:mn>1</m:mn></m:mrow> </m:msub></m:mrow></m:math>.
+</item>
+<item>Relaxed Greedy Algorithm (RGA)
+&gt;From <m:math><m:msub><m:mi>r</m:mi> <m:mi>n</m:mi> </m:msub></m:math> choose <m:math><m:msub><m:mi>g</m:mi> <m:mrow><m:mi>n</m:mi><m:mo>+</m:mo><m:mn>1</m:mn></m:mrow> </m:msub></m:math> in some way (for example, our earlier methods) and then define
+<equation id="id2250635"><m:math mode="display"><m:mrow><m:msub><m:mi>s</m:mi> <m:mrow><m:mi>n</m:mi><m:mo>+</m:mo><m:mn>1</m:mn></m:mrow> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mi>α</m:mi><m:msub><m:mi>s</m:mi> <m:mi>n</m:mi> </m:msub><m:mo>+</m:mo><m:mi>β</m:mi><m:msub><m:mi>g</m:mi> <m:mrow><m:mi>n</m:mi><m:mo>+</m:mo><m:mn>1</m:mn></m:mrow> </m:msub></m:mrow></m:math></equation>
+Unlike PGA, here we do not make a full step in the correct
+direction. For example, one way to proceed is to define
+<equation id="id2250701"><m:math mode="display"><m:mrow><m:msub><m:mi> arginf </m:mi> <m:mrow><m:mi>α</m:mi><m:mo>,</m:mo><m:mi>β</m:mi><m:mo>,</m:mo><m:mi>g</m:mi></m:mrow> </m:msub><m:mrow><m:mo>∥</m:mo><m:mi>f</m:mi><m:mo>-</m:mo><m:mi>α</m:mi></m:mrow><m:msub><m:mi>s</m:mi> <m:mi>n</m:mi> </m:msub><m:mo>+</m:mo><m:mi>β</m:mi><m:msub><m:mi>g</m:mi> <m:mi>n</m:mi> </m:msub><m:mrow><m:mo>∥</m:mo><m:mo>=</m:mo><m:mo>:</m:mo></m:mrow><m:msup><m:mi>α</m:mi> <m:mo>*</m:mo> </m:msup><m:mo>,</m:mo><m:msup><m:mi>β</m:mi> <m:mo>*</m:mo> </m:msup><m:mo>,</m:mo><m:msup><m:mi>g</m:mi> <m:mo>*</m:mo> </m:msup></m:mrow></m:math></equation>
+This type of greedy algorithm is known to perform the best as
+compred with the previous two.
+</item></list>
+
+<section id="id2250803"><title>Measuring Performance</title>
+<para id="id2250810">Given <m:math><m:mi mathvariant="double-struck">X</m:mi></m:math>, <m:math><m:mi mathvariant="script">D</m:mi></m:math>, it is not practical to
+minimize <m:math><m:mrow><m:msub><m:mi>σ</m:mi> <m:mi>n</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi></m:mrow><m:msub><m:mo>)</m:mo> <m:mi mathvariant="double-struck">X</m:mi> </m:msub></m:mrow></m:math> by searching over all the
+possibilities.
+The greedy approximation gives an <m:math><m:mi>n</m:mi></m:math>-term
+solution with less computation, but does it perform well?</para>
+<para id="id2250879">Let</para>
+<equation id="id2250882"><m:math mode="display"><m:mrow><m:msup><m:mi mathvariant="script">L</m:mi> <m:mn>1</m:mn> </m:msup><m:mrow><m:mo>(</m:mo><m:mi mathvariant="script">D</m:mi><m:mo>)</m:mo><m:mo>:</m:mo><m:mo>=</m:mo><m:mo>{</m:mo><m:mi>f</m:mi><m:mo>∈</m:mo><m:mi mathvariant="double-struck">X</m:mi><m:mo>:</m:mo><m:mo>∑</m:mo></m:mrow><m:msub><m:mi>c</m:mi> <m:mi>g</m:mi> </m:msub><m:mi>g</m:mi><m:mo>,</m:mo><m:munder><m:mo>∑</m:mo> <m:mrow><m:mi>g</m:mi><m:mo>∈</m:mo><m:mi mathvariant="script">D</m:mi></m:mrow> </m:munder><m:mrow><m:mo>|</m:mo></m:mrow><m:msub><m:mi>c</m:mi> <m:mi>g</m:mi> </m:msub><m:mrow><m:mo>|</m:mo><m:mo>≤</m:mo><m:mi>M</m:mi><m:mo>}</m:mo></m:mrow></m:mrow></m:math></equation>
+<para id="id2250980">where the smallest <m:math><m:mi>M</m:mi></m:math> is the <m:math><m:msup><m:mi mathvariant="script">L</m:mi> <m:mn>1</m:mn> </m:msup></m:math> norm of <m:math><m:mi>f</m:mi></m:math>.</para>
+
+<rule type="theorem" id="thm2">
+<statement id="idp4412144">
+<para id="id2251020">For OGA or RGA as described above, we have</para>
+<equation id="id2251027"><m:math mode="display"><m:mrow><m:mrow><m:mo>∥</m:mo><m:mi>f</m:mi><m:mo>-</m:mo></m:mrow><m:msub><m:mi>s</m:mi> <m:mi>n</m:mi> </m:msub><m:mrow><m:mi>f</m:mi><m:mo>∥</m:mo><m:mo>≤</m:mo><m:mi>C</m:mi></m:mrow><m:msup><m:mi>n</m:mi> <m:mrow><m:mo>-</m:mo><m:mfrac><m:mn>1</m:mn> <m:mn>2</m:mn></m:mfrac></m:mrow> </m:msup><m:mrow><m:mo>|</m:mo><m:mi>f</m:mi><m:msub><m:mo>|</m:mo> <m:msup><m:mi mathvariant="script">L</m:mi> <m:mn>1</m:mn> </m:msup> </m:msub><m:mo>.</m:mo></m:mrow></m:mrow></m:math></equation>
+</statement>
+</rule>
+
+<rule type="remark" id="rem5"><label>Remark</label>
+<statement id="idm11664032">
+<para id="id2251101">Remark 5 This is similar to <m:math><m:mrow><m:msub><m:mi>σ</m:mi> <m:mi>n</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>x</m:mi><m:msub><m:mo>)</m:mo> <m:msub><m:mi>l</m:mi> <m:mn>2</m:mn> </m:msub> </m:msub></m:mrow><m:mo>≤</m:mo><m:msup><m:mi>n</m:mi> <m:mrow><m:mo>-</m:mo><m:mfrac><m:mn>1</m:mn> <m:mn>2</m:mn></m:mfrac></m:mrow> </m:msup><m:mrow><m:mo>∥</m:mo><m:mi>x</m:mi><m:msub><m:mo>∥</m:mo> <m:msub><m:mi>l</m:mi> <m:mn>1</m:mn> </m:msub> </m:msub></m:mrow></m:mrow></m:math> (<m:math><m:mi>n</m:mi></m:math>-term approximation) but its
+not always quite as good.</para>
+</statement>
+</rule>
+
+</section>
+  
+  
+  </content>
+</document>

@@ -1,0 +1,80 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML">
+  <title>The Shannon-Whitaker Sampling Theorem</title>
+  <metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m15146</md:content-id>
+  <md:title>The Shannon-Whitaker Sampling Theorem</md:title>
+  <md:abstract/>
+  <md:uuid>3cadf3e2-8f40-4582-b8ae-64aef3117cf8</md:uuid>
+</metadata>
+  <content>
+
+<para id="id2247003">The classical theory behind the encoding analog signals into bit
+streams and decoding bit streams back into signals, rests on a famous sampling theorem
+which is typically refereed to as the
+Shannon-Whitaker Sampling Theorem. In this course, this sampling
+theory will serve as a benchmark to which we shall compare the new
+theory of compressed sensing.</para>
+<para id="id2247013">To introduce the Shannon-Whitaker theory, we first define the class
+of bandlimited signals. A bandlimited signal is a signal
+whose Fourier transform only has finite support. We shall denote
+this class as <m:math><m:msub><m:mi>B</m:mi> <m:mi>A</m:mi> </m:msub></m:math> and define it in the following way:
+<equation id="id2247040"><m:math mode="display"><m:mrow><m:msub><m:mi>B</m:mi> <m:mi>A</m:mi> </m:msub><m:mrow><m:mo>:</m:mo><m:mo>=</m:mo><m:mo>{</m:mo><m:mi>f</m:mi><m:mo>∈</m:mo></m:mrow><m:msub><m:mi>L</m:mi> <m:mn>2</m:mn> </m:msub><m:mrow><m:mo>(</m:mo><m:mi mathvariant="double-struck">R</m:mi><m:mo>)</m:mo></m:mrow><m:mo>:</m:mo><m:mover accent="true"><m:mi>f</m:mi> <m:mo>^</m:mo></m:mover><m:mrow><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo><m:mo>=</m:mo><m:mn>0</m:mn><m:mo>,</m:mo><m:mspace width="0.166667em"/><m:mo>|</m:mo><m:mi>ω</m:mi><m:mo>|</m:mo><m:mo>≥</m:mo><m:mi>A</m:mi><m:mi>π</m:mi><m:mo>}</m:mo><m:mo>.</m:mo></m:mrow></m:mrow></m:math></equation>
+Here, the Fourier transform of <m:math><m:mi>f</m:mi></m:math> is defined by
+<equation id="uid2"><m:math mode="display">
+  <m:mrow>
+<m:mover accent="true"><m:mi>f</m:mi> <m:mo>^</m:mo></m:mover><m:mrow><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow><m:mo>:</m:mo><m:mo>=</m:mo><m:mfrac><m:mn>1</m:mn> <m:msqrt><m:mrow><m:mn>2</m:mn><m:mi>π</m:mi></m:mrow></m:msqrt></m:mfrac><m:msub><m:mo>∫</m:mo> <m:mi mathvariant="double-struck">R</m:mi> </m:msub><m:mi>f</m:mi><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:msup><m:mi>e</m:mi> <m:mrow><m:mo>-</m:mo><m:mi>i</m:mi><m:mi>ω</m:mi><m:mi>t</m:mi></m:mrow> </m:msup><m:mspace width="0.166667em"/><m:mi>d</m:mi><m:mi>t</m:mi><m:mo>.</m:mo></m:mrow></m:math></equation>
+This formula holds for any <m:math><m:mrow><m:mi>f</m:mi><m:mo>∈</m:mo><m:msub><m:mi>L</m:mi> <m:mn>1</m:mn> </m:msub></m:mrow></m:math> and extends easily to <m:math><m:mrow><m:mi>f</m:mi><m:mo>∈</m:mo><m:msub><m:mi>L</m:mi> <m:mn>2</m:mn> </m:msub></m:mrow></m:math> via limits.
+The inversion of the Fourier transform is given by
+<equation id="uid3"><m:math mode="display"><m:mrow><m:mi>f</m:mi><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>:</m:mo><m:mo>=</m:mo><m:mfrac><m:mn>1</m:mn> <m:msqrt><m:mrow><m:mn>2</m:mn><m:mi>π</m:mi></m:mrow></m:msqrt></m:mfrac><m:msub><m:mo>∫</m:mo> <m:mi mathvariant="double-struck">R</m:mi> </m:msub><m:mover accent="true"><m:mi>f</m:mi> <m:mo>^</m:mo></m:mover><m:mrow><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow><m:msup><m:mi>e</m:mi> <m:mrow><m:mi>i</m:mi><m:mi>ω</m:mi><m:mi>t</m:mi></m:mrow> </m:msup><m:mspace width="0.166667em"/><m:mi>d</m:mi><m:mi>ω</m:mi><m:mo>.</m:mo></m:mrow></m:math></equation>
+</para>
+
+
+<rule id="theo1" type="theorem">
+<title>Shannon-Whitaker Sampling Theorem</title>
+<statement id="id1168591321783">
+<para id="id2247367">
+If <m:math><m:mrow><m:mi>f</m:mi><m:mo>∈</m:mo><m:msub><m:mi>B</m:mi> <m:mi>A</m:mi> </m:msub></m:mrow></m:math>, then <m:math><m:mi>f</m:mi></m:math> can be uniquely determined by the
+uniformly spaced samples <m:math><m:mrow><m:mi>f</m:mi><m:mfenced open="(" close=")"><m:mstyle scriptlevel="0" displaystyle="true"><m:mfrac><m:mi>n</m:mi> <m:mi>A</m:mi></m:mfrac></m:mstyle></m:mfenced></m:mrow></m:math> and in fact,
+is given by
+<equation id="id2247434"><m:math mode="display"><m:mrow><m:mi>f</m:mi><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:munder><m:mo>∑</m:mo> <m:mrow><m:mi>n</m:mi><m:mo>∈</m:mo><m:mi mathvariant="double-struck">Z</m:mi></m:mrow> </m:munder><m:mi>f</m:mi><m:mfenced open="(" close=")"><m:mstyle scriptlevel="0" displaystyle="true"><m:mfrac><m:mi>n</m:mi> <m:mi>A</m:mi></m:mfrac></m:mstyle></m:mfenced><m:mrow><m:mspace width="3.33333pt"/><m:mi> sinc </m:mi><m:mspace width="0.166667em"/><m:mo>(</m:mo><m:mi>π</m:mi><m:mo>(</m:mo><m:mi> At </m:mi></m:mrow><m:mo>-</m:mo><m:mrow><m:mi mathvariant="normal">n</m:mi><m:mo>)</m:mo><m:mo>)</m:mo><m:mo>,</m:mo></m:mrow></m:mrow></m:math></equation>
+where <m:math><m:mrow><m:mi> sinc </m:mi><m:mspace width="0.166667em"/><m:mrow><m:mo>(</m:mo><m:mi mathvariant="normal">t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mstyle scriptlevel="0" displaystyle="true"><m:mfrac><m:mrow><m:mo form="prefix">sin</m:mo><m:mi mathvariant="normal">t</m:mi></m:mrow> <m:mi mathvariant="normal">t</m:mi></m:mfrac></m:mstyle></m:mrow></m:math>.</para>
+</statement>
+
+<proof id="id1168595569449">
+<para id="id2247598">It is enough to consider <m:math><m:mrow><m:mi>A</m:mi><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow></m:math>, since all other cases can be reduced to this through a simple change of variables.  Because <m:math><m:mrow><m:mi>f</m:mi><m:mo>∈</m:mo><m:msub><m:mi>B</m:mi> <m:mrow><m:mi>A</m:mi><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow> </m:msub></m:mrow></m:math>, the Fourier inversion formula takes the
+form
+<equation id="uid5"><m:math mode="display"><m:mrow><m:mi>f</m:mi><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mstyle scriptlevel="0" displaystyle="true"><m:mfrac><m:mn>1</m:mn> <m:msqrt><m:mrow><m:mn>2</m:mn><m:mi>π</m:mi></m:mrow></m:msqrt></m:mfrac></m:mstyle><m:msubsup><m:mo>∫</m:mo> <m:mrow><m:mo>-</m:mo><m:mi>π</m:mi></m:mrow> <m:mi>π</m:mi> </m:msubsup><m:mover accent="true"><m:mi>f</m:mi> <m:mo>^</m:mo></m:mover><m:mrow><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow><m:msup><m:mi>e</m:mi> <m:mrow><m:mi>i</m:mi><m:mi>ω</m:mi><m:mi>t</m:mi></m:mrow> </m:msup><m:mspace width="3.33333pt"/><m:mi>d</m:mi><m:mi>ω</m:mi><m:mo>.</m:mo></m:mrow></m:math></equation>
+Define <m:math><m:mrow><m:mi>F</m:mi><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow></m:math> as the <m:math><m:mrow><m:mn>2</m:mn><m:mi>π</m:mi></m:mrow></m:math> periodization of <m:math><m:mover accent="true"><m:mi>f</m:mi> <m:mo>^</m:mo></m:mover></m:math>,
+<equation id="uid6"><m:math mode="display"><m:mrow><m:mi>F</m:mi><m:mrow><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow><m:mo>:</m:mo><m:mo>=</m:mo><m:munder><m:mo>∑</m:mo> <m:mrow><m:mi>n</m:mi><m:mo>∈</m:mo><m:mi mathvariant="double-struck">Z</m:mi></m:mrow> </m:munder><m:mover accent="true"><m:mi>f</m:mi> <m:mo>^</m:mo></m:mover><m:mrow><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>-</m:mo><m:mn>2</m:mn><m:mi>n</m:mi><m:mi>π</m:mi><m:mo>)</m:mo></m:mrow><m:mo>.</m:mo></m:mrow></m:math></equation>
+Because <m:math><m:mrow><m:mi>F</m:mi><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow></m:math> is periodic, it admits a Fourier series
+representation
+<equation id="id2247884"><m:math mode="display"><m:mrow><m:mi>F</m:mi><m:mrow><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:munder><m:mo>∑</m:mo> <m:mrow><m:mi>n</m:mi><m:mo>∈</m:mo><m:mi mathvariant="double-struck">Z</m:mi></m:mrow> </m:munder><m:msub><m:mi>c</m:mi> <m:mi>n</m:mi> </m:msub><m:msup><m:mi>e</m:mi> <m:mrow><m:mo>-</m:mo><m:mi>i</m:mi><m:mi>n</m:mi><m:mi>ω</m:mi></m:mrow> </m:msup><m:mo>,</m:mo></m:mrow></m:math></equation>
+where the Fourier coefficients <m:math><m:msub><m:mi>c</m:mi> <m:mi>n</m:mi> </m:msub></m:math> given by
+<equation id="uid7"><m:math mode="display"><m:mtable displaystyle="true"><m:mtr><m:mtd columnalign="right"><m:msub><m:mi>c</m:mi> <m:mi>n</m:mi> </m:msub></m:mtd><m:mtd columnalign="left"><m:mrow><m:mo>=</m:mo><m:mstyle scriptlevel="0" displaystyle="true"><m:mfrac><m:mn>1</m:mn> <m:mrow><m:mn>2</m:mn><m:mi>π</m:mi></m:mrow></m:mfrac></m:mstyle><m:msubsup><m:mo>∫</m:mo> <m:mrow><m:mo>-</m:mo><m:mi>π</m:mi></m:mrow> <m:mi>π</m:mi> </m:msubsup><m:mi>F</m:mi><m:mrow><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow><m:msup><m:mi>e</m:mi> <m:mrow><m:mi>i</m:mi><m:mi>n</m:mi><m:mi>ω</m:mi></m:mrow> </m:msup><m:mspace width="3.33333pt"/><m:mi>d</m:mi><m:mi>ω</m:mi></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd/><m:mtd columnalign="left"><m:mrow><m:mo>=</m:mo><m:mstyle scriptlevel="0" displaystyle="true"><m:mfrac><m:mn>1</m:mn> <m:mrow><m:mn>2</m:mn><m:mi>π</m:mi></m:mrow></m:mfrac></m:mstyle><m:msubsup><m:mo>∫</m:mo> <m:mrow><m:mo>-</m:mo><m:mi>π</m:mi></m:mrow> <m:mi>π</m:mi> </m:msubsup><m:mover accent="true"><m:mi>f</m:mi> <m:mo>^</m:mo></m:mover><m:mrow><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow><m:msup><m:mi>e</m:mi> <m:mrow><m:mi>i</m:mi><m:mi>n</m:mi><m:mi>ω</m:mi></m:mrow> </m:msup><m:mspace width="3.33333pt"/><m:mi>d</m:mi><m:mi>ω</m:mi><m:mo>.</m:mo></m:mrow></m:mtd></m:mtr></m:mtable></m:math></equation>
+By comparing (<link target-id="uid7"/>) with (<link target-id="uid5"/>), we
+conclude that
+<equation id="uid8"><m:math mode="display"><m:mrow><m:msub><m:mi>c</m:mi> <m:mi>n</m:mi> </m:msub><m:mo>=</m:mo><m:mstyle scriptlevel="0" displaystyle="true"><m:mfrac><m:mn>1</m:mn> <m:msqrt><m:mrow><m:mn>2</m:mn><m:mi>π</m:mi></m:mrow></m:msqrt></m:mfrac></m:mstyle><m:mi>f</m:mi><m:mrow><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow><m:mo>.</m:mo></m:mrow></m:math></equation>
+Therefore by plugging (<link target-id="uid8"/>) back
+into (<link target-id="uid6"/>), we have that
+<equation id="id2248220"><m:math mode="display"><m:mrow><m:mi>F</m:mi><m:mrow><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mstyle scriptlevel="0" displaystyle="true"><m:mfrac><m:mn>1</m:mn> <m:msqrt><m:mrow><m:mn>2</m:mn><m:mi>π</m:mi></m:mrow></m:msqrt></m:mfrac></m:mstyle><m:munder><m:mo>∑</m:mo> <m:mrow><m:mi>n</m:mi><m:mo>∈</m:mo><m:mi mathvariant="double-struck">Z</m:mi></m:mrow> </m:munder><m:mi>f</m:mi><m:mrow><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow><m:msup><m:mi>e</m:mi> <m:mrow><m:mo>-</m:mo><m:mi>i</m:mi><m:mi>n</m:mi><m:mi>ω</m:mi></m:mrow> </m:msup><m:mo>.</m:mo></m:mrow></m:math></equation>
+Now, because
+<equation id="uid9"><m:math mode="display"><m:mrow><m:mover accent="true"><m:mi>f</m:mi> <m:mo>^</m:mo></m:mover><m:mrow><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mi>F</m:mi><m:mrow><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow><m:msub><m:mi>χ</m:mi> <m:mrow><m:mo>[</m:mo><m:mo>-</m:mo><m:mi>π</m:mi><m:mo>,</m:mo><m:mi>π</m:mi><m:mo>]</m:mo></m:mrow> </m:msub><m:mo>=</m:mo><m:mstyle scriptlevel="0" displaystyle="true"><m:mfrac><m:mn>1</m:mn> <m:msqrt><m:mrow><m:mn>2</m:mn><m:mi>π</m:mi></m:mrow></m:msqrt></m:mfrac></m:mstyle><m:munder><m:mo>∑</m:mo> <m:mrow><m:mi>n</m:mi><m:mo>∈</m:mo><m:mi mathvariant="double-struck">Z</m:mi></m:mrow> </m:munder><m:mi>f</m:mi><m:mrow><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow><m:msup><m:mi>e</m:mi> <m:mrow><m:mo>-</m:mo><m:mi>i</m:mi><m:mi>n</m:mi><m:mi>ω</m:mi></m:mrow> </m:msup><m:msub><m:mi>χ</m:mi> <m:mrow><m:mo>[</m:mo><m:mo>-</m:mo><m:mi>π</m:mi><m:mo>,</m:mo><m:mi>π</m:mi><m:mo>]</m:mo></m:mrow> </m:msub><m:mo>,</m:mo></m:mrow></m:math></equation>
+and because of the facts that
+<equation id="id2248455"><m:math mode="display"><m:mtable displaystyle="true"><m:mtr><m:mtd columnalign="right"><m:mrow><m:mi mathvariant="script">F</m:mi><m:mo>(</m:mo><m:msub><m:mi>χ</m:mi> <m:mrow><m:mo>[</m:mo><m:mo>-</m:mo><m:mi>π</m:mi><m:mo>,</m:mo><m:mi>π</m:mi><m:mo>]</m:mo></m:mrow> </m:msub><m:mo>)</m:mo></m:mrow></m:mtd><m:mtd columnalign="left"><m:mrow><m:mo>=</m:mo><m:mfrac><m:mn>1</m:mn> <m:msqrt><m:mrow><m:mn>2</m:mn><m:mi>π</m:mi></m:mrow></m:msqrt></m:mfrac><m:mi> sinc </m:mi><m:mspace width="0.166667em"/><m:mrow><m:mo>(</m:mo><m:mi>π</m:mi><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow><m:mspace width="1.em"/><m:mspace width="4.pt"/><m:mtext>and</m:mtext><m:mspace width="4.pt"/></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd columnalign="right"><m:mrow><m:mi mathvariant="script">F</m:mi><m:mo>(</m:mo><m:mi>g</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>n</m:mi><m:mo>)</m:mo><m:mo>)</m:mo></m:mrow></m:mtd><m:mtd columnalign="left"><m:mrow><m:mo>=</m:mo><m:msup><m:mi>e</m:mi> <m:mrow><m:mo>-</m:mo><m:mi>i</m:mi><m:mi>n</m:mi><m:mi>ω</m:mi></m:mrow> </m:msup><m:mrow><m:mi mathvariant="script">F</m:mi><m:mo>(</m:mo><m:mi>g</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo><m:mo>)</m:mo><m:mo>,</m:mo></m:mrow></m:mrow></m:mtd></m:mtr></m:mtable></m:math></equation>
+we conclude
+<equation id="id2248622"><m:math mode="display"><m:mrow><m:mi>f</m:mi><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:munder><m:mo>∑</m:mo> <m:mrow><m:mi>n</m:mi><m:mo>∈</m:mo><m:mi mathvariant="double-struck">Z</m:mi></m:mrow> </m:munder><m:mrow><m:mi>f</m:mi><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>)</m:mo><m:mspace width="3.33333pt"/><m:mi> sinc </m:mi><m:mspace width="0.166667em"/><m:mo>(</m:mo><m:mi>π</m:mi><m:mo>(</m:mo><m:mi mathvariant="normal">t</m:mi></m:mrow><m:mo>-</m:mo><m:mrow><m:mi mathvariant="normal">n</m:mi><m:mo>)</m:mo><m:mo>)</m:mo><m:mo>.</m:mo></m:mrow></m:mrow></m:math></equation>
+</para>
+</proof>
+</rule>
+
+<para id="id2248703">Comments:</para>
+<list id="id2248707" list-type="enumerated">
+<item>(Good news) The set <m:math><m:mrow><m:mo>{</m:mo><m:mi> sinc </m:mi><m:mspace width="0.166667em"/><m:mo>(</m:mo><m:mi>π</m:mi><m:mo>(</m:mo><m:mi mathvariant="normal">t</m:mi><m:mo>-</m:mo><m:mi mathvariant="normal">n</m:mi><m:mo>)</m:mo><m:mo>)</m:mo><m:msub><m:mo>}</m:mo> <m:mrow><m:mi mathvariant="normal">n</m:mi><m:mo>∈</m:mo><m:mi mathvariant="double-struck">Z</m:mi></m:mrow> </m:msub></m:mrow></m:math> is an orthogonal system and therefore, has the property that the <m:math><m:msub><m:mi>L</m:mi> <m:mn>2</m:mn> </m:msub></m:math> norm of the function and its Fourier coefficients are related by,
+<equation id="id2248793"><m:math mode="display"><m:mrow><m:mo>∥</m:mo><m:mi>f</m:mi><m:msubsup><m:mo>∥</m:mo> <m:mrow><m:msub><m:mi>L</m:mi> <m:mn>2</m:mn> </m:msub></m:mrow> <m:mn>2</m:mn> </m:msubsup><m:mo>=</m:mo><m:mn>2</m:mn><m:mi>π</m:mi><m:munder><m:mo>∑</m:mo> <m:mrow><m:mi>n</m:mi><m:mo>∈</m:mo><m:mi mathvariant="double-struck">Z</m:mi></m:mrow> </m:munder><m:mo>|</m:mo><m:mi>f</m:mi><m:mrow><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow><m:msup><m:mo>|</m:mo> <m:mn>2</m:mn> </m:msup></m:mrow></m:math></equation>
+</item>
+<item>(Bad news) The representation of <m:math><m:mi>f</m:mi></m:math> in terms of sinc functions is not a stable representation, i.e.
+<equation id="id2248887"><m:math mode="display"><m:mrow><m:munder><m:mo>∑</m:mo> <m:mrow><m:mi>n</m:mi><m:mo>∈</m:mo><m:mi mathvariant="double-struck">Z</m:mi></m:mrow> </m:munder><m:mrow><m:mo>|</m:mo><m:mi> sinc </m:mi><m:mspace width="0.166667em"/><m:mo>(</m:mo><m:mi>π</m:mi><m:mo>(</m:mo><m:mi mathvariant="normal">t</m:mi></m:mrow><m:mo>-</m:mo><m:mrow><m:mi mathvariant="normal">n</m:mi><m:mo>)</m:mo><m:mo>)</m:mo><m:mo>|</m:mo><m:mo>≈</m:mo></m:mrow><m:munder><m:mo>∑</m:mo> <m:mrow><m:mi mathvariant="normal">n</m:mi><m:mo>∈</m:mo><m:mi mathvariant="double-struck">Z</m:mi></m:mrow> </m:munder><m:mstyle scriptlevel="0" displaystyle="true"><m:mfrac><m:mn>1</m:mn> <m:mrow><m:mo>|</m:mo><m:mi mathvariant="normal">t</m:mi><m:mo>-</m:mo><m:mi mathvariant="normal">n</m:mi><m:mo>|</m:mo><m:mo>+</m:mo><m:mn>1</m:mn></m:mrow></m:mfrac></m:mstyle><m:mo>→</m:mo><m:mtext>divergences</m:mtext></m:mrow></m:math></equation>
+</item></list>
+
+  </content>
+</document>

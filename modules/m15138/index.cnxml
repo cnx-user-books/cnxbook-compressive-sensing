@@ -1,0 +1,1496 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>New Signal Models</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>ef358b2f-170b-4acd-9b37-b269ea80c841</md:uuid>
+</metadata>
+  
+  <content>
+    <para id="id3106981">We now wish to consider new model classes for signals. 
+      Towards this end, let 
+      <m:math display="inline">
+        <m:semantics>
+          <m:msubsup>
+            <m:mrow>
+              <m:mo stretchy="false">{</m:mo>
+              <m:msub><m:mi>ψ</m:mi>
+              <m:mi>j</m:mi></m:msub>
+              <m:mo stretchy="false">}</m:mo>
+            </m:mrow>
+            <m:mrow>
+              <m:mi>j</m:mi>
+              <m:mo stretchy="false">=</m:mo>
+              <m:mn>1</m:mn>
+            </m:mrow>
+            <m:mi>∞</m:mi>
+          </m:msubsup>
+          <m:annotation encoding="StarMath 5.0">
+            { lbrace  ψ_j  rbrace}_{j = 1}^∞
+          </m:annotation>
+        </m:semantics>
+      </m:math> 
+      be an orthonormal basis for 
+      <m:math display="inline">
+        <m:semantics>
+          <m:mrow>
+            <m:msub>
+              <m:mi>L</m:mi>
+              <m:mn>2</m:mn>
+            </m:msub>
+            <m:mrow>
+              <m:mo stretchy="false">(</m:mo>
+              <m:mrow>
+                <m:mrow>
+                  <m:mo stretchy="false">−</m:mo>
+                <m:mi>T</m:mi>
+              </m:mrow>
+              <m:mi>,</m:mi>
+              <m:mi>T</m:mi>
+            </m:mrow>
+            <m:mo stretchy="false">)</m:mo>
+          </m:mrow>
+        </m:mrow>
+        <m:annotation encoding="StarMath 5.0">
+          L_2 { \(  { -  T , T}  \)}
+        </m:annotation>
+      </m:semantics>
+    </m:math>. 
+    Thus for
+    <m:math display="inline">
+      <m:semantics>
+        <m:mrow>
+          <m:mi>f</m:mi>
+          <m:mo stretchy="false">∈</m:mo>
+          <m:msub>
+            <m:mi>L</m:mi>
+            <m:mn>2</m:mn>
+          </m:msub>
+        </m:mrow>
+        <m:annotation encoding="StarMath 5.0">
+          f  in L_2
+        </m:annotation>
+      </m:semantics>
+    </m:math> 
+    we can write 
+    <m:math display="inline">
+      <m:semantics>
+        <m:mrow>
+          <m:mrow>
+            <m:mi>f</m:mi>
+            <m:mo stretchy="false">=</m:mo>
+            <m:mrow>
+              <m:msubsup>
+                <m:mo stretchy="false">∑</m:mo>
+                <m:mrow>
+                  <m:mi>j</m:mi>
+                  <m:mo stretchy="false">=</m:mo>
+                  <m:mn>1</m:mn>
+                </m:mrow>
+                <m:mi>∞</m:mi>
+              </m:msubsup>
+              <m:msub>
+                <m:mi>c</m:mi>
+                <m:mi>j</m:mi>
+              </m:msub>
+            </m:mrow>
+          </m:mrow>
+          <m:mrow>
+            <m:mo stretchy="false">(</m:mo>
+            <m:mi>f</m:mi>
+            <m:mo stretchy="false">)</m:mo>
+          </m:mrow>
+          <m:msub>
+            <m:mi>ψ</m:mi>
+            <m:mi>j</m:mi>
+          </m:msub>
+        </m:mrow>
+        <m:annotation encoding="StarMath 5.0">
+          f = sum_{j = 1}^∞ c_j { \(  f  \)} ψ_j
+        </m:annotation>
+      </m:semantics>
+    </m:math> 
+    where 
+    <m:math display="inline">
+      <m:semantics>
+        <m:mrow>
+          <m:mrow>
+            <m:mo stretchy="false">(</m:mo>
+            <m:mrow>
+              <m:msub>
+                <m:mi>c</m:mi>
+                <m:mi>j</m:mi>
+              </m:msub>
+              <m:mrow>
+                <m:mo stretchy="false">(</m:mo>
+                <m:mi>f</m:mi>
+                <m:mo stretchy="false">)</m:mo>
+              </m:mrow>
+            </m:mrow>
+            <m:mo stretchy="false">)</m:mo>
+          </m:mrow>
+          <m:mo stretchy="false">∈</m:mo>
+          <m:msub>
+            <m:mi>ℓ</m:mi>
+            <m:mn>2</m:mn>
+          </m:msub>
+        </m:mrow>
+        <m:annotation encoding="StarMath 5.0">
+          { \(  {c_j { \(  f  \)}}  \)}  in ℓ_2
+        </m:annotation>
+      </m:semantics>
+    </m:math>. 
+    We will now build an encoder and decoder and analyze its performance on 
+    compact sets 
+    <m:math display="inline">
+      <m:semantics>
+        <m:mi>K</m:mi>
+        <m:annotation encoding="StarMath 5.0">K</m:annotation>
+      </m:semantics>
+    </m:math>. 
+    For example, we might want to encode signals in the space 
+    <m:math display="block">
+      <m:semantics>
+        <m:mrow>
+          <m:mrow>
+            <m:msub>
+              <m:mi>X</m:mi>
+              <m:mi>p</m:mi>
+            </m:msub>
+            <m:mo stretchy="false">=</m:mo>
+            <m:mrow>
+              <m:mo stretchy="false">{</m:mo>
+              <m:mrow>
+                <m:mi>f</m:mi>
+                <m:mi>:</m:mi>
+                <m:mrow>
+                  <m:mrow>
+                    <m:mo stretchy="false">(</m:mo>
+                    <m:mrow>
+                      <m:msub>
+                        <m:mi>c</m:mi>
+                        <m:mi>j</m:mi>
+                      </m:msub>
+                      <m:mrow>
+                        <m:mo stretchy="false">(</m:mo>
+                        <m:mi>f</m:mi>
+                        <m:mo stretchy="false">)</m:mo>
+                      </m:mrow>
+                    </m:mrow>
+                    <m:mo stretchy="false">)</m:mo>
+                  </m:mrow>
+                  <m:mo stretchy="false">∈</m:mo>
+                  <m:msub>
+                    <m:mi>ℓ</m:mi>
+                    <m:mi>p</m:mi>
+                  </m:msub>
+                </m:mrow>
+              </m:mrow>
+              <m:mo stretchy="false">},</m:mo>
+            </m:mrow>
+          </m:mrow>
+          <m:mrow>
+            <m:mrow>
+              <m:mn>0</m:mn>
+              <m:mo stretchy="false">≤</m:mo>
+              <m:mi>p</m:mi>
+            </m:mrow>
+            <m:mo stretchy="false">≤</m:mo>
+            <m:mn>2</m:mn>
+          </m:mrow>
+        </m:mrow>
+        <m:annotation encoding="StarMath 5.0">
+          X_p ={ lbrace  {f : { \(  {c_j { \(  f  \)}}  \)}  in  ℓ_p} rbrace} 
+          0  &lt;= p  &lt;= 2
+        </m:annotation>
+      </m:semantics>
+    </m:math>
+    with norm 
+    <m:math display="block">
+      <m:mrow>
+        <m:mrow>
+          <m:mo>∥</m:mo>
+          <m:mi>f</m:mi>
+          <m:mo>∥</m:mo>
+        </m:mrow>
+        <m:msub>
+          <m:mrow>
+            <m:mi/>
+          </m:mrow>
+          <m:mrow>
+            <m:msub>
+              <m:mrow>
+                <m:mi>X</m:mi>
+              </m:mrow>
+              <m:mrow>
+                <m:mi>p</m:mi>
+              </m:mrow>
+            </m:msub>
+          </m:mrow>
+        </m:msub>
+        <m:mo>:</m:mo>
+        <m:mo>=</m:mo>
+        <m:mo>∥</m:mo>
+        <m:mo>(</m:mo>
+        <m:mi>c</m:mi>
+        <m:msub>
+          <m:mrow>
+            <m:mi/>
+          </m:mrow>
+          <m:mrow>
+            <m:mi>j</m:mi>
+          </m:mrow>
+        </m:msub>
+        <m:mo>(</m:mo>
+        <m:mi>f</m:mi>
+        <m:mo>)</m:mo>
+        <m:mo>)</m:mo>
+        <m:mo>∥</m:mo>
+        <m:msub>
+          <m:mrow>
+            <m:mi/>
+          </m:mrow>
+          <m:mrow>
+            <m:msub>
+              <m:mrow>
+                <m:mi mathvariant="normal">ℓ</m:mi>
+              </m:mrow>
+              <m:mrow>
+                <m:mi>p</m:mi>
+              </m:mrow>
+            </m:msub>
+          </m:mrow>
+        </m:msub>
+        <m:mo>.</m:mo>
+      </m:mrow>
+    </m:math>
+    However, in this space the unit ball, 
+    <m:math display="inline">
+      <m:semantics>
+        <m:mrow>
+          <m:mi>U</m:mi>
+          <m:mrow>
+            <m:mo stretchy="false">(</m:mo>
+            <m:msub>
+              <m:mi>X</m:mi>
+              <m:mi>p</m:mi>
+            </m:msub>
+            <m:mo stretchy="false">)</m:mo>
+          </m:mrow>
+        </m:mrow>
+        <m:annotation encoding="StarMath 5.0">
+          U { \(  X_p  \)}
+        </m:annotation>
+      </m:semantics>
+    </m:math> 
+    is not compact. To get a compact set we need more structure on the sequence 
+    <m:math display="inline">
+      <m:semantics>
+        <m:mrow>
+          <m:mo stretchy="false">(</m:mo>
+          <m:msub>
+            <m:mi>c</m:mi>
+            <m:mi>j</m:mi>
+          </m:msub>
+          <m:mo stretchy="false">)</m:mo>
+        </m:mrow>
+        <m:annotation encoding="StarMath 5.0"> 
+          \(  c_j  \)
+        </m:annotation>
+      </m:semantics>
+    </m:math>. 
+    Hence we define 
+    <m:math display="block">
+      <m:semantics>
+        <m:mrow>
+          <m:msup>
+            <m:mi>Y</m:mi>
+            <m:mi>α</m:mi>
+          </m:msup>
+          <m:mrow>
+            <m:mi>:</m:mi>
+            <m:mo stretchy="false">=</m:mo>
+            <m:mrow>
+              <m:mo stretchy="false">{</m:mo>
+              <m:mrow>
+                <m:mi>f</m:mi>
+                <m:mi>:</m:mi>
+                <m:mo stretchy="false">∣</m:mo>
+                <m:msub>
+                  <m:mi>c</m:mi>
+                  <m:mi>n</m:mi>
+                </m:msub>
+                <m:mrow>
+                  <m:mo stretchy="false">(</m:mo>
+                  <m:mi>f</m:mi>
+                  <m:mo stretchy="false">)</m:mo>
+                </m:mrow>
+                <m:mrow>
+                  <m:mo stretchy="false">∣</m:mo>
+                  <m:mo stretchy="false">≤</m:mo>
+                  <m:msup>
+                    <m:mi>n</m:mi>
+                    <m:mrow>
+                      <m:mo stretchy="false">−</m:mo>
+                      <m:mi>α</m:mi>
+                    </m:mrow>
+                  </m:msup>
+                </m:mrow>
+                <m:mi>,</m:mi>
+                <m:mrow>
+                  <m:mi>n</m:mi>
+                  <m:mo stretchy="false">=</m:mo>
+                  <m:mn>1</m:mn>
+                </m:mrow>
+                <m:mi>,</m:mi>
+                <m:mn>2</m:mn>
+                <m:mi>,</m:mi>
+                <m:mo stretchy="false">…</m:mo>
+              </m:mrow>
+              <m:mo stretchy="false">}</m:mo>
+            </m:mrow>
+          </m:mrow>
+        </m:mrow>
+        <m:annotation encoding="StarMath 5.0">
+          Y^α :={ lbrace  {f :  \lline  c_n { \(  f  \)}  \lline   &lt;=  
+          n^{ -  α} , n = 1 , 2 ,  dotslow}  rbrace}
+        </m:annotation>
+      </m:semantics>
+    </m:math>
+    and we define the norm in this space as 
+    <m:math display="inline">
+      <m:mrow>
+      <m:mrow>
+         <m:mrow/>
+         <m:mrow>
+            <m:mrow>
+               <m:mo stretchy="false">∥</m:mo>
+               <m:mi>f</m:mi>
+               <m:msubsup>
+                  <m:mrow>
+                     <m:mo stretchy="false">∥</m:mo>
+                  </m:mrow>
+                  <m:mrow>
+                     <m:msup>
+                       <m:mrow>
+                          <m:mi>Y</m:mi>
+                       </m:mrow>
+                       <m:mrow>
+                          <m:mi>α</m:mi>
+                       </m:mrow>
+                     </m:msup>
+                  </m:mrow>
+                  <m:mrow>
+                     <m:mtext> </m:mtext>
+                  </m:mrow>
+               </m:msubsup>
+               <m:mi>:</m:mi>
+            </m:mrow>
+            <m:mo stretchy="false">=</m:mo>
+            <m:mrow/>
+         </m:mrow>
+        </m:mrow>
+      </m:mrow>
+    </m:math>
+    the smallest 
+    <m:math display="inline">
+      <m:semantics>
+        <m:mi>c</m:mi>
+        <m:annotation encoding="StarMath 5.0">c</m:annotation>
+      </m:semantics>
+    </m:math> 
+    such that this holds. We now take
+        <m:math display="block">
+          <m:semantics>
+            <m:mrow>
+              <m:mrow>
+                <m:mi>K</m:mi>
+                <m:mo stretchy="false">=</m:mo>
+                <m:mi>U</m:mi>
+              </m:mrow>
+              <m:mrow>
+                <m:mrow>
+                  <m:mo stretchy="false">(</m:mo>
+                  <m:msub>
+                    <m:mi>X</m:mi>
+                    <m:mi>p</m:mi>
+                  </m:msub>
+                  <m:mo stretchy="false">)</m:mo>
+                </m:mrow>
+                <m:mo stretchy="false">∩</m:mo>
+                <m:mi>U</m:mi>
+              </m:mrow>
+              <m:mrow>
+                <m:mo stretchy="false">(</m:mo>
+                <m:msup>
+                  <m:mi>Y</m:mi>
+                  <m:mi>α</m:mi>
+                </m:msup>
+                <m:mo stretchy="false">)</m:mo>
+              </m:mrow>
+            </m:mrow>
+            <m:annotation encoding="StarMath 5.0">K =U { \(  X_p  \)}  intersection U { \(  Y^α  \)}</m:annotation>
+          </m:semantics>
+        </m:math>
+      to get a compact set. Notice that when 
+      <m:math display="inline">
+        <m:semantics>
+          <m:mrow>
+            <m:mi>α</m:mi>
+            <m:mo stretchy="false">&gt;</m:mo>
+            <m:mn>0</m:mn>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0">α &gt;0</m:annotation>
+        </m:semantics>
+      </m:math> 
+      is small the requirement for membership in 
+     <m:math display="inline">
+        <m:semantics>
+          <m:msup>
+            <m:mi>Y</m:mi>
+            <m:mi>α</m:mi>
+          </m:msup>
+         <m:annotation encoding="StarMath 5.0">Y^α</m:annotation>
+       </m:semantics>
+     </m:math> 
+     is very mild. 
+   </para>
+      
+   <para id="id3042870">Next, suppose that we choose a target distortion level 
+   <m:math display="inline">
+     <m:semantics>
+       <m:mrow>
+         <m:mi>ε</m:mi>
+         <m:mo stretchy="false">=</m:mo>
+         <m:msup>
+            <m:mn>2</m:mn>
+            <m:mrow>
+               <m:mo stretchy="false">−</m:mo>
+               <m:mi>m</m:mi>
+            </m:mrow>
+         </m:msup>
+       </m:mrow>
+       <m:annotation encoding="StarMath 5.0">ε =2^{ -  m}</m:annotation>
+     </m:semantics>
+   </m:math>. 
+   Given  
+   <m:math display="inline">
+     <m:semantics>
+        <m:mi>f</m:mi>
+        <m:annotation encoding="StarMath 5.0">f</m:annotation>
+     </m:semantics>
+   </m:math>, 
+   let 
+   <m:math display="block">
+          <m:semantics>
+            <m:mrow>
+              <m:msub>
+                <m:mi>Λ</m:mi>
+                <m:mi>k</m:mi>
+              </m:msub>
+              <m:mrow>
+                <m:mi>:</m:mi>
+                <m:mo stretchy="false">=</m:mo>
+                <m:msub>
+                  <m:mi>Λ</m:mi>
+                  <m:mi>k</m:mi>
+                </m:msub>
+              </m:mrow>
+              <m:mrow>
+                <m:mrow>
+                  <m:mo stretchy="false">(</m:mo>
+                  <m:mi>f</m:mi>
+                  <m:mo stretchy="false">)</m:mo>
+                </m:mrow>
+                <m:mo stretchy="false">=</m:mo>
+                <m:mrow>
+                  <m:mo stretchy="false">{</m:mo>
+                  <m:mrow>
+                    <m:mrow>
+                      <m:mi>j</m:mi>
+                      <m:mo stretchy="false">∈</m:mo>
+                      <m:mrow>
+                        <m:mo stretchy="false">{</m:mo>
+                        <m:mrow>
+                          <m:mn>0</m:mn>
+                          <m:mi>,</m:mi>
+                          <m:mo stretchy="false">…</m:mo>
+                          <m:mi>,</m:mi>
+                          <m:mi>N</m:mi>
+                        </m:mrow>
+                        <m:mo stretchy="false">}</m:mo>
+                      </m:mrow>
+                    </m:mrow>
+                    <m:mi>:</m:mi>
+                    <m:mrow>
+                      <m:msup>
+                        <m:mn>2</m:mn>
+                        <m:mrow>
+                          <m:mrow>
+                            <m:mo stretchy="false">−</m:mo>
+                            <m:mi>k</m:mi>
+                          </m:mrow>
+                          <m:mo stretchy="false">−</m:mo>
+                          <m:mn>1</m:mn>
+                        </m:mrow>
+                      </m:msup>
+                      <m:mo stretchy="false">≤</m:mo>
+                      <m:mo stretchy="false">∣</m:mo>
+                    </m:mrow>
+                    <m:msub>
+                      <m:mi>c</m:mi>
+                      <m:mi>j</m:mi>
+                    </m:msub>
+                    <m:mrow>
+                      <m:mo stretchy="false">(</m:mo>
+                      <m:mi>f</m:mi>
+                      <m:mo stretchy="false">)</m:mo>
+                    </m:mrow>
+                    <m:mrow>
+                      <m:mo stretchy="false">∣</m:mo>
+                      <m:mo stretchy="false">&lt;</m:mo>
+                      <m:msup>
+                        <m:mn>2</m:mn>
+                        <m:mrow>
+                          <m:mo stretchy="false">−</m:mo>
+                          <m:mi>k</m:mi>
+                        </m:mrow>
+                      </m:msup>
+                    </m:mrow>
+                  </m:mrow>
+                  <m:mo stretchy="false">}</m:mo>
+                </m:mrow>
+              </m:mrow>
+            </m:mrow>
+            <m:annotation encoding="StarMath 5.0">Λ_k :=Λ_k { \(  f  \)} ={ lbrace  {j  in  { lbrace  {0 ,  dotslow  , N}  rbrace} : 2^{ -  k  -  1}  &lt;=   \lline  c_j { \(  f  \)}  \lline  &lt; 2^{ -  k}}  rbrace}</m:annotation>
+          </m:semantics>
+      </m:math>
+      for 
+<m:math display="inline"><m:semantics><m:mrow><m:mrow><m:mn>0</m:mn><m:mo stretchy="false">≤</m:mo><m:mi>k</m:mi></m:mrow><m:mo stretchy="false">≤</m:mo><m:mi>M</m:mi></m:mrow><m:annotation encoding="StarMath 5.0">0  &lt;= k  &lt;= M</m:annotation></m:semantics></m:math>, where 
+<m:math display="inline"><m:semantics><m:mrow><m:mi>M</m:mi><m:mrow><m:mi>:</m:mi><m:mo stretchy="false">=</m:mo><m:mrow><m:mi>⌈</m:mi><m:mfrac><m:mrow><m:mn>2</m:mn><m:mi>m</m:mi></m:mrow><m:mrow><m:mn>2</m:mn><m:mo stretchy="false">−</m:mo><m:mi>p</m:mi></m:mrow></m:mfrac><m:mi>⌉</m:mi></m:mrow></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">M :={⌈ {2 m} over {2  -  p} ⌉}</m:annotation></m:semantics></m:math>. 
+   We then choose 
+   <m:math display="inline"><m:semantics><m:mi>N</m:mi><m:annotation encoding="StarMath 5.0">N</m:annotation></m:semantics></m:math> 
+   as the smallest integer so that
+   <m:math display="block">
+     <m:mrow>
+       <m:mrow>
+         <m:mrow>
+           <m:msup>
+             <m:mrow>
+               <m:mi>N</m:mi>
+             </m:mrow>
+             <m:mrow>
+               <m:mo stretchy="false">−</m:mo>
+               <m:mi>α</m:mi>
+             </m:mrow>
+           </m:msup>
+           <m:mo stretchy="false">≤</m:mo>
+           <m:msup>
+             <m:mrow>
+               <m:mn>2</m:mn>
+             </m:mrow>
+             <m:mrow>
+               <m:mo stretchy="false">−</m:mo>
+               <m:mi>M</m:mi>
+             </m:mrow>
+           </m:msup>
+         </m:mrow>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+   and thus
+   <m:math display="block">
+     <m:mrow>
+       <m:mrow>
+         <m:mrow>
+           <m:mi>log</m:mi>
+           <m:mspace depth="0.0ex" height="0.0ex" width="0.3em"/>
+           <m:mo>⁡</m:mo>
+           <m:mi>N</m:mi>
+           <m:mo stretchy="false">≤</m:mo>
+           <m:mi>C</m:mi>
+         </m:mrow>
+         <m:mi>m</m:mi>
+         <m:mtext>.</m:mtext>
+       </m:mrow>
+     </m:mrow>
+   </m:math>
+It follows from the requirement that 
+<m:math display="inline"><m:semantics><m:mrow><m:mi>f</m:mi><m:mo stretchy="false">∈</m:mo><m:msup><m:mi>Y</m:mi><m:mi>α</m:mi></m:msup></m:mrow><m:annotation encoding="StarMath 5.0">f  in Y^α</m:annotation></m:semantics></m:math> that 
+<m:math display="inline"><m:semantics><m:mrow><m:msub><m:mi>Λ</m:mi><m:mi>k</m:mi></m:msub><m:mo stretchy="false">⊂</m:mo><m:mrow><m:mo stretchy="false">{</m:mo><m:mrow><m:mn>1</m:mn><m:mi>,</m:mi><m:mo stretchy="false">…</m:mo><m:mi>,</m:mi><m:mi>N</m:mi></m:mrow><m:mo stretchy="false">}</m:mo></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">Λ_k  subset { lbrace  {1  ,  dotslow  , N}  rbrace}</m:annotation></m:semantics></m:math> for each 
+<m:math display="inline"><m:semantics><m:mrow><m:mrow><m:mn>0</m:mn><m:mo stretchy="false">≤</m:mo><m:mi>k</m:mi></m:mrow><m:mo stretchy="false">≤</m:mo><m:mi>M</m:mi></m:mrow><m:annotation encoding="StarMath 5.0">0  &lt;= k  &lt;= M</m:annotation></m:semantics></m:math>. </para>
+      
+
+<para id="id2880310">Recall that 
+<m:math display="block">
+   <m:mrow>
+      <m:mrow>
+         <m:mrow>
+            <m:mi>#</m:mi>
+            <m:mo>⁢</m:mo>
+            <m:msub>
+              <m:mrow>
+                 <m:mi mathvariant="normal">Λ</m:mi>
+              </m:mrow>
+              <m:mrow>
+                 <m:mi>k</m:mi>
+              </m:mrow>
+            </m:msub>
+            <m:mo>⁢</m:mo>
+            <m:msup>
+              <m:mrow>
+                 <m:mn> 2</m:mn>
+              </m:mrow>
+              <m:mrow>
+                 <m:mrow>
+                    <m:mo>(</m:mo>
+                    <m:mrow>
+                       <m:mrow>
+                          <m:mo>-</m:mo>
+                          <m:mi>k</m:mi>
+                       </m:mrow>
+                       <m:mo>-</m:mo>
+                       <m:mn>1</m:mn>
+                    </m:mrow>
+                    <m:mo>)</m:mo>
+                 </m:mrow>
+                 <m:mo>⁢</m:mo>
+                 <m:mi>p</m:mi>
+              </m:mrow>
+            </m:msup>
+         </m:mrow>
+         <m:mo>≤</m:mo>
+         <m:mrow>
+            <m:munder>
+              <m:mrow>
+                 <m:mo movablelimits="false">∑</m:mo>
+              </m:mrow>
+              <m:mrow>
+                 <m:msub>
+                   <m:mrow>
+                      <m:mi>c</m:mi>
+                   </m:mrow>
+                   <m:mrow>
+                      <m:mi>j</m:mi>
+                   </m:mrow>
+                 </m:msub>
+                 <m:mo>∈</m:mo>
+                 <m:msub>
+                   <m:mrow>
+                      <m:mi mathvariant="normal">Λ</m:mi>
+                   </m:mrow>
+                   <m:mrow>
+                      <m:mi>k</m:mi>
+                   </m:mrow>
+                 </m:msub>
+              </m:mrow>
+            </m:munder>
+            <m:msup>
+              <m:mrow>
+                 <m:mo>|</m:mo>
+                 <m:msub>
+                   <m:mrow>
+                      <m:mi>c</m:mi>
+                   </m:mrow>
+                   <m:mrow>
+                      <m:mi>j</m:mi>
+                   </m:mrow>
+                 </m:msub>
+                 <m:mo>|</m:mo>
+              </m:mrow>
+              <m:mrow>
+                 <m:mi>p</m:mi>
+              </m:mrow>
+            </m:msup>
+         </m:mrow>
+         <m:mo>≤</m:mo>
+         <m:msubsup>
+            <m:mrow>
+               <m:mrow>
+                  <m:mo>∥</m:mo>
+                  <m:mi>f</m:mi>
+                  <m:mo>∥</m:mo>
+               </m:mrow>
+            </m:mrow>
+            <m:mrow>
+               <m:msub>
+                 <m:mrow>
+                    <m:mi>X</m:mi>
+                 </m:mrow>
+                 <m:mrow>
+                    <m:mi>p</m:mi>
+                 </m:mrow>
+               </m:msub>
+            </m:mrow>
+            <m:mrow>
+               <m:mi>p</m:mi>
+            </m:mrow>
+         </m:msubsup>
+      </m:mrow>
+      <m:mo>.</m:mo>
+   </m:mrow>
+</m:math>
+Since 
+<m:math display="inline"><m:semantics><m:mrow><m:mrow><m:mi>f</m:mi><m:mo stretchy="false">∈</m:mo><m:mi>U</m:mi></m:mrow><m:mrow><m:mrow><m:mo stretchy="false">(</m:mo><m:msub><m:mi>X</m:mi><m:mi>p</m:mi></m:msub><m:mo stretchy="false">)</m:mo></m:mrow><m:mo stretchy="false">∩</m:mo><m:mi>U</m:mi></m:mrow><m:mrow><m:mo stretchy="false">(</m:mo><m:msup><m:mi>Y</m:mi><m:mi>α</m:mi></m:msup><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">f  in U { \(  X_p  \)}  intersection U { \(  Y^α  \)}</m:annotation></m:semantics></m:math>, 
+<m:math display="block">
+   <m:mrow>
+      <m:mrow>
+         <m:mrow>
+            <m:mi>#</m:mi>
+            <m:mo>⁢</m:mo>
+            <m:msub>
+              <m:mrow>
+                 <m:mi mathvariant="normal">Λ</m:mi>
+              </m:mrow>
+              <m:mrow>
+                 <m:mi>k</m:mi>
+              </m:mrow>
+            </m:msub>
+         </m:mrow>
+         <m:mo>≤</m:mo>
+         <m:mrow>
+            <m:msub>
+              <m:mrow>
+                 <m:mrow>
+                    <m:mo>∥</m:mo>
+                    <m:mi>f</m:mi>
+                    <m:mo>∥</m:mo>
+                 </m:mrow>
+              </m:mrow>
+              <m:mrow>
+                 <m:msub>
+                   <m:mrow>
+                      <m:mi mathvariant="normal">ℓ</m:mi>
+                   </m:mrow>
+                   <m:mrow>
+                      <m:mi>p</m:mi>
+                   </m:mrow>
+                 </m:msub>
+              </m:mrow>
+            </m:msub>
+            <m:mo>⁢</m:mo>
+            <m:msup>
+              <m:mrow>
+                 <m:mn>2</m:mn>
+              </m:mrow>
+              <m:mrow>
+                 <m:mrow>
+                    <m:mo>(</m:mo>
+                    <m:mrow>
+                       <m:mi>k</m:mi>
+                       <m:mo>+</m:mo>
+                       <m:mn>1</m:mn>
+                    </m:mrow>
+                    <m:mo>)</m:mo>
+                 </m:mrow>
+                 <m:mo>⁢</m:mo>
+                 <m:mi>p</m:mi>
+              </m:mrow>
+            </m:msup>
+         </m:mrow>
+         <m:mo>≤</m:mo>
+         <m:msup>
+           <m:mrow>
+              <m:mn>2</m:mn>
+           </m:mrow>
+           <m:mrow>
+              <m:mrow>
+                 <m:mo>(</m:mo>
+                 <m:mrow>
+                    <m:mi>k</m:mi>
+                    <m:mo>+</m:mo>
+                    <m:mn>1</m:mn>
+                 </m:mrow>
+                 <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>⁢</m:mo>
+              <m:mi>p</m:mi>
+           </m:mrow>
+         </m:msup>
+      </m:mrow>
+      <m:mo>.</m:mo>
+   </m:mrow>
+</m:math>
+Hence, the total number of indices in all of the 
+<m:math display="inline"><m:semantics><m:msub><m:mi>Λ</m:mi><m:mi>k</m:mi></m:msub><m:annotation encoding="StarMath 5.0">Λ_k</m:annotation></m:semantics></m:math>, 
+<m:math display="inline"><m:semantics><m:mrow><m:mrow><m:mn>0</m:mn><m:mo stretchy="false">≤</m:mo><m:mi>k</m:mi></m:mrow><m:mo stretchy="false">≤</m:mo><m:mi>M</m:mi></m:mrow><m:annotation encoding="StarMath 5.0">0  &lt;= k  &lt;= M</m:annotation></m:semantics></m:math>, is 
+<m:math display="inline"><m:semantics><m:mrow><m:mi>O</m:mi><m:mrow><m:mo stretchy="false">(</m:mo><m:msup><m:mn>2</m:mn><m:mrow><m:mi>M</m:mi><m:mi>p</m:mi></m:mrow></m:msup><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">O { \(  2^{M p}  \)}</m:annotation></m:semantics></m:math>. </para>
+
+      <para id="id3264141">To encode, for each 
+<m:math display="inline"><m:semantics><m:mi>f</m:mi><m:annotation encoding="StarMath 5.0">f</m:annotation></m:semantics></m:math>, we can send the following bits:
+     
+ <list list-type="bulleted" id="id3312208"><item>Send 
+<m:math display="inline">
+   <m:mrow>
+      <m:mi>log</m:mi>
+      <m:mspace depth="0.0ex" height="0.0ex" width="0.3em"/>
+      <m:mi>n</m:mi>
+   </m:mrow>
+</m:math>
+ bits to identify each index in 
+<m:math display="inline"><m:semantics><m:msub><m:mi>Λ</m:mi><m:mi>k</m:mi></m:msub><m:annotation encoding="StarMath 5.0">Λ_k</m:annotation></m:semantics></m:math>, for 
+<m:math display="inline"><m:semantics><m:mrow><m:mrow><m:mn>0</m:mn><m:mo stretchy="false">≤</m:mo><m:mi>k</m:mi></m:mrow><m:mo stretchy="false">≤</m:mo><m:mi>M</m:mi></m:mrow><m:annotation encoding="StarMath 5.0">0  &lt;= k  &lt;= M</m:annotation></m:semantics></m:math>. This will require a total of 
+<m:math display="inline">
+   <m:mrow>
+      <m:mrow>
+         <m:mi>O</m:mi>
+         <m:mrow>
+            <m:mo stretchy="false">(</m:mo>
+            <m:mrow>
+               <m:mi>log</m:mi>
+               <m:mspace depth="0.0ex" height="0.0ex" width="0.3em"/>
+               <m:mi>N</m:mi>
+               <m:msup>
+                 <m:mrow>
+                    <m:mn>2</m:mn>
+                 </m:mrow>
+                 <m:mrow>
+                    <m:mi>M</m:mi>
+                    <m:mi>p</m:mi>
+                 </m:mrow>
+               </m:msup>
+            </m:mrow>
+            <m:mo stretchy="false">)</m:mo>
+         </m:mrow>
+      </m:mrow>
+   </m:mrow>
+</m:math>
+ bits. </item>
+        <item>Send one bit to identify the sign of 
+<m:math display="inline"><m:semantics><m:mrow><m:msub><m:mi>c</m:mi><m:mi>j</m:mi></m:msub><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>f</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">c_j { \(  f  \)}</m:annotation></m:semantics></m:math> for each 
+<m:math display="inline"><m:semantics><m:mrow><m:mi>j</m:mi><m:mo stretchy="false">∈</m:mo><m:msub><m:mi>Λ</m:mi><m:mi>k</m:mi></m:msub></m:mrow><m:annotation encoding="StarMath 5.0">j  in Λ_k</m:annotation></m:semantics></m:math>, 
+<m:math display="inline"><m:semantics><m:mrow><m:mrow><m:mn>0</m:mn><m:mo stretchy="false">≤</m:mo><m:mi>k</m:mi></m:mrow><m:mo stretchy="false">≤</m:mo><m:mi>M</m:mi></m:mrow><m:annotation encoding="StarMath 5.0">0  &lt;= k  &lt;= M</m:annotation></m:semantics></m:math>. This will require 
+<m:math display="inline"><m:semantics><m:mrow><m:mi>O</m:mi><m:mrow><m:mo stretchy="false">(</m:mo><m:msup><m:mn>2</m:mn><m:mrow><m:mi>M</m:mi><m:mi>p</m:mi></m:mrow></m:msup><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">O { \(  2^{M p}  \)}</m:annotation></m:semantics></m:math> bits. </item>
+        <item>Send 
+<m:math display="inline"><m:semantics><m:mi>m</m:mi><m:annotation encoding="StarMath 5.0">m</m:annotation></m:semantics></m:math> bits to describe each 
+<m:math display="inline"><m:semantics><m:mrow><m:msub><m:mi>c</m:mi><m:mi>j</m:mi></m:msub><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>f</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mi>,</m:mi><m:mrow><m:mi>j</m:mi><m:mo stretchy="false">∈</m:mo><m:msub><m:mi>Λ</m:mi><m:mi>k</m:mi></m:msub></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">c_j { \(  f  \)} ,j  in Λ_k</m:annotation></m:semantics></m:math>, for 
+<m:math display="inline"><m:semantics><m:mrow><m:mrow><m:mn>0</m:mn><m:mo stretchy="false">≤</m:mo><m:mi>k</m:mi></m:mrow><m:mo stretchy="false">≤</m:mo><m:mi>M</m:mi></m:mrow><m:annotation encoding="StarMath 5.0">0  &lt;= k  &lt;= M</m:annotation></m:semantics></m:math>. This will require 
+<m:math display="inline"><m:semantics><m:mrow><m:mi>O</m:mi><m:mrow><m:mo stretchy="false">(</m:mo><m:mrow><m:mi>m</m:mi><m:msup><m:mn>2</m:mn><m:mrow><m:mi>M</m:mi><m:mi>p</m:mi></m:mrow></m:msup></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">O { \(  {m 2^{M p}}  \)}</m:annotation></m:semantics></m:math> bits.</item>
+      </list>
+Thus the total number of bits used in the encoding is 
+<m:math display="inline"><m:semantics><m:mrow><m:mi>O</m:mi><m:mrow><m:mo stretchy="false">(</m:mo><m:mrow><m:mi>m</m:mi><m:msup><m:mn>2</m:mn><m:mrow><m:mi>M</m:mi><m:mi>p</m:mi></m:mrow></m:msup></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">O { \(  {m 2^{M p}}  \)}</m:annotation></m:semantics></m:math>. </para>
+
+      <para id="id3102576">Notice that for each 
+<m:math display="inline"><m:semantics><m:mrow><m:mi>j</m:mi><m:mo stretchy="false">∈</m:mo><m:msub><m:mi>Λ</m:mi><m:mi>k</m:mi></m:msub></m:mrow><m:annotation encoding="StarMath 5.0">j  in Λ_k</m:annotation></m:semantics></m:math>, 
+<m:math display="inline"><m:semantics><m:mrow><m:mrow><m:mn>0</m:mn><m:mo stretchy="false">≤</m:mo><m:mi>k</m:mi></m:mrow><m:mo stretchy="false">≤</m:mo><m:mi>M</m:mi></m:mrow><m:annotation encoding="StarMath 5.0">0  &lt;= k  &lt;= M</m:annotation></m:semantics></m:math>, we can recover each 
+<m:math display="inline"><m:semantics><m:mrow><m:msub><m:mi>c</m:mi><m:mi>j</m:mi></m:msub><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>f</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">c_j { \(  f  \)}</m:annotation></m:semantics></m:math> by 
+        <m:math display="block">
+          <m:semantics>
+            <m:mrow>
+              <m:mrow>
+                <m:mover accent="true">
+                  <m:msub>
+                    <m:mi>c</m:mi>
+                    <m:mi>j</m:mi>
+                  </m:msub>
+                  <m:mo>¯</m:mo>
+                </m:mover>
+                <m:mo stretchy="false">=</m:mo>
+                <m:mrow>
+                  <m:mo stretchy="false">±</m:mo>
+                  <m:mrow>
+                    <m:munderover>
+                      <m:mo stretchy="false">∑</m:mo>
+                      <m:mrow>
+                        <m:mi>i</m:mi>
+                        <m:mo stretchy="false">=</m:mo>
+                        <m:mn>0</m:mn>
+                      </m:mrow>
+                      <m:mi>m</m:mi>
+                    </m:munderover>
+                    <m:msub>
+                      <m:mi>b</m:mi>
+                      <m:mi>i</m:mi>
+                    </m:msub>
+                  </m:mrow>
+                </m:mrow>
+              </m:mrow>
+              <m:msup>
+                <m:mn>2</m:mn>
+                <m:mrow>
+                  <m:mrow>
+                    <m:mo stretchy="false">−</m:mo>
+                    <m:mi>k</m:mi>
+                  </m:mrow>
+                  <m:mo stretchy="false">−</m:mo>
+                  <m:mi>i</m:mi>
+                </m:mrow>
+              </m:msup>
+            </m:mrow>
+            <m:annotation encoding="StarMath 5.0">{overline c_j} = +-  sum  csub {i = 0} csup m b_i 2^{ -  k  -  i}</m:annotation>
+          </m:semantics>
+        </m:math>
+      where the sign is given by the sign bit. It follows that 
+<m:math display="inline"><m:semantics><m:mrow><m:mo stretchy="false">∣</m:mo><m:msub><m:mi>c</m:mi><m:mi>j</m:mi></m:msub><m:mrow><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>f</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mo stretchy="false">−</m:mo><m:mover accent="true"><m:msub><m:mi>c</m:mi><m:mi>j</m:mi></m:msub><m:mo>¯</m:mo></m:mover></m:mrow><m:mrow><m:mo stretchy="false">∣</m:mo><m:mo stretchy="false">≤</m:mo><m:msup><m:mn>2</m:mn><m:mrow><m:mrow><m:mo stretchy="false">−</m:mo><m:mi>m</m:mi></m:mrow><m:mo stretchy="false">−</m:mo><m:mi>k</m:mi></m:mrow></m:msup></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0"> \lline c_j { \(  f  \)}  - {overline c_j}  \lline  &lt;= 2^{ -  m  -  k}</m:annotation></m:semantics></m:math> for every such coefficient. Here we have used the fact that knowing that 
+<m:math display="inline"><m:semantics><m:mrow><m:mi>j</m:mi><m:mo stretchy="false">∈</m:mo><m:msub><m:mi>Λ</m:mi><m:mi>k</m:mi></m:msub></m:mrow><m:annotation encoding="StarMath 5.0">j  in Λ_k</m:annotation></m:semantics></m:math> means that the first nonzero binary bit of 
+<m:math display="inline"><m:semantics><m:mrow><m:msub><m:mi>c</m:mi><m:mi>j</m:mi></m:msub><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>f</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">c_j { \(  f  \)}</m:annotation></m:semantics></m:math> is the 
+<m:math display="inline"><m:semantics><m:mi>k</m:mi><m:annotation encoding="StarMath 5.0">k</m:annotation></m:semantics></m:math>-th bit. </para>
+      <para id="id3084172">To decode we simply set 
+        <m:math display="block">
+          <m:semantics>
+            <m:mrow>
+              <m:mrow>
+                <m:mover accent="true">
+                  <m:mi>f</m:mi>
+                  <m:mo>¯</m:mo>
+                </m:mover>
+                <m:mo stretchy="false">=</m:mo>
+                <m:mrow>
+                  <m:munderover>
+                    <m:mo stretchy="false">∑</m:mo>
+                    <m:mrow>
+                      <m:mi>k</m:mi>
+                      <m:mo stretchy="false">=</m:mo>
+                      <m:mn>0</m:mn>
+                    </m:mrow>
+                    <m:mi>M</m:mi>
+                  </m:munderover>
+                  <m:mrow>
+                    <m:munder>
+                      <m:mo stretchy="false">∑</m:mo>
+                      <m:mrow>
+                        <m:mi>j</m:mi>
+                        <m:mo stretchy="false">∈</m:mo>
+                        <m:msub>
+                          <m:mi>Λ</m:mi>
+                          <m:mi>k</m:mi>
+                        </m:msub>
+                      </m:mrow>
+                    </m:munder>
+                    <m:mover accent="true">
+                      <m:msub>
+                        <m:mi>c</m:mi>
+                        <m:mi>j</m:mi>
+                      </m:msub>
+                      <m:mo>¯</m:mo>
+                    </m:mover>
+                  </m:mrow>
+                </m:mrow>
+              </m:mrow>
+              <m:msub>
+                <m:mi>ψ</m:mi>
+                <m:mi>j</m:mi>
+              </m:msub>
+            </m:mrow>
+            <m:mo>.</m:mo>
+            <m:annotation encoding="StarMath 5.0">{overline f} = sum  csub {k = 0} csup M  sum  csub {j  in  Λ_k} {overline c_j} ψ_j</m:annotation>
+          </m:semantics>
+        </m:math>
+      </para>
+      <para id="id2748879">We now analyze the error we have incurred in such an encoding. The square of the error will consist of two parts. The first corresponds to the 
+<m:math display="inline"><m:semantics><m:mrow><m:mi>j</m:mi><m:mo stretchy="false">∈</m:mo><m:msub><m:mi>Λ</m:mi><m:mi>k</m:mi></m:msub></m:mrow><m:annotation encoding="StarMath 5.0">j  in Λ_k</m:annotation></m:semantics></m:math>, 
+<m:math display="inline"><m:semantics><m:mrow><m:mrow><m:mn>0</m:mn><m:mo stretchy="false">≤</m:mo><m:mi>k</m:mi></m:mrow><m:mo stretchy="false">≤</m:mo><m:mi>M</m:mi></m:mrow><m:annotation encoding="StarMath 5.0">0  &lt;= k  &lt;= M</m:annotation></m:semantics></m:math>. For each such 
+<m:math display="inline"><m:semantics><m:mi>j</m:mi><m:annotation encoding="StarMath 5.0">j</m:annotation></m:semantics></m:math> we have 
+<m:math display="inline"><m:semantics><m:mrow><m:mo stretchy="false">∣</m:mo><m:msub><m:mi>c</m:mi><m:mi>j</m:mi></m:msub><m:mrow><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>f</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mo stretchy="false">−</m:mo><m:mover accent="true"><m:msub><m:mi>c</m:mi><m:mi>j</m:mi></m:msub><m:mo>¯</m:mo></m:mover></m:mrow><m:mrow><m:mo stretchy="false">∣</m:mo><m:mo stretchy="false">≤</m:mo><m:msup><m:mn>2</m:mn><m:mrow><m:mrow><m:mo stretchy="false">−</m:mo><m:mi>m</m:mi></m:mrow><m:mo stretchy="false">−</m:mo><m:mi>k</m:mi></m:mrow></m:msup></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0"> \lline c_j { \(  f  \)}  - {overline c_j}  \lline  &lt;= 2^{ -  m  -  k}</m:annotation></m:semantics></m:math> and so the total square error for this is 
+<m:math display="block">
+   <m:mrow>
+      <m:mo>≤</m:mo>
+      <m:mrow>
+         <m:mrow/>
+         <m:mi>C</m:mi>
+         <m:mrow>
+            <m:munderover>
+               <m:mrow>
+                  <m:mo stretchy="false">∑</m:mo>
+               </m:mrow>
+               <m:mrow>
+                  <m:mi>k</m:mi>
+                  <m:mo stretchy="false">=</m:mo>
+                  <m:mn>1</m:mn>
+               </m:mrow>
+               <m:mrow>
+                  <m:mi>M</m:mi>
+               </m:mrow>
+            </m:munderover>
+            <m:msup>
+              <m:mrow>
+                 <m:mn>2</m:mn>
+              </m:mrow>
+              <m:mrow>
+                 <m:mi>k</m:mi>
+                 <m:mi>p</m:mi>
+              </m:mrow>
+            </m:msup>
+         </m:mrow>
+         <m:msup>
+           <m:mrow>
+              <m:mn>2</m:mn>
+           </m:mrow>
+           <m:mrow>
+              <m:mrow>
+                 <m:mo stretchy="false">−</m:mo>
+                 <m:mn>2</m:mn>
+              </m:mrow>
+              <m:mi>m</m:mi>
+           </m:mrow>
+         </m:msup>
+         <m:mrow>
+            <m:msup>
+              <m:mrow>
+                 <m:mn>2</m:mn>
+              </m:mrow>
+              <m:mrow>
+                 <m:mrow>
+                    <m:mo stretchy="false">−</m:mo>
+                    <m:mn>2</m:mn>
+                 </m:mrow>
+                 <m:mi>k</m:mi>
+              </m:mrow>
+            </m:msup>
+            <m:mo stretchy="false">≤</m:mo>
+            <m:mi>c</m:mi>
+         </m:mrow>
+         <m:msup>
+           <m:mrow>
+              <m:mn>2</m:mn>
+           </m:mrow>
+           <m:mrow>
+              <m:mrow>
+                 <m:mo stretchy="false">−</m:mo>
+                 <m:mn>2</m:mn>
+              </m:mrow>
+              <m:mi>m</m:mi>
+           </m:mrow>
+         </m:msup>
+      </m:mrow>
+   </m:mrow>
+</m:math>
+because 
+<m:math display="inline"><m:semantics><m:mrow><m:mi>p</m:mi><m:mo stretchy="false">≤</m:mo><m:mn>2</m:mn></m:mrow><m:annotation encoding="StarMath 5.0">p  &lt;= 2</m:annotation></m:semantics></m:math>. The second part of the error corresponds to all the coefficients which have magnitude 
+<m:math display="inline">
+   <m:mrow>
+      <m:mo>≤</m:mo>
+      <m:mrow>
+         <m:mrow/>
+         <m:msup>
+           <m:mrow>
+              <m:mn>2</m:mn>
+           </m:mrow>
+           <m:mrow>
+              <m:mo stretchy="false">−</m:mo>
+              <m:mi>M</m:mi>
+           </m:mrow>
+         </m:msup>
+      </m:mrow>
+   </m:mrow>
+</m:math>. 
+We have that this sum does not exceed 
+        <m:math display="inline">
+          <m:semantics>
+            <m:mrow>
+              <m:mrow>
+                <m:munder>
+                  <m:mo stretchy="false">∑</m:mo>
+                  <m:mrow>
+                    <m:mo stretchy="false">∣</m:mo>
+                    <m:msub>
+                      <m:mi>c</m:mi>
+                      <m:mi>j</m:mi>
+                    </m:msub>
+                    <m:mrow>
+                      <m:mo stretchy="false">∣</m:mo>
+                      <m:mo stretchy="false">&gt;</m:mo>
+                      <m:msup>
+                        <m:mn>2</m:mn>
+                        <m:mrow>
+                          <m:mo stretchy="false">−</m:mo>
+                          <m:mi>M</m:mi>
+                        </m:mrow>
+                      </m:msup>
+                    </m:mrow>
+                  </m:mrow>
+                </m:munder>
+                <m:mo stretchy="false">∣</m:mo>
+              </m:mrow>
+              <m:msub>
+                <m:mi>c</m:mi>
+                <m:mi>j</m:mi>
+              </m:msub>
+              <m:mrow>
+                <m:msup>
+                  <m:mo stretchy="false">∣</m:mo>
+                  <m:mn>2</m:mn>
+                </m:msup>
+                <m:mo stretchy="false">≤</m:mo>
+                <m:msup>
+                  <m:mn>2</m:mn>
+                  <m:mrow>
+                    <m:mrow>
+                      <m:mo stretchy="false">−</m:mo>
+                      <m:mi>M</m:mi>
+                    </m:mrow>
+                    <m:mrow>
+                      <m:mo stretchy="false">(</m:mo>
+                      <m:mrow>
+                        <m:mn>2</m:mn>
+                        <m:mo stretchy="false">−</m:mo>
+                        <m:mi>p</m:mi>
+                      </m:mrow>
+                      <m:mo stretchy="false">)</m:mo>
+                    </m:mrow>
+                  </m:mrow>
+                </m:msup>
+              </m:mrow>
+              <m:mrow>
+                <m:munderover>
+                  <m:mo stretchy="false">∑</m:mo>
+                  <m:mrow>
+                    <m:mi>j</m:mi>
+                    <m:mo stretchy="false">=</m:mo>
+                    <m:mn>1</m:mn>
+                  </m:mrow>
+                  <m:mi>∞</m:mi>
+                </m:munderover>
+                <m:mo stretchy="false">∣</m:mo>
+              </m:mrow>
+              <m:msub>
+                <m:mi>c</m:mi>
+                <m:mi>j</m:mi>
+              </m:msub>
+              <m:mrow>
+                <m:msup>
+                  <m:mo stretchy="false">∣</m:mo>
+                  <m:mi>p</m:mi>
+                </m:msup>
+                <m:mo stretchy="false">≤</m:mo>
+                <m:msup>
+                  <m:mn>2</m:mn>
+                  <m:mrow>
+                    <m:mrow>
+                      <m:mo stretchy="false">−</m:mo>
+                      <m:mn>2</m:mn>
+                    </m:mrow>
+                    <m:mi>m</m:mi>
+                  </m:mrow>
+                </m:msup>
+              </m:mrow>
+              <m:mtext>.</m:mtext>
+            </m:mrow>
+            <m:annotation encoding="StarMath 5.0"> sum  csub { \lline  c_j  \lline  &gt; 2^{ -  M}}  \lline c_j  \lline^2  &lt;= 2^{ -  M { \(  {2  -  p}  \)}}  sum  csub {j = 1} csup ∞  \lline c_j  \lline^p  &lt;= 2^{ -  2 m}  "."</m:annotation>
+          </m:semantics>
+        </m:math>
+      Thus the total error we incur is 
+<m:math display="inline"><m:semantics><m:mrow><m:mi>O</m:mi><m:mrow><m:mo stretchy="false">(</m:mo><m:msup><m:mn>2</m:mn><m:mrow><m:mo stretchy="false">−</m:mo><m:mi>m</m:mi></m:mrow></m:msup><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">O { \(  2^{ -  m}  \)}</m:annotation></m:semantics></m:math>. </para>
+      <para id="id3290010">In summary, by allocating 
+<m:math display="inline">
+   <m:mrow>
+      <m:mrow>
+         <m:mi>O</m:mi>
+         <m:mrow>
+            <m:mo stretchy="false">(</m:mo>
+            <m:mrow>
+               <m:mi>m</m:mi>
+               <m:msup>
+                 <m:mrow>
+                    <m:mn>2</m:mn>
+                 </m:mrow>
+                 <m:mrow>
+                    <m:mfrac>
+                       <m:mrow>
+                          <m:mi>m</m:mi>
+                       </m:mrow>
+                       <m:mrow>
+                          <m:mn>1</m:mn>
+                          <m:mi>∕</m:mi>
+                          <m:mrow>
+                             <m:mi>p</m:mi>
+                             <m:mo stretchy="false">−</m:mo>
+                             <m:mn>1</m:mn>
+                          </m:mrow>
+                          <m:mi>∕</m:mi>
+                          <m:mn>2</m:mn>
+                       </m:mrow>
+                    </m:mfrac>
+                 </m:mrow>
+               </m:msup>
+            </m:mrow>
+            <m:mo stretchy="false">)</m:mo>
+         </m:mrow>
+      </m:mrow>
+   </m:mrow>
+</m:math>
+bits we achieve distortion 
+<m:math display="inline"><m:semantics><m:mrow><m:mi>C</m:mi><m:msup><m:mn>2</m:mn><m:mrow><m:mo stretchy="false">−</m:mo><m:mi>m</m:mi></m:mrow></m:msup></m:mrow><m:annotation encoding="StarMath 5.0">C 2^{ -  m}</m:annotation></m:semantics></m:math>.  Equivalently, by allocating 
+<m:math display="inline">
+   <m:mrow>
+      <m:mrow>
+         <m:mi>n</m:mi>
+         <m:mspace depth="0.0ex" height="0.0ex" width="0.3em"/>
+         <m:mi>log</m:mi>
+         <m:mspace depth="0.0ex" height="0.0ex" width="0.3em"/>
+         <m:mi>n</m:mi>
+      </m:mrow>
+   </m:mrow>
+</m:math>
+ bits, we achieve distortion 
+<m:math display="inline"><m:semantics><m:mrow><m:mi>C</m:mi><m:msup><m:mi>n</m:mi><m:mrow><m:mo stretchy="false">−</m:mo><m:mrow><m:mo stretchy="false">(</m:mo><m:mrow><m:mn>1</m:mn><m:mi>∕</m:mi><m:mrow><m:mi>p</m:mi><m:mo stretchy="false">−</m:mo><m:mn>1</m:mn></m:mrow><m:mi>∕</m:mi><m:mn>2</m:mn></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:msup></m:mrow><m:annotation encoding="StarMath 5.0">C n^{ -  { \(  {1 ∕ p  -  1 ∕ 2}  \)}}</m:annotation></m:semantics></m:math>. </para>
+      <para id="element-855"><rule type="remark" id="rem1"><label>Remark</label>
+<statement id="idm373440">
+<para id="ssr5r">
+This is within a logarithmic factor of the optimal encoding given by Kolmogorov entropy of the class 
+<m:math display="inline"><m:semantics><m:mrow><m:mi>U</m:mi><m:mrow><m:mrow><m:mo stretchy="false">(</m:mo><m:msub><m:mi>X</m:mi><m:mi>p</m:mi></m:msub><m:mo stretchy="false">)</m:mo></m:mrow><m:mo stretchy="false">∩</m:mo><m:msup><m:mi>Y</m:mi><m:mi>α</m:mi></m:msup></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">U { \(  X_p  \)}  intersection Y^α</m:annotation></m:semantics></m:math>.  A slightly more careful argument can remove this logarithm. 
+
+</para>
+
+</statement>
+</rule></para>
+
+<example id="element-141"><title>The Wavelet Basis</title>
+        <para id="id2890821">In the method above we failed to achieve the optimal performance because of the cost involved in identifying which indices were in each 
+<m:math display="inline"><m:semantics><m:msub><m:mi>Λ</m:mi><m:mi>k</m:mi></m:msub><m:annotation encoding="StarMath 5.0">Λ_k</m:annotation></m:semantics></m:math>. We will now describe a method that can do better, using the Haar basis for 
+<m:math display="inline"><m:semantics><m:mrow><m:msub><m:mi>L</m:mi><m:mn>2</m:mn></m:msub><m:mrow><m:mo stretchy="false">[</m:mo><m:mrow><m:mn>0</m:mn><m:mi>,</m:mi><m:mn>1</m:mn></m:mrow><m:mo stretchy="false">]</m:mo></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">L_2 { \[  {0 , 1}  \]}</m:annotation></m:semantics></m:math>. Thus, we first define the scaling function           <m:math display="block">
+            <m:semantics>
+              <m:mrow>
+                <m:mi>φ</m:mi>
+                <m:mrow>
+                  <m:mi>:</m:mi>
+                  <m:mo stretchy="false">=</m:mo>
+                  <m:msub>
+                    <m:mi>χ</m:mi>
+                    <m:mrow>
+                      <m:mo stretchy="false">[</m:mo>
+                      <m:mrow>
+                        <m:mn>0</m:mn>
+                        <m:mi>,</m:mi>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                      <m:mo stretchy="false">]</m:mo>
+                    </m:mrow>
+                  </m:msub>
+                </m:mrow>
+                <m:mtext>.</m:mtext>
+              </m:mrow>
+              <m:annotation encoding="StarMath 5.0">φ :=χ_{ \[  {0 , 1}  \]}  "."</m:annotation>
+            </m:semantics>
+          </m:math>
+        Next, we define the mother wavelet 
+          <m:math display="block">
+            <m:semantics>
+              <m:mrow>
+                <m:mi>ψ</m:mi>
+                <m:mrow>
+                  <m:mi>:</m:mi>
+                  <m:mo stretchy="false">=</m:mo>
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>χ</m:mi>
+                      <m:mrow>
+                        <m:mo stretchy="false">[</m:mo>
+                        <m:mrow>
+                          <m:mn>0</m:mn>
+                          <m:mi>,</m:mi>
+                          <m:mfrac>
+                            <m:mn>1</m:mn>
+                            <m:mn>2</m:mn>
+                          </m:mfrac>
+                        </m:mrow>
+                        <m:mo stretchy="false">]</m:mo>
+                      </m:mrow>
+                    </m:msub>
+                    <m:mo stretchy="false">−</m:mo>
+                    <m:msub>
+                      <m:mi>χ</m:mi>
+                      <m:mrow>
+                        <m:mo stretchy="false">[</m:mo>
+                        <m:mrow>
+                          <m:mfrac>
+                            <m:mn>1</m:mn>
+                            <m:mn>2</m:mn>
+                          </m:mfrac>
+                          <m:mi>,</m:mi>
+                          <m:mn>1</m:mn>
+                        </m:mrow>
+                        <m:mo stretchy="false">]</m:mo>
+                      </m:mrow>
+                    </m:msub>
+                  </m:mrow>
+                </m:mrow>
+                <m:mtext>.</m:mtext>
+              </m:mrow>
+              <m:annotation encoding="StarMath 5.0">ψ :=χ_{ \[  {0 , 1 over 2}  \]}  - χ_{ \[  {1 over 2 , 1}  \]}  "."</m:annotation>
+            </m:semantics>
+          </m:math>
+        We then define the remaining wavelets recursively. They are obtained by dilations and shifts of the mother wavelet on dyadic intervals: 
+          <m:math display="block">
+            <m:semantics>
+              <m:mrow>
+                <m:msub>
+                  <m:mi>ψ</m:mi>
+                  <m:mi>J</m:mi>
+                </m:msub>
+                <m:mrow>
+                  <m:mi>:</m:mi>
+                  <m:mo stretchy="false">=</m:mo>
+                  <m:mfrac>
+                    <m:msup>
+                      <m:mn>2</m:mn>
+                      <m:mi>k</m:mi>
+                    </m:msup>
+                    <m:mn>2</m:mn>
+                  </m:mfrac>
+                </m:mrow>
+                <m:msub>
+                  <m:mi>ψ</m:mi>
+                  <m:mrow>
+                    <m:mo stretchy="false">[</m:mo>
+                    <m:mrow>
+                      <m:mn>0</m:mn>
+                      <m:mi>,</m:mi>
+                      <m:mn>1</m:mn>
+                    </m:mrow>
+                    <m:mo stretchy="false">]</m:mo>
+                  </m:mrow>
+                </m:msub>
+                <m:mrow>
+                  <m:mo stretchy="false">(</m:mo>
+                  <m:mrow>
+                    <m:msup>
+                      <m:mn>2</m:mn>
+                      <m:mi>k</m:mi>
+                    </m:msup>
+                    <m:mrow>
+                      <m:mi>x</m:mi>
+                      <m:mo stretchy="false">−</m:mo>
+                      <m:mi>j</m:mi>
+                    </m:mrow>
+                  </m:mrow>
+                  <m:mo stretchy="false">)</m:mo>
+                </m:mrow>
+              </m:mrow>
+              <m:annotation encoding="StarMath 5.0">ψ_J :=2^k over 2 ψ_{ \[  {0 , 1}  \]} { \(  {2^k x  -  j}  \)}</m:annotation>
+            </m:semantics>
+          </m:math>
+        where 
+<m:math display="inline"><m:semantics><m:mrow><m:mi>J</m:mi><m:mo stretchy="false">=</m:mo><m:mrow><m:mo stretchy="false">[</m:mo><m:mrow><m:mi>j</m:mi><m:msup><m:mn>2</m:mn><m:mrow><m:mo stretchy="false">−</m:mo><m:mi>k</m:mi></m:mrow></m:msup><m:mi>,</m:mi><m:mrow><m:mo stretchy="false">(</m:mo><m:mrow><m:mi>j</m:mi><m:mo stretchy="false">+</m:mo><m:mn>1</m:mn></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow><m:msup><m:mn>2</m:mn><m:mrow><m:mo stretchy="false">−</m:mo><m:mi>k</m:mi></m:mrow></m:msup></m:mrow><m:mo stretchy="false">]</m:mo></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">J ={ \[  {j 2^{ -  k} , { \(  {j + 1}  \)} 2^{ -  k}}  \]}</m:annotation></m:semantics></m:math> are dyadic intervals. We denote by 
+<m:math display="inline"><m:semantics><m:msub><m:mi>D</m:mi><m:mrow><m:mo stretchy="false">+</m:mo><m:mrow/></m:mrow></m:msub><m:annotation encoding="StarMath 5.0">D_+</m:annotation></m:semantics></m:math> the collection of all dyadic intervals contained in 
+<m:math display="inline"><m:semantics><m:mrow><m:mo stretchy="false">[</m:mo><m:mrow><m:mn>0</m:mn><m:mi>,</m:mi><m:mn>1</m:mn></m:mrow><m:mo stretchy="false">]</m:mo></m:mrow><m:annotation encoding="StarMath 5.0"> \[  {0 , 1}  \]</m:annotation></m:semantics></m:math>. Then, the collection of functions 
+<m:math display="inline">
+   <m:mrow>
+      <m:mtable>
+         <m:mtr>
+            <m:mtd>
+               <m:mrow>
+                  <m:mrow>
+                     <m:mo stretchy="false">{</m:mo>
+                     <m:mi>φ</m:mi>
+                     <m:mo stretchy="false">}</m:mo>
+                  </m:mrow>
+                  <m:mo stretchy="false">∪</m:mo>
+                  <m:msub>
+                    <m:mrow>
+                       <m:msub>
+                         <m:mrow>
+                            <m:mo stretchy="false">{</m:mo>
+                            <m:msub>
+                              <m:mrow>
+                                 <m:mi>ψ</m:mi>
+                              </m:mrow>
+                              <m:mrow>
+                                 <m:mi>J</m:mi>
+                              </m:mrow>
+                            </m:msub>
+                            <m:mo stretchy="false">}</m:mo>
+                         </m:mrow>
+                         <m:mrow>
+                            <m:mi>J</m:mi>
+                            <m:mo stretchy="false">∈</m:mo>
+                            <m:msup>
+                              <m:mrow>
+                                 <m:mi>D</m:mi>
+                              </m:mrow>
+                              <m:mrow>
+                                 <m:mo stretchy="false">+</m:mo>
+                                 <m:mrow/>
+                              </m:mrow>
+                            </m:msup>
+                         </m:mrow>
+                       </m:msub>
+                    </m:mrow>
+                    <m:mrow/>
+                  </m:msub>
+               </m:mrow>
+            </m:mtd>
+         </m:mtr>
+      </m:mtable>
+   </m:mrow>
+</m:math>
+ forms an orthonormal basis for 
+<m:math display="inline"><m:semantics><m:mrow><m:msub><m:mi>L</m:mi><m:mn>2</m:mn></m:msub><m:mrow><m:mo stretchy="false">[</m:mo><m:mrow><m:mn>0</m:mn><m:mi>,</m:mi><m:mn>1</m:mn></m:mrow><m:mo stretchy="false">]</m:mo></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">L_2 { \[  {0 , 1}  \]}</m:annotation></m:semantics></m:math>. </para>
+        <para id="id3004231">A key property of wavelets is that a tree structure can be placed on the coefficients due to the use of dyadic intervals in their construction. Thus, let 
+          <m:math display="block">
+            <m:semantics>
+              <m:mrow>
+                <m:msub>
+                  <m:mi>T</m:mi>
+                  <m:mi>k</m:mi>
+                </m:msub>
+                <m:mrow>
+                  <m:mi>:</m:mi>
+                  <m:mo stretchy="false">=</m:mo>
+                  <m:mrow>
+                    <m:mo stretchy="false">{</m:mo>
+                    <m:mrow>
+                      <m:mi>j</m:mi>
+                      <m:mi>:</m:mi>
+                      <m:mo stretchy="false">∣</m:mo>
+                      <m:msub>
+                        <m:mi>c</m:mi>
+                        <m:mi>j</m:mi>
+                      </m:msub>
+                      <m:mrow>
+                        <m:mo stretchy="false">∣</m:mo>
+                        <m:mo stretchy="false">≥</m:mo>
+                        <m:msup>
+                          <m:mn>2</m:mn>
+                          <m:mrow>
+                            <m:mo stretchy="false">−</m:mo>
+                            <m:mi>k</m:mi>
+                          </m:mrow>
+                        </m:msup>
+                      </m:mrow>
+                    </m:mrow>
+                    <m:mo stretchy="false">}</m:mo>
+                  </m:mrow>
+                </m:mrow>
+              </m:mrow>
+              <m:annotation encoding="StarMath 5.0">T_k :={ lbrace  {j :  \lline  c_j  \lline   &gt;=  2^{ -  k}}  rbrace}</m:annotation>
+            </m:semantics>
+          </m:math>
+        and 
+          <m:math display="block">
+            <m:semantics>
+              <m:mrow>
+                <m:mrow>
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>T</m:mi>
+                      <m:mrow>
+                        <m:mi>k</m:mi>
+                        <m:mo stretchy="false">+</m:mo>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                    </m:msub>
+                    <m:mo stretchy="false">−</m:mo>
+                    <m:msub>
+                      <m:mi>T</m:mi>
+                      <m:mi>k</m:mi>
+                    </m:msub>
+                  </m:mrow>
+                  <m:mo stretchy="false">=</m:mo>
+                  <m:msub>
+                    <m:mi>Λ</m:mi>
+                    <m:mi>k</m:mi>
+                  </m:msub>
+                </m:mrow>
+                <m:mtext>.</m:mtext>
+              </m:mrow>
+              <m:annotation encoding="StarMath 5.0">T_{k + 1}  - T_k =Λ_k  "."</m:annotation>
+            </m:semantics>
+          </m:math>
+        </para>
+        <para id="id2867077">
+        We define 
+<m:math display="inline"><m:semantics><m:msub><m:mover accent="true"><m:mi>T</m:mi><m:mo>¯</m:mo></m:mover><m:mi>k</m:mi></m:msub><m:annotation encoding="StarMath 5.0">{overline T}_k</m:annotation></m:semantics></m:math> as the smallest tree containing 
+<m:math display="inline"><m:semantics><m:msub><m:mi>T</m:mi><m:mi>k</m:mi></m:msub><m:annotation encoding="StarMath 5.0">T_k</m:annotation></m:semantics></m:math>. Given any binary tree of size 
+<m:math display="inline"><m:semantics><m:mi>n</m:mi><m:annotation encoding="StarMath 5.0">n</m:annotation></m:semantics></m:math>, we can encode the tree with at most 
+<m:math display="inline"><m:semantics><m:mrow><m:mi>O</m:mi><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>n</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow><m:annotation encoding="StarMath 5.0">O { \(  n  \)}</m:annotation></m:semantics></m:math> bits, in the process outperforming the encoder described in above. </para>
+</example>
+  </content>
+</document>

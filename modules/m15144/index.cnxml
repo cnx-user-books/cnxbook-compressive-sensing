@@ -1,0 +1,98 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Stable Signal Representations</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>c6e4c688-0e29-4e2e-b567-36093fc515ea</md:uuid>
+</metadata>
+  <content>
+
+<para id="id2249002">
+  To fix the instability of the Shannon representation, we assume that
+  the signal is slightly more bandlimited than before
+<equation id="id2249008"><m:math mode="display"><m:mrow><m:mover accent="true"><m:mi>f</m:mi> <m:mo>^</m:mo></m:mover><m:mrow><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mn>0</m:mn><m:mspace width="1.em"/><m:mtext>for</m:mtext><m:mspace width="1.em"/><m:mo>|</m:mo><m:mi>ω</m:mi><m:mo>|</m:mo><m:mo>≥</m:mo><m:mi>π</m:mi><m:mo>-</m:mo><m:mi>δ</m:mi><m:mo>,</m:mo><m:mspace width="3.33333pt"/><m:mi>δ</m:mi><m:mo>&gt;</m:mo><m:mn>0</m:mn><m:mo>,</m:mo></m:mrow></m:math></equation>
+and instead of using <m:math><m:msub><m:mi>χ</m:mi> <m:mrow><m:mo>[</m:mo><m:mo>-</m:mo><m:mi>π</m:mi><m:mo>,</m:mo><m:mi>π</m:mi><m:mo>]</m:mo></m:mrow> </m:msub></m:math>, we multiply by another
+function <m:math><m:mrow><m:mover accent="true"><m:mi>g</m:mi> <m:mo>^</m:mo></m:mover><m:mrow><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> which is very similar in form to the
+characteristic function, but decays at its boundaries in a smoother
+fashion (i.e. it has more derivatives). A candidate function
+<m:math><m:mover accent="true"><m:mi>g</m:mi> <m:mo>^</m:mo></m:mover></m:math> is sketched in <link target-id="uid12"/>.</para>
+<figure id="uid12"><media id="idm13909536" alt=""><image src="../../media/g_hat_new.png" mime-type="image/png"/><image for="pdf" src="../../media/g_hat_new.eps" mime-type="application/postscript"/></media>
+<caption>
+Sketch of <m:math><m:mover accent="true"><m:mi>g</m:mi> <m:mo>^</m:mo></m:mover></m:math>.
+</caption>
+</figure>
+<para id="id2249187">Now, it is a property of the Fourier transform that an increased
+smoothness in one domain translates into a faster decay in the
+other. Thus, we can fix our instability problem, by choosing
+<m:math><m:mover accent="true"><m:mi>g</m:mi> <m:mo>^</m:mo></m:mover></m:math> so that <m:math><m:mover accent="true"><m:mi>g</m:mi> <m:mo>^</m:mo></m:mover></m:math> is smooth and <m:math><m:mrow><m:mover accent="true"><m:mi>g</m:mi> <m:mo>^</m:mo></m:mover><m:mrow><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow></m:math>, <m:math><m:mrow><m:mo>|</m:mo><m:mi>ω</m:mi><m:mo>|</m:mo><m:mo>≤</m:mo><m:mi>π</m:mi><m:mo>-</m:mo><m:mi>δ</m:mi></m:mrow></m:math>
+and <m:math><m:mrow><m:mover accent="true"><m:mi>g</m:mi> <m:mo>^</m:mo></m:mover><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math>, <m:math><m:mrow><m:mo>|</m:mo><m:mi>ω</m:mi><m:mo>|</m:mo><m:mo>&gt;</m:mo><m:mi>π</m:mi></m:mrow></m:math>. By choosing the smoothness of <m:math><m:mi>g</m:mi></m:math> suitably large, we can, for any given <m:math><m:mrow><m:mi>m</m:mi><m:mo>≥</m:mo><m:mn>1</m:mn></m:mrow></m:math>, choose <m:math><m:mi>g</m:mi></m:math> to satisfy
+<equation id="id2249352"><m:math mode="display"><m:mrow><m:mo>|</m:mo><m:mi>g</m:mi><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>|</m:mo><m:mo>≤</m:mo><m:mstyle scriptlevel="0" displaystyle="true"><m:mfrac><m:mi>C</m:mi> <m:mrow><m:mo>(</m:mo><m:mo>|</m:mo><m:mi>t</m:mi><m:mo>|</m:mo><m:mo>+</m:mo><m:mn>1</m:mn><m:msup><m:mo>)</m:mo> <m:mi>m</m:mi> </m:msup></m:mrow></m:mfrac></m:mstyle></m:mrow></m:math></equation>
+for some constant <m:math><m:mrow><m:mi>C</m:mi><m:mo>&gt;</m:mo><m:mn>0</m:mn></m:mrow></m:math>.</para>
+<para id="id2249431">Using such a <m:math><m:mover accent="true"><m:mi>g</m:mi> <m:mo>^</m:mo></m:mover></m:math>, we can rewrite (<link target-id="uid9"/>) 
+as
+<equation id="id2249455"><m:math mode="display"><m:mrow><m:mover accent="true"><m:mi>f</m:mi> <m:mo>^</m:mo></m:mover><m:mrow><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mi>F</m:mi><m:mrow><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow><m:mover accent="true"><m:mi>g</m:mi> <m:mo>^</m:mo></m:mover><m:mrow><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mstyle scriptlevel="0" displaystyle="true"><m:mfrac><m:mn>1</m:mn> <m:msqrt><m:mrow><m:mn>2</m:mn><m:mi>π</m:mi></m:mrow></m:msqrt></m:mfrac></m:mstyle><m:munder><m:mo>∑</m:mo> <m:mrow><m:mi>n</m:mi><m:mo>∈</m:mo><m:mi mathvariant="double-struck">Z</m:mi></m:mrow> </m:munder><m:mi>f</m:mi><m:mrow><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow><m:msup><m:mi>e</m:mi> <m:mrow><m:mo>-</m:mo><m:mi>i</m:mi><m:mi>n</m:mi><m:mi>ω</m:mi></m:mrow> </m:msup><m:mover accent="true"><m:mi>g</m:mi> <m:mo>^</m:mo></m:mover><m:mrow><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow><m:mo>.</m:mo></m:mrow></m:math></equation>
+Thus, we have the new representation
+<equation id="id2249594"><m:math mode="display"><m:mrow><m:mi>f</m:mi><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:munder><m:mo>∑</m:mo> <m:mrow><m:mi>n</m:mi><m:mo>∈</m:mo><m:mi mathvariant="double-struck">Z</m:mi></m:mrow> </m:munder><m:mi>f</m:mi><m:mrow><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow><m:mspace width="3.33333pt"/><m:mi>g</m:mi><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow><m:mo>,</m:mo></m:mrow></m:math></equation>
+where we gain stability from our additional assumption that the
+signal is bandlimited on <m:math><m:mrow><m:mo>[</m:mo><m:mo>-</m:mo><m:mi>π</m:mi><m:mo>-</m:mo><m:mi>δ</m:mi><m:mo>,</m:mo><m:mi>π</m:mi><m:mo>-</m:mo><m:mi>δ</m:mi><m:mo>]</m:mo></m:mrow></m:math>.</para>
+<para id="id2249698">
+Does this assumption really hurt? No, not really because if our
+signal is really bandlimited to <m:math><m:mrow><m:mo>[</m:mo><m:mo>-</m:mo><m:mi>π</m:mi><m:mo>,</m:mo><m:mi>π</m:mi><m:mo>]</m:mo></m:mrow></m:math> and not
+<m:math><m:mrow><m:mo>[</m:mo><m:mo>-</m:mo><m:mi>π</m:mi><m:mo>-</m:mo><m:mi>δ</m:mi><m:mo>,</m:mo><m:mi>π</m:mi><m:mo>-</m:mo><m:mi>δ</m:mi><m:mo>]</m:mo></m:mrow></m:math>, we can always take a slightly larger
+bandwidth, say <m:math><m:mrow><m:mo>[</m:mo><m:mo>-</m:mo><m:mi>λ</m:mi><m:mi>π</m:mi><m:mo>,</m:mo><m:mi>λ</m:mi><m:mi>π</m:mi><m:mo>]</m:mo></m:mrow></m:math> where <m:math><m:mi>λ</m:mi></m:math> is a
+little larger than one, and carry out the same analysis as above.
+Doing so, would only mean slightly oversampling the signal (small
+cost).</para>
+<para id="id2249793">Recall that in the end we want to convert analog
+signals into bit streams. Thus far, we have the two representations
+<equation id="id2249798"><m:math mode="display"><m:mtable displaystyle="true"><m:mtr><m:mtd columnalign="right"><m:mrow><m:mi>f</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mtd><m:mtd columnalign="left"><m:mrow><m:mo>=</m:mo><m:munder><m:mo>∑</m:mo> <m:mrow><m:mi>n</m:mi><m:mo>∈</m:mo><m:mi mathvariant="double-struck">Z</m:mi></m:mrow> </m:munder><m:mrow><m:mi>f</m:mi><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>)</m:mo><m:mspace width="3.33333pt"/><m:mi> sinc </m:mi><m:mspace width="0.166667em"/><m:mo>(</m:mo><m:mi>π</m:mi><m:mo>(</m:mo><m:mi mathvariant="normal">t</m:mi></m:mrow><m:mo>-</m:mo><m:mrow><m:mi mathvariant="normal">n</m:mi><m:mo>)</m:mo><m:mo>)</m:mo><m:mo>,</m:mo></m:mrow></m:mrow></m:mtd></m:mtr><m:mtr><m:mtd columnalign="right"><m:mrow><m:mi>f</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mtd><m:mtd columnalign="left"><m:mrow><m:mo>=</m:mo><m:munder><m:mo>∑</m:mo> <m:mrow><m:mi>n</m:mi><m:mo>∈</m:mo><m:mi mathvariant="double-struck">Z</m:mi></m:mrow> </m:munder><m:mi>f</m:mi><m:mfenced open="(" close=")"><m:mstyle scriptlevel="0" displaystyle="true"><m:mfrac><m:mi>n</m:mi> <m:mi>λ</m:mi></m:mfrac></m:mstyle></m:mfenced><m:mspace width="3.33333pt"/><m:mi>g</m:mi><m:mrow><m:mo>(</m:mo><m:mi>λ</m:mi><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow><m:mo>.</m:mo></m:mrow></m:mtd></m:mtr></m:mtable></m:math></equation>
+Shannon's Theorem tells us that if <m:math><m:mrow><m:mi>f</m:mi><m:mo>∈</m:mo><m:msub><m:mi>B</m:mi> <m:mi>A</m:mi> </m:msub></m:mrow></m:math>, we should
+sample <m:math><m:mi>f</m:mi></m:math> at the Nyquist rate <m:math><m:mi>A</m:mi></m:math> (which is twice the support of <m:math><m:mover accent="true"><m:mi>f</m:mi> <m:mo>^</m:mo></m:mover></m:math>) and then take the binary
+representation of the samples. Our more stable representation says
+to slightly oversample <m:math><m:mi>f</m:mi></m:math> and then convert to a binary
+representation. Both representations offer perfect reconstruction,
+although in the more stable representation, one is straddled with
+the additional task of choosing an appropriate <m:math><m:mi>λ</m:mi></m:math>.</para>
+<para id="id2250051">In practical situations, we shall be interested in approximating <m:math><m:mi>f</m:mi></m:math>
+on an interval <m:math><m:mrow><m:mo>[</m:mo><m:mo>-</m:mo><m:mi>T</m:mi><m:mo>,</m:mo><m:mi>T</m:mi><m:mo>]</m:mo></m:mrow></m:math> for some <m:math><m:mrow><m:mi>T</m:mi><m:mo>&gt;</m:mo><m:mn>0</m:mn></m:mrow></m:math> and not for all time.
+Questions we still want to answer include</para>
+<list id="id2250102" list-type="enumerated">
+<item>How many bits do we need to represent <m:math><m:mi>f</m:mi></m:math> in <m:math><m:msub><m:mi>B</m:mi> <m:mrow><m:mi>A</m:mi><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow> </m:msub></m:math> on some interval <m:math><m:mrow><m:mo>[</m:mo><m:mo>-</m:mo><m:mi>T</m:mi><m:mo>,</m:mo><m:mi>T</m:mi><m:mo>]</m:mo></m:mrow></m:math> in the norm <m:math><m:mrow><m:msub><m:mi>L</m:mi> <m:mi>∞</m:mi> </m:msub><m:mrow><m:mo>[</m:mo><m:mo>-</m:mo><m:mi>T</m:mi><m:mo>,</m:mo><m:mi>T</m:mi><m:mo>]</m:mo></m:mrow></m:mrow></m:math>?
+</item>
+<item>Using this methodology, what is the optimal way of encoding?
+</item>
+<item>How is the optimal encoding implemented?
+</item></list>
+
+<para id="id2246135">Towards this end, we define
+<equation id="id2246139"><m:math mode="display"><m:mrow><m:msub><m:mi>B</m:mi> <m:mi>A</m:mi> </m:msub><m:mrow><m:mo>:</m:mo><m:mo>=</m:mo><m:mo>{</m:mo><m:mi>f</m:mi><m:mo>∈</m:mo></m:mrow><m:msub><m:mi>L</m:mi> <m:mn>2</m:mn> </m:msub><m:mrow><m:mo>(</m:mo><m:mi mathvariant="double-struck">R</m:mi><m:mo>)</m:mo><m:mo>:</m:mo><m:mo>|</m:mo></m:mrow><m:mover accent="true"><m:mi>f</m:mi> <m:mo>^</m:mo></m:mover><m:mrow><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo><m:mo>|</m:mo></m:mrow><m:mo>=</m:mo><m:mrow><m:mn>0</m:mn><m:mo>,</m:mo><m:mo>|</m:mo><m:mi>ω</m:mi><m:mo>|</m:mo><m:mo>≥</m:mo><m:mi>A</m:mi><m:mi>π</m:mi><m:mo>}</m:mo><m:mo>.</m:mo></m:mrow></m:mrow></m:math></equation>
+Then for any 
+<m:math><m:mrow><m:mi>f</m:mi><m:mo>∈</m:mo><m:msub><m:mi>B</m:mi> <m:mi>A</m:mi> </m:msub></m:mrow></m:math>, we can write
+<equation id="id2246508"><m:math mode="display"><m:mrow><m:mi>f</m:mi><m:mo>=</m:mo><m:munder><m:mo>∑</m:mo> <m:mi>n</m:mi> </m:munder><m:mi>f</m:mi><m:mfenced separators="" open="(" close=")"><m:mfrac><m:mi>n</m:mi> <m:mi>A</m:mi></m:mfrac></m:mfenced><m:mo>·</m:mo><m:mtext>sinc</m:mtext><m:mspace width="4.pt"/><m:mi>π</m:mi><m:mrow><m:mo>(</m:mo><m:mi>A</m:mi><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow><m:mo>.</m:mo></m:mrow></m:math></equation>
+<figure id="uid2"><media id="idm2122288" alt=""><image src="../../media/figure1.png" mime-type="image/png"/><image for="pdf" src="../../media/figure1.eps" mime-type="application/postscript"/></media>
+<caption>Fourier transform of
+<m:math><m:mrow><m:msub><m:mi>g</m:mi> <m:mi>λ</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mo>·</m:mo><m:mo>)</m:mo></m:mrow></m:mrow></m:math>.</caption></figure>
+In other words, samples at 0, <m:math><m:mrow><m:mo>±</m:mo><m:mfrac><m:mn>1</m:mn> <m:mi>A</m:mi></m:mfrac></m:mrow></m:math>, <m:math><m:mrow><m:mo>±</m:mo><m:mfrac><m:mn>2</m:mn> <m:mi>A</m:mi></m:mfrac><m:mo>,</m:mo><m:mo>⋯</m:mo></m:mrow></m:math> are sufficient to reconstruct <m:math><m:mi>f</m:mi></m:math>. Recall also
+that <m:math><m:mrow><m:mtext>sinc</m:mtext><m:mrow><m:mo>(</m:mo><m:mi>x</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mfrac><m:mrow><m:mtext>sin</m:mtext><m:mo>(</m:mo><m:mi>x</m:mi><m:mo>)</m:mo></m:mrow> <m:mi>x</m:mi></m:mfrac></m:mrow></m:math> decays poorly
+(leading to numerical instability). We can overcome this problem by
+slight over-sampling. Say we over-sample by a factor <m:math><m:mrow><m:mi>λ</m:mi><m:mo>&gt;</m:mo><m:mn>1</m:mn></m:mrow></m:math>.
+Then, we can write</para>
+<equation id="id2246708"><m:math mode="display"><m:mrow><m:mi>f</m:mi><m:mo>=</m:mo><m:mo>∑</m:mo><m:mi>f</m:mi><m:mfenced separators="" open="(" close=")"><m:mfrac><m:mi>n</m:mi> <m:mrow><m:mi>λ</m:mi><m:mi>A</m:mi></m:mrow></m:mfrac></m:mfenced><m:msub><m:mi>g</m:mi> <m:mi>λ</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>λ</m:mi><m:mi>A</m:mi><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow><m:mo>.</m:mo></m:mrow></m:math></equation>
+<para id="id2246769">Hence we need samples at 0, <m:math><m:mrow><m:mo>±</m:mo><m:mfrac><m:mn>1</m:mn> <m:mrow><m:mi>λ</m:mi><m:mi>A</m:mi></m:mrow></m:mfrac></m:mrow></m:math>, <m:math><m:mrow><m:mo>±</m:mo><m:mfrac><m:mn>2</m:mn> <m:mrow><m:mi>λ</m:mi><m:mi>A</m:mi></m:mrow></m:mfrac></m:mrow></m:math>, etc.
+What is the advantage? Sampling more often than necessary buys us stability because we now have a choice
+for <m:math><m:mrow><m:msub><m:mi>g</m:mi> <m:mi>λ</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mo>·</m:mo><m:mo>)</m:mo></m:mrow></m:mrow></m:math>.
+If we choose <m:math><m:mrow><m:msub><m:mi>g</m:mi> <m:mi>λ</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mo>·</m:mo><m:mo>)</m:mo></m:mrow></m:mrow></m:math> infinitely differentiable whose Fourier transform looks
+as shown in <link target-id="uid2"/> we can obtain
+<equation id="uid3"><m:math mode="display"><m:mrow><m:mrow><m:mo>|</m:mo></m:mrow><m:msub><m:mi>g</m:mi> <m:mi>λ</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo><m:mo>|</m:mo><m:mo>≤</m:mo></m:mrow><m:mfrac><m:msub><m:mi>c</m:mi> <m:mrow><m:mi>λ</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow> </m:msub> <m:mrow><m:mo>(</m:mo><m:mn>1</m:mn><m:mo>+</m:mo><m:mo>|</m:mo><m:mi>t</m:mi><m:mo>|</m:mo><m:msup><m:mo>)</m:mo> <m:mi>k</m:mi> </m:msup></m:mrow></m:mfrac><m:mo>,</m:mo><m:mspace width="0.277778em"/><m:mspace width="0.277778em"/><m:mspace width="0.277778em"/><m:mi>k</m:mi><m:mo>=</m:mo><m:mn>1</m:mn><m:mo>,</m:mo><m:mn>2</m:mn><m:mo>,</m:mo><m:mo>.</m:mo><m:mo>.</m:mo><m:mo>.</m:mo></m:mrow></m:math></equation>
+and therefore <m:math><m:mrow><m:msub><m:mi>g</m:mi> <m:mi>λ</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mo>·</m:mo><m:mo>)</m:mo></m:mrow></m:mrow></m:math> decays very fast. In other words,
+a sample's influence is felt only locally. Note however, that
+over-sampling generates basis functions that are redundant (linearly
+dependent), unlike the integer translates of the <m:math><m:mrow><m:mtext>sinc</m:mtext><m:mo>(</m:mo><m:mo>·</m:mo><m:mo>)</m:mo></m:mrow></m:math> function.</para>
+<figure id="uid4"><media id="idp1278464" alt=""><image src="../../media/figure2.png" mime-type="image/png"/><image for="pdf" src="../../media/figure2.eps" mime-type="application/postscript"/></media>
+<caption>To reconstruct signals in <m:math><m:mrow><m:mo>[</m:mo><m:mo>-</m:mo><m:mi>T</m:mi><m:mo>,</m:mo><m:mi>T</m:mi><m:mo>]</m:mo></m:mrow></m:math>,
+the sampling interval is <m:math><m:mrow><m:mo>[</m:mo><m:mo>-</m:mo><m:mi>c</m:mi><m:mi>T</m:mi><m:mo>,</m:mo><m:mi>c</m:mi><m:mi>T</m:mi><m:mo>]</m:mo></m:mrow></m:math>.</caption></figure>
+<para id="id2247097">If we restrict our reconstruction to <m:math><m:mi>t</m:mi></m:math> in the interval <m:math><m:mrow><m:mo>[</m:mo><m:mo>-</m:mo><m:mi>T</m:mi><m:mo>,</m:mo><m:mi>T</m:mi><m:mo>]</m:mo></m:mrow></m:math>, we will only need
+samples only from <m:math><m:mrow><m:mo>[</m:mo><m:mo>-</m:mo><m:mi>c</m:mi><m:mi>T</m:mi><m:mo>,</m:mo><m:mi>c</m:mi><m:mi>T</m:mi><m:mo>]</m:mo></m:mrow></m:math>, for <m:math><m:mrow><m:mi>c</m:mi><m:mo>&gt;</m:mo><m:mn>1</m:mn></m:mrow></m:math> (see <link target-id="uid4"/>),
+because the distant samples will have little effect on the reconstruction in
+<m:math><m:mrow><m:mo>[</m:mo><m:mo>-</m:mo><m:mi>T</m:mi><m:mo>,</m:mo><m:mi>T</m:mi><m:mo>]</m:mo></m:mrow></m:math>.</para>
+
+
+  </content>
+</document>

@@ -1,0 +1,160 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Thresholding and Greedy Bases</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>4998a170-e809-4286-85dc-83520af3c0e3</md:uuid>
+</metadata>
+  <content>
+
+
+<para id="id2246135">We shall next discuss some notions related to best <m:math><m:mi>n</m:mi></m:math>-term
+approximation.</para>
+<section id="id2246151"><title>Thresholding</title>
+<list id="id2246158" list-type="enumerated">
+<item>Let <m:math><m:mi mathvariant="double-struck">X</m:mi></m:math> be a Hilbert space. Given <m:math><m:mi>f</m:mi></m:math>, let
+<m:math><m:mrow><m:msub><m:mi>Λ</m:mi> <m:mi>ϵ</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mrow><m:mo>{</m:mo><m:mi>j</m:mi><m:mo>:</m:mo><m:mo>|</m:mo></m:mrow><m:msub><m:mi>c</m:mi> <m:mi>j</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo><m:mo>|</m:mo><m:mo>&gt;</m:mo><m:mi>ϵ</m:mi><m:mo>}</m:mo></m:mrow></m:mrow></m:math>.
+The thresholding operator <m:math><m:msub><m:mi>T</m:mi> <m:mi>ϵ</m:mi> </m:msub></m:math> is defined by
+<equation id="uid4"><m:math mode="display"><m:mrow><m:msub><m:mi>T</m:mi> <m:mi>ϵ</m:mi> </m:msub><m:mi>f</m:mi><m:mo>=</m:mo><m:munder><m:mo>∑</m:mo> <m:mrow><m:mi>j</m:mi><m:mo>∈</m:mo><m:msub><m:mi>Λ</m:mi> <m:mi>ϵ</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo></m:mrow></m:mrow> </m:munder><m:msub><m:mi>C</m:mi> <m:mi>j</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo></m:mrow><m:msub><m:mi>φ</m:mi> <m:mi>j</m:mi> </m:msub><m:mo>.</m:mo></m:mrow></m:math></equation>
+It is easy to see that for each <m:math><m:mi>ϵ</m:mi></m:math>, <m:math><m:mrow><m:msub><m:mi>T</m:mi> <m:mi>ϵ</m:mi> </m:msub><m:mi>f</m:mi></m:mrow></m:math> is
+the best approximation to <m:math><m:mi>f</m:mi></m:math> using <m:math><m:mi>N</m:mi></m:math> terms where <m:math><m:mi>N</m:mi></m:math> is the
+cardinality of <m:math><m:msub><m:mi>Λ</m:mi> <m:mi>ϵ</m:mi> </m:msub></m:math>:
+<equation id="id2246662"><m:math mode="display"><m:mrow><m:mo>∥</m:mo><m:mi>f</m:mi><m:mo>-</m:mo><m:msub><m:mi>T</m:mi> <m:mi>ϵ</m:mi> </m:msub><m:msub><m:mo>∥</m:mo> <m:mi mathvariant="double-struck">X</m:mi> </m:msub><m:mo>=</m:mo><m:msub><m:mi>σ</m:mi> <m:mi>N</m:mi> </m:msub><m:mo>(</m:mo><m:mi>f</m:mi><m:msub><m:mo>)</m:mo> <m:mi mathvariant="double-struck">X</m:mi> </m:msub><m:mo>.</m:mo></m:mrow></m:math></equation>
+Thresholding is
+easily implemented on a computer.
+</item>
+<item>The thresholding scheme above can be generalized if
+<m:math><m:mi mathvariant="double-struck">X</m:mi></m:math> is not a Hilbert space provided the dictionary has
+some specific structure. For example, when
+<list id="id2246752" list-type="enumerated">
+<item>The dictionary is the wavelet basis and <m:math><m:mrow><m:mi mathvariant="double-struck">X</m:mi><m:mo>=</m:mo><m:msub><m:mi>L</m:mi> <m:mi>p</m:mi> </m:msub></m:mrow></m:math>,
+<m:math><m:mrow><m:mn>1</m:mn><m:mo>&lt;</m:mo><m:mi>p</m:mi><m:mo>&lt;</m:mo><m:mi>∞</m:mi></m:mrow></m:math>.
+</item>
+<item><m:math><m:mrow><m:mi mathvariant="double-struck">X</m:mi><m:mo>=</m:mo><m:msub><m:mi>l</m:mi> <m:mi>p</m:mi> </m:msub></m:mrow></m:math> and the dictionary is
+the canonical basis <m:math><m:mrow><m:msub><m:mi>δ</m:mi> <m:mi>j</m:mi> </m:msub><m:mo>=</m:mo><m:msub><m:mi>φ</m:mi> <m:mi>j</m:mi> </m:msub></m:mrow></m:math>. ex: <m:math><m:mrow><m:mo>(</m:mo><m:mn>0</m:mn><m:mo>,</m:mo><m:mn>0</m:mn><m:mo>,</m:mo><m:mo>...</m:mo><m:mo>,</m:mo><m:mn>1</m:mn><m:mo>,</m:mo><m:mn>0</m:mn><m:mo>)</m:mo></m:mrow></m:math>
+</item>
+<item>For a general Banach space <m:math><m:mi mathvariant="double-struck">X</m:mi></m:math> and the
+dictionary <m:math><m:mrow><m:mo>(</m:mo><m:msub><m:mi>φ</m:mi> <m:mi>j</m:mi> </m:msub><m:mo>)</m:mo></m:mrow></m:math> is a greedy basis.
+</item></list>
+</item></list>
+</section>
+<section id="id2246945"><title>Greedy Bases</title>
+<para id="id2246952">We briefly describe the notion of greedy basis.</para>
+
+<rule type="definition" id="def1"><label>Definition</label>
+<statement id="idp1964080">
+<para id="id2246956">Given <m:math><m:mi mathvariant="double-struck">X</m:mi></m:math>, we say <m:math><m:mrow><m:mo>(</m:mo><m:msub><m:mi>φ</m:mi> <m:mi>j</m:mi> </m:msub><m:mo>)</m:mo></m:mrow></m:math> is a greedy basis
+for <m:math><m:mi mathvariant="double-struck">X</m:mi></m:math> if for each <m:math><m:mrow><m:mi>ϵ</m:mi><m:mo>&gt;</m:mo><m:mn>0</m:mn></m:mrow></m:math>,</para>
+<equation id="id2247027"><m:math mode="display"><m:mrow><m:mo>∥</m:mo><m:mi>f</m:mi><m:mo>-</m:mo><m:msub><m:mi>T</m:mi> <m:mi>ϵ</m:mi> </m:msub><m:mi>f</m:mi><m:msub><m:mo>∥</m:mo> <m:mi mathvariant="double-struck">X</m:mi> </m:msub><m:mo>≤</m:mo><m:mi>C</m:mi><m:mo>(</m:mo><m:mi mathvariant="double-struck">X</m:mi><m:mo>)</m:mo><m:msub><m:mi>σ</m:mi> <m:mi>N</m:mi> </m:msub><m:mo>(</m:mo><m:mi>f</m:mi><m:msub><m:mo>)</m:mo> <m:mi mathvariant="double-struck">X</m:mi> </m:msub></m:mrow></m:math></equation>
+<para id="id2247099">where <m:math><m:mi>N</m:mi></m:math> is the cardinality of <m:math><m:msub><m:mi>Λ</m:mi> <m:mi>ϵ</m:mi> </m:msub></m:math>.</para>
+</statement>
+</rule>
+
+<rule type="definition" id="def2"><label>Definition</label>
+<statement id="idm2668496">
+<para id="id2247129">A basis <m:math><m:msub><m:mi>φ</m:mi> <m:mi>j</m:mi> </m:msub></m:math> is said to be unconditional if</para>
+<equation id="id2247157"><m:math mode="display"><m:mrow><m:mo>∥</m:mo><m:mo>∑</m:mo><m:mo>±</m:mo><m:msub><m:mi>c</m:mi> <m:mi>j</m:mi> </m:msub><m:msub><m:mi>φ</m:mi> <m:mi>j</m:mi> </m:msub><m:msub><m:mo>∥</m:mo> <m:mi mathvariant="double-struck">X</m:mi> </m:msub><m:mo>≤</m:mo><m:mi>C</m:mi><m:mo>∥</m:mo><m:mo>∑</m:mo><m:msub><m:mi>c</m:mi> <m:mi>j</m:mi> </m:msub><m:msub><m:mi>φ</m:mi> <m:mi>j</m:mi> </m:msub><m:msub><m:mo>∥</m:mo> <m:mi mathvariant="double-struck">X</m:mi> </m:msub></m:mrow></m:math></equation>
+<para id="id2247234">or equivalently</para>
+<equation id="id2247240"><m:math mode="display"><m:mrow><m:mo>∥</m:mo><m:mo>∑</m:mo><m:msub><m:mi>c</m:mi> <m:mi>j</m:mi> </m:msub><m:msub><m:mi>φ</m:mi> <m:mi>j</m:mi> </m:msub><m:msub><m:mo>∥</m:mo> <m:mi mathvariant="double-struck">X</m:mi> </m:msub><m:mo>≤</m:mo><m:mi>C</m:mi><m:mo>∥</m:mo><m:mo>∑</m:mo><m:msub><m:mi>d</m:mi> <m:mi>j</m:mi> </m:msub><m:msub><m:mi>φ</m:mi> <m:mi>j</m:mi> </m:msub><m:msub><m:mo>∥</m:mo> <m:mi mathvariant="double-struck">X</m:mi> </m:msub><m:mspace width="2.em"/><m:mi> where </m:mi><m:mspace width="2.em"/><m:mo>|</m:mo><m:msub><m:mi>c</m:mi> <m:mi>j</m:mi> </m:msub><m:mo>|</m:mo><m:mo>≤</m:mo><m:mo>|</m:mo><m:msub><m:mi>d</m:mi> <m:mi>j</m:mi> </m:msub><m:mo>|</m:mo><m:mo>.</m:mo></m:mrow></m:math></equation>
+</statement>
+</rule>
+
+<para id="id2247352">This is an older concept from functional analysis. In words, this
+definition says that if the terms <m:math><m:msub><m:mi>c</m:mi> <m:mi>j</m:mi> </m:msub></m:math> are rearranged, the series
+<m:math><m:mrow><m:mo>∑</m:mo><m:msub><m:mi>c</m:mi> <m:mi>j</m:mi> </m:msub><m:msub><m:mi>φ</m:mi> <m:mi>j</m:mi> </m:msub></m:mrow></m:math> will still converge. This is not generally
+true for all bases.</para>
+
+<rule type="definition" id="def3"><label>Definition</label>
+<statement id="idm926608">
+<para id="id2247398">A basis <m:math><m:msub><m:mi>φ</m:mi> <m:mi>j</m:mi> </m:msub></m:math> is said to be democratic if</para>
+<equation id="id2247427"><m:math mode="display"><m:mrow><m:mo>∥</m:mo><m:munder><m:mo>∑</m:mo> <m:mrow><m:mi>j</m:mi><m:mo>∈</m:mo><m:mi>Λ</m:mi></m:mrow> </m:munder><m:msub><m:mi>φ</m:mi> <m:mi>j</m:mi> </m:msub><m:mo>∥</m:mo><m:mo>≤</m:mo><m:mi>C</m:mi><m:mo>∥</m:mo><m:munder><m:mo>∑</m:mo> <m:mrow><m:mi>j</m:mi><m:mo>∈</m:mo><m:msup><m:mi>Λ</m:mi> <m:mo>'</m:mo> </m:msup></m:mrow> </m:munder><m:msub><m:mi>φ</m:mi> <m:mi>j</m:mi> </m:msub><m:mo>∥</m:mo><m:mo>,</m:mo></m:mrow></m:math></equation>
+<para id="id2247502">where the cardinality of <m:math><m:msup><m:mi>Λ</m:mi> <m:mo>'</m:mo> </m:msup></m:math> equals the cardinality of
+<m:math><m:mi>Λ</m:mi></m:math>.</para>
+</statement>
+</rule>
+
+<rule type="remark" id="rem1"><label>Remark</label>
+<statement id="idm1826448">
+<para id="id2247532"><m:math><m:mrow><m:mo>(</m:mo><m:msub><m:mi>φ</m:mi> <m:mi>j</m:mi> </m:msub><m:mo>)</m:mo></m:mrow></m:math> greedy <m:math><m:mo>↔</m:mo></m:math> <m:math><m:mrow><m:mo>(</m:mo><m:msub><m:mi>φ</m:mi> <m:mi>j</m:mi> </m:msub><m:mo>)</m:mo></m:mrow></m:math> is both
+unconditional and democratic.</para>
+</statement>
+</rule>
+
+<para id="id2247598">Some examples involving the last two definitions:</para>
+<list id="id2247603" list-type="bulleted">
+<item>The fourier basis in <m:math><m:msub><m:mi>L</m:mi> <m:mi>p</m:mi> </m:msub></m:math> is not democratic, but is
+unconditional for <m:math><m:mrow><m:mi>l</m:mi><m:mo>&lt;</m:mo><m:mi>p</m:mi><m:mo>&lt;</m:mo><m:mi>∞</m:mi></m:mrow></m:math>.
+</item>
+<item>The wavelet basis
+contains both of these properties, and is therefore greedy.
+</item></list>
+
+<rule type="theorem" id="thm1">
+<statement id="idp615120">
+<para id="id2247668">If <m:math><m:mrow><m:mi mathvariant="double-struck">X</m:mi><m:mo>=</m:mo><m:msub><m:mi>L</m:mi> <m:mi>p</m:mi> </m:msub></m:mrow></m:math> has <m:math><m:mrow><m:mo>(</m:mo><m:msub><m:mi>φ</m:mi> <m:mi>j</m:mi> </m:msub><m:mo>)</m:mo></m:mrow></m:math> greedy, <m:math><m:mrow><m:mi>B</m:mi><m:mo>=</m:mo><m:mo>{</m:mo><m:msub><m:mi>φ</m:mi> <m:mi>j</m:mi> </m:msub><m:mo>}</m:mo></m:mrow></m:math>,
+<m:math><m:mrow><m:mi>f</m:mi><m:mo>=</m:mo><m:msubsup><m:mo>∑</m:mo> <m:mrow><m:mi>j</m:mi><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow> <m:mi>∞</m:mi> </m:msubsup><m:mrow><m:msub><m:mi>c</m:mi> <m:mi>j</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo></m:mrow><m:msub><m:mi>φ</m:mi> <m:mi>j</m:mi> </m:msub></m:mrow></m:mrow></m:math>,
+<m:math><m:mrow><m:msub><m:mi>c</m:mi> <m:mi>j</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mfenced separators="" open="〈" close="〉"><m:mi>f</m:mi><m:mo>,</m:mo><m:msub><m:mi>ψ</m:mi> <m:mi>j</m:mi> </m:msub></m:mfenced></m:mrow></m:math> where <m:math><m:msub><m:mi>ψ</m:mi> <m:mi>j</m:mi> </m:msub></m:math> is a dual basis,</para>
+<equation id="id2247854"><m:math mode="display"><m:mrow><m:mi>f</m:mi><m:mo>∈</m:mo><m:msup><m:mi mathvariant="script">A</m:mi> <m:mi>r</m:mi> </m:msup><m:mrow><m:mo>(</m:mo><m:mi>B</m:mi><m:mo>)</m:mo><m:mo>↔</m:mo><m:mo>(</m:mo></m:mrow><m:msub><m:mi>c</m:mi> <m:mi>j</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo><m:mo>)</m:mo><m:mo>∈</m:mo></m:mrow><m:msub><m:mi>w</m:mi> <m:msub><m:mi>l</m:mi> <m:mi>τ</m:mi> </m:msub> </m:msub><m:mo>,</m:mo><m:mspace width="2.em"/><m:mfrac><m:mn>1</m:mn> <m:mi>τ</m:mi></m:mfrac><m:mo>=</m:mo><m:mi>r</m:mi><m:mo>+</m:mo><m:mfrac><m:mn>1</m:mn> <m:mi>p</m:mi></m:mfrac></m:mrow></m:math></equation>
+<para id="id2247948">and</para>
+<equation id="id2247953"><m:math mode="display"><m:mrow><m:mo>∥</m:mo><m:mi>f</m:mi><m:msub><m:mo>∥</m:mo> <m:msup><m:mi mathvariant="script">A</m:mi> <m:mi>r</m:mi> </m:msup> </m:msub><m:mo>≈</m:mo><m:mo>∥</m:mo><m:msub><m:mi>c</m:mi> <m:mi>j</m:mi> </m:msub><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo><m:msub><m:mo>∥</m:mo> <m:msub><m:mi>l</m:mi> <m:mi>τ</m:mi> </m:msub> </m:msub></m:mrow></m:math></equation>
+</statement>
+</rule>
+
+<para id="id2248015">Let us now consider a specific setting that we shall be concerned
+with a lot in this course. We shall examine some of the concepts
+we have introduced in the finite dimensional space of of all
+sequence (points) in <m:math><m:msup><m:mrow><m:mi mathvariant="double-struck">R</m:mi></m:mrow> <m:mi>N</m:mi> </m:msup></m:math>. Recall that we can put many
+different norms on this space including the <m:math><m:msub><m:mi>ℓ</m:mi> <m:mi>p</m:mi> </m:msub></m:math> norms and the
+weak <m:math><m:msub><m:mi>ℓ</m:mi> <m:mi>p</m:mi> </m:msub></m:math> norms.</para>
+
+<rule type="remark" id="rem2"><label>Remark</label>
+<statement id="idp9886384">
+<para id="id2248070">Given a vector <m:math><m:mrow><m:mrow><m:mo>=</m:mo><m:mo>(</m:mo></m:mrow><m:msub><m:mi>x</m:mi> <m:mn>1</m:mn> </m:msub><m:mo>,</m:mo><m:msub><m:mi>x</m:mi> <m:mn>2</m:mn> </m:msub><m:mo>,</m:mo><m:mo>...</m:mo><m:mo>,</m:mo><m:msub><m:mi>x</m:mi> <m:mi>N</m:mi> </m:msub><m:mrow><m:mo>)</m:mo><m:mo>∈</m:mo></m:mrow><m:msup><m:mrow><m:mi mathvariant="double-struck">R</m:mi></m:mrow> <m:mi>N</m:mi> </m:msup></m:mrow></m:math>. The best
+approximation to <m:math><m:mi>x</m:mi></m:math> from <m:math><m:msub><m:mi>Σ</m:mi> <m:mi>n</m:mi> </m:msub></m:math> in the <m:math><m:msub><m:mi>ℓ</m:mi> <m:mi>p</m:mi> </m:msub></m:math> norm is to
+take the vector in <m:math><m:msub><m:mi>Σ</m:mi> <m:mi>n</m:mi> </m:msub></m:math> which shares the <m:math><m:mi>n</m:mi></m:math> largest values
+of <m:math><m:mi>x</m:mi></m:math>. Its error of approximation satisfies</para>
+<equation id="id2248212"><m:math mode="display"><m:mrow><m:msub><m:mi>σ</m:mi> <m:mi>n</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>x</m:mi><m:msub><m:mo>)</m:mo> <m:msub><m:mi>ℓ</m:mi> <m:mi>p</m:mi> </m:msub> </m:msub></m:mrow><m:mo>≤</m:mo><m:mi>C</m:mi><m:msup><m:mi>n</m:mi> <m:mrow><m:mo>-</m:mo><m:mi>r</m:mi></m:mrow> </m:msup><m:mrow><m:mo>∥</m:mo><m:mi>x</m:mi><m:msub><m:mo>∥</m:mo> <m:msub><m:mi>w</m:mi> <m:msub><m:mi>l</m:mi> <m:mi>τ</m:mi> </m:msub> </m:msub> </m:msub></m:mrow><m:mo>,</m:mo><m:mspace width="2.em"/><m:mfrac><m:mn>1</m:mn> <m:mi>τ</m:mi></m:mfrac><m:mo>=</m:mo><m:mi>r</m:mi><m:mo>+</m:mo><m:mfrac><m:mn>1</m:mn> <m:mi>p</m:mi></m:mfrac></m:mrow></m:math></equation>
+</statement>
+</rule>
+
+<rule type="remark" id="rem3"><label>Remark</label>
+<statement id="idp4249792">
+<para id="id2248312"><m:math><m:mrow><m:mo>∥</m:mo><m:mi>x</m:mi><m:msub><m:mo>∥</m:mo> <m:msub><m:mi>w</m:mi> <m:msub><m:mi>l</m:mi> <m:mi>τ</m:mi> </m:msub> </m:msub> </m:msub><m:mo>≤</m:mo><m:mo>∥</m:mo><m:mi>x</m:mi><m:msub><m:mo>∥</m:mo> <m:msub><m:mi>l</m:mi> <m:mi>τ</m:mi> </m:msub> </m:msub><m:mo>,</m:mo><m:mspace width="2.em"/><m:mfrac><m:mn>1</m:mn> <m:mi>τ</m:mi></m:mfrac><m:mo>=</m:mo><m:mi>r</m:mi><m:mo>+</m:mo><m:mfrac><m:mn>1</m:mn> <m:mi>p</m:mi></m:mfrac></m:mrow></m:math>.</para>
+</statement>
+</rule>
+
+<rule type="example" id="ex1"><label>Example</label>
+<statement id="idp9437408">
+<para id="id2248395">For <m:math><m:mrow><m:mi>p</m:mi><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow></m:math> and <m:math><m:mrow><m:mi>r</m:mi><m:mo>=</m:mo><m:mn>3</m:mn></m:mrow></m:math>, <m:math><m:mrow><m:msub><m:mi>σ</m:mi> <m:mi>n</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>x</m:mi><m:msub><m:mo>)</m:mo> <m:msub><m:mi>ℓ</m:mi> <m:mn>1</m:mn> </m:msub> </m:msub></m:mrow><m:mo>≤</m:mo><m:mi>C</m:mi><m:msup><m:mi>n</m:mi> <m:mrow><m:mo>-</m:mo><m:mn>3</m:mn></m:mrow> </m:msup><m:mrow><m:mo>∥</m:mo><m:mi>x</m:mi><m:msub><m:mo>∥</m:mo> <m:msub><m:mi>w</m:mi> <m:msub><m:mi>l</m:mi> <m:mi>τ</m:mi> </m:msub> </m:msub> </m:msub></m:mrow></m:mrow></m:math> and <m:math><m:mrow><m:mfrac><m:mn>1</m:mn> <m:mi>τ</m:mi></m:mfrac><m:mo>=</m:mo><m:mn>4</m:mn></m:mrow></m:math>. In words,
+this equation shows what kind of <m:math><m:mi>τ</m:mi></m:math> is needed for a given
+decay rate (or given some <m:math><m:mi>τ</m:mi></m:math>, what kind of decay rate will be
+achieved) to approximate with certain ability.</para>
+</statement>
+</rule>
+
+<rule type="example" id="ex2"><label>Example</label>
+<statement id="idm9549968">
+<para id="id2248545">Show <m:math><m:mrow><m:msub><m:mi>σ</m:mi> <m:mi>n</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>x</m:mi><m:msub><m:mo>)</m:mo> <m:msub><m:mi>l</m:mi> <m:mi>p</m:mi> </m:msub> </m:msub></m:mrow><m:mo>≤</m:mo><m:mi>C</m:mi><m:msup><m:mi>n</m:mi> <m:mrow><m:mo>-</m:mo><m:mi>r</m:mi></m:mrow> </m:msup><m:mrow><m:mo>∥</m:mo><m:mi>x</m:mi><m:msub><m:mo>∥</m:mo> <m:msub><m:mi>l</m:mi> <m:mi>τ</m:mi> </m:msub> </m:msub></m:mrow></m:mrow></m:math> holds with <m:math><m:mrow><m:mi>C</m:mi><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow></m:math>.</para>
+<para id="id2248636">Proof: Let <m:math><m:mrow><m:msub><m:mi>Λ</m:mi> <m:mi>n</m:mi> </m:msub><m:mo>:</m:mo><m:mo>=</m:mo><m:mrow><m:mo>{</m:mo><m:mi>i</m:mi><m:mo>:</m:mo><m:mo>|</m:mo></m:mrow><m:msub><m:mi>x</m:mi> <m:mi>i</m:mi> </m:msub><m:mrow><m:mo>|</m:mo><m:mi> largest </m:mi><m:mo>}</m:mo></m:mrow></m:mrow></m:math>,</para>
+<equation id="id2248686"><m:math mode="display"><m:mrow><m:msub><m:mi>σ</m:mi> <m:mi>n</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>x</m:mi></m:mrow><m:msubsup><m:mo>)</m:mo> <m:mrow><m:msub><m:mi>l</m:mi> <m:mi>p</m:mi> </m:msub></m:mrow> <m:mi>p</m:mi> </m:msubsup><m:mo>=</m:mo><m:munder><m:mo>∑</m:mo> <m:mrow><m:mi>i</m:mi><m:mo>∉</m:mo><m:msub><m:mi>Λ</m:mi> <m:mi>n</m:mi> </m:msub></m:mrow> </m:munder><m:mrow><m:mo>|</m:mo></m:mrow><m:msub><m:mi>x</m:mi> <m:mi>i</m:mi> </m:msub><m:msup><m:mo>|</m:mo> <m:mi>p</m:mi> </m:msup></m:mrow></m:math></equation>
+<equation id="id2248766"><m:math mode="display"><m:mrow><m:mo>≤</m:mo><m:munder><m:mo>∑</m:mo> <m:mrow><m:mi>i</m:mi><m:mo>∉</m:mo><m:msub><m:mi>Λ</m:mi> <m:mi>n</m:mi> </m:msub></m:mrow> </m:munder><m:mrow><m:mo>|</m:mo></m:mrow><m:msub><m:mi>x</m:mi> <m:mi>i</m:mi> </m:msub><m:msup><m:mo>|</m:mo> <m:mrow><m:mi>p</m:mi><m:mo>-</m:mo><m:mi>τ</m:mi></m:mrow> </m:msup><m:mrow><m:mo>|</m:mo></m:mrow><m:msub><m:mi>x</m:mi> <m:mi>i</m:mi> </m:msub><m:msup><m:mo>|</m:mo> <m:mi>τ</m:mi> </m:msup></m:mrow></m:math></equation>
+<equation id="id2248839"><m:math mode="display"><m:mrow><m:mo>≤</m:mo><m:mo>(</m:mo><m:mo>∥</m:mo><m:mi>x</m:mi><m:msub><m:mo>∥</m:mo> <m:msub><m:mi>w</m:mi> <m:msub><m:mi>l</m:mi> <m:mi>τ</m:mi> </m:msub> </m:msub> </m:msub><m:msup><m:mi>n</m:mi> <m:mrow><m:mo>-</m:mo><m:mfrac><m:mn>1</m:mn> <m:mi>τ</m:mi></m:mfrac></m:mrow> </m:msup><m:msup><m:mo>)</m:mo> <m:mrow><m:mi>p</m:mi><m:mo>-</m:mo><m:mi>τ</m:mi></m:mrow> </m:msup><m:mo>(</m:mo><m:mo>∑</m:mo><m:mo>|</m:mo><m:msub><m:mi>x</m:mi> <m:mi>i</m:mi> </m:msub><m:msup><m:mo>|</m:mo> <m:mi>τ</m:mi> </m:msup><m:mo>)</m:mo></m:mrow></m:math></equation>
+<equation id="id2248929"><m:math mode="display"><m:mrow><m:mo>≤</m:mo><m:mo>∥</m:mo><m:mi>x</m:mi><m:msubsup><m:mo>∥</m:mo> <m:mrow><m:msub><m:mi>l</m:mi> <m:mi>τ</m:mi> </m:msub></m:mrow> <m:mrow><m:mi>p</m:mi><m:mo>-</m:mo><m:mi>τ</m:mi></m:mrow> </m:msubsup><m:mo>∥</m:mo><m:mi>x</m:mi><m:msubsup><m:mo>∥</m:mo> <m:mrow><m:msub><m:mi>l</m:mi> <m:mi>τ</m:mi> </m:msub></m:mrow> <m:mi>τ</m:mi> </m:msubsup><m:mi>n</m:mi><m:mo>=</m:mo><m:msup><m:mi>n</m:mi> <m:mrow><m:mo>-</m:mo><m:mi>r</m:mi><m:mi>p</m:mi></m:mrow> </m:msup><m:mo>∥</m:mo><m:mi>x</m:mi><m:msubsup><m:mo>∥</m:mo> <m:mrow><m:msub><m:mi>l</m:mi> <m:mi>τ</m:mi> </m:msub></m:mrow> <m:mi>p</m:mi> </m:msubsup></m:mrow></m:math></equation>
+<para id="id2249030">and so</para>
+<equation id="id2249035"><m:math mode="display"><m:mrow><m:msub><m:mi>σ</m:mi> <m:mi>n</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>x</m:mi><m:msubsup><m:mo>)</m:mo> <m:mrow><m:msub><m:mi>l</m:mi> <m:mi>p</m:mi> </m:msub></m:mrow> <m:mi>p</m:mi> </m:msubsup></m:mrow><m:mo>≤</m:mo><m:msup><m:mi>n</m:mi> <m:mrow><m:mo>-</m:mo><m:mi>r</m:mi><m:mi>p</m:mi></m:mrow> </m:msup><m:mrow><m:mo>∥</m:mo><m:mi>x</m:mi><m:msubsup><m:mo>∥</m:mo> <m:mrow><m:msub><m:mi>l</m:mi> <m:mi>τ</m:mi> </m:msub></m:mrow> <m:mi>p</m:mi> </m:msubsup></m:mrow></m:mrow></m:math></equation>
+<para id="id2249114"><m:math><m:mrow><m:msub><m:mi>σ</m:mi> <m:mi>n</m:mi> </m:msub><m:mrow><m:mo>(</m:mo><m:mi>x</m:mi><m:msub><m:mo>)</m:mo> <m:msub><m:mi>l</m:mi> <m:mi>p</m:mi> </m:msub> </m:msub></m:mrow><m:mo>≤</m:mo><m:msup><m:mi>n</m:mi> <m:mrow><m:mo>-</m:mo><m:mi>r</m:mi></m:mrow> </m:msup><m:mrow><m:mo>∥</m:mo><m:mi>x</m:mi><m:msub><m:mo>∥</m:mo> <m:msub><m:mi>l</m:mi> <m:mi>τ</m:mi> </m:msub> </m:msub></m:mrow></m:mrow></m:math> </para>
+</statement>
+</rule>
+
+<rule type="remark" id="rem4"><label>Remark</label>
+<statement id="idp847392">
+<para id="id2249189">For <m:math><m:mrow><m:mi mathvariant="double-struck">X</m:mi><m:mo>=</m:mo><m:msub><m:mi>L</m:mi> <m:mi>p</m:mi> </m:msub></m:mrow></m:math>, <m:math><m:mrow><m:mo>{</m:mo><m:msub><m:mi>φ</m:mi> <m:mi>j</m:mi> </m:msub><m:mo>}</m:mo></m:mrow></m:math> a wavelet basis, we can say
+wavelet coefficients of <m:math><m:mi>f</m:mi></m:math> are in <m:math><m:msub><m:mi>l</m:mi> <m:mi>p</m:mi> </m:msub></m:math> is equivalent to <m:math><m:mi>f</m:mi></m:math>
+is in a certain Besov class (roughly speaking <m:math><m:mi>f</m:mi></m:math> has <m:math><m:mi>r</m:mi></m:math>
+derivatives and <m:math><m:mrow><m:msup><m:mi>f</m:mi> <m:mrow><m:mo>(</m:mo><m:mi>r</m:mi><m:mo>)</m:mo></m:mrow> </m:msup><m:mo>∈</m:mo><m:msub><m:mi>L</m:mi> <m:mi>τ</m:mi> </m:msub></m:mrow></m:math>). We refer the reader to
+<link target-id="bid0"/> for precise formulations of results of this type.</para>
+</statement>
+</rule>
+
+</section>
+
+
+</content>
+</document>

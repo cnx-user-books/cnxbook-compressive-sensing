@@ -1,0 +1,1511 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Sparse Approximation and ℓp Spaces</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>4c3fe67f-567d-49ab-a70a-5d146dc4e23d</md:uuid>
+</metadata>
+  <content>
+<para id="id10510084">We now look at how well <m:math display="inline"><m:mrow><m:mi>f</m:mi><m:mo>∈</m:mo><m:mi mathvariant="bold">X</m:mi></m:mrow></m:math> can be approximated by
+<m:math display="inline"><m:mi>n</m:mi></m:math> functions in the dictionary <m:math display="inline"><m:mi mathvariant="script">D</m:mi></m:math>.</para><para id="element-478"><rule type="Definition" id="sd12sf"><label>Definition</label>
+<statement id="idm141904"><para id="asdfasd122f">We define the error of    <m:math display="inline"><m:mi>n</m:mi></m:math>-term approximation
+of <m:math display="inline"><m:mi>f</m:mi></m:math> by the elements of the dictionary <m:math display="inline"><m:mi mathvariant="script">D</m:mi></m:math> as 
+<m:math display="block"><m:mtable><m:mtr><m:mtd><m:mtext>(1)</m:mtext></m:mtd><m:mtd><m:mrow><m:mi>σ</m:mi><m:msub><m:mi/><m:mi>n</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo></m:mrow><m:msub><m:mi/><m:mi mathvariant="bold">X</m:mi></m:msub><m:mo>:</m:mo><m:mo>=</m:mo><m:mi>σ</m:mi><m:msub><m:mi/><m:mi>n</m:mi></m:msub><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>,</m:mo><m:mi mathvariant="script">D</m:mi><m:mo>)</m:mo><m:msub><m:mi/><m:mi>X</m:mi></m:msub><m:mo>:</m:mo><m:mo>=</m:mo><m:mtext>inf</m:mtext><m:msub><m:mi/><m:mrow><m:mi>s</m:mi><m:mo>∈</m:mo><m:msub><m:mi mathvariant="normal">Σ</m:mi><m:mi>n</m:mi></m:msub></m:mrow></m:msub><m:mo>∥</m:mo><m:mi>f</m:mi><m:mo>-</m:mo><m:mi>s</m:mi><m:mo>∥</m:mo><m:msub><m:mi/><m:mi mathvariant="bold">X</m:mi></m:msub><m:mo>.</m:mo></m:mrow></m:mtd></m:mtr></m:mtable></m:math>
+</para></statement>      </rule></para><para id="id11185011">We also define the class of <m:math display="inline"><m:mi>r</m:mi></m:math>-smooth signals in <m:math display="inline"><m:mi mathvariant="script">D</m:mi></m:math> as<m:math display="block"><m:mtable><m:mtr><m:mtd><m:mtext>(2)</m:mtext></m:mtd><m:mtd><m:mrow><m:mi mathvariant="script">A</m:mi><m:msup><m:mi/><m:mi>r</m:mi></m:msup><m:mo>:</m:mo><m:mo>=</m:mo><m:mi mathvariant="script">A</m:mi><m:msup><m:mi/><m:mi>r</m:mi></m:msup><m:mo>(</m:mo><m:mi mathvariant="script">D</m:mi><m:mo>)</m:mo><m:mo>:</m:mo><m:mo>=</m:mo><m:mo mathvariant="italic">{</m:mo><m:mi>f</m:mi><m:mo>∈</m:mo><m:mi>X</m:mi><m:mo>,</m:mo><m:mi>σ</m:mi><m:msub><m:mi/><m:mi>n</m:mi></m:msub><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo><m:mo>≤</m:mo><m:mi>M</m:mi><m:mi>n</m:mi><m:msup><m:mi/><m:mrow><m:mo>-</m:mo><m:mi>r</m:mi></m:mrow></m:msup>
+<m:mtext> for some </m:mtext>
+<m:mi>M</m:mi><m:mo/><m:mo mathvariant="italic">}</m:mo></m:mrow></m:mtd></m:mtr></m:mtable></m:math>,</para><para id="id11057777">with the corresponding norm
+<m:math display="inline">
+<m:mrow>
+	<m:msub>
+		<m:mrow>
+			<m:mo>∥</m:mo>
+			<m:mi>f</m:mi>
+			<m:mo>∥</m:mo>
+		</m:mrow>
+		<m:msup>
+			<m:mi mathvariant="script">A</m:mi>
+			<m:mi>r</m:mi>
+		</m:msup>
+	</m:msub>
+	<m:mo>=</m:mo>
+	<m:mrow>
+		<m:msub>
+			<m:mo>sup</m:mo>
+			<m:mrow>
+				<m:mi>n</m:mi>
+				<m:mo>=</m:mo>
+				<m:mrow>
+					<m:mn>1</m:mn>
+					<m:mo>,</m:mo>
+					<m:mn>2</m:mn>
+					<m:mo>,</m:mo>
+					<m:mi mathvariant="normal">…</m:mi>
+				</m:mrow>
+			</m:mrow>
+		</m:msub>
+		<m:mrow>
+			<m:msup>
+				<m:mi mathvariant="script">n</m:mi>
+				<m:mi>r</m:mi>
+			</m:msup>
+			<m:mo>⁢</m:mo>
+			<m:msub>
+				<m:mi>σ</m:mi>
+				<m:mi>n</m:mi>
+			</m:msub>
+			<m:mo>⁢</m:mo>
+			<m:msub>
+				<m:mrow>
+					<m:mo>(</m:mo>
+					<m:mi>f</m:mi>
+					<m:mo>)</m:mo>
+				</m:mrow>
+				<m:mi mathvariant="bold">X</m:mi>
+			</m:msub>
+		</m:mrow>
+	</m:mrow>
+</m:mrow>
+</m:math>.</para>
+<para id="id9070108">In general, the larger <m:math display="inline"><m:mi>r</m:mi></m:math> is, the 'smoother' the function <m:math display="inline"><m:mrow><m:mi>s</m:mi><m:mo>∈</m:mo><m:mrow><m:msup><m:mi mathvariant="script">A</m:mi><m:mi>r</m:mi></m:msup><m:mo>⁢</m:mo><m:msub><m:mrow><m:mo>(</m:mo><m:mi mathvariant="script">D</m:mi><m:mo>)</m:mo></m:mrow><m:mi mathvariant="bold">X</m:mi></m:msub></m:mrow></m:mrow></m:math>. Note also that
+<m:math display="inline"><m:mrow><m:msup><m:mi mathvariant="script">A</m:mi><m:mi>r</m:mi></m:msup><m:mo>⊆</m:mo><m:msup><m:mi mathvariant="script">A</m:mi><m:msup><m:mi>r</m:mi><m:mo>′</m:mo></m:msup></m:msup></m:mrow></m:math> if <m:math display="inline"><m:mrow><m:mi>r</m:mi><m:mo>&gt;</m:mo><m:msup><m:mi>r</m:mi><m:mo>′</m:mo></m:msup></m:mrow></m:math>. Given <m:math display="inline"><m:mi>f</m:mi></m:math>,
+let <m:math display="inline"><m:mrow><m:mrow><m:mi>r</m:mi><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo></m:mrow></m:mrow><m:mo>=</m:mo><m:mrow><m:mtext>sup</m:mtext><m:mo>⁡</m:mo><m:mrow><m:mo>{</m:mo><m:mrow><m:mi>r</m:mi><m:mo>:</m:mo><m:mrow><m:mi>f</m:mi><m:mo>∈</m:mo><m:msup><m:mi mathvariant="script">A</m:mi><m:mi>r</m:mi></m:msup></m:mrow></m:mrow><m:mo>}</m:mo></m:mrow></m:mrow></m:mrow></m:math> be a measure of the
+"smoothness" of <m:math display="inline"><m:mi>f</m:mi></m:math>, i.e. a quantification of compressibility.</para>
+<para id="id10260400">Let <m:math display="inline"><m:mrow><m:mi mathvariant="bold">X</m:mi><m:mo>=</m:mo><m:mi>H</m:mi></m:mrow></m:math>, a Hilbert space<footnote id="idp3980592"> A Hilbert space is a
+complete inner product space with the norm induced by the inner
+product</footnote> such as <m:math display="inline"><m:mrow><m:mi mathvariant="bold">X</m:mi><m:mo>=</m:mo><m:mrow><m:msub><m:mi>L</m:mi><m:mn>2</m:mn></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi mathvariant="double-struck">R</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:mrow></m:math>, and assume
+<m:math display="inline"><m:mrow><m:mi mathvariant="script">D</m:mi><m:mo>=</m:mo><m:mi>B</m:mi></m:mrow></m:math> - an orthonormal basis on <m:math display="inline"><m:mi mathvariant="bold">X</m:mi></m:math>; i.e. if
+<m:math display="inline"><m:mrow><m:mi>B</m:mi><m:mo>=</m:mo><m:msub><m:mrow><m:mo>{</m:mo><m:msub><m:mi>ϕ</m:mi><m:mi>i</m:mi></m:msub><m:mo>}</m:mo></m:mrow><m:mi>i</m:mi></m:msub></m:mrow></m:math>, then <m:math display="inline"><m:mrow><m:mrow><m:mfenced separators="" open="〈" close="〉"><m:mrow><m:msub><m:mi>ϕ</m:mi><m:mi>i</m:mi></m:msub><m:mo>,</m:mo><m:msub><m:mi>ϕ</m:mi><m:mi>j</m:mi></m:msub></m:mrow></m:mfenced></m:mrow><m:mo>=</m:mo><m:msub><m:mi>δ</m:mi><m:mrow><m:mi>i</m:mi><m:mo>,</m:mo><m:mi>j</m:mi></m:mrow></m:msub></m:mrow></m:math>, where <m:math display="inline"><m:msub><m:mi>δ</m:mi><m:mrow><m:mi>i</m:mi><m:mo>,</m:mo><m:mi>j</m:mi></m:mrow></m:msub></m:math> is the Kronecker delta. This
+also means that each <m:math display="inline"><m:mrow><m:mi>f</m:mi><m:mo>∈</m:mo><m:mi mathvariant="bold">X</m:mi></m:mrow></m:math> has an expansion <m:math display="inline"><m:mrow><m:mi>f</m:mi><m:mo>=</m:mo><m:mrow><m:msub><m:mo>∑</m:mo><m:mi>j</m:mi></m:msub><m:msub><m:mi>c</m:mi><m:mi>j</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo></m:mrow><m:mo>⁢</m:mo><m:msub><m:mi>ϕ</m:mi><m:mi>j</m:mi></m:msub></m:mrow></m:mrow></m:math>, where <m:math display="inline"><m:mrow><m:mrow><m:msub><m:mi>c</m:mi><m:mi>j</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo></m:mrow></m:mrow><m:mo>=</m:mo><m:mrow><m:mfenced separators="" open="〈" close="〉"><m:mrow><m:mi>f</m:mi><m:mo>,</m:mo><m:msub><m:mi>ϕ</m:mi><m:mi>j</m:mi></m:msub></m:mrow></m:mfenced></m:mrow></m:mrow></m:math>. We
+also have <m:math display="inline"><m:mrow><m:msubsup><m:mrow><m:mo>∥</m:mo><m:mi>f</m:mi><m:mo>∥</m:mo></m:mrow><m:mi mathvariant="bold">X</m:mi><m:mn>2</m:mn></m:msubsup><m:mo>=</m:mo><m:mrow><m:msubsup><m:mo>∑</m:mo><m:mrow><m:mi>j</m:mi><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow><m:mi mathvariant="normal">∞</m:mi></m:msubsup><m:msup><m:mrow><m:mo>|</m:mo><m:mrow><m:msub><m:mi>c</m:mi><m:mi>j</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo></m:mrow></m:mrow><m:mo>|</m:mo></m:mrow><m:mn>2</m:mn></m:msup></m:mrow></m:mrow></m:math>.</para>
+<para id="id10281046">Recall the definition of <m:math display="inline"><m:msub><m:mi mathvariant="normal">ℓ</m:mi><m:mi>p</m:mi></m:msub></m:math> spaces: let <m:math display="inline"><m:mrow><m:mrow><m:mo>(</m:mo><m:msub><m:mi>a</m:mi><m:mi>j</m:mi></m:msub><m:mo>)</m:mo></m:mrow><m:mo>∈</m:mo><m:mi mathvariant="double-struck">R</m:mi></m:mrow></m:math>; then <m:math display="inline"><m:mrow><m:mrow><m:mo>(</m:mo><m:msub><m:mi>a</m:mi><m:mi>j</m:mi></m:msub><m:mo>)</m:mo></m:mrow><m:mo>∈</m:mo><m:msub><m:mi mathvariant="normal">ℓ</m:mi><m:mi>p</m:mi></m:msub></m:mrow></m:math> if
+<m:math display="inline">
+   <m:mrow>
+      <m:msub>
+        <m:mrow>
+           <m:mo>∥</m:mo>
+           <m:mrow>
+              <m:mo>(</m:mo>
+              <m:msub>
+                 <m:mi>a</m:mi>
+                 <m:mi>j</m:mi>
+              </m:msub>
+              <m:mo>)</m:mo>
+           </m:mrow>
+           <m:mo>∥</m:mo>
+        </m:mrow>
+        <m:mrow>
+           <m:msub>
+              <m:mi mathvariant="normal">ℓ</m:mi>
+              <m:mi>p</m:mi>
+           </m:msub>
+        </m:mrow>
+      </m:msub>
+      <m:mo>&lt;</m:mo>
+      <m:mi>∞</m:mi>
+   </m:mrow>
+</m:math>
+ with
+<m:math display="inline">
+   <m:mrow>
+      <m:msub>
+        <m:mrow>
+           <m:mo>∥</m:mo>
+           <m:mrow>
+              <m:mo>(</m:mo>
+              <m:msub>
+                 <m:mi>a</m:mi>
+                 <m:mi>j</m:mi>
+              </m:msub>
+              <m:mo>)</m:mo>
+           </m:mrow>
+           <m:mo>∥</m:mo>
+        </m:mrow>
+        <m:mrow>
+           <m:msub>
+              <m:mi mathvariant="normal">ℓ</m:mi>
+              <m:mi>p</m:mi>
+           </m:msub>
+        </m:mrow>
+      </m:msub>
+      <m:mo>=</m:mo>
+      <m:msup>
+        <m:mrow>
+           <m:mo>(</m:mo>
+           <m:mrow>
+              <m:msub>
+                 <m:mo>∑</m:mo>
+                 <m:mi>j</m:mi>
+              </m:msub>
+              <m:msup>
+                <m:mrow>
+                   <m:mo>|</m:mo>
+                   <m:msub>
+                      <m:mi>a</m:mi>
+                      <m:mi>j</m:mi>
+                   </m:msub>
+                   <m:mo>|</m:mo>
+                </m:mrow>
+                <m:mi>p</m:mi>
+              </m:msup>
+           </m:mrow>
+           <m:mo>)</m:mo>
+        </m:mrow>
+        <m:mrow>
+           <m:mn>1</m:mn>
+           <m:mo>/</m:mo>
+           <m:mi>p</m:mi>
+        </m:mrow>
+      </m:msup>
+   </m:mrow>
+</m:math>
+ for <m:math display="inline"><m:mrow><m:mi>p</m:mi><m:mo>&lt;</m:mo><m:mi mathvariant="normal">∞</m:mi></m:mrow></m:math> and
+<m:math display="inline">
+   <m:mrow>
+      <m:msub>
+        <m:mrow>
+           <m:mrow>
+              <m:mo>∥</m:mo>
+              <m:mrow>
+                 <m:mo>(</m:mo>
+                 <m:msub>
+                    <m:mi>a</m:mi>
+                    <m:mi>j</m:mi>
+                 </m:msub>
+                 <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>∥</m:mo>
+           </m:mrow>
+        </m:mrow>
+        <m:mrow>
+           <m:msub>
+              <m:mi mathvariant="normal">ℓ</m:mi>
+              <m:mi>p</m:mi>
+           </m:msub>
+        </m:mrow>
+      </m:msub>
+      <m:mo>=</m:mo>
+      <m:mrow>
+         <m:msub>
+            <m:mo>sup</m:mo>
+            <m:mi>j</m:mi>
+         </m:msub>
+         <m:mo>⁡</m:mo>
+         <m:mrow>
+            <m:mo>|</m:mo>
+            <m:msub>
+               <m:mi>a</m:mi>
+               <m:mi>j</m:mi>
+            </m:msub>
+            <m:mo>|</m:mo>
+         </m:mrow>
+      </m:mrow>
+   </m:mrow>
+</m:math>
+ for <m:math display="inline"><m:mrow><m:mi>p</m:mi><m:mo>=</m:mo><m:mi mathvariant="normal">∞</m:mi></m:mrow></m:math>. We also recall
+that for <m:math display="inline"><m:msub><m:mi>L</m:mi><m:mi>p</m:mi></m:msub></m:math> spaces on compact sets, <m:math display="inline"><m:mrow><m:msub><m:mi>L</m:mi><m:mi>p</m:mi></m:msub><m:mo>⊂</m:mo><m:msub><m:mi>L</m:mi><m:msup><m:mi>p</m:mi><m:mo>′</m:mo></m:msup></m:msub></m:mrow></m:math> if
+<m:math display="inline"><m:mrow><m:mi>p</m:mi><m:mo>&gt;</m:mo><m:msup><m:mi>p</m:mi><m:mo>′</m:mo></m:msup></m:mrow></m:math>.  The opposite  is true for <m:math display="inline"><m:msub><m:mi mathvariant="normal">ℓ</m:mi><m:mi>p</m:mi></m:msub></m:math> spaces: <m:math display="inline"><m:mrow><m:msub><m:mi mathvariant="normal">ℓ</m:mi><m:mi>p</m:mi></m:msub><m:mo>⊂</m:mo><m:msub><m:mi mathvariant="normal">ℓ</m:mi><m:msup><m:mi>p</m:mi><m:mo>′</m:mo></m:msup></m:msub></m:mrow></m:math> if <m:math display="inline"><m:mrow><m:mi>p</m:mi><m:mo>&lt;</m:mo><m:msup><m:mi>p</m:mi><m:mo>′</m:mo></m:msup></m:mrow></m:math>.   Hence,  the smaller  the value of
+<m:math display="inline"><m:mi>p</m:mi></m:math> is, the “smaller” <m:math display="inline"><m:msub><m:mi mathvariant="normal">ℓ</m:mi><m:mi>p</m:mi></m:msub></m:math> is.</para>
+
+       
+      <example id="element-31"><para id="element-140">Does there exist a sequence <m:math display="inline"><m:mrow><m:mo>(</m:mo><m:msub><m:mi>a</m:mi><m:mi>j</m:mi></m:msub><m:mo>)</m:mo></m:mrow></m:math> with
+<m:math display="inline">
+	<m:mrow>
+		<m:msub>
+			<m:mrow>
+				<m:mo>∥</m:mo>
+				<m:mo>(</m:mo>
+				<m:msub>
+					<m:mi>a</m:mi>
+					<m:mn>j</m:mn>
+				</m:msub>
+				<m:mo>)</m:mo>
+				<m:mo>∥</m:mo>
+			</m:mrow>
+			<m:mrow>
+				<m:msub>
+					<m:mi mathvariant="normal">ℓ</m:mi>
+					<m:mi>1</m:mi>
+				</m:msub>
+			</m:mrow>
+		</m:msub>
+		<m:mo>=</m:mo><m:mrow><m:msub><m:mo>∑</m:mo><m:mi>j</m:mi></m:msub><m:mo>|</m:mo><m:msub><m:mi>a</m:mi><m:mi>j</m:mi></m:msub><m:mo>|</m:mo></m:mrow><m:mo>&lt;</m:mo><m:mi mathvariant="normal">∞</m:mi></m:mrow></m:math>
+ but with
+<m:math display="inline">
+	<m:mrow>
+		<m:msub>
+			<m:mrow>
+				<m:mo>∥</m:mo>
+				<m:mo>(</m:mo>
+				<m:msub>
+					<m:mi>a</m:mi>
+					<m:mn>j</m:mn>
+				</m:msub>
+				<m:mo>)</m:mo>
+				<m:mo>∥</m:mo>
+			</m:mrow>
+			<m:mrow>
+				<m:msub>
+					<m:mi mathvariant="normal">ℓ</m:mi>
+					<m:mi>p</m:mi>
+				</m:msub>
+			</m:mrow>
+		</m:msub>
+
+		<m:mo>=</m:mo><m:msup><m:mrow><m:mo>(</m:mo><m:mrow><m:msub><m:mo>∑</m:mo><m:mi>j</m:mi></m:msub><m:msup><m:mrow><m:mo>|</m:mo><m:msub><m:mi>a</m:mi><m:mi>j</m:mi></m:msub><m:mo>|</m:mo></m:mrow><m:mi>p</m:mi></m:msup></m:mrow><m:mo>)</m:mo></m:mrow><m:mfrac><m:mn>1</m:mn><m:mi>p</m:mi></m:mfrac></m:msup><m:mo>=</m:mo><m:mi mathvariant="normal">∞</m:mi></m:mrow></m:math> for all <m:math display="inline"><m:mrow><m:mn>0</m:mn><m:mo>&lt;</m:mo><m:mi>p</m:mi><m:mo>&lt;</m:mo><m:mn>1</m:mn></m:mrow></m:math>? Consider the sequence <m:math display="inline"><m:mrow><m:msub><m:mi>a</m:mi><m:mi>n</m:mi></m:msub><m:mo>=</m:mo><m:mfrac><m:mn>1</m:mn><m:mrow><m:mi>n</m:mi><m:mo>⁢</m:mo><m:msup><m:mrow><m:mo>(</m:mo><m:mrow><m:mi>log</m:mi><m:mo>⁡</m:mo><m:mi>n</m:mi></m:mrow><m:mo>)</m:mo></m:mrow><m:mrow><m:mn>1</m:mn><m:mo>+</m:mo><m:mi>δ</m:mi></m:mrow></m:msup></m:mrow></m:mfrac></m:mrow></m:math>. We see that <m:math display="inline"><m:mrow><m:mrow><m:mo>(</m:mo><m:msub><m:mi>a</m:mi><m:mi>n</m:mi></m:msub><m:mo>)</m:mo></m:mrow><m:mo>∈</m:mo><m:msub><m:mi mathvariant="normal">ℓ</m:mi><m:mn>1</m:mn></m:msub></m:mrow></m:math>
+but <m:math display="inline"><m:mrow>
+		<m:msub>
+			<m:mrow>
+				<m:mo>∥</m:mo>
+				<m:mo>(</m:mo>
+				<m:msub>
+					<m:mi>a</m:mi>
+					<m:mn>n</m:mn>
+				</m:msub>
+				<m:mo>)</m:mo>
+				<m:mo>∥</m:mo>
+			</m:mrow>
+			<m:mrow>
+				<m:msub>
+					<m:mi mathvariant="normal">ℓ</m:mi>
+					<m:mi>p</m:mi>
+				</m:msub>
+			</m:mrow>
+		</m:msub>
+<m:mo>=</m:mo><m:mi mathvariant="normal">∞</m:mi></m:mrow></m:math> for all <m:math display="inline"><m:mrow><m:mn>0</m:mn><m:mo>&lt;</m:mo><m:mi>p</m:mi><m:mo>&lt;</m:mo><m:mn>1</m:mn></m:mrow></m:math>.
+	</para>
+</example><para id="id11028281"><rule type="lemma" id="sdf">
+<statement id="idp551792"><para id="asdfasdf">
+        A sequence <m:math display="inline"><m:mrow><m:mo>(</m:mo><m:msub><m:mi>a</m:mi><m:mi>n</m:mi></m:msub><m:mo>)</m:mo></m:mrow></m:math> is in <m:math display="inline"><m:msub><m:mi mathvariant="normal">ℓ</m:mi><m:mi>p</m:mi></m:msub></m:math> if the sorted magnitudes of the
+<m:math display="inline"><m:msub><m:mi>a</m:mi><m:mi>n</m:mi></m:msub></m:math> decay faster than <m:math display="inline"><m:msup><m:mi>n</m:mi><m:mrow><m:mo mathvariant="normal">-</m:mo><m:mfrac><m:mn>1</m:mn><m:mi>p</m:mi></m:mfrac></m:mrow></m:msup></m:math>.
+</para></statement>      </rule></para>
+<para id="id11198050">Define <m:math display="inline"><m:msubsup><m:mi>a</m:mi><m:mi>n</m:mi><m:mo>*</m:mo></m:msubsup></m:math> as the element of the sequence <m:math display="inline"><m:mrow><m:mo>(</m:mo><m:msub><m:mi>a</m:mi><m:mi>n</m:mi></m:msub><m:mo>)</m:mo></m:mrow></m:math> with the
+<m:math display="inline"><m:msup><m:mi>n</m:mi><m:mtext>th</m:mtext></m:msup></m:math> largest magnitude, and denote <m:math display="inline"><m:mrow><m:mo>(</m:mo><m:msubsup><m:mi>a</m:mi><m:mi>n</m:mi><m:mo>*</m:mo></m:msubsup><m:mo>)</m:mo></m:mrow></m:math> as the
+decreasing rearrangement of <m:math display="inline"><m:mrow><m:mo>(</m:mo><m:msub><m:mi>a</m:mi><m:mi>n</m:mi></m:msub><m:mo>)</m:mo></m:mrow></m:math>. It is easy to show that
+
+<m:math display="inline">
+	<m:mrow>
+		<m:mrow>
+			<m:mi>k</m:mi>
+			<m:mo>⁢</m:mo>
+			<m:msup>
+				<m:mrow>
+					<m:mo>(</m:mo>
+					<m:msubsup>
+						<m:mi>a</m:mi>
+						<m:mi>k</m:mi>
+						<m:mo>*</m:mo>
+					</m:msubsup>
+					<m:mo>)</m:mo>
+				</m:mrow>
+				<m:mi>p</m:mi>
+			</m:msup>
+		</m:mrow>
+		<m:mo>≤</m:mo>
+		<m:mrow>
+			<m:msub>
+				<m:mo>∑</m:mo>
+				<m:mi>n</m:mi>
+			</m:msub>
+			<m:msup>
+				<m:mrow>
+					<m:mo>(</m:mo>
+					<m:msub>
+						<m:mi>a</m:mi>
+						<m:mi>n</m:mi>
+					</m:msub>
+					<m:mo>)</m:mo>
+				</m:mrow>
+				<m:mi>p</m:mi>
+			</m:msup>
+		</m:mrow>
+	</m:mrow>
+</m:math> 
+for all <m:math display="inline"><m:mi>k</m:mi></m:math>; also, if <m:math display="inline"><m:mrow><m:mrow><m:mo>(</m:mo><m:msub><m:mi>a</m:mi><m:mi>n</m:mi></m:msub><m:mo>)</m:mo></m:mrow><m:mo>∈</m:mo><m:msub><m:mi mathvariant="normal">ℓ</m:mi><m:mi>p</m:mi></m:msub></m:mrow></m:math>, then 
+<m:math display="inline">
+	<m:mrow>
+		<m:msubsup>
+			<m:mi>a</m:mi>
+			<m:mi>k</m:mi>
+			<m:mo>*</m:mo>
+		</m:msubsup>
+		<m:mo>≤</m:mo>
+		<m:mrow>
+			<m:msub>
+				<m:mrow>
+					<m:mo>∥</m:mo>
+					<m:mo>(</m:mo>
+					<m:msub>
+						<m:mi>a</m:mi>
+						<m:mi>n</m:mi>
+					</m:msub>
+					<m:mo>)</m:mo>
+					<m:mo>∥</m:mo>
+				</m:mrow>
+				<m:msub>
+					<m:mi mathvariant="normal">ℓ</m:mi>
+					<m:mi>p</m:mi>
+				</m:msub>
+			</m:msub>
+			<m:msup>
+				<m:mi>k</m:mi>
+				<m:mrow>
+					<m:mo>-</m:mo>
+					<m:mfrac>
+						<m:mn>1</m:mn>
+						<m:mi>p</m:mi>
+					</m:mfrac>
+				</m:mrow>
+			</m:msup>
+		</m:mrow>
+	</m:mrow>
+</m:math>.</para>
+<para id="element-746"><rule type="Definition" id="sds5234f"><label>Definition</label>
+<statement id="idm1246752"><para id="asdfasd23452f">A sequence <m:math display="inline"><m:mrow><m:mo>(</m:mo><m:msub><m:mi>a</m:mi><m:mi>n</m:mi></m:msub><m:mo>)</m:mo></m:mrow></m:math> is in weak <m:math display="inline"><m:msub><m:mi mathvariant="normal">ℓ</m:mi><m:mi>p</m:mi></m:msub></m:math>, denoted
+<m:math display="inline"><m:mrow><m:mrow><m:mo>(</m:mo><m:msub><m:mi>a</m:mi><m:mi>n</m:mi></m:msub><m:mo>)</m:mo></m:mrow><m:mo>∈</m:mo><m:mrow><m:mi>w</m:mi><m:mo>⁢</m:mo><m:msub><m:mi mathvariant="normal">ℓ</m:mi><m:mi>p</m:mi></m:msub></m:mrow></m:mrow></m:math>, if <m:math display="inline"><m:mrow><m:msubsup><m:mi>a</m:mi><m:mi>k</m:mi><m:mo>*</m:mo></m:msubsup><m:mo>≤</m:mo><m:mrow><m:mi>M</m:mi><m:mo>⁢</m:mo><m:msup><m:mi>k</m:mi><m:mrow><m:mo>-</m:mo><m:mfrac><m:mn>1</m:mn><m:mi>p</m:mi></m:mfrac></m:mrow></m:msup></m:mrow></m:mrow></m:math>. We also
+define the quasinorm <footnote id="idm1362080"> A quasinorm is has the properties of
+a norm except that
+the triangle inequality is replaced by the condition 
+<m:math display="inline">
+	<m:mrow>
+		<m:mrow>
+			<m:mo>∥</m:mo>
+			<m:mrow>
+				<m:mi>x</m:mi>
+				<m:mo>+</m:mo>
+				<m:mi>y</m:mi>
+			</m:mrow>
+			<m:mo>∥</m:mo>
+		</m:mrow>
+		<m:mo>≤</m:mo>
+		<m:mrow>
+			<m:msub>
+				<m:mi>C</m:mi>
+				<m:mn>0</m:mn>
+			</m:msub>
+			<m:mo>⁢</m:mo>
+			<m:mrow>
+				<m:mo>[</m:mo>
+				<m:mrow>
+					<m:mrow>
+						<m:mo>∥</m:mo>
+						<m:mi>x</m:mi>
+						<m:mo>∥</m:mo>
+					</m:mrow>
+					<m:mo>+</m:mo>
+					<m:mrow>
+						<m:mo>∥</m:mo>
+						<m:mi>y</m:mi>
+						<m:mo>∥</m:mo>
+					</m:mrow>
+				</m:mrow>
+				<m:mo>]</m:mo>
+				</m:mrow>
+			</m:mrow>
+		</m:mrow>
+	</m:math> 
+	for some absolute constant <m:math display="inline"><m:msub><m:mi>C</m:mi><m:mn>0</m:mn></m:msub></m:math>.</footnote> 
+<m:math display="inline">
+	<m:msub>
+		<m:mrow>
+			<m:mo>∥</m:mo>
+			<m:mo>(</m:mo>
+			<m:msub>
+				<m:mi>a</m:mi>
+				<m:mn>n</m:mn>
+			</m:msub>
+			<m:mo>)</m:mo>
+			<m:mo>∥</m:mo>
+		</m:mrow>
+		<m:mrow>
+			<m:mi>w</m:mi>
+			<m:mo>⁢</m:mo>
+			<m:msub>
+				<m:mi mathvariant="normal">ℓ</m:mi>
+				<m:mi>p</m:mi>
+			</m:msub>
+		</m:mrow>
+	</m:msub>
+</m:math>
+ as the
+smallest <m:math display="inline"><m:mrow><m:mi>M</m:mi><m:mo>&gt;</m:mo><m:mn>0</m:mn></m:mrow></m:math> such that <m:math display="inline"><m:mrow><m:msubsup><m:mi>a</m:mi><m:mi>k</m:mi><m:mo>*</m:mo></m:msubsup><m:mo>≤</m:mo><m:mrow><m:mi>M</m:mi><m:mo>⁢</m:mo><m:msup><m:mi>k</m:mi><m:mrow><m:mo>-</m:mo><m:mfrac><m:mn>1</m:mn><m:mi>p</m:mi></m:mfrac></m:mrow></m:msup></m:mrow></m:mrow></m:math> for each
+<m:math display="inline"><m:mi>k</m:mi></m:math>.
+</para></statement>      </rule></para>
+
+        
+      <example id="element-430"><para id="element-6">
+		The sequence <m:math display="inline"><m:mrow><m:msub><m:mi>a</m:mi><m:mi>n</m:mi></m:msub><m:mo>=</m:mo><m:mfrac><m:mn>1</m:mn><m:mi>n</m:mi></m:mfrac></m:mrow></m:math> is in weak
+<m:math display="inline"><m:msub><m:mi mathvariant="normal">ℓ</m:mi><m:mn>1</m:mn></m:msub></m:math> but not in <m:math display="inline"><m:msub><m:mi mathvariant="normal">ℓ</m:mi><m:mn>1</m:mn></m:msub></m:math>.
+	</para>
+</example><para id="id10320527"><rule type="lemma" id="sdf2">
+<statement id="idm1007712">
+<para id="ddd">
+        For <m:math display="inline"><m:mi>p</m:mi></m:math>,<m:math display="inline"><m:msup><m:mi>p</m:mi><m:mo mathvariant="normal">′</m:mo></m:msup></m:math> such that <m:math display="inline"><m:mrow><m:msup><m:mi>p</m:mi><m:mo mathvariant="normal">′</m:mo></m:msup><m:mo mathvariant="normal">&gt;</m:mo><m:mi>p</m:mi></m:mrow></m:math>, we have <m:math display="inline"><m:mrow><m:msub><m:mi mathvariant="normal">ℓ</m:mi><m:mi>p</m:mi></m:msub><m:mo mathvariant="normal">⊂</m:mo><m:mrow><m:mi>w</m:mi><m:mo>⁢</m:mo><m:msub><m:mi mathvariant="normal">ℓ</m:mi><m:mi>p</m:mi></m:msub></m:mrow><m:mo mathvariant="normal">⊂</m:mo><m:msub><m:mi mathvariant="normal">ℓ</m:mi><m:msup><m:mi>p</m:mi><m:mo mathvariant="normal">′</m:mo></m:msup></m:msub></m:mrow></m:math>.
+</para></statement></rule>
+      </para>
+        
+<rule type="theorem" id="rl1">
+<statement id="idp712640">
+      <para id="id6251931">Let <m:math display="inline"><m:mrow><m:mi mathvariant="script">D</m:mi><m:mo mathvariant="normal">=</m:mo><m:mi>B</m:mi></m:mrow></m:math> be an orthonormal basis for the Hilbert space
+<m:math display="inline"><m:mrow><m:mi mathvariant="bold">X</m:mi><m:mo mathvariant="normal">=</m:mo><m:mi>H</m:mi></m:mrow></m:math>. For <m:math display="inline"><m:mrow><m:mi>f</m:mi><m:mo mathvariant="normal">∈</m:mo><m:mi mathvariant="bold">X</m:mi></m:mrow></m:math> with representation in <m:math display="inline"><m:mrow><m:mi>B</m:mi><m:mo mathvariant="normal">=</m:mo><m:mrow><m:mo>[</m:mo><m:mrow><m:msub><m:mi>ϕ</m:mi><m:mn>1</m:mn></m:msub><m:mo>,</m:mo><m:msub><m:mi>ϕ</m:mi><m:mn>2</m:mn></m:msub><m:mo>,</m:mo><m:mi mathvariant="normal">…</m:mi></m:mrow><m:mo>]</m:mo></m:mrow></m:mrow></m:math> as <m:math display="inline"><m:mrow><m:mi>f</m:mi><m:mo mathvariant="normal">=</m:mo><m:mrow><m:msub><m:mo mathvariant="normal">∑</m:mo><m:mi>n</m:mi></m:msub><m:msub><m:mi>c</m:mi><m:mi>n</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo></m:mrow><m:mo>⁢</m:mo><m:msub><m:mi>ϕ</m:mi><m:mi>n</m:mi></m:msub></m:mrow></m:mrow></m:math>, we have <m:math display="inline"><m:mrow><m:mi>f</m:mi><m:mo mathvariant="normal">∈</m:mo><m:mrow><m:msup><m:mi mathvariant="normal">A</m:mi><m:mi>r</m:mi></m:msup><m:mo>⁢</m:mo><m:msub><m:mrow><m:mo>(</m:mo><m:mi>B</m:mi><m:mo>)</m:mo></m:mrow><m:mi mathvariant="bold">X</m:mi></m:msub></m:mrow></m:mrow></m:math> if and only if the sequence
+<m:math display="inline"><m:mrow><m:mrow><m:mo>(</m:mo><m:mrow><m:msub><m:mi>c</m:mi><m:mi>n</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo></m:mrow></m:mrow><m:mo>)</m:mo></m:mrow><m:mo mathvariant="normal">∈</m:mo><m:mrow><m:mi>w</m:mi><m:mo>⁢</m:mo><m:msub><m:mi mathvariant="normal">ℓ</m:mi><m:mi>τ</m:mi></m:msub></m:mrow></m:mrow></m:math>, with <m:math display="inline"><m:mrow><m:mfrac><m:mn>1</m:mn><m:mi>τ</m:mi></m:mfrac><m:mo mathvariant="normal">=</m:mo><m:mrow><m:mi>r</m:mi><m:mo mathvariant="normal">+</m:mo><m:mfrac><m:mn>1</m:mn><m:mn>2</m:mn></m:mfrac></m:mrow></m:mrow></m:math>.
+Moreover,  there exist <m:math display="inline"><m:mrow><m:mrow><m:msub><m:mi>C</m:mi><m:mn>0</m:mn></m:msub><m:mo>,</m:mo><m:msubsup><m:mi>C</m:mi><m:mn>0</m:mn><m:mo mathvariant="normal">′</m:mo></m:msubsup></m:mrow><m:mo mathvariant="normal">∈</m:mo><m:mi mathvariant="double-struck">R</m:mi></m:mrow></m:math> such that
+<m:math display="inline"><m:mrow><m:mrow><m:msubsup><m:mi>C</m:mi><m:mn>0</m:mn><m:mo mathvariant="normal">′</m:mo></m:msubsup><m:mo>⁢</m:mo><m:msub><m:mrow><m:mo>∥</m:mo><m:mo>(</m:mo><m:mrow><m:msub><m:mi>c</m:mi><m:mi>n</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo></m:mrow></m:mrow><m:mo>)</m:mo><m:mo>∥</m:mo></m:mrow><m:mrow><m:mi>w</m:mi><m:mo>⁢</m:mo><m:msub><m:mi mathvariant="normal">ℓ</m:mi><m:mi>τ</m:mi></m:msub></m:mrow></m:msub></m:mrow><m:mo mathvariant="normal">≤</m:mo><m:msub><m:mrow><m:mo>∥</m:mo><m:mi>f</m:mi><m:mo>∥</m:mo></m:mrow><m:msup><m:mi mathvariant="normal">A</m:mi><m:mi>r</m:mi></m:msup></m:msub><m:mo mathvariant="normal">≤</m:mo><m:mrow><m:msub><m:mi>C</m:mi><m:mn>0</m:mn></m:msub><m:mo>⁢</m:mo><m:msub><m:mrow><m:mo>∥</m:mo><m:mo>(</m:mo><m:mrow><m:msub><m:mi>c</m:mi><m:mi>n</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo></m:mrow></m:mrow><m:mo>)</m:mo><m:mo>∥</m:mo></m:mrow><m:mrow><m:mi>w</m:mi><m:mo>⁢</m:mo><m:msub><m:mi mathvariant="normal">ℓ</m:mi><m:mi>τ</m:mi></m:msub></m:mrow></m:msub></m:mrow></m:mrow></m:math>.
+      </para>
+<example id="element-538"><para id="element-351">Let <m:math display="inline"><m:mrow><m:mi>r</m:mi><m:mo>=</m:mo><m:mfrac><m:mn>1</m:mn><m:mn>2</m:mn></m:mfrac></m:mrow></m:math>. <m:math display="inline"><m:mrow><m:mi>f</m:mi><m:mo>∈</m:mo><m:msup><m:mi mathvariant="script">A</m:mi><m:mfrac><m:mn>1</m:mn><m:mn>2</m:mn></m:mfrac></m:msup></m:mrow></m:math> if and only if <m:math display="inline"><m:mrow><m:mrow><m:mo>(</m:mo><m:mrow><m:msub><m:mi>c</m:mi><m:mi>n</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo></m:mrow></m:mrow><m:mo>)</m:mo></m:mrow><m:mo>∈</m:mo><m:mrow><m:mi>w</m:mi><m:mo>⁢</m:mo><m:msub><m:mi mathvariant="normal">ℓ</m:mi><m:mi>τ</m:mi>
+</m:msub></m:mrow></m:mrow></m:math>,
+i.e. if <m:math display="inline"><m:mrow><m:mrow><m:msubsup><m:mi>c</m:mi><m:mi>n</m:mi><m:mo>*</m:mo></m:msubsup><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo></m:mrow></m:mrow><m:mo>≤</m:mo><m:mrow><m:mi>M</m:mi><m:mo>⁢</m:mo><m:msup><m:mi>n</m:mi><m:mrow><m:mo>-</m:mo><m:mn>1</m:mn></m:mrow></m:msup></m:mrow><m:mo>=</m:mo><m:mfrac><m:mi>M</m:mi><m:mi>n</m:mi></m:mfrac></m:mrow></m:math>.
+	</para>
+</example>
+</statement>
+<proof id="idp1309344">
+<para id="id10224249">We prove the converse statement; the forward
+statement proof is left to the reader. We would like to show that
+if <m:math display="inline"><m:mrow><m:mrow><m:mo>(</m:mo><m:mrow><m:msub><m:mi>c</m:mi><m:mi>n</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo></m:mrow></m:mrow><m:mo>)</m:mo></m:mrow><m:mo>∈</m:mo><m:mrow><m:mi>w</m:mi><m:mo>⁢</m:mo><m:msub><m:mi mathvariant="normal">ℓ</m:mi><m:mi>τ</m:mi></m:msub></m:mrow></m:mrow></m:math>, then <m:math display="inline"><m:mrow><m:mi>f</m:mi><m:mo>∈</m:mo><m:msup><m:mi mathvariant="script">A</m:mi><m:mi>r</m:mi></m:msup></m:mrow></m:math>, with <m:math display="inline"><m:mrow><m:mi>r</m:mi><m:mo>=</m:mo><m:mrow><m:mfrac><m:mn>1</m:mn><m:mi>τ</m:mi></m:mfrac><m:mo>-</m:mo><m:mfrac><m:mn>1</m:mn><m:mn>2</m:mn></m:mfrac></m:mrow></m:mrow></m:math>. The best <m:math display="inline"><m:mi>n</m:mi></m:math>-term approximation of
+<m:math display="inline"><m:mi>f</m:mi></m:math> in <m:math display="inline"><m:mi>B</m:mi></m:math> is of the form <m:math display="inline"><m:mrow><m:mrow><m:mi>s</m:mi><m:mo>=</m:mo><m:mrow><m:msub><m:mo>∑</m:mo><m:mrow><m:mi>k</m:mi><m:mo>∈</m:mo><m:mi mathvariant="normal">Λ</m:mi></m:mrow></m:msub><m:msub><m:mi>a</m:mi><m:mi>k</m:mi></m:msub><m:mo>⁢</m:mo><m:msub><m:mi>ϕ</m:mi><m:mi>k</m:mi></m:msub></m:mrow></m:mrow><m:mo>,</m:mo><m:mrow><m:mrow><m:mi mathvariant="normal">♯</m:mi><m:mo>⁢</m:mo><m:mi mathvariant="normal">Λ</m:mi></m:mrow><m:mo>≤</m:mo><m:mi>n</m:mi></m:mrow></m:mrow></m:math>. Therefore, we have: <m:math display="block">
+   <m:mrow>
+      <m:mtable>
+         <m:mtr>
+            <m:mtd>
+               <m:mtext>(3)</m:mtext>
+            </m:mtd>
+            <m:mtd>
+               <m:mtable rowspacing="0.2ex" columnspacing="0.4em">
+                  <m:mtr>
+                     <m:mtd columnalign="right">
+                        <m:mrow>
+                           <m:msub>
+                             <m:mrow>
+                                <m:mi>σ</m:mi>
+                             </m:mrow>
+                             <m:mrow>
+                                <m:mi>n</m:mi>
+                             </m:mrow>
+                           </m:msub>
+                           <m:mo>⁢</m:mo>
+                           <m:msub>
+                             <m:mrow>
+                                <m:mo>(</m:mo>
+                                <m:mi>f</m:mi>
+                                <m:mo>)</m:mo>
+                             </m:mrow>
+                             <m:mrow>
+                                <m:mi mathvariant="bold">X</m:mi>
+                             </m:mrow>
+                           </m:msub>
+                        </m:mrow>
+                     </m:mtd>
+                     <m:mtd columnalign="center">
+                        <m:mo>=</m:mo>
+                     </m:mtd>
+                     <m:mtd columnalign="left">
+                        <m:mrow>
+                           <m:mrow>
+                              <m:munder>
+                                <m:mrow>
+                                   <m:mtext>inf</m:mtext>
+                                </m:mrow>
+                                <m:mrow>
+                                   <m:mi>s</m:mi>
+                                   <m:mo>∈</m:mo>
+                                   <m:msub>
+                                     <m:mrow>
+                                        <m:mi mathvariant="normal">Σ</m:mi>
+                                     </m:mrow>
+                                     <m:mrow>
+                                        <m:mi>n</m:mi>
+                                     </m:mrow>
+                                   </m:msub>
+                                </m:mrow>
+                              </m:munder>
+                              <m:mo>⁡</m:mo>
+                              <m:msub>
+                                <m:mrow>
+                                   <m:mo>∥</m:mo>
+                                   <m:mrow>
+                                      <m:mi>f</m:mi>
+                                      <m:mo>-</m:mo>
+                                      <m:mi>s</m:mi>
+                                   </m:mrow>
+                                   <m:mo>∥</m:mo>
+                                </m:mrow>
+                                <m:mrow>
+                                   <m:mi mathvariant="bold">X</m:mi>
+                                </m:mrow>
+                              </m:msub>
+                           </m:mrow>
+                           <m:mo>=</m:mo>
+                           <m:munder>
+                             <m:mrow>
+                                <m:mtext>inf</m:mtext>
+                             </m:mrow>
+                             <m:mrow>
+                                <m:mi>s</m:mi>
+                                <m:mo>∈</m:mo>
+                                <m:msub>
+                                  <m:mrow>
+                                     <m:mi mathvariant="normal">Σ</m:mi>
+                                  </m:mrow>
+                                  <m:mrow>
+                                     <m:mi>n</m:mi>
+                                  </m:mrow>
+                                </m:msub>
+                             </m:mrow>
+                           </m:munder>
+                           <m:msub>
+                             <m:mrow>
+                                <m:mo>∥</m:mo>
+                                <m:mrow>
+                                   <m:mo>⁡</m:mo>
+                                   <m:mrow>
+                                      <m:mtext> </m:mtext>
+                                      <m:mo>⁢</m:mo>
+                                      <m:mrow>
+                                         <m:munder>
+                                           <m:mrow>
+                                              <m:mo movablelimits="false">∑</m:mo>
+                                           </m:mrow>
+                                           <m:mrow>
+                                              <m:mi>k</m:mi>
+                                              <m:mo>∈</m:mo>
+                                              <m:mi mathvariant="normal">Λ</m:mi>
+                                           </m:mrow>
+                                         </m:munder>
+                                         <m:mrow>
+                                            <m:mo>(</m:mo>
+                                            <m:mrow>
+                                               <m:mrow>
+                                                  <m:msub>
+                                                    <m:mrow>
+                                                       <m:mi>c</m:mi>
+                                                    </m:mrow>
+                                                    <m:mrow>
+                                                       <m:mi>k</m:mi>
+                                                    </m:mrow>
+                                                  </m:msub>
+                                                  <m:mo>⁢</m:mo>
+                                                  <m:mrow>
+                                                     <m:mo>(</m:mo>
+                                                     <m:mi>f</m:mi>
+                                                     <m:mo>)</m:mo>
+                                                  </m:mrow>
+                                               </m:mrow>
+                                               <m:mo>-</m:mo>
+                                               <m:msub>
+                                                 <m:mrow>
+                                                    <m:mi>a</m:mi>
+                                                 </m:mrow>
+                                                 <m:mrow>
+                                                    <m:mi>k</m:mi>
+                                                 </m:mrow>
+                                               </m:msub>
+                                            </m:mrow>
+                                            <m:mo>)</m:mo>
+                                         </m:mrow>
+                                         <m:mo>⁢</m:mo>
+                                         <m:msub>
+                                           <m:mrow>
+                                              <m:mi>ϕ</m:mi>
+                                           </m:mrow>
+                                           <m:mrow>
+                                              <m:mi>k</m:mi>
+                                           </m:mrow>
+                                         </m:msub>
+                                      </m:mrow>
+                                   </m:mrow>
+                                </m:mrow>
+                                <m:mo>+</m:mo>
+                                <m:mrow>
+                                   <m:munder>
+                                     <m:mrow>
+                                        <m:mo movablelimits="false">∑</m:mo>
+                                     </m:mrow>
+                                     <m:mrow>
+                                        <m:mi>k</m:mi>
+                                        <m:mo>∉</m:mo>
+                                        <m:mi mathvariant="normal">Λ</m:mi>
+                                     </m:mrow>
+                                   </m:munder>
+                                   <m:msub>
+                                     <m:mrow>
+                                        <m:mi>c</m:mi>
+                                     </m:mrow>
+                                     <m:mrow>
+                                        <m:mi>k</m:mi>
+                                     </m:mrow>
+                                   </m:msub>
+                                   <m:mo>⁢</m:mo>
+                                   <m:mrow>
+                                      <m:mo>(</m:mo>
+                                      <m:mi>f</m:mi>
+                                      <m:mo>)</m:mo>
+                                   </m:mrow>
+                                   <m:mo>⁢</m:mo>
+                                   <m:msub>
+                                     <m:mrow>
+                                        <m:mi>ϕ</m:mi>
+                                     </m:mrow>
+                                     <m:mrow>
+                                        <m:mi>k</m:mi>
+                                     </m:mrow>
+                                   </m:msub>
+                                   <m:mo>⁢</m:mo>
+                                   <m:msub>
+                                     <m:mrow>
+                                        <m:mtext> </m:mtext>
+                                     </m:mrow>
+                                     <m:mrow>
+                                        <m:mtext> </m:mtext>
+                                     </m:mrow>
+                                   </m:msub>
+                                </m:mrow>
+                                <m:mo>∥</m:mo>
+                             </m:mrow>
+                             <m:mrow>
+                                <m:mi>X</m:mi>
+                             </m:mrow>
+                           </m:msub>
+                        </m:mrow>
+                     </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                     <m:mtd/>
+                     <m:mtd columnalign="center">
+                        <m:mo>=</m:mo>
+                     </m:mtd>
+                     <m:mtd columnalign="left">
+                        <m:mrow>
+                           <m:mrow>
+                              <m:mrow>
+                                 <m:munder>
+                                   <m:mrow>
+                                      <m:mtext>inf</m:mtext>
+                                   </m:mrow>
+                                   <m:mrow>
+                                      <m:mi>s</m:mi>
+                                      <m:mo>∈</m:mo>
+                                      <m:mi mathvariant="normal">Λ</m:mi>
+                                   </m:mrow>
+                                 </m:munder>
+                                 <m:mo>⁡</m:mo>
+                                 <m:mrow>
+                                    <m:munder>
+                                      <m:mrow>
+                                         <m:mo movablelimits="false">∑</m:mo>
+                                      </m:mrow>
+                                      <m:mrow>
+                                         <m:mi>k</m:mi>
+                                         <m:mo>∈</m:mo>
+                                         <m:mi mathvariant="normal">Λ</m:mi>
+                                      </m:mrow>
+                                    </m:munder>
+                                    <m:msup>
+                                      <m:mrow>
+                                         <m:mo>(</m:mo>
+                                         <m:mrow>
+                                            <m:mrow>
+                                               <m:msub>
+                                                 <m:mrow>
+                                                    <m:mi>c</m:mi>
+                                                 </m:mrow>
+                                                 <m:mrow>
+                                                    <m:mi>k</m:mi>
+                                                 </m:mrow>
+                                               </m:msub>
+                                               <m:mo>⁢</m:mo>
+                                               <m:mrow>
+                                                  <m:mo>(</m:mo>
+                                                  <m:mi>f</m:mi>
+                                                  <m:mo>)</m:mo>
+                                               </m:mrow>
+                                            </m:mrow>
+                                            <m:mo>-</m:mo>
+                                            <m:msub>
+                                              <m:mrow>
+                                                 <m:mi>a</m:mi>
+                                              </m:mrow>
+                                              <m:mrow>
+                                                 <m:mi>k</m:mi>
+                                              </m:mrow>
+                                            </m:msub>
+                                         </m:mrow>
+                                         <m:mo>)</m:mo>
+                                      </m:mrow>
+                                      <m:mrow>
+                                         <m:mn>2</m:mn>
+                                      </m:mrow>
+                                    </m:msup>
+                                 </m:mrow>
+                              </m:mrow>
+                              <m:mo>+</m:mo>
+                              <m:mrow>
+                                 <m:munder>
+                                   <m:mrow>
+                                      <m:mo movablelimits="false">∑</m:mo>
+                                   </m:mrow>
+                                   <m:mrow>
+                                      <m:mi>k</m:mi>
+                                      <m:mo>∉</m:mo>
+                                      <m:mi mathvariant="normal">Λ</m:mi>
+                                   </m:mrow>
+                                 </m:munder>
+                                 <m:msup>
+                                   <m:mrow>
+                                      <m:mo>(</m:mo>
+                                      <m:mrow>
+                                         <m:msub>
+                                           <m:mrow>
+                                              <m:mi>c</m:mi>
+                                           </m:mrow>
+                                           <m:mrow>
+                                              <m:mi>k</m:mi>
+                                           </m:mrow>
+                                         </m:msub>
+                                         <m:mo>⁢</m:mo>
+                                         <m:mrow>
+                                            <m:mo>(</m:mo>
+                                            <m:mi>f</m:mi>
+                                            <m:mo>)</m:mo>
+                                         </m:mrow>
+                                      </m:mrow>
+                                      <m:mo>)</m:mo>
+                                   </m:mrow>
+                                   <m:mrow>
+                                      <m:mn>2</m:mn>
+                                   </m:mrow>
+                                 </m:msup>
+                              </m:mrow>
+                           </m:mrow>
+                           <m:mo>=</m:mo>
+                           <m:mrow>
+                              <m:munderover>
+                                 <m:mrow>
+                                    <m:mo movablelimits="false">∑</m:mo>
+                                 </m:mrow>
+                                 <m:mrow>
+                                    <m:mi>k</m:mi>
+                                    <m:mo>=</m:mo>
+                                    <m:mrow>
+                                       <m:mi>n</m:mi>
+                                       <m:mo>+</m:mo>
+                                       <m:mn>1</m:mn>
+                                    </m:mrow>
+                                 </m:mrow>
+                                 <m:mrow>
+                                    <m:mi mathvariant="normal">∞</m:mi>
+                                 </m:mrow>
+                              </m:munderover>
+                              <m:msup>
+                                <m:mrow>
+                                   <m:mo>|</m:mo>
+                                   <m:mrow>
+                                      <m:msubsup>
+                                         <m:mrow>
+                                            <m:mi>c</m:mi>
+                                         </m:mrow>
+                                         <m:mrow>
+                                            <m:mi>k</m:mi>
+                                         </m:mrow>
+                                         <m:mrow>
+                                            <m:mo>*</m:mo>
+                                         </m:mrow>
+                                      </m:msubsup>
+                                      <m:mo>⁢</m:mo>
+                                      <m:mrow>
+                                         <m:mo>(</m:mo>
+                                         <m:mi>f</m:mi>
+                                         <m:mo>)</m:mo>
+                                      </m:mrow>
+                                   </m:mrow>
+                                   <m:mo>|</m:mo>
+                                </m:mrow>
+                                <m:mrow>
+                                   <m:mn>2</m:mn>
+                                </m:mrow>
+                              </m:msup>
+                           </m:mrow>
+                        </m:mrow>
+                     </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                     <m:mtd/>
+                     <m:mtd columnalign="center">
+                        <m:mo>≤</m:mo>
+                     </m:mtd>
+                     <m:mtd columnalign="left">
+                        <m:mrow>
+                           <m:mrow>
+                              <m:mrow>
+                                 <m:msup>
+                                   <m:mrow>
+                                      <m:mi>M</m:mi>
+                                   </m:mrow>
+                                   <m:mrow>
+                                      <m:mn>2</m:mn>
+                                   </m:mrow>
+                                 </m:msup>
+                                 <m:mo>⁢</m:mo>
+                                 <m:mrow>
+                                    <m:munderover>
+                                       <m:mrow>
+                                          <m:mo movablelimits="false">∑</m:mo>
+                                       </m:mrow>
+                                       <m:mrow>
+                                          <m:mi>k</m:mi>
+                                          <m:mo>=</m:mo>
+                                          <m:mrow>
+                                             <m:mi>n</m:mi>
+                                             <m:mo>+</m:mo>
+                                             <m:mn>1</m:mn>
+                                          </m:mrow>
+                                       </m:mrow>
+                                       <m:mrow>
+                                          <m:mi mathvariant="normal">∞</m:mi>
+                                       </m:mrow>
+                                    </m:munderover>
+                                    <m:msup>
+                                      <m:mrow>
+                                         <m:mi>k</m:mi>
+                                      </m:mrow>
+                                      <m:mrow>
+                                         <m:mo>-</m:mo>
+                                         <m:mstyle scriptlevel="+1">
+                                            <m:mrow>
+                                               <m:mfrac>
+                                                  <m:mrow>
+                                                     <m:mn>2</m:mn>
+                                                  </m:mrow>
+                                                  <m:mrow>
+                                                     <m:mi>τ</m:mi>
+                                                  </m:mrow>
+                                               </m:mfrac>
+                                            </m:mrow>
+                                         </m:mstyle>
+                                      </m:mrow>
+                                    </m:msup>
+                                 </m:mrow>
+                              </m:mrow>
+                              <m:mo>≤</m:mo>
+                              <m:mrow>
+                                 <m:msup>
+                                   <m:mrow>
+                                      <m:mi>M</m:mi>
+                                   </m:mrow>
+                                   <m:mrow>
+                                      <m:mn>2</m:mn>
+                                   </m:mrow>
+                                 </m:msup>
+                                 <m:mo>⁢</m:mo>
+                                 <m:mrow>
+                                    <m:munderover>
+                                       <m:mrow>
+                                          <m:mo movablelimits="false">∑</m:mo>
+                                       </m:mrow>
+                                       <m:mrow>
+                                          <m:mi>k</m:mi>
+                                          <m:mo>=</m:mo>
+                                          <m:mrow>
+                                             <m:mi>n</m:mi>
+                                             <m:mo>+</m:mo>
+                                             <m:mn>1</m:mn>
+                                          </m:mrow>
+                                       </m:mrow>
+                                       <m:mrow>
+                                          <m:mi mathvariant="normal">∞</m:mi>
+                                       </m:mrow>
+                                    </m:munderover>
+                                    <m:msup>
+                                      <m:mrow>
+                                         <m:mi>k</m:mi>
+                                      </m:mrow>
+                                      <m:mrow>
+                                         <m:mrow>
+                                            <m:mo>-</m:mo>
+                                            <m:mrow>
+                                               <m:mn>2</m:mn>
+                                               <m:mo>⁢</m:mo>
+                                               <m:mi>r</m:mi>
+                                            </m:mrow>
+                                         </m:mrow>
+                                         <m:mo>-</m:mo>
+                                         <m:mn>1</m:mn>
+                                      </m:mrow>
+                                    </m:msup>
+                                    <m:mo>⁢</m:mo>
+                                    <m:mtext> (since </m:mtext>
+                                    <m:mo>⁢</m:mo>
+                                    <m:mrow>
+                                       <m:mo>(</m:mo>
+                                       <m:mrow>
+                                          <m:msub>
+                                            <m:mrow>
+                                               <m:mi>c</m:mi>
+                                            </m:mrow>
+                                            <m:mrow>
+                                               <m:mi>n</m:mi>
+                                            </m:mrow>
+                                          </m:msub>
+                                          <m:mo>⁢</m:mo>
+                                          <m:mrow>
+                                             <m:mo>(</m:mo>
+                                             <m:mi>f</m:mi>
+                                             <m:mo>)</m:mo>
+                                          </m:mrow>
+                                       </m:mrow>
+                                       <m:mo>)</m:mo>
+                                    </m:mrow>
+                                 </m:mrow>
+                              </m:mrow>
+                              <m:mo>∈</m:mo>
+                              <m:mrow>
+                                 <m:mi>w</m:mi>
+                                 <m:mo>⁢</m:mo>
+                                 <m:msub>
+                                   <m:mrow>
+                                      <m:mi mathvariant="normal">ℓ</m:mi>
+                                   </m:mrow>
+                                   <m:mrow>
+                                      <m:mi>p</m:mi>
+                                   </m:mrow>
+                                 </m:msub>
+                                 <m:mo>⁢</m:mo>
+                                 <m:mtext>)</m:mtext>
+                              </m:mrow>
+                           </m:mrow>
+                           <m:mo>,</m:mo>
+                        </m:mrow>
+                     </m:mtd>
+                  </m:mtr>
+               </m:mtable>
+            </m:mtd>
+         </m:mtr>
+      </m:mtable>
+   </m:mrow>
+</m:math>
+</para>
+<para id="id11184871">where <m:math display="inline"><m:mrow><m:mi>M</m:mi><m:mo>:</m:mo><m:mo>=</m:mo><m:mo>∥</m:mo><m:mo>(</m:mo><m:mi>c</m:mi><m:msub><m:mi/><m:mi>n</m:mi></m:msub><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo><m:mo>∥</m:mo><m:msub><m:mi/><m:mrow><m:mi>w</m:mi><m:mo>⁢</m:mo><m:msub><m:mi mathvariant="normal">ℓ</m:mi><m:mi>p</m:mi></m:msub></m:mrow></m:msub></m:mrow></m:math>.</para><para id="id11184180">We prove the converse statement; the forward
+statement proof is left to the reader. We would like to show that
+if <m:math display="inline"><m:mrow><m:mrow><m:mo>(</m:mo><m:mrow><m:msub><m:mi>c</m:mi><m:mi>n</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo></m:mrow></m:mrow><m:mo>)</m:mo></m:mrow><m:mo>∈</m:mo><m:mrow><m:mi>w</m:mi><m:mo>⁢</m:mo><m:msub><m:mi mathvariant="normal">ℓ</m:mi><m:mi>τ</m:mi></m:msub></m:mrow></m:mrow></m:math>, then <m:math display="inline"><m:mrow><m:mi>f</m:mi><m:mo>∈</m:mo><m:msup><m:mi mathvariant="script">A</m:mi><m:mi>r</m:mi></m:msup></m:mrow></m:math>, with <m:math display="inline"><m:mrow><m:mi>r</m:mi><m:mo>=</m:mo><m:mrow><m:mfrac><m:mn>1</m:mn><m:mi>τ</m:mi></m:mfrac><m:mo>-</m:mo><m:mfrac><m:mn>1</m:mn><m:mn>2</m:mn></m:mfrac></m:mrow></m:mrow></m:math>. The best <m:math display="inline"><m:mi>n</m:mi></m:math>-term approximation of
+<m:math display="inline"><m:mi>f</m:mi></m:math> in <m:math display="inline"><m:mi>B</m:mi></m:math> is of the form <m:math display="inline"><m:mrow><m:mrow><m:mi>s</m:mi><m:mo>=</m:mo><m:mrow><m:msub><m:mo>∑</m:mo><m:mrow><m:mi>k</m:mi><m:mo>∈</m:mo><m:mi mathvariant="normal">Λ</m:mi></m:mrow></m:msub><m:msub><m:mi>a</m:mi><m:mi>k</m:mi></m:msub><m:mo>⁢</m:mo><m:msub><m:mi>ϕ</m:mi><m:mi>k</m:mi></m:msub></m:mrow></m:mrow><m:mo>,</m:mo><m:mrow><m:mrow><m:mi mathvariant="normal">♯</m:mi><m:mo>⁢</m:mo><m:mi mathvariant="normal">Λ</m:mi></m:mrow><m:mo>≤</m:mo><m:mi>n</m:mi></m:mrow></m:mrow></m:math>. Therefore, we have: <m:math display="block">
+   <m:mrow>
+      <m:mtable>
+         <m:mtr>
+            <m:mtd>
+               <m:mtext>(3)</m:mtext>
+            </m:mtd>
+            <m:mtd>
+               <m:mtable rowspacing="0.2ex" columnspacing="0.4em">
+                  <m:mtr>
+                     <m:mtd columnalign="right">
+                        <m:mrow>
+                           <m:msub>
+                             <m:mrow>
+                                <m:mi>σ</m:mi>
+                             </m:mrow>
+                             <m:mrow>
+                                <m:mi>n</m:mi>
+                             </m:mrow>
+                           </m:msub>
+                           <m:mo>⁢</m:mo>
+                           <m:msub>
+                             <m:mrow>
+                                <m:mo>(</m:mo>
+                                <m:mi>f</m:mi>
+                                <m:mo>)</m:mo>
+                             </m:mrow>
+                             <m:mrow>
+                                <m:mi mathvariant="bold">X</m:mi>
+                             </m:mrow>
+                           </m:msub>
+                        </m:mrow>
+                     </m:mtd>
+                     <m:mtd columnalign="center">
+                        <m:mo>=</m:mo>
+                     </m:mtd>
+                     <m:mtd columnalign="left">
+                        <m:mrow>
+                           <m:mrow>
+                              <m:munder>
+                                <m:mrow>
+                                   <m:mtext>inf</m:mtext>
+                                </m:mrow>
+                                <m:mrow>
+                                   <m:mi>s</m:mi>
+                                   <m:mo>∈</m:mo>
+                                   <m:msub>
+                                     <m:mrow>
+                                        <m:mi mathvariant="normal">Σ</m:mi>
+                                     </m:mrow>
+                                     <m:mrow>
+                                        <m:mi>n</m:mi>
+                                     </m:mrow>
+                                   </m:msub>
+                                </m:mrow>
+                              </m:munder>
+                              <m:mo>⁡</m:mo>
+                              <m:msub>
+                                <m:mrow>
+                                   <m:mo>∥</m:mo>
+                                   <m:mrow>
+                                      <m:mi>f</m:mi>
+                                      <m:mo>-</m:mo>
+                                      <m:mi>s</m:mi>
+                                   </m:mrow>
+                                   <m:mo>∥</m:mo>
+                                </m:mrow>
+                                <m:mrow>
+                                   <m:mi mathvariant="bold">X</m:mi>
+                                </m:mrow>
+                              </m:msub>
+                           </m:mrow>
+                           <m:mo>=</m:mo>
+                           <m:munder>
+                             <m:mrow>
+                                <m:mtext>inf</m:mtext>
+                             </m:mrow>
+                             <m:mrow>
+                                <m:mi>s</m:mi>
+                                <m:mo>∈</m:mo>
+                                <m:msub>
+                                  <m:mrow>
+                                     <m:mi mathvariant="normal">Σ</m:mi>
+                                  </m:mrow>
+                                  <m:mrow>
+                                     <m:mi>n</m:mi>
+                                  </m:mrow>
+                                </m:msub>
+                             </m:mrow>
+                           </m:munder>
+                           <m:msub>
+                             <m:mrow>
+                                <m:mo>∥</m:mo>
+                                <m:mrow>
+                                   <m:mo>⁡</m:mo>
+                                   <m:mrow>
+                                      <m:mtext> </m:mtext>
+                                      <m:mo>⁢</m:mo>
+                                      <m:mrow>
+                                         <m:munder>
+                                           <m:mrow>
+                                              <m:mo movablelimits="false">∑</m:mo>
+                                           </m:mrow>
+                                           <m:mrow>
+                                              <m:mi>k</m:mi>
+                                              <m:mo>∈</m:mo>
+                                              <m:mi mathvariant="normal">Λ</m:mi>
+                                           </m:mrow>
+                                         </m:munder>
+                                         <m:mrow>
+                                            <m:mo>(</m:mo>
+                                            <m:mrow>
+                                               <m:mrow>
+                                                  <m:msub>
+                                                    <m:mrow>
+                                                       <m:mi>c</m:mi>
+                                                    </m:mrow>
+                                                    <m:mrow>
+                                                       <m:mi>k</m:mi>
+                                                    </m:mrow>
+                                                  </m:msub>
+                                                  <m:mo>⁢</m:mo>
+                                                  <m:mrow>
+                                                     <m:mo>(</m:mo>
+                                                     <m:mi>f</m:mi>
+                                                     <m:mo>)</m:mo>
+                                                  </m:mrow>
+                                               </m:mrow>
+                                               <m:mo>-</m:mo>
+                                               <m:msub>
+                                                 <m:mrow>
+                                                    <m:mi>a</m:mi>
+                                                 </m:mrow>
+                                                 <m:mrow>
+                                                    <m:mi>k</m:mi>
+                                                 </m:mrow>
+                                               </m:msub>
+                                            </m:mrow>
+                                            <m:mo>)</m:mo>
+                                         </m:mrow>
+                                         <m:mo>⁢</m:mo>
+                                         <m:msub>
+                                           <m:mrow>
+                                              <m:mi>ϕ</m:mi>
+                                           </m:mrow>
+                                           <m:mrow>
+                                              <m:mi>k</m:mi>
+                                           </m:mrow>
+                                         </m:msub>
+                                      </m:mrow>
+                                   </m:mrow>
+                                </m:mrow>
+                                <m:mo>+</m:mo>
+                                <m:mrow>
+                                   <m:munder>
+                                     <m:mrow>
+                                        <m:mo movablelimits="false">∑</m:mo>
+                                     </m:mrow>
+                                     <m:mrow>
+                                        <m:mi>k</m:mi>
+                                        <m:mo>∉</m:mo>
+                                        <m:mi mathvariant="normal">Λ</m:mi>
+                                     </m:mrow>
+                                   </m:munder>
+                                   <m:msub>
+                                     <m:mrow>
+                                        <m:mi>c</m:mi>
+                                     </m:mrow>
+                                     <m:mrow>
+                                        <m:mi>k</m:mi>
+                                     </m:mrow>
+                                   </m:msub>
+                                   <m:mo>⁢</m:mo>
+                                   <m:mrow>
+                                      <m:mo>(</m:mo>
+                                      <m:mi>f</m:mi>
+                                      <m:mo>)</m:mo>
+                                   </m:mrow>
+                                   <m:mo>⁢</m:mo>
+                                   <m:msub>
+                                     <m:mrow>
+                                        <m:mi>ϕ</m:mi>
+                                     </m:mrow>
+                                     <m:mrow>
+                                        <m:mi>k</m:mi>
+                                     </m:mrow>
+                                   </m:msub>
+                                   <m:mo>⁢</m:mo>
+                                   <m:msub>
+                                     <m:mrow>
+                                        <m:mtext> </m:mtext>
+                                     </m:mrow>
+                                     <m:mrow>
+                                        <m:mtext> </m:mtext>
+                                     </m:mrow>
+                                   </m:msub>
+                                </m:mrow>
+                                <m:mo>∥</m:mo>
+                             </m:mrow>
+                             <m:mrow>
+                                <m:mi>X</m:mi>
+                             </m:mrow>
+                           </m:msub>
+                        </m:mrow>
+                     </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                     <m:mtd/>
+                     <m:mtd columnalign="center">
+                        <m:mo>=</m:mo>
+                     </m:mtd>
+                     <m:mtd columnalign="left">
+                        <m:mrow>
+                           <m:mrow>
+                              <m:mrow>
+                                 <m:munder>
+                                   <m:mrow>
+                                      <m:mtext>inf</m:mtext>
+                                   </m:mrow>
+                                   <m:mrow>
+                                      <m:mi>s</m:mi>
+                                      <m:mo>∈</m:mo>
+                                      <m:mi mathvariant="normal">Λ</m:mi>
+                                   </m:mrow>
+                                 </m:munder>
+                                 <m:mo>⁡</m:mo>
+                                 <m:mrow>
+                                    <m:munder>
+                                      <m:mrow>
+                                         <m:mo movablelimits="false">∑</m:mo>
+                                      </m:mrow>
+                                      <m:mrow>
+                                         <m:mi>k</m:mi>
+                                         <m:mo>∈</m:mo>
+                                         <m:mi mathvariant="normal">Λ</m:mi>
+                                      </m:mrow>
+                                    </m:munder>
+                                    <m:msup>
+                                      <m:mrow>
+                                         <m:mo>(</m:mo>
+                                         <m:mrow>
+                                            <m:mrow>
+                                               <m:msub>
+                                                 <m:mrow>
+                                                    <m:mi>c</m:mi>
+                                                 </m:mrow>
+                                                 <m:mrow>
+                                                    <m:mi>k</m:mi>
+                                                 </m:mrow>
+                                               </m:msub>
+                                               <m:mo>⁢</m:mo>
+                                               <m:mrow>
+                                                  <m:mo>(</m:mo>
+                                                  <m:mi>f</m:mi>
+                                                  <m:mo>)</m:mo>
+                                               </m:mrow>
+                                            </m:mrow>
+                                            <m:mo>-</m:mo>
+                                            <m:msub>
+                                              <m:mrow>
+                                                 <m:mi>a</m:mi>
+                                              </m:mrow>
+                                              <m:mrow>
+                                                 <m:mi>k</m:mi>
+                                              </m:mrow>
+                                            </m:msub>
+                                         </m:mrow>
+                                         <m:mo>)</m:mo>
+                                      </m:mrow>
+                                      <m:mrow>
+                                         <m:mn>2</m:mn>
+                                      </m:mrow>
+                                    </m:msup>
+                                 </m:mrow>
+                              </m:mrow>
+                              <m:mo>+</m:mo>
+                              <m:mrow>
+                                 <m:munder>
+                                   <m:mrow>
+                                      <m:mo movablelimits="false">∑</m:mo>
+                                   </m:mrow>
+                                   <m:mrow>
+                                      <m:mi>k</m:mi>
+                                      <m:mo>∉</m:mo>
+                                      <m:mi mathvariant="normal">Λ</m:mi>
+                                   </m:mrow>
+                                 </m:munder>
+                                 <m:msup>
+                                   <m:mrow>
+                                      <m:mo>(</m:mo>
+                                      <m:mrow>
+                                         <m:msub>
+                                           <m:mrow>
+                                              <m:mi>c</m:mi>
+                                           </m:mrow>
+                                           <m:mrow>
+                                              <m:mi>k</m:mi>
+                                           </m:mrow>
+                                         </m:msub>
+                                         <m:mo>⁢</m:mo>
+                                         <m:mrow>
+                                            <m:mo>(</m:mo>
+                                            <m:mi>f</m:mi>
+                                            <m:mo>)</m:mo>
+                                         </m:mrow>
+                                      </m:mrow>
+                                      <m:mo>)</m:mo>
+                                   </m:mrow>
+                                   <m:mrow>
+                                      <m:mn>2</m:mn>
+                                   </m:mrow>
+                                 </m:msup>
+                              </m:mrow>
+                           </m:mrow>
+                           <m:mo>=</m:mo>
+                           <m:mrow>
+                              <m:munderover>
+                                 <m:mrow>
+                                    <m:mo movablelimits="false">∑</m:mo>
+                                 </m:mrow>
+                                 <m:mrow>
+                                    <m:mi>k</m:mi>
+                                    <m:mo>=</m:mo>
+                                    <m:mrow>
+                                       <m:mi>n</m:mi>
+                                       <m:mo>+</m:mo>
+                                       <m:mn>1</m:mn>
+                                    </m:mrow>
+                                 </m:mrow>
+                                 <m:mrow>
+                                    <m:mi mathvariant="normal">∞</m:mi>
+                                 </m:mrow>
+                              </m:munderover>
+                              <m:msup>
+                                <m:mrow>
+                                   <m:mo>|</m:mo>
+                                   <m:mrow>
+                                      <m:msubsup>
+                                         <m:mrow>
+                                            <m:mi>c</m:mi>
+                                         </m:mrow>
+                                         <m:mrow>
+                                            <m:mi>k</m:mi>
+                                         </m:mrow>
+                                         <m:mrow>
+                                            <m:mo>*</m:mo>
+                                         </m:mrow>
+                                      </m:msubsup>
+                                      <m:mo>⁢</m:mo>
+                                      <m:mrow>
+                                         <m:mo>(</m:mo>
+                                         <m:mi>f</m:mi>
+                                         <m:mo>)</m:mo>
+                                      </m:mrow>
+                                   </m:mrow>
+                                   <m:mo>|</m:mo>
+                                </m:mrow>
+                                <m:mrow>
+                                   <m:mn>2</m:mn>
+                                </m:mrow>
+                              </m:msup>
+                           </m:mrow>
+                        </m:mrow>
+                     </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                     <m:mtd/>
+                     <m:mtd columnalign="center">
+                        <m:mo>≤</m:mo>
+                     </m:mtd>
+                     <m:mtd columnalign="left">
+                        <m:mrow>
+                           <m:mrow>
+                              <m:mrow>
+                                 <m:msup>
+                                   <m:mrow>
+                                      <m:mi>M</m:mi>
+                                   </m:mrow>
+                                   <m:mrow>
+                                      <m:mn>2</m:mn>
+                                   </m:mrow>
+                                 </m:msup>
+                                 <m:mo>⁢</m:mo>
+                                 <m:mrow>
+                                    <m:munderover>
+                                       <m:mrow>
+                                          <m:mo movablelimits="false">∑</m:mo>
+                                       </m:mrow>
+                                       <m:mrow>
+                                          <m:mi>k</m:mi>
+                                          <m:mo>=</m:mo>
+                                          <m:mrow>
+                                             <m:mi>n</m:mi>
+                                             <m:mo>+</m:mo>
+                                             <m:mn>1</m:mn>
+                                          </m:mrow>
+                                       </m:mrow>
+                                       <m:mrow>
+                                          <m:mi mathvariant="normal">∞</m:mi>
+                                       </m:mrow>
+                                    </m:munderover>
+                                    <m:msup>
+                                      <m:mrow>
+                                         <m:mi>k</m:mi>
+                                      </m:mrow>
+                                      <m:mrow>
+                                         <m:mo>-</m:mo>
+                                         <m:mstyle scriptlevel="+1">
+                                            <m:mrow>
+                                               <m:mfrac>
+                                                  <m:mrow>
+                                                     <m:mn>2</m:mn>
+                                                  </m:mrow>
+                                                  <m:mrow>
+                                                     <m:mi>τ</m:mi>
+                                                  </m:mrow>
+                                               </m:mfrac>
+                                            </m:mrow>
+                                         </m:mstyle>
+                                      </m:mrow>
+                                    </m:msup>
+                                 </m:mrow>
+                              </m:mrow>
+                              <m:mo>≤</m:mo>
+                              <m:mrow>
+                                 <m:msup>
+                                   <m:mrow>
+                                      <m:mi>M</m:mi>
+                                   </m:mrow>
+                                   <m:mrow>
+                                      <m:mn>2</m:mn>
+                                   </m:mrow>
+                                 </m:msup>
+                                 <m:mo>⁢</m:mo>
+                                 <m:mrow>
+                                    <m:munderover>
+                                       <m:mrow>
+                                          <m:mo movablelimits="false">∑</m:mo>
+                                       </m:mrow>
+                                       <m:mrow>
+                                          <m:mi>k</m:mi>
+                                          <m:mo>=</m:mo>
+                                          <m:mrow>
+                                             <m:mi>n</m:mi>
+                                             <m:mo>+</m:mo>
+                                             <m:mn>1</m:mn>
+                                          </m:mrow>
+                                       </m:mrow>
+                                       <m:mrow>
+                                          <m:mi mathvariant="normal">∞</m:mi>
+                                       </m:mrow>
+                                    </m:munderover>
+                                    <m:msup>
+                                      <m:mrow>
+                                         <m:mi>k</m:mi>
+                                      </m:mrow>
+                                      <m:mrow>
+                                         <m:mrow>
+                                            <m:mo>-</m:mo>
+                                            <m:mrow>
+                                               <m:mn>2</m:mn>
+                                               <m:mo>⁢</m:mo>
+                                               <m:mi>r</m:mi>
+                                            </m:mrow>
+                                         </m:mrow>
+                                         <m:mo>-</m:mo>
+                                         <m:mn>1</m:mn>
+                                      </m:mrow>
+                                    </m:msup>
+                                    <m:mo>⁢</m:mo>
+                                    <m:mtext> (since </m:mtext>
+                                    <m:mo>⁢</m:mo>
+                                    <m:mrow>
+                                       <m:mo>(</m:mo>
+                                       <m:mrow>
+                                          <m:msub>
+                                            <m:mrow>
+                                               <m:mi>c</m:mi>
+                                            </m:mrow>
+                                            <m:mrow>
+                                               <m:mi>n</m:mi>
+                                            </m:mrow>
+                                          </m:msub>
+                                          <m:mo>⁢</m:mo>
+                                          <m:mrow>
+                                             <m:mo>(</m:mo>
+                                             <m:mi>f</m:mi>
+                                             <m:mo>)</m:mo>
+                                          </m:mrow>
+                                       </m:mrow>
+                                       <m:mo>)</m:mo>
+                                    </m:mrow>
+                                 </m:mrow>
+                              </m:mrow>
+                              <m:mo>∈</m:mo>
+                              <m:mrow>
+                                 <m:mi>w</m:mi>
+                                 <m:mo>⁢</m:mo>
+                                 <m:msub>
+                                   <m:mrow>
+                                      <m:mi mathvariant="normal">ℓ</m:mi>
+                                   </m:mrow>
+                                   <m:mrow>
+                                      <m:mi>p</m:mi>
+                                   </m:mrow>
+                                 </m:msub>
+                                 <m:mo>⁢</m:mo>
+                                 <m:mtext>)</m:mtext>
+                              </m:mrow>
+                           </m:mrow>
+                           <m:mo>,</m:mo>
+                        </m:mrow>
+                     </m:mtd>
+                  </m:mtr>
+               </m:mtable>
+            </m:mtd>
+         </m:mtr>
+      </m:mtable>
+   </m:mrow>
+</m:math>
+</para>
+<para id="id10319213">where we define <m:math display="inline"><m:mrow><m:mi>C</m:mi><m:mo>=</m:mo><m:mfrac><m:msub><m:mi>λ</m:mi><m:mn>0</m:mn></m:msub><m:mi>r</m:mi></m:mfrac></m:mrow></m:math>. Using this result in the
+earlier statement, we get<m:math display="block"><m:mtable><m:mtr><m:mtd><m:mtext>(5)</m:mtext></m:mtd><m:mtd><m:mtable columnspacing="0.4em" rowspacing="0.2ex"><m:mtr><m:mtd columnalign="right"><m:mrow><m:munderover><m:mo movablelimits="false">∑</m:mo><m:mrow><m:mi>k</m:mi><m:mo>=</m:mo><m:mrow><m:mi>n</m:mi><m:mo>+</m:mo><m:mn>1</m:mn></m:mrow></m:mrow><m:mi mathvariant="normal">∞</m:mi></m:munderover><m:msup><m:mrow><m:mo>|</m:mo><m:mrow><m:msubsup><m:mi>c</m:mi><m:mi>k</m:mi><m:mo>*</m:mo></m:msubsup><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo></m:mrow></m:mrow><m:mo>|</m:mo></m:mrow><m:mn>2</m:mn></m:msup></m:mrow></m:mtd><m:mtd columnalign="center"><m:mo>≤</m:mo></m:mtd><m:mtd columnalign="left"><m:mrow><m:mrow><m:mrow><m:mi>C</m:mi><m:mo>⁢</m:mo><m:msup><m:mi>M</m:mi><m:mn>2</m:mn></m:msup><m:mo>⁢</m:mo><m:msup><m:mi>n</m:mi><m:mrow><m:mo>-</m:mo><m:mrow><m:mn>2</m:mn><m:mo>⁢</m:mo><m:mi>r</m:mi></m:mrow></m:mrow></m:msup></m:mrow><m:mo>≤</m:mo><m:mrow><m:msup><m:mi>M</m:mi><m:mn>2</m:mn></m:msup><m:mo>⁢</m:mo><m:mi>z</m:mi><m:mo>⁢</m:mo><m:msup><m:mi>n</m:mi><m:mrow><m:mo>-</m:mo><m:mi>r</m:mi></m:mrow></m:msup></m:mrow></m:mrow><m:mo>;</m:mo></m:mrow></m:mtd></m:mtr></m:mtable></m:mtd></m:mtr></m:mtable></m:math></para><para id="id10757444">this implies by definition that <m:math display="inline"><m:mrow><m:mrow><m:mo>(</m:mo><m:mrow><m:msub><m:mi>c</m:mi><m:mi>k</m:mi></m:msub><m:mo>⁢</m:mo><m:mrow><m:mo>(</m:mo><m:mi>f</m:mi><m:mo>)</m:mo></m:mrow></m:mrow><m:mo>)</m:mo></m:mrow><m:mo>∈</m:mo><m:msup><m:mi mathvariant="script">A</m:mi><m:mi>r</m:mi></m:msup></m:mrow></m:math>.</para>
+</proof>
+</rule>
+  </content>
+</document>
